@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>PayFast</name>
+	<config>
+		<fields name="payfast">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay through PayFast gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/payfast" hide_default="1" default="payfast.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+
+			<fieldset name="settings" label="ESETTINGS" description="PF_SETTDESCR">
+				<field name="merchant_id" type="text" default="" label="PF_MID"/>
+				<field name="merchant_key" type="text" default="" label="PF_MKEY"/>
+				<field name="email_conf" type="text" default="" label="PF_EMAILCONF"/>
+			</fieldset>
+
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="sandbox" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

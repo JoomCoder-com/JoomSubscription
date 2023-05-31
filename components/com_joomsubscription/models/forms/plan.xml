@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field id="id" name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL" readonly="true" class="readonly" />
+	<field id="name" name="name" type="text" default="" label="XFORM_PLANNAME"	required="true" />
+	<field id="group_id" name="group_id" type="groupslist" all="1" default="" label="XFORM_PLAN_GROUPNAME"	required="true" />
+
+	<field id="published" name="published" type="list" label="JSTATUS" default="1">
+		<option value="1">JPUBLISHED</option>
+		<option value="0">JUNPUBLISHED</option>
+	</field>
+	<field id="access" name="access" default="1" type="accesslevel" label="EM_ACCESS_PLAN_VIEW"	size="1" />
+	<field id="access_pay" name="access_pay" default="1" type="accesslevel" label="EM_ACCESS_PLAN_PAY"	size="1" />
+
+	<field name="checked_out" type="hidden" filter="unset" />
+	<field name="checked_out_time" type="hidden" filter="unset" />
+	<field name="asset_id" type="hidden" filter="unset" />
+</form>

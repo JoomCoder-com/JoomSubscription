@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_IDEV</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_IDEV_DESCR">
+        	<field name="idev_url" label="X_IDEV_URL" type="text" />
+        </fieldset>
+    </fields>
+</form>

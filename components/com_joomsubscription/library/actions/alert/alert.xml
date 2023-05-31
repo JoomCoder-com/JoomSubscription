@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_ALERT</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_ALERT_DESCR">
+			<field name="mode" type="list" label="X_ALERT_MODE" default="2">
+				<option value="1">X_ALERT_SUBSCRIBER</option>
+				<option value="2">X_ALERT_EMAIL</option>
+			</field>
+			<field name="email" label="X_ALERT_EMAIL" type="email"/>
+			<field name="subject" label="X_ALERT_SBJ" type="text" default="New subscription alert"/>
+			<field name="body" label="X_ALERT_MSG" rows="10" type="textarea" default="### Hello Admin.&#13;&#10;&#13;&#10;Inform you that user [USER_NAME] have just purchased subscription ID [ID] of plan [PLAN_NAME] for amount of **[PRICE]** through [GATEWAY] and transaction ID [TRANSACTION_ID]&#13;&#10;&#13;&#10;Sincerely"/>
+			<field name="file" label="X_ALERT_FILE" type="text"/>
+		</fieldset>
+	</fields>
+</form>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <name>EMR_RULE_CONTENT</name>
+	<fields name="rule">
+		<fieldset name="rule" description="X_COREBASIC">
+			<field name="type_article" type="radio" class="btn-group" default="0" label="X_ARTICLE_INDIVID" description="X_ARTICLE_INDIVIDDESCR">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="type_user" type="radio" class="btn-group" default="0" label="X_USER_INDIVID" description="X_USER_INDIVIDDESCR">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="category" type="category" extension="com_content" multiple="multiple" size="7" label="X_JOOMLA_CONTENT_CATEGORIES"/>
+			<field name="ids" type="text" label="X_JOOMLA_CONTENT_IDS" description="X_JOOMLA_CONTENT_IDSDESCR"/>
+			<field name="time" type="text" label="X_CONT_RESTR_DAYS" default="0" description="X_CONT_RESTR_DAYSDESCR"/>
+		</fieldset>
+		<fieldset name="core" label="EM_CORE">
+		<field name="count_limit_mode" type="radio" class="btn-group" default="0" label="EM_COUNT_USAGE">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="message" type="text" multiple="true" label="EM_RESCR_MSG" default="You cannot view this article"/>
+		</fieldset>
+	</fields>
+</form>

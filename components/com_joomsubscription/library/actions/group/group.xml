@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_GROUP</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_GROUP_DESCR">
+			<field name="group_active" label="X_GROUP_ACTIVE" type="usergroup"/>
+			<field name="group_active_remove" label="X_GROUP_ACTIVE_REMOVE" type="usergroup">
+				<option value="">X_GROUP_DONOTREMOVE</option>
+			</field>
+			<field name="group_disactive" label="X_GROUP_DISACTIVE" default="1" type="radio" class="btn-group">
+				<option value="0">X_NO</option>
+				<option value="1">X_YES</option>
+			</field>
+			<field name="group_after_active" label="X_GROUP_DEACTIVEM" type="usergroup">
+				<option value="">X_GROUP_DONOTASSIGN</option>
+			</field>
+		</fieldset>
+	</fields>
+</form>

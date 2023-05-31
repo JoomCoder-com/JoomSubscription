@@ -1,0 +1,1 @@
+{"fields":[{"name":"order_id","type":"int(10)","null":"NO","default":0},{"name":"subscriptions","type":"varchar(255)","null":"NO","default":""},{"name":"ctime","type":"timestamp","null":"NO","default":"0000-00-00 00:00:00"}],"engine":"MyISAM"}

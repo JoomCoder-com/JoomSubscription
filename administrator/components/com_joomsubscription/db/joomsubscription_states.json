@@ -1,0 +1,1 @@
+{"fields":[{"name":"id","type":"int(10)","null":"NO","default":0},{"name":"country","type":"char(2)","null":"NO","default":"US"},{"name":"state","type":"varchar(10)","null":"NO","default":""},{"name":"label","type":"varchar(255)","null":"NO","default":""}],"primary":"id","keys":{"idx_uniq":{"type":"UNIQUE KEY","fields":"`country`,`state`"}},"engine":"MyISAM"}

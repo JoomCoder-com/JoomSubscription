@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_IMPORT_OS</name>
+	<description>EMR_IMPORT_OS_DESCR</description>
+	<icon>osmember.png</icon>
+	<fieldset name="params">
+		<field name="only_active" label="X_OSE_ACTIVE_ONLY" class="btn-group" type="radio" default="0">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+	</fieldset>
+ </form>

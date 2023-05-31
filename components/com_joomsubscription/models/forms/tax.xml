@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldpath="/libraries/mint/forms/elements">
+	<field id="id" name="id" type="text" default="0" label="JGLOBAL_GROUP_ID_LABEL" readonly="true" class="readonly" />
+	<field id="country_id" name="country_id" type="emcountry" label="ECOUNTRY" show_default="1" default="*" />
+	<field id="state_id" name="state_id" type="text" label="ESTATE" class="inputbox" />
+	<field id="tax" name="tax" type="text" label="ETAX" class="inputbox" required="true" />
+	<field id="tax_name" name="tax_name" type="text" label="ETAX_NAME" class="inputbox" required="true" default="VAT"/>
+	<field id="vies" name="vies" type="mradio" class="btn-group" label="E_ISITVAT" default="1">
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+	</field>
+</form>

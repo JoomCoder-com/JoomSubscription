@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_ACY</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_ACY_DESCR" addfieldpath="/components/com_joomsubscription/library/actions/acymail/elements/">
+			<field name="mail_list" label="X_ACY_ACTIVE" type="acylists"/>
+			<field name="del_active" label="X_ACY_ACTIVEDEL" type="acylists"/>
+			<field name="deactive" label="X_ACY_DEACTIVE" type="acylists"/>
+			<field name="deactivate" label="X_ACY_DISACTIVE" default="1" type="radio" class="btn-group">
+				<option value="0">X_NO</option>
+				<option value="1">X_YES</option>
+			</field>
+			<field name="message" label="X_ACY_MSG" type="text" default="You have been successfully subscribed to newsletter (%s)"/>
+		</fieldset>
+	</fields>
+</form>

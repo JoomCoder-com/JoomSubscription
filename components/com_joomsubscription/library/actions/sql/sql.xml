@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_SQL</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_SQL_DESCR">
+        	<field name="sql_active" label="X_SQL_ACTIVE" type="textarea" cols="40" rows="10"/>
+        	<field name="sql_disactive" label="X_SQL_DISACTIVE" type="textarea" cols="40" rows="10"/>
+        </fieldset>
+    </fields>
+</form>

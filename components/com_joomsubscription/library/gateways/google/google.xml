@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Google Checkout</name>
+	<config>
+		<fields name="google" addpath="/plugins/joomsubscription/elements">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay with Google checkout" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/google" hide_default="1" default="2co1.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="GC_SETUP">
+				<field name="merchant" type="text" default="" label="GC_MID" />
+				<field name="merchant_key" type="text" default="" size="50" label="GC_MKEY" />
+				<field name="currency" type="list" default="USD" label="GC_CURRENCY" description="">
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="EUR">Euros (EUR)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="JPY">Yen (JPY)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="NZD">New Zealand Dollars (NZD)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="PLZ">Polish Zloty (PLZ)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="HUF">Hungarian Forint (HUF)</option>
+					<option value="CZK">Czech Koruna (CZK)</option>
+				</field>
+				<field name="tax" type="text" default="0.00" label="GC_TAX"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="sandbox" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="print_url" type="radio" class="btn-group" label="Print url" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

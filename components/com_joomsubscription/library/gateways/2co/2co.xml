@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>2CheckOut</name>
+	<config>
+		<fields name="2co">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="2CHECKOUT Secure Credit Card Payment Gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/2co" hide_default="1" default="2co1.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings"  description="CO_ESETTINGS" label="ESETTINGS" addfieldspath="/components/com_joomsubscription/models/fields/">
+				<field name="url2" type="returnurl" processor="2co" label="EMR_RETURNURL" description="EMR_RETURNURL_DESCR"/>
+				<field name="url" type="ipnurl" processor="2co" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="vendor" type="text" default="" label="CO_VENDOR_ID"/>
+				<field name="lang" type="text" default="ru" label="CO_DFAULT_LANG"/>
+				<field name="currency" type="list" default="USD" label="CO_CURRENCY">
+					<option value="ARS">Nuevo Argentine Peso (ARS)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="BRL">Brazilian Real (BRL)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="EUR">Euros (EUR)</option>
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="JPY">Yen (JPY)</option>
+					<option value="MYR">Malaysian Ringgit (MYR)</option>
+					<option value="NZD">New Zealand Dollar (NZD)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="PHP">Philippine Peso (PHP)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="ZAR">South African Rand (ZAR)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="MXN">Mexican Peso (MXP)</option>
+					<option value="INR">Indian Rupee (INR)</option>
+					<option value="AED">Utd. Arab Emir. Dirham (AED)</option>
+					<option value="RUB">Russian Ruble (RUB)</option>
+					<option value="RON">Romanian Leu New (RON)</option>
+					<option value="TRY">New Turkish Lira (TRY)</option>
+					<option value="LTL">Lithuanian Litas (LTL)</option>
+					<option value="ILS">Israeli Shekel (ILS)</option>
+				</field>
+				<field name="sword" type="text" default="" label="CO_SECRET_WORD" description="CO_SECRET_WORD_DESCR"/>
+				<field name="block" type="radio" class="btn-group" default="0" label="CO_BLOCK_PENDING" description="CO_BLOCK_PENDING_DESCR">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+			<fieldset name="rec" label="CO_RECURRENT" description="CO_RECURRING_DESCR">
+				<field name="recurred" type="radio" class="btn-group" default="0" label="CO_RECURRING">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="recurred_period" type="text" default="Forever" label="CO_RECURRE_PERIOD" description="CO_RECURRE_PERIOD_DESCR" />
+
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+

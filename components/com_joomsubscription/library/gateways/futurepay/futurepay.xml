@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Worldpay (Futurepay)</name>
+	<config>
+		<fields name="futurepay">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay throu Worldpay gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/futurepay" hide_default="1" default="futurepay.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="WP_DESCR">
+				<field name="installID" size="50" type="text" default="" label="WP_IID" />
+				<field name="lang" type="text" default="en-GB" label="WP_LANG" />
+				<field name="currency" type="list" default="USD" label="WP_CURRENCY" description="">
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="EUR">Euros (EUR)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="JPY">Yen (JPY)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="NZD">New Zealand Dollars (NZD)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="PLZ">Polish Zloty (PLZ)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="HUF">Hungarian Forint (HUF)</option>
+					<option value="CZK">Czech Koruna (CZK)</option>
+					<option value="ARS">Nuevo Argentine Peso (ARS)</option>
+					<option value="AUD">Australian Dollar (AUD)</option>
+					<option value="BRL">Brazilian Real (BRL)</option>
+					<option value="CLP">Chilean Peso (CLP)</option>
+					<option value="CNY">Yuan Renminbi (CNY)</option>
+					<option value="COP">Colombian Peso (COP)</option>
+					<option value="IDR">Indonesian Rupiah (IDR)</option>
+					<option value="KES">Kenyan Shilling (KES)</option>
+					<option value="KRW">South-Korean Won (KRW)</option>
+					<option value="MXP">Mexican Peso (MXP)</option>
+					<option value="MYR">Malaysian Ringgit (MYR)</option>
+					<option value="NZD">New Zealand Dollar (NZD)</option>
+					<option value="PHP">Philippine Peso (PHP)</option>
+					<option value="PLN">New Polish Zloty (PLN)</option>
+					<option value="PTE">Portugese Escudo (PTE)</option>
+					<option value="SKK">Slovak Koruna (SKK)</option>
+					<option value="THB">Thai Baht (THB)</option>
+					<option value="TWD">New Taiwan Dollar (TWD)</option>
+					<option value="VND">Vietnamese New Dong (VND)</option>
+					<option value="ZAR">South African Rand (ZAR)</option>
+				</field>
+				<field name="contact" type="radio" class="btn-group" default="hideContact" label="WP_REC_CONTACT">
+					<option value="fixContact">Yes</option>
+					<option value="hideContact">No</option>
+				</field>
+				<field name="hideCurrency" class="btn-group" type="radio" default="0" label="WP_HIDE_CUR_SELECT">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+
+				<field name="recurring" class="btn-group" type="radio" default="0" label="WP_RECURRING">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="noOfPayments" type="text" default="0" label="WP_NUM_REC" />
+				<field name="password" type="text" default="" label="WP_PASSWORD" />
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="100">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

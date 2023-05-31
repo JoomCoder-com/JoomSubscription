@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>WebMoney</name>
+	<config>
+		<fields name="webmoney">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Оплатить через Webmoney" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/webmoney" hide_default="1" default="webmoney.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="WM_SETTDESCR" addfieldpath="/components/com_joomsubscription/models/fields/">
+				<field name="url2" type="returnurl" processor="webmoney" label="EMR_RETURNURL" description="EMR_IRETURNURL_DESCR"/>
+				<field name="url" type="ipnurl" processor="webmoney" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="purse" type="text" default="" label="WM_PURSENUM"/>
+				<field name="secret" type="text" default="secretword" label="WM_SECURITY_KEY" description="WM_SECURITY_KEY_DESCR"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

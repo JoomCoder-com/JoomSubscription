@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Interkassa</name>
+	<config>
+		<fields name="interkassa">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Оплатить через Инетркассу" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/interkassa" hide_default="1" default="interkassa.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="IK_SETTINGS">
+				<field name="eshopid" type="text" default="" label="IK_SHOPID" />
+				<field name="currency" type="list" default="USD" label="X_CURRENCY">
+					<option value="USD">U.S. Доллар (USD)</option>
+					<option value="EUR">Евро (EUR)</option>
+					<option value="UAH">Украинская гривна (UAH)</option>
+					<option value="RUB">Русский рубль (RUB)</option>
+					<option value="BYR">Беларусский рубль (BYR)</option>
+					<option value="XAU">Золото (троицкая унция) (XAU)</option>
+				</field>
+				<field name="secret" type="text" default="" label="IK_SECRET" description=""/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

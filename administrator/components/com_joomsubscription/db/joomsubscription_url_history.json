@@ -1,0 +1,1 @@
+{"fields":[{"name":"id","type":"int(10)","null":"NO","default":0},{"name":"user_id","type":"int(10)","null":"NO","default":0},{"name":"url","type":"text","null":"NO","default":null},{"name":"ctime","type":"datetime","null":"NO","default":"0000-00-00 00:00:00"},{"name":"subscription_id","type":"int(10)","null":"NO","default":0}],"primary":"id","engine":"MyISAM"}

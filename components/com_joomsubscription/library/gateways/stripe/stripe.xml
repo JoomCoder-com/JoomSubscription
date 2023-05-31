@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Stripe</name>
+	<config>
+		<fields name="stripe">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay throu Worldpay gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/stripe" hide_default="1" default="stripe.png" label="EIMAGE" description="PARAMIMAGE"/>
+				<field name="tmpl" type="filelist" filter="php$" hide_none="1" hide_default="1" directory="/components/com_joomsubscription/library/gateways/stripe/tmpl" label="E_BUTTONTMPL" default="default.php" />
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="SP_DESCR">
+				<field name="url" type="ipnurl" processor="stripe" label="SP_IPNURL" description="SP_IPNURL_DESCR"/>
+				<field name="secret_key" size="50" type="text" default="" label="SP_SKEY"/>
+				<field name="publish_key" size="50" type="text" default="" label="SP_PKEY"/>
+				<field name="name" type="text" default="YOURSITE.COM" label="SP_NAME"/>
+				<field name="logo" type="text" default="/images/logo.png" label="SP_LOGO"/>
+				<field name="currency" type="text" default="USD" label="SP_CURR"/>
+				<field name="billaddr" class="btn-group" type="radio" default="false" label="SP_BILADDR">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="bitcoin" class="btn-group" type="radio" default="false" label="SP_BITCOIN">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="recurre" class="btn-group" type="radio" default="false" label="SP_RECURR">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="100">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_JS</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_JS_DESCR">
+        	<field name="js" label="X_JS_CODE" type="textarea" cols="50" rows="20" />
+        	<field name="html" label="X_HTML_CODE" type="textarea" cols="50" rows="20" />
+        </fieldset>
+    </fields>
+</form>

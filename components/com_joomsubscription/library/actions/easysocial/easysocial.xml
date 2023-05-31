@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_ES</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_ES_DESCR"  addfieldpath="/components/com_joomsubscription/library/actions/easysocial/elements/">
+			<field name="group_active" label="X_ES_ACTIVE" type="esprofiles"/>
+			<field name="group_deactive" label="X_ES_DEACTIVE" type="esprofiles"/>
+		</fieldset>
+	</fields>
+</form>

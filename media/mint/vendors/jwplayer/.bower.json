@@ -1,0 +1,19 @@
+{
+  "name": "jwplayer",
+  "version": "6.12.4956",
+  "homepage": "https://github.com/sathyapulse/jwplayer",
+  "authors": [
+    "(Sathiyamoorthy Venkatesan <sathyapulse@gmail.com>)"
+  ],
+  "description": "Your video solution starts with JW player",
+  "license": "MIT",
+  "_release": "6.12.4956",
+  "_resolution": {
+    "type": "version",
+    "tag": "6.12.4956",
+    "commit": "bcb8c1aa4258ce3cb1238f4d92afc3407366b68f"
+  },
+  "_source": "git://github.com/sathyapulse/jwplayer.git",
+  "_target": "~6.12.4956",
+  "_originalSource": "jwplayer"
+}

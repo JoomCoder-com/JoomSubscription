@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="file" method="upgrade">
+	<name>Joomsubscription - Field - Note</name>
+	<author>JoomCoder</author>
+	<license>GPL GNU</license>
+	<authorEmail>support@mintjoomla.com</authorEmail>
+	<authorUrl>https://www.joomcoder.com/</authorUrl>
+	<creationDate>March 2012</creationDate>
+	<copyright>(c) 2012 JoomCoder</copyright>
+	<version>10.4</version>
+	<description>Add note to purchase</description>
+
+	<fileset>
+		<files target="components/com_joomsubscription/library/fields">
+			<folder>note</folder>
+		</files>
+		<files folder="note" target="language/en-GB">
+			<filename>en-GB.com_joomsubscription_field_note.ini</filename>
+		</files>
+	</fileset>
+</extension>

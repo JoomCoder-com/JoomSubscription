@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="properties">
+        <fieldset name="main" label="X_PROPERTIES">
+            <field name="template" type="templateslist" default="default" label="X_TEMPLATE"/>
+        </fieldset>
+    </fields>
+</form>

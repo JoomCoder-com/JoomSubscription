@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="file" method="upgrade">
+	<name>Joomsubscription - Import - Joomsubscription 8</name>
+	<author>JoomCoder</author>
+	<license>GPL GNU</license>
+	<authorEmail>support@mintjoomla.com</authorEmail>
+	<authorUrl>https://www.joomcoder.com/</authorUrl>
+	<creationDate>July 2013</creationDate>
+	<copyright>(c) 2013 JoomCoder</copyright>
+	<version>10.1</version>
+	<description>Joomsubscription import.</description>
+
+	<fileset>
+		<files target="components/com_joomsubscription/library/imports">
+			<folder>joomsubscription8</folder>
+		</files>
+		<files folder="joomsubscription8" target="language/en-GB">
+			<filename>en-GB.com_joomsubscription_import_joomsubscription8.ini</filename>
+		</files>
+	</fileset>
+</extension>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>JomSocial</name>
+	<config>
+		<fields name="jomsocial">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="JS_SETTDESCR">
+				<field name="convert" type="text" default="10" label="JS_CONVERT" description="JS_CONVERT_DESCR"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

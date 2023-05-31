@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form  addfieldpath="/libraries/mint/forms/elements">
+    <field id="id" name="id" type="text" default="0" label="JGLOBAL_GROUP_ID_LABEL" readonly="true" class="readonly"/>
+    <field id="name" name="name" type="text" default="" label="XFORM_GROUPNAME" required="true"/>
+    <field id="published" name="published" type="list" label="JSTATUS" class="inputbox" size="1" default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field>
+    <field id="description" name="description" type="textarea" label="EDESCR" class="inputbox" filter="safehtml" hide="pagebreak,readmore,article"/>
+    <field id="access" name="access" default="1" type="accesslevel" label="JFIELD_ACCESS_LABEL" description="JFIELD_ACCESS_DESC" class="inputbox" size="1"/>
+    <field id="required" name="required" type="mradio" label="EREQUIRED" class="btn-group inputbox" default="0">
+        <option value="1">JYES</option>
+        <option value="0">JNO</option>
+    </field>
+    <field id="type" name="type" required="true" type="emfieldtype" label="EFIELDTYPE"/>
+    <field name="checked_out" type="hidden" filter="unset" />
+    <field name="checked_out_time" type="hidden" filter="unset" />
+</form>

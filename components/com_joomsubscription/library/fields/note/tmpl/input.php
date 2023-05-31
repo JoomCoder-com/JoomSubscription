@@ -1,0 +1,2 @@
+<textarea id="field<?php echo $this->id ?>" name="fields[<?php echo $this->id ?>]" id="" cols="30" rows="5" style="width: 100%;box-sizing: border-box;"><?php echo $this->default; ?></textarea>
+<div class="clearfix"></div>

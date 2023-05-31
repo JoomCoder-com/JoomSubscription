@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_HS</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_HS_DESCR" addfieldpath="/components/com_joomsubscription/library/actions/hikashop/fields">
+			<field name="products" type="hikaproduct" multiple="true" label="EM_HS_PRODUCTS"/>
+			<field name="category" type="hikacategory" multiple="true" label="EM_HS_CATEGORY"/>
+			<field name="status" type="hikastatus" label="EM_HS_STATUS"/>
+        </fieldset>
+    </fields>
+</form>

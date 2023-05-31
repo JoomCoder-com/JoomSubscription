@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>PayPal Express Checkout</name>
+	<config>
+		<fields name="paypal_ec">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay with paypal" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/paypal_ec" hide_default="1" default="paypal1.gif" label="EIMAGE" description="PARAMIMAGE"/>
+				<field name="tmpl" type="filelist" filter="php$" hide_none="1" hide_default="1" directory="/components/com_joomsubscription/library/gateways/paypal_ec/tmpl" label="E_BUTTONTMPL" default="default.php" />
+			</fieldset>
+			<fieldset name="btn_settings" label="PP_BTN_SET" description="PP_BUTTON_DESCR">
+				<field name="btn_lang" type="list" default="en_US" label="PP_LANG" description="">
+					<option value="en_AU">en_AU</option>
+					<option value="de_DE">de_DE</option>
+					<option value="pt_BR">pt_BR</option>
+					<option value="id_ID">id_ID</option>
+					<option value="he_IL">he_IL</option>
+					<option value="ja_JP">ja_JP</option>
+					<option value="no_NO">no_NO</option>
+					<option value="th_TH">th_TH</option>
+					<option value="zh_TW">zh_TW</option>
+					<option value="da_DK">da_DK</option>
+					<option value="sv_SE">sv_SE</option>
+					<option value="zh_CN">zh_CN</option>
+					<option value="zh_HK">zh_HK</option>
+					<option value="fr_FR">fr_FR</option>
+					<option value="it_IT">it_IT</option>
+					<option value="en_GB">en_GB</option>
+					<option value="fr_CA">fr_CA</option>
+					<option value="es_ES">es_ES</option>
+					<option value="nl_NL">nl_NL</option>
+					<option value="pl_PL">pl_PL</option>
+					<option value="pt_PT">pt_PT</option>
+					<option value="ru_RU">ru_RU</option>
+					<option value="en_US">en_US</option>
+				</field>
+				<field name="btn_color" type="list" default="blue" label="PP_COLOR">
+					<option value="blue">Blue</option>
+					<option value="gold">Gold</option>
+					<option value="silver">Silver</option>
+				</field>
+				<field name="btn_size" type="list" default="small" label="PP_SIZE">
+					<option value="small">Small	144px by 39px</option>
+					<option value="tiny">Tiny	80px by 20px</option>
+					<option value="medium">Medium	226px by 47px</option>
+				</field>
+				<field name="btn_shape" type="list" default="pill" label="PP_SHAPE">
+					<option value="pill">Pill</option>
+					<option value="rect">Rectangle</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
+				<field name="client_id_sandbox" type="text" label="PP_CLIENTIDS" description="PP_CLIENTID_DESCR"/>
+				<field name="client_id_production" type="text" label="PP_CLIENTIDP" description="PP_CLIENTID_DESCR"/>
+				<field name="currency" type="list" default="USD" label="PP_CURRENCY">
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="EUR">Euros (EUR)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="JPY">Yen (JPY)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="NZD">New Zealand Dollars (NZD)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="PLN">Polish Zloty (PLN)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="HUF">Hungarian Forint (HUF)</option>
+					<option value="CZK">Czech Koruna (CZK)</option>
+					<option value="RUB">Russian Ruble (RUB)</option>
+					<option value="TRY">Turkish Lira (TRY)</option>
+				</field>
+				<field name="tax" type="text" default="0.00" label="PP_TAX"/>
+				<field name="tax_rate" type="text" default="0" label="PP_TAXRATE"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="sandbox" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE" >
+					<option value="sandbox">Yes</option>
+					<option value="production">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

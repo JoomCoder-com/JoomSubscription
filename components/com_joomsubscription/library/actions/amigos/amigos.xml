@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_AMIGOS</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_AMIGOS_DESCR">
+        	<field name="amigos_url" label="X_AMIGOS_URL" type="text" />
+        </fieldset>
+    </fields>
+</form>

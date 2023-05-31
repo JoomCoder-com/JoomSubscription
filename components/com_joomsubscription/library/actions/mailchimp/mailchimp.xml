@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_MCH</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_MCH_DESCR"   addfieldpath="/components/com_joomsubscription/library/actions/mailchimp/elements/">
+			<field name="api_key" type="text" label="MCH_APIKEY"/>
+			<field name="list_id" type="mailchimplists" label="MCH_LISTID"/>
+			<field name="deactivate" label="MCH_DEACTIVATE" default="0" type="list">
+				<option value="0">MCH_DESACT_OPT0</option>
+				<option value="1">MCH_DESACT_OPT1</option>
+				<option value="2">MCH_DESACT_OPT2</option>
+				<option value="3">MCH_DESACT_OPT3</option>
+			</field>
+			<field name="move_id" type="mailchimplists" label="MCH_MOVETO"/>
+			<field name="msg" type="text" label="MCH_MSG"/>
+        </fieldset>
+    </fields>
+</form>

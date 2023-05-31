@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<name>EMF_CROSSSELL</name>
+	<fields name="params" addfieldpath="/components/com_joomsubscription/models/fields">
+		<fieldset name="action" label="EMF_CROSSSELL" description="EMF_CROSSSELL_DESCR">
+			<field name="plan_to_sell" label="EMF_PLAN_TO_SELL" type="planslist"/>
+			<field name="price" label="EMF_CROSSSELL_PRICE" type="text"/>
+			<field name="note" rows="10" cols="60" label="EMF_CROSSSELL_NOTE" type="textarea" description="EMF_CROSSSELL_NOTE_DESCR"
+				   default="Along with this plan **[CURRENT]** you can purchase plan **[CROSSSELL]** just for **[PRICE]**. Original price of _[CROSSSELL]_ is **[ORIGINALPRICE]** so you save **[SAVE_AMOUNT]** (**[SAVE_PERCENT]**)"/>
+		</fieldset>
+	</fields>
+</form>

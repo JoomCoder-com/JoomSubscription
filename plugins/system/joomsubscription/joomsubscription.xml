@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+	<name>Joomsubscription - Restricter</name>
+	<author>JoomCoder</author>
+	<creationDate>November 2011</creationDate>
+	<copyright><![CDATA[ (c) 2012 JoomCoder]]></copyright>
+	<license>GPL GNU</license>
+	<authorEmail>support@mintjoomla.com</authorEmail>
+	<authorUrl>https://www.joomcoder.com/</authorUrl>
+	<version>10.20</version>
+	<description>EMR_SYSTEM_DESCR</description>
+	<files>
+		<filename plugin="joomsubscription">joomsubscription.php</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_joomsubscription.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_joomsubscription.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="general" label="EMR_GENERAL" description="">
+				<field name="se" type="radio" class="btn-group" default="1" label="EMR_ALLOW_AGENT_SKIP" description="EMR_ALLOW_AGENT_SKIP_DESCR">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="bots" cols="40" rows="10" type="textarea" default="googlebot&#13;&#10;mediapartners-google&#13;&#10;yahoo-verticalcrawler&#13;&#10;yahoo! slurp&#13;&#10;yahoo-mm&#13;&#10;inktomi&#13;&#10;slurp&#13;&#10;iltrovatore-setaccio&#13;&#10;fast-webcrawler&#13;&#10;msnbot&#13;&#10;ask jeeves&#13;&#10;teoma&#13;&#10;scooter&#13;&#10;psbot&#13;&#10;openbot&#13;&#10;ia_archiver&#13;&#10;almaden&#13;&#10;baiduspider&#13;&#10;zyborg&#13;&#10;gigabot&#13;&#10;naverbot&#13;&#10;surveybot&#13;&#10;boitho.com-dc&#13;&#10;objectssearch&#13;&#10;answerbus&#13;&#10;nsohu-search"
+					   label="EMR_USER_AGENTS" description="EMR_USER_AGENTS"/>
+				<field name="skip_group" type="usergroup" default="8" label="EMR_SKIP_FOR" description="EMR_SKIP_FOR_DESCR">
+					<option value="0">EMR_RESTRICT_FOR_EVERYONE</option>
+				</field>
+				<field name="skip_access" type="accesslevel" default="3" label="EMR_SKIP_FOR">
+					<option value="0">EMR_RESTRICT_FOR_EVERYONE</option>
+				</field>
+				<field name="require" type="radio" class="btn-group" default="0" label="EMR_REQSUBSCR" description="EMR_REQSUBSCR_DESCR">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="free_num" type="text" default="0" label="EMR_FREENUM" description="EMR_FREENUM_DESCR" />
+				<field name="free_num_text" type="text" default="You've just user {0} out of {1} free accesses to restricted content!" label="EMR_FREENUMTEXT" />
+				<field name="link" type="text" default="Subscribe now" label="EMR_PAID_LINK" description="EMR_PAID_LINK_DESCR" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

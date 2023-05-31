@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>VCS</name>
+	<config>
+		<fields name="vcs">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay through Virtual Card Service" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/vcs" hide_default="1" default="vcs.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="VCS_SETTDESCR">
+				<field name="url" type="ipnurl" processor="vcs" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="p1" type="text" default="" label="VCS_TERMINAL"/>
+				<field name="md5key" type="text" default="" label="VCS_MD5KEY"/>
+				<field name="pam" type="text" default="" label="VCS_PAM" description="VCS_PAMDESC"/>
+
+				<field name="budget" type="list" default="Y" label="VCS_BUDGET">
+					<option value="Y">Budget allowed</option>
+					<option value="N">Budget period is not allowed</option>
+				</field>
+				<field name="currency" type="list" default="USD" label="PP_CURRENCY">
+					<option value="">VCS_MERCHDEFAL</option>
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="ZAR">South African (ZAR)</option>
+				</field>
+			</fieldset>
+			<fieldset name="rec" label="VCS_RECURRENT">
+				<field name="recurred" type="radio" class="btn-group" default="0" label="VCS_RECURRING">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="recurred_friq" type="list" default="USD" label="VCS_RECFRIQ">
+					<option value="D">Daily</option>
+					<option value="W">Monthly</option>
+					<option value="M">Weekly</option>
+					<option value="Q">Quarterly (3-monthly)</option>
+					<option value="6">Bi-annually (6-monthly)</option>
+					<option value="Y">Annually</option>
+				</field>
+				<field name="recurred_num" type="text" default="99" class="btn-group" label="VCS_RECURRINGNUM" description="VCS_RECURRINGNUMDESC"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

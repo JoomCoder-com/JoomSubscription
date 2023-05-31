@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field id="id" name="id" type="text" default="0" label="JGLOBAL_GROUP_ID_LABEL" readonly="true" class="readonly" />
+	<field id="published" name="published" type="list" label="JSTATUS" class="inputbox" size="1" default="1">
+		<option value="1">JPUBLISHED</option>
+		<option value="0">JUNPUBLISHED</option>
+	</field>
+
+	<field id="price" name="price" type="text" label="X_PRICE" default="0" class="inputbox"/>
+	<field id="comment" name="comment" type="textarea" label="X_ADMINCOMMENT" class="inputbox"/>
+	<field id="user_id" name="user_id" type="emuser" label="E_USER" default="0" class="inputbox" required="required"/>
+	<field id="plan_id" name="plan_id" type="planslist" extend="true" label="E_PLAN" required="required" default="0" class="inputbox"/>
+	<field id="gateway_id" name="gateway_id" type="text" label="E_GATEWAY_ID" default="" class="inputbox" required="required"/>
+	<field id="gateway" name="gateway" type="text" label="E_GATEWAY" default="manual" class="inputbox" required="required"/>
+	<field id="access_limit" name="access_limit" type="text" label="E_LIMIT" default="0" class="inputbox" />
+	<field id="access_count" name="access_count" type="text" label="E_COUNT" default="0" class="inputbox" />
+
+	<field id="ctime" name="ctime" type="calendar" filter="user_utc" label="ESTARTON" class="inputbox" />
+	<field id="extime" name="extime" type="calendar" filter="user_utc" label="EENDON" class="inputbox" />
+
+	<field name="checked_out" type="hidden" filter="unset" />
+	<field name="checked_out_time" type="hidden" filter="unset" />
+
+</form>

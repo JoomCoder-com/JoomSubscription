@@ -1,0 +1,244 @@
+/* MooUpload CSS */
+.upload-element {
+	border: 3px solid #efefef;
+}
+
+.mooupload_error {
+	color: #FF0000;
+}
+
+.mooupload_noerror {
+	color: #008000;
+}
+
+.mooupload_btncontainer {
+	background: #DFDFDF center right no-repeat;
+	padding: 10px;
+}
+
+.mooupload_btncontainer button {
+	border: 1px solid #C5C5C5;
+	padding: 2px 5px 3px 20px;
+	background-color: #F3F3F3;
+	font-size: 12px;
+	margin-right: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.mooupload_btncontainer button.addfile {
+	background: #F3F3F3 url(../../icons/16/plus-button.png) 3px center no-repeat;
+}
+
+.mooupload_btncontainer button.start {
+	background: #F3F3F3 url(../../icons/16/arrow-curve-090.png) 3px center no-repeat;
+}
+
+.mooupload_btncontainer button:active {
+	background-color: #FFF;
+}
+
+.mooupload_btncontainer div.progresscont {
+	display: none;
+	width: 100px;
+	height: 20px;
+	border: 1px solid #000;
+	float: right;
+	background-color: #F3F3F3;
+	border: 1px solid #C5C5C5;
+	-webkit-border-radius: 3px; -moz-border-radius : 3px; border-radius : 3px;
+	font-size: 12px;
+	border-radius: 3px;
+line-height: 20px;
+font-weight: bold;
+color: #4789b2;
+}
+
+.mooupload_progressbar {
+	text-align: center;
+	font-size: 8px;
+	display: block;
+	width: 0px;
+	height: 100%;
+}
+
+.mooupload_off {
+	background: #F3F3F3 none;
+}
+
+.mooupload_on {
+	background: #F3F3F3 url(imgs/load_bg_blue.gif) center left repeat-x;
+}
+
+.mooupload_listview {
+	background-color: #efefef;
+}
+
+.mooupload_listview ul {
+	margin: 0 !important;
+	padding: 0px 0 0px 0px !important;
+}
+
+.mooupload_listview li {
+	list-style-type: none !important;
+	clear: both;
+	line-height: 25px !important;
+	padding-left: 12px !important;
+	height: 25px !important;
+	border: 1px solid #efefef;
+	background-color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.mooupload_listview li.header {
+	font-weight: bold;
+	border-bottom: 3px solid #efefef;
+	margin-bottom: 10px;
+	line-height: 25px;
+	color: #8E8E8E;
+	background-color: #efefef;
+}
+
+.mooupload_listview li div {
+	display: block;
+	margin-right: 15px;
+	float: left;
+	font-size: 12px;
+	line-height: 25px;
+}
+
+.mooupload_listview li div.optionsel {
+	width: 16px;
+}
+
+.mooupload_listview a.delete {
+	display: block;
+	margin-top: 5px;
+	width: 16px;
+	height: 16px;
+	background: #fff url(../../icons/16/cross.png) center center no-repeat;
+}
+
+.mooupload_listview a.remove {
+	display: block;
+	margin-top: 5px;
+	width: 16px;
+	height: 16px;
+	background: #fff url(../../icons/16/cross.png) center center no-repeat;
+}
+
+.mooupload_listview a.delete:hover {
+	background: #fff url(../../icons/16/cross-button.png) center center no-repeat !important;
+	cursor: pointer;
+}
+
+.mooupload_listview a.remove:hover {
+	background: #fff url(../../icons/16/cross-button.png) center center no-repeat !important;
+	cursor: pointer;
+}
+
+.mooupload_listview li div.filename {
+	overflow: hidden;
+	height: 25px;
+	white-space: nowrap;
+	margin-right: 5px;
+}
+
+.mooupload_listview li div.filenameedit {
+	background: #fff url(../../icons/16/pencil.png) center center no-repeat !important;
+	background-position: right !important;
+	cursor: pointer;
+	margin-right: 5px;
+/*	width: 300px;*/
+}
+
+.mooupload_listview li div.filetitlesave {
+	background: #fff url(../../icons/16/disk.png) center center no-repeat !important;
+	cursor: pointer;
+	margin-right: 0px;
+	width: 16px;
+	height: 16px;
+	float: right;
+	margin-top: 5px;
+}
+
+.mooupload_listview li div.filedescrsave {
+	background: #fff url(../../icons/16/disk.png) center center no-repeat !important;
+	cursor: pointer;
+	margin-right: 0px;
+	width: 16px;
+	height: 16px;
+	margin-top: 8px;
+	clear: both;
+}
+
+.mooupload_listview li div.filedescr_button {
+	background: #fff url(../../icons/16/clipboard-list.png) center center no-repeat !important;
+	cursor: pointer;
+
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-right: 0px;
+	margin-top: 5px;
+}
+
+.mooupload_listview li div.filedescrclose {
+	background: #fff url(../../icons/16/cross-button.png) center center no-repeat !important;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	margin-right: 0;
+}
+
+.mooupload_listview li textarea.textarea_descr {
+	float: left;
+}
+
+.mooupload_listview li div.buttons_div {
+	margin-right: 0px;
+}
+
+.mooupload_listview li div.text_div {
+	margin-right: 2px;
+}
+
+.mooupload_listview li div.filedescription {
+	position: absolute;
+	background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+	padding: 6px;
+
+	-webkit-box-shadow: 2px 2px 10px 0.1px #000000;
+	-moz-box-shadow: 2px 2px 10px 0.1px #000000;
+	box-shadow: 2px 2px 10px 0.1px #000000; 
+}
+
+.mooupload_listview li input {
+	/*margin-top: 5px;*/
+	float: left;
+	height: 15px;
+}
+
+.mooupload_listview li div.filetype {
+	width: 100px;
+}
+
+.mooupload_listview li div.filesize {
+	float: right;
+	text-align: right;
+	width: 70px;
+}
+
+.mooupload_listview li div.result {
+	float: right;
+	line-height: 25px;
+	padding: 0 5px !important;
+}
+
+.mooupload_readonly {
+	color: #828282;
+}

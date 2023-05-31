@@ -1,0 +1,10 @@
+{
+  "name": "jwplayer",
+  "version": "6.12.4956",
+  "homepage": "https://github.com/sathyapulse/jwplayer",
+  "authors": [
+    "(Sathiyamoorthy Venkatesan <sathyapulse@gmail.com>)"
+  ],
+  "description": "Your video solution starts with JW player",
+  "license": "MIT"
+}

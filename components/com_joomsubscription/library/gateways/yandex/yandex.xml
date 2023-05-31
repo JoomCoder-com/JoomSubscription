@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Яндекс.Касса</name>
+	<config>
+		<fields name="yandex">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="2CHECKOUT Secure Credit Card Payment Gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="tmpl" type="filelist" filter="php$" hide_none="1" hide_default="1" directory="/components/com_joomsubscription/library/gateways/yandex/tmpl" label="E_BUTTONTMPL" default="default.php" />
+			</fieldset>
+
+			<fieldset name="settings"  description="YA_SETTINGS" label="ESETTINGS" addfieldspath="/components/com_joomsubscription/models/fields/">
+				<field name="url" type="ipnurl" processor="yandex" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="url2" type="returnurl" processor="yandex" label="EMR_RETURNURL" description="EMR_RETURNURL_DESCR"/>
+				<field name="shopId" type="text" label="YA_SHOP_ID"/>
+				<field name="scid" type="text" label="YA_SID"/>
+				<field name="shopPassword" type="text" label="YA_PASS"/>
+				<field name="type" type="list" default="USD" label="YA_TYPE">
+					<option value="PC">Яндекс.Деньгах</option>
+					<option value="AC">анковской карты</option>
+					<option value="MC">мобильного телефона</option>
+					<option value="GP">кассы и терминалы</option>
+					<option value="WM">WebMoney</option>
+					<option value="SB">SMS или Сбербанк Онлайн</option>
+					<option value="MP">мобильный терминал (mPOS)</option>
+					<option value="AB">Альфа-Клик</option>
+					<option value="MA">MasterPass</option>
+					<option value="PB">Промсвязьбанк</option>
+					<option value="QW">QIWI Wallet</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+
+

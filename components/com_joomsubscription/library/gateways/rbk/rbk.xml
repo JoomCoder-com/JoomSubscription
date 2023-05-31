@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gateway>
+	<name>RBK</name>
+	<config>
+		<fields name="rbk">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Оплатить через РБК" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/rbk" hide_default="1" default="rbk.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="RBK_ETTINGS">
+				<field name="url" type="ipnurl" processor="rbk" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="eshopid" type="text" default="" label="RBK_SHOPID" />
+				<field name="currency" type="text" default="RUR" label="RBK_CUR" >
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+					<option value="RUR">RUR</option>
+					<option value="UAH">UAH</option>
+				</field>
+				<field name="lang" type="text" default="ru" label="RBK_LANG">
+					<option value="ru">Russian</option>
+					<option value="en">English</option>
+				</field>
+				<field name="secret" type="text" default="" label="RBK_SECRET" />
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

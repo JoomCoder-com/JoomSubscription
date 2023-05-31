@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_PROLONG</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_PROLONG_DESCR" addfieldpath="/libraries/mint/forms/fields/">
+			<field name="field_id" type="meresourcesfields" key="id" default="" label="X_FIELD_ID" filters="'prolong'" />
+		</fieldset>
+    </fields>
+</form>

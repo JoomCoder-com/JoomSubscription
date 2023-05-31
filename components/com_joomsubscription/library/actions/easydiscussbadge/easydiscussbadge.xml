@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <name>EMR_ACTION_EDB</name>
+    <fields name="action">
+        <fieldset name="action" description="ACT_EDB_DESCR"
+                  addfieldpath="/components/com_joomsubscription/library/actions/easydiscussbadge/elements/">
+            <field name="add" label="X_EDB_ACTIVE" type="edb">
+                <option value="">X_EDB_DONOTASSIGN</option>
+            </field>
+            <field name="del" label="X_EDB_ACTIVEDEL" type="edb">
+                <option value="">X_EDB_DONOTASSIGN</option>
+            </field>
+            <field name="deactivate" label="X_EDB_DISACTIVE" default="1" type="radio" class="btn-group">
+                <option value="0">X_NO</option>
+                <option value="1">X_YES</option>
+            </field>
+            <field name="message" label="X_EDB_MSG" type="text"
+                   default="You have been successfully assigned a badge (%s)"/>
+        </fieldset>
+    </fields>
+</form>

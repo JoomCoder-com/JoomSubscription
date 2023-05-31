@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>RoboKassa</name>
+	<config>
+		<fields name="robokassa" addfieldpath="/plugins/joomsubscription/elements">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Оплатить через Robokassa" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/robokassa" hide_default="1" default="robokassa_ru.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="RK_SETTINGS">
+				<field name="url2" type="returnurl" processor="robokassa" label="EMR_RETURNURL" description="EMR_IRETURNURL_DESCR"/>
+				<field name="url" type="ipnurl" processor="robokassa" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="shopid" size="50" type="text" default="" label="RK_MLOGIN"/>
+				<field name="merpas1" size="50" type="password" default="" label="RK_MP1"/>
+				<field name="merpas2" size="50" type="password" default="" label="RK_MP2"/>
+				<field name="lang" type="radio" class="btn-group" label="RK_LANG" default="en">
+					<option value="en">EN</option>
+					<option value="ru">RU</option>
+				</field>
+				<field name="increase" type="text" default="0" label="RK_MILTIPLIER" description="RK_MILTIPLIERDFESCR" />
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="test_mode" type="radio" class="btn-group" default="0" label="Test mode">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

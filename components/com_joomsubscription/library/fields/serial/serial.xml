@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <name>EMF_SERIAL</name>
+    <fields name="params">
+        <fieldset name="action" label="EMF_SERIAL" description="EMF_SERIAL_DESCR" addfieldpath="/components/com_joomsubscription/library/fields/serial/elements/">
+            <field name="list" rows="10" cols="60" label="EMF_SERIAL_LIST" type="textarea"
+                   description="EMF_SERIAL_LIST_DESCR"/>
+            <field name="note" label="EMF_SERIAL_NOTE" type="text" default="You have purchase serial number: %s"/>
+            <field name="info" label="EMF_SERIAL_INFO" type="emserinfo"/>
+            <field name="alert" label="EMF_SERIAL_ALERT" type="text" default="3"/>
+            <field name="email" label="EMF_SERIAL_ALERT_EMAIL" type="text" default=""/>
+        </fieldset>
+    </fields>
+</form>

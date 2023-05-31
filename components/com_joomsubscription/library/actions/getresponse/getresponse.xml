@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_GR</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_GR_DESCR"   addfieldpath="/components/com_joomsubscription/library/actions/getresponse/elements/">
+			<field name="api_key" type="text" label="PLG_USER_GR_FIELD_APIKEY_LABEL"/>
+			<field name="campaign_id" type="getresponselists" label="PLG_USER_GR_FIELD_CMP_LABEL"/>
+			<field name="deactivate" label="PLG_USER_GR_FIELD_DESACT_LABEL" default="0" type="list">
+				<option value="0">PLG_USER_GR_FIELD_DESACT_OPT0</option>
+				<option value="2">PLG_USER_GR_FIELD_DESACT_OPT2</option>
+				<option value="3">PLG_USER_GR_FIELD_DESACT_OPT3</option>
+			</field>
+			<field name="move_id" type="getresponselists" label="PLG_USER_GR_FIELD_MOVE_LABEL"/>
+			<field name="msg" type="text" label="PLG_USER_GR_FIELD_MSG_LABEL"/>
+        </fieldset>
+    </fields>
+</form>

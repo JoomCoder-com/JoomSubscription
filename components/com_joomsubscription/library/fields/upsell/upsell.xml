@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<name>EMF_UPSELL</name>
+	<fields name="params" >
+		<fieldset name="action" label="EMF_UPSELL" description="EMF_UPSELL_DESCR">
+			<field name="name" label="EMF_UPSELL_NAME" default="Will add %s to plan price" description="EMF_UPSELL_NAME_DESC" type="text"/>
+			<field name="price" label="EMF_UPSELL_PRICE" type="text"/>
+		</fieldset>
+		<fieldset name="rule" label="EMF_RULE_RESTR" description="X_BASICRULE" addfieldpath="/components/com_joomsubscription/library/rules/default/elements/">
+			<field name="component" type="componentslist" label="EM_RULE_DEF_COMLIST"/>
+			<field name="var1" type="text" label="X_VARIABLE"/>
+			<field name="cond1" type="list" size="1" label="X_CONDITION">
+				<option value="=">=</option>
+				<option value="!=">!=</option>
+				<option value="&gt;">&gt;</option>
+				<option value="&lt;">&lt;</option>
+				<option value="&gt;=">&gt;=</option>
+				<option value="&lt;=">&lt;=</option>
+				<option value="like '(str)%'">like '(str)%'</option>
+				<option value="like '%(str)'">like '%(str)'</option>
+				<option value="like '%(str)%'">like '%(str)%'</option>
+				<option value="not like '(str)%'">not like '(str)%'</option>
+				<option value="not like '%(str)'">not like '%(str)'</option>
+				<option value="not like '%(str)%'">not like '%(str)%'</option>
+			</field>
+			<field name="val1" type="text" label="X_VALUE"/>
+		</fieldset>
+		<fieldset name="rule2" label="AND" description="XADDDESCR">
+			<field name="var2" type="text" label="X_VARIABLE"/>
+			<field name="cond2" type="list" size="1" label="X_CONDITION">
+				<option value="=">=</option>
+				<option value="!=">!=</option>
+				<option value="&gt;">&gt;</option>
+				<option value="&lt;">&lt;</option>
+				<option value="&gt;=">&gt;=</option>
+				<option value="&lt;=">&lt;=</option>
+				<option value="like '(str)%'">like '(str)%'</option>
+				<option value="like '%(str)'">like '%(str)'</option>
+				<option value="like '%(str)%'">like '%(str)%'</option>
+				<option value="not like '(str)%'">not like '(str)%'</option>
+				<option value="not like '%(str)'">not like '%(str)'</option>
+				<option value="not like '%(str)%'">not like '%(str)%'</option>
+			</field>
+			<field name="val2" type="text" label="X_VALUE"/>
+		</fieldset>
+		<fieldset name="core" label="EM_CORE"  addfieldpath="/libraries/mint/forms/elements">
+			<field name="count_limit_mode" type="mradio" class="btn-group" default="0" label="EM_COUNT_USAGE">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="message" type="text" multiple="true" label="EM_RESCR_MSG" default="You cannot access this page"/>
+		</fieldset>
+	</fields>
+</form>

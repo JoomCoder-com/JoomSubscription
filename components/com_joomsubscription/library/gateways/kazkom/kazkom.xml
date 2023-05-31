@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>KazKom</name>
+	<config>
+		<fields name="kazkom">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Оплатить через Казкомметц Банк" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/kazkom" hide_default="1" default="kazkom.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" description="KK_ESETTINGS" label="ESETTINGS" addfieldspath="/components/com_joomsubscription/models/fields/">
+				<field name="mid" type="text" default="" label="KK_MID"/>
+				<field name="name" type="text" default="" label="KK_NAME"/>
+				<field name="shop" type="text" default="" label="KK_SHOP"/>
+				<field name="mcid" type="text" default="" label="KK_MCID"/>
+				<field name="pass" type="text" default="" label="KK_PASS"/>
+				<field name="private" type="filelist" directory="/components/com_joomsubscription/library/gateways/kazkom/keys" filters="pem$" hide_default="1" default="test_prv.pem" label="KK_PRIVATE"/>
+				<field name="public" type="filelist" directory="/components/com_joomsubscription/library/gateways/kazkom/keys" filters="pem$" hide_default="1" default="test_pub.pem" label="KK_PUBLIC"/>
+				<field name="language" type="list" default="rus" label="KK_LANG">
+					<option value="eng">English</option>
+					<option value="rus">Russian</option>
+				</field>
+				<field name="currency" type="list" default="usd" label="KK_CURR">
+					<option value="840">USD</option>
+					<option value="398">Tenge</option>
+				</field>
+				<field name="showusd" type="radio" class="btn-group" default="1" label="KK_SHOWUSD" description="KK_SHOWUSDDESCR">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+

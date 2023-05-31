@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldpath="/libraries/mint/forms/fields/">
+	<field id="id" name="id" type="text" default="0" label="JGLOBAL_GROUP_ID_LABEL" readonly="true" class="readonly" />
+	<field id="value" name="value" type="text" default="" label="XFORM_COUPON_VALUE" required="true" />
+	<field id="published" name="published" type="list" label="JSTATUS" class="inputbox" size="1" default="1">
+		<option value="1">JPUBLISHED</option>
+		<option value="0">JUNPUBLISHED</option>
+	</field>
+
+	<field id="discount" name="discount" type="text" label="EDISCOUNT" class="inputbox" required="true" />
+	<field id="discount_type" name="discount_type" type="list" default="procent" label="E_DISCOUNT_TYPE" class="inputbox" >
+		<option value="procent">E_OPT_DICOUNT</option>
+		<option value="sum">E_OPT_GIFT</option>
+		<option value="fixed">E_OPT_FIXED</option>
+	</field>
+
+	<field id="user_ids" name="user_ids" type="text" label="E_BIND_TO_USER" default="0" class="inputbox" description="E_BIND_TO_DESCR"/>
+	<field id="plan_ids" name="plan_ids" multiple="multiple" type="planslist" label="E_BIND_TO_PLAN" default="0" class="inputbox" description="E_BIND_TO_DESCR"/>
+
+	<field id="use_num" name="use_num" type="text" label="E_USE_MAX_LIMIT" default="1" class="inputbox" />
+	<field id="use_user" name="use_user" type="text" label="E_LIMIT_USER" default="1" class="inputbox" />
+
+	<field id="ctime" name="ctime" type="calendar" filter="user_utc" label="E_START" class="inputbox" />
+	<field id="extime" name="extime" type="calendar" filter="user_utc" label="E_FINISH" class="inputbox" />
+
+	<field id="amount" name="amount" type="text" label="E_AMOUNT_TO_CREATE" default="1" class="inputbox" />
+
+	<field name="checked_out" type="hidden" filter="unset" />
+	<field name="checked_out_time" type="hidden" filter="unset" />
+	<field name="asset_id" type="hidden" filter="unset" />
+
+</form>

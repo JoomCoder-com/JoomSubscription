@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>TBC Bank</name>
+	<config>
+		<fields name="tbc">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="TBC Secure Credit Card Payment Gateway" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/tbc" hide_default="1" default="tbc1.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings"  description="TBC_ESETTINGS" label="ESETTINGS" addfieldspath="/components/com_joomsubscription/models/fields/">
+				<field name="url" type="ipnurl" processor="tbc" label="EMR_IPNURL" description="EMR_IPNURL_DESCR"/>
+				<field name="merchantname" type="text" default="" label="TBC_VENDOR_ID"/>
+				<field name="lang" type="list" default="USD" label="TBC_DFAULT_LANG">
+				    <option value="GE">Georgian</option>
+				    <option value="EN">English</option>
+				</field>
+                <field name="currency" type="list" default="USD" label="TBC_CURRENCY">
+				    <option value="GEL">Georgian Lari (GEL)</option>
+				    <option value="USD">U.S. Dollars (USD)</option>
+				</field>
+				<field name="sword" type="text" default="" label="TBC_SECRET_WORD" description="TBC_SECRET_WORD_DESCR"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

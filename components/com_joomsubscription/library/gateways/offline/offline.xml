@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Offline</name>
+	<config>
+		<fields name="offline">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay offline" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/offline" hide_default="1" default="offline.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+
+			<fieldset name="settings" label="ESETTINGS" description="OFF_DESCR">
+				<field name="email" size="50" type="text" default="" label="OFF_ADMIN_EMAIL" description="OFF_ADMIN_EMAIL_DESCR"/>
+				<field name="subject" size="50" type="text" default="New offline payment request" label="OFF_ADMIN_SUBJ"/>
+				<field name="adm_body" type="textarea" cols="40" rows="20" default="### Hello Admin, &#13;&#10;&#13;&#10; User [USER] have requested to purchase [SUBSCR_NAME]:[GROUPNAME] by offline money transfer. New order [ORDER_ID] has been created. Please reply this email to provide additional instructions.&#13;&#10;&#13;&#10;Sincerely your,&#13;&#10;offline gateway robot" label="OFF_ADMIN_BODY"/>
+				<field name="cus_subj" size="50" type="text" default="Offline Payment Instructions" label="OFF_CUS_SBJ"/>
+				<field name="cus_body" type="textarea" cols="40" rows="20" default="### Hello [USER]&#13;&#10;&#13;&#10;You have requested to purchase [SUBSCR_NAME]:[GROUPNAME] by offline money transfer. New order [ORDER_ID] has been created. You can chek it's status [here]([HISTORY_URL]) &#13;&#10;&#13;&#10;Please transfer with amount of **[PRICE]** to our bank account.&#13;&#10;&#13;&#10;You bank account details here.&#13;&#10;&#13;&#10;Sincerely your,&#13;&#10;Sitename" label="OFF_EMAIL_BODY"/>
+				<field name="published" type="radio" class="btn-group" label="OFF_ACTIVATE" description="OFF_ACTIVE_DESCR" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="redirect" size="50" type="text" default="" label="OFF_REDIRECTURL" description="OFF_REDIRECTURL_DESCR"/>
+			</fieldset>
+			<fieldset name="billing" label="EBILLING">
+				<field name="billing" type="radio" class="btn-group" label="OFF_USE_BILL" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="bill_inst" type="textarea" default="" label="OFF_BILL_INST" />
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

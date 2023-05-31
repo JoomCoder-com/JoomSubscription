@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Garanti Bank</name>
+	<config>
+		<fields name="garanti">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay through garanti Bank" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/garanti" hide_default="1" default="garanti.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+
+			<fieldset name="settings" label="ESETTINGS" description="GR_SETTDESCR">
+				<field name="merchant_id" type="text" default="" label="GR_MID"/>
+				<field name="terminal_id" type="text" default="" label="GR_TID"/>
+				<field name="provision_pass" type="text" default="" label="GR_PROVPAS"/>
+				<field name="store_key" type="text" default="" label="GR_KEY"/>
+				<field name="order_ref" type="text" default="" label="GR_ORDEPER"/>
+				<field name="company" type="text" default="" label="GR_COMPANY"/>
+				<field name="installment" type="text" default="" label="GR_INTSLA"/>
+				<field name="refresh" type="text" default="5" label="GR_REFRESH"/>
+				<field name="currency" type="list" default="949" label="GR_CUR">
+					<option value="840">U.S. Dollars (USD)</option>
+					<option value="978">Euros (EUR)</option>
+					<option value="826">Pounds Sterling (GBP)</option>
+					<option value="392">Japan Yen (JPY)</option>
+					<option value="949">Turkish lira (TL)</option>
+				</field>
+
+				<field name="level" type="list" default="3D_OOS_PAY" label="GR_LEVEL">
+					<option value="OOS_PAY">OOS_PAY</option>
+					<option value="3D_OOS_PAY">3D_OOS_PAY</option>
+					<option value="3D_OOS_FULL">3D_OOS_FULL</option>
+					<option value="3D_OOS_HALF">3D_OOS_HALF</option>
+				</field>
+				<field name="lang" type="list" default="TR" label="GR_LANG">
+					<option value="TR">Turkish</option>
+					<option value="EN">English</option>
+					<option value="RO">Romanian</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

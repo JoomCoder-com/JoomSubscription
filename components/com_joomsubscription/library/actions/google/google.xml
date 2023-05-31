@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_GOOGLE</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_GOOGLE_DESCR">
+        	<field name="ga_id" label="X_GA_ID" type="text" />
+        </fieldset>
+    </fields>
+</form>

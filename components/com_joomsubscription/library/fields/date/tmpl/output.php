@@ -1,0 +1,1 @@
+<?php echo JText::sprintf('EMR_FORDAYS', $this->default['day']) ?>

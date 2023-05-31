@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="gateway">
+		<fieldset name="maingate">
+			<field name="message" type="textarea" default="This is very secure payment" label="X_GTWMSG"/>
+		</fieldset>
+	</fields>
+	<fields name="properties" addfieldpath="/libraries/mint/forms/elements">
+		<fieldset name="main" label="X_PRICE">
+			<field name="price" type="text" default="1.00" label="X_PRICE"/>
+			<field name="currency" type="text" default="$" label="X_CURRENCY"/>
+			<field name="layout_price" type="list" default="Sign 00" label="X_LAYOUTPRICE">
+				<option value="00Sign">00Sign</option>
+				<option value="Sign00">Sign00</option>
+				<option value="00 Sign">00 Sign</option>
+				<option value="Sign 00">Sign 00</option>
+			</field>
+			<field name="discount" type="text" label="X_DISCOUNT" default="0" description="X_DISCOUNTDESCR"/>
+		</fieldset>
+		<fieldset name="limits" label="X_LIMITS">
+			<field name="purchase_limit" type="text" label="X_PURCHASE_LIMIT" default="0" description="X_PURCHASE_LIMIT_DESCR"/>
+			<field name="purchase_limit_active" type="mradio" class="btn-group inputbox" label="X_PURCHASE_LIMIT_ACT" default="0" description="X_PURCHASE_LIMIT_ACT_DESCR">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="purchase_limit_user" type="text" label="X_PURCHASE_LIMIT_PER_USER" default="0" description="X_PURCHASE_LIMIT_PER_USER_DESCR"/>
+			<field name="purchase_limit_user_period" type="text" label="X_PURCHASE_LIMIT_PER_USER_PER_PERIOD" default="0" description="X_PURCHASE_LIMIT_PER_USER_PER_PERIOD_DESCR"/>
+			<field name="purchase_limit_period" type="text" default="0" label="X_PURCHASE_LIMIT_PER_USER_PERIOD"/>
+			<field name="purchase_limit_period" type="text" default="0" label="X_PURCHASE_LIMIT_PER_USER_PERIOD"/>
+			<field name="purchase_limit_period_in" type="list" default="DAY" label="X_PURCHASE_LIMIT_PER_USER_PERIOD_IN">
+				<option value="HOUR">XML_OPT_HOURS</option>
+				<option value="DAY">XML_OPT_DAYS</option>
+				<option value="WEEK">XML_OPT_WEEKS</option>
+				<option value="MONTH">XML_OPT_MONTHS</option>
+				<option value="YEAR">XML_OPT_YEARS</option>
+			</field>
+			<field name="count_limit" type="text" label="X_COUNT_LIMIT" default="0" description="X_COUNT_LIMITDESCR"/>
+			<!--
+			<field name="count_limit_user_period" type="text" label="X_COUNT_LIMIT_PER_USER_PER_PERIOD" default="0" description="X_PURCHASE_LIMIT_PER_USER_PER_PERIOD_DESCR"/>
+			<field name="count_limit_period" type="text" default="0" label="X_COUNT_LIMIT_PER_USER_PERIOD"/>
+			<field name="count_limit_period_in" type="list" default="DAY" label="X_COUNT_LIMIT_PER_USER_PERIOD_IN">
+				<option value="HOUR">XML_OPT_HOURS</option>
+				<option value="DAY">XML_OPT_DAYS</option>
+				<option value="WEEK">XML_OPT_WEEKS</option>
+				<option value="MONTH">XML_OPT_MONTHS</option>
+				<option value="YEAR">XML_OPT_YEARS</option>
+			</field>
+			-->
+			<field name="count_limit_mode" type="list" default="0" label="X_COUNT_LIMITMODE"
+				   description="X_COUNT_LIMITMODEDESCR">
+				<option value="0">XML_OPT_DONOTCOUNT</option>
+				<option value="1">XML_OPT_COUNTUNIQUEURLS</option>
+				<option value="2">XML_OPT_COUNTEVERYACCESS</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="rds" label="X_RDS">
+			<field id="rds" name="rds" type="mradio" label="X_RDS" description="X_RDS_DESCR" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field id="rds_email_login" name="rds_email_login" type="mradio" label="X_RDS_EMAIL_LOGIN" description="X_RDS_EMAIL_LOGIN_DESCR" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="period" label="X_PERIOD">
+			<field name="days" type="text" default="1" label="X_DAYS"/>
+			<field name="days_type" type="list" default="days" label="X_DAYS_TYPE">
+				<option value="hours">XML_OPT_HOURS</option>
+				<option value="days">XML_OPT_DAYS</option>
+				<option value="weeks">XML_OPT_WEEKS</option>
+				<option value="months">XML_OPT_MONTHS</option>
+				<option value="years">XML_OPT_YEARS</option>
+			</field>
+			<field name="cl_period" type="list" default="2" label="X_CLPERIOD_CALC">
+				<option value="1">XML_OPT_STARTONPAYMENT</option>
+				<option value="2">XML_OPT_STARTONENDEXISTING</option>
+			</field>
+		</fieldset>
+		<fieldset name="period2" label="X_ORPERIOD">
+			<field name="date_from" type="calendar" filter="user_utc" format="%Y-%m-%d %H:%M:%S" label="X_DATEFROM" description="X_DATEFROM_DESCR"/>
+			<field name="date_to" type="calendar" filter="user_utc" format="%Y-%m-%d %H:%M:%S" label="X_DATETO" description="X_DATETO_DESCR"/>
+		</fieldset>
+		<fieldset name="period3" label="X_ORPERIOD">
+			<field name="date_fixed" type="list" label="X_PERIODPRES">
+				<option value="0">XML_OPT_SELECTPERIOD</option>
+				<option value="1">XML_OPT_PERIOD1</option>
+				<option value="2">XML_OPT_PERIOD2</option>
+				<option value="3">XML_OPT_PERIOD3</option>
+				<option value="4">XML_OPT_PERIOD4</option>
+				<option value="5">XML_OPT_PERIOD5</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="grant" label="X_GRANT" description="X_GRANTDESC">
+			<field id="grant_reg" name="grant_reg" type="mradio" label="EGRANT_REG" description="EGRANT_REG_DESCR" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field id="grant_new" name="grant_new" type="mradio" label="EGRANT_NEW" description="EGRANT_NEW_DESCR" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="granturl" type="text" label="X_GRANTURL" default=""/>
+		</fieldset>
+
+		<fieldset name="donation" label="X_DONATION" description="X_DONATION_DESCR">
+			<field id="donation" name="donation" type="mradio" label="X_DONATION_ENABLE" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="donation_max_price" type="text" label="X_DONATION_MAX_PRICE" />
+			<field name="donation_step" type="text" label="X_DONATION_STEP" description="X_DONATION_STEP_DESCR" default="5"/>
+			<field id="donation_manual" name="donation_manual" type="mradio" label="X_DONATION_MANUAL" class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="properties" label="X_PROPERTIES" addfieldpath="/administrator/components/com_content/models/fields/modal">
+			<field name="fields" type="emfields" multiple="true" label="X_EMFIELDS"/>
+			<field id="invisible" name="invisible" type="mradio" label="EINVISIBLE" class="btn-group inputbox"
+				   default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field id="invisible_in_history" name="invisible_in_history" type="mradio" label="EINVISIBLEINHISTORY"
+				   class="btn-group inputbox" default="0">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="muaccess" type="text" label="X_MUACCESS" description="X_MUACCESS_DESCR"/>
+			<field name="redirect" type="text" label="X_REDIRECTTO" description="X_REDIRECTTO_DESCR"/>
+			<field name="redirect_fail" type="text" label="X_REDIRECTTOFAIL" description="X_REDIRECTTO_DESCR"/>
+			<field name="terms" type="modal_article" label="X_TERMSOFSERVICE" description="X_TERMSOFSERVICEDESCR"/>
+		</fieldset>
+	</fields>
+
+	<fields name="descriptions">
+		<fieldset name="descriptions" label="X_DESCRIPTIONS">
+			<field name="description" type="editor" label="X_PLANDESCR" filter="safehtml"
+				   hide="article,readmore,pagebreak"/>
+			<field name="description_history" type="editor" label="X_PLANDESCR_HISTORY" description="X_PLANDESCR_HISTORY_DESCR" filter="safehtml"
+				   hide="article,readmore,pagebreak"/>
+		</fieldset>
+	</fields>
+
+	<fields name="crossplans" addfieldpath="/libraries/mint/forms/fields/">
+
+		<fieldset name="crossplans_require" label="X_CROSSPLAN_REQUIRE" description="X_CROSSPLAN_REQUIRE_DESCR">
+			<field name="req_plans" type="planslist" multiple="multiple" class="inputbox" size="7" label="X_CROSSPLAN_REQ"/>
+			<field name="required" type="list" default="0" label="X_REQUIRED" description="X_REQUIRED_DESCR">
+				<option value="0">X_NOT</option>
+				<option value="1">X_YESOR</option>
+				<option value="2">X_YESAND</option>
+			</field>
+			<field name="required_behave" type="mradio" class="btn-group" default="0" label="X_REQUIREDBEHAVE" description="X_REQUIREDBEHAVE_DESCR">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="crossplans_upgrade" label="X_CROSSPLAN_UPGRADE" description="X_CROSSPLAN_UPGRADE_DESCR">
+			<field name="ud_plans" type="planslist" multiple="multiple" class="inputbox" size="7" label="EPLANS"/>
+			<field name="ud_price_step" type="text" default="1" label="X_UPGRADE_STEP" description="X_UPGRADE_STEP_DESCR" />
+		</fieldset>
+
+		<fieldset name="crossplans" label="X_CROSSPLAN_SETTINGS" description="X_PLAN_TO_CROSS_DESCR">
+			<field name="plan_price" type="planslist" multiple="multiple" current="1" size="7" label="X_PLAN_TO_CROSS"/>
+			<field name="method" type="list" default="none" label="X_RECALC_PRICE" description="X_RECALC_PRICE_DESCR">
+				<option value="or">X_SUBSTRACT_EXPENSIVE</option>
+				<option value="and">X_SUBSTRACT_SUM_OF_ALL</option>
+				<option value="disc">X_SUBSTRACT_SUM_DSCK</option>
+				<option value="fix">X_SUBSTRACT_SUM_FIX</option>
+			</field>
+			<field name="plan_price_active" type="mradio" class="btn-group" default="0" label="X_CROSS_PRICE_ACTIVE">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field name="plan_price_discount" type="text" default="20" label="X_CROSSPLAN_PRICE_DSCOUNT"/>
+		</fieldset>
+
+
+		<fieldset name="crossplans_deactivated" label="X_DEACTIVATE_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_DIACTIVATE_DESCR">
+			<field name="plans_deactivate" type="planslist" multiple="multiple" size="7" current="1" label="X_CROSSPLAN_TO_DIACTIVATE"/>
+		</fieldset>
+		<fieldset name="crossplans_hide" label="X_HIDE_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_HIDE_DESCR">
+			<field name="plans_hide" type="planslist" multiple="multiple" size="7" label="X_CROSSPLAN_TO_HIDE"/>
+			<field name="plans_hide_active" type="mradio" class="btn-group" default="0" label="X_CROSS_HIDE_ACTIVE">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="crossplans_grant" label="X_GRANT_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_GRANT_DESCR">
+			<field name="grant_plans" type="planslist" multiple="multiple" size="7"
+				   label="X_CROSSPLAN_TO_GRANT"/>
+			<field name="show_grant" type="mradio" class="btn-group" default="1" label="X_SHOWPLANS_FRONTEND"
+				   description="X_SHOWPLANS_FRONTEND_DESCR">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+		</fieldset>
+
+		<fieldset name="crossplans_period" label="X_PERIOD_CROSSPLANS_SETTINGS" description="X_PERIOD_CROSSPLAN_DESCR">
+			<field name="cp_plans" type="planslist" multiple="multiple" size="7" label="X_PERIOD_CROSSPLAN"/>
+		</fieldset>
+	</fields>
+
+	<fields name="alerts">
+		<fieldset name="messages" description="E_MESSAGES" label="E_ALERTSMSG">
+			<field name="msg_successful_sbj" type="text" label="X_MSG_SUCCESSFUL_SBJ" default="Subscription created successfully"/>
+			<field name="msg_successful" type="editor" filter="safehtml" label="X_SUCCESSFUL_ALERT" hide="article,pagebreak,readmore"/>
+
+			<field name="msg_fail_sbj" type="text" label="X_MSG_FAIL_SBJ" default="Subscription created but not yet active"/>
+			<field name="msg_fail" type="editor" filter="safehtml" label="X_FAIL_ALERT" hide="article,pagebreak,readmore"/>
+
+			<field name="msg_expiration_sbj" type="text" label="X_MSG_EXPIRATION_SBJ" default="Your subscription is just about to expire in %d days"/>
+			<field name="msg_expiration" type="editor" filter="safehtml" label="X_EXPIRATION_ALERT" hide="article,pagebreak,readmore"/>
+
+			<field name="msg_cancel_sbj" type="text" label="X_MSG_CANCEL_SBJ" default="Your subscription has been canceled"/>
+			<field name="msg_cancel" type="editor" filter="safehtml" label="X_CANCEL_ALERT" hide="article,pagebreak,readmore"/>
+		</fieldset>
+		<fieldset name="alerts" label="X_ALERTS">
+			<field name="alert_enable_success" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLSUCCESS">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="alert_enable_fail" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLFAIL">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="alert_enable_expire" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLEXPIRE">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="alert_enable_cancel" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLCANSEL">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field label="EMR_EXPIREALERTBEFORE" name="general_expire" type="text" size="15" default="10,5" description="EMR_EXPIREALERTBEFORE_DESCR"/>
+			<field name="extra_emails" type="text" label="X_EXTRA_ADMIN_ALERT_EMAIL" description="X_EXTRA_ADMIN_ALERT_EMAILDESCR"/>
+			<field name="send_as" type="mradio" class="btn-group" default="html" label="X_SEND_AS">
+				<option value="text">ETEXT</option>
+				<option value="html">EHTML</option>
+			</field>
+		</fieldset>
+	</fields>
+</form>

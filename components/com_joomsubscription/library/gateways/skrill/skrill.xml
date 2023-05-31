@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Skrill (Moneybookers)</name>
+	<config>
+		<fields name="skrill">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay with moneybookers" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/skrill" hide_default="1" default="skrill.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS">
+				<field name="pay_to_email" size="50" type="text" default="" label="SK_EMAIL" />
+				<field name="secret" size="50" type="text" default="" label="Secret word as in your Skrill account" />
+                <field name="currency" type="list" default="USD" label="SK_CURRENCY">
+                    <option value="USD">U.S. Dollars (USD)</option>
+                    <option value="EUR">Euros (EUR)</option>
+                    <option value="GBP">Pounds Sterling (GBP)</option>
+                    <option value="HKD">Hong Kong Dollars (HKD)</option>
+                    <option value="SGD">Singapore Dollars (SGD)</option>
+                    <option value="JPY">Yen (JPY)</option>
+                    <option value="CAD">Canadian Dollars (CAD)</option>
+                    <option value="AUD">Australian Dollars (AUD)</option>
+                    <option value="CHF">Swiss Francs (CHF)</option>
+                    <option value="DKK">Danish Kroner (DKK)</option>
+                    <option value="SEK">Swedish Kronor (SEK)</option>
+                    <option value="NOK">Norwegian Kroner (NOK)</option>
+                    <option value="ILS">Israeli Shekel (ILS)</option>
+                    <option value="MYR">Malaysian Ringgit (MYR)</option>
+                    <option value="NZD">New Zealand Dollars (NZD)</option>
+                    <option value="TRY">New Turkish Lira (TRY)</option>
+                    <option value="AED">Utd. Arab Emir. Dirham (AED)</option>
+                    <option value="MAD">Moroccan Dirham (MAD)</option>
+                    <option value="QAR">Qatari Rial (QAR)</option>
+                    <option value="SAR">Saudi Riyal (SAR)</option>
+
+
+                    <option value="TWD">Taiwan Dollar (TWD)</option>
+                    <option value="THB">Thailand Baht (THB)</option>
+                    <option value="CZK">Czech Koruna (CZK)</option>
+                    <option value="HUF">Hungarian Forint (HUF)</option>
+                    <option value="SKK">Slovakian Koruna (SKK)</option>
+                    <option value="EEK">Estonian Kroon (EEK)</option>
+                    <option value="BGN">Bulgarian Leva (BGN)</option>
+                    <option value="PLN">Polish Zloty (PLZ)</option>
+                    <option value="ISK">Iceland Krona (ISK)</option>
+                    <option value="INR">Indian Rupee (INR)</option>
+                    <option value="LVL">Latvian Lat (LVL)</option>
+                    <option value="KRW">South-Korean Won (KRW)</option>
+                    <option value="ZAR">South-African Rand (ZAR)</option>
+                    <option value="RON">Romanian Leu New (RON)</option>
+                    <option value="HRK">Croatian Kuna (HRK)</option>
+                    <option value="LTL">Lithuanian Litas (LTL)</option>
+                    <option value="JOD">Jordanian Dinar (JOD)</option>
+                    <option value="OMR">Omani Rial (OMR)</option>
+                    <option value="RSD">Serbian dinar (RSD)</option>
+                    <option value="TND">Tunisian Dinar (TND)</option>
+                </field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

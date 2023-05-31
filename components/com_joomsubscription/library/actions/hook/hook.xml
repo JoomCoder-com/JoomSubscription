@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_HOOK</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_HOOK_DESCR">
+        	<field name="hook_active" label="X_HOOK_ACTIVE" type="text" />
+        	<field name="hook_disactive" label="X_HOOK_DISACTIVE" type="text" />
+        	<field name="hook_method" default="post" label="X_HOOK_METHOD" type="list" >
+        		<option value="post">X_POST</option>
+        		<option value="get">X_GET</option>
+        	</field>
+
+        	<field name="plan_id" label="X_HOOK_PLANID" default="plan_id" type="text" />
+        	<field name="user_id" label="X_HOOK_USERID" default="user_id" type="text" />
+        	<field name="user_subscr_id" label="X_HOOK_USERSUBSCRID" default="user_subscr_id" type="text" />
+        	<field name="price" label="X_HOOK_PRICE" default="price" type="text" />
+        	<field name="gateway_id" label="X_HOOK_GATEWAYID" default="gateway_id" type="text" />
+        	<field name="gateway" label="X_HOOK_GATEWAY" default="gateway" type="text" />
+        	<field name="start_date" label="X_HOOK_START_DATE" default="start_date" type="text" />
+        	<field name="end_date" label="X_HOOK_END_DATE" default="end_date" type="text" />
+
+        	<field name="username" label="X_HOOK_USERNAME" default="username" type="text" />
+        	<field name="name" label="X_HOOK_NAME" default="name" type="text" />
+        	<field name="email" label="X_HOOK_EMAIL" default="email" type="text" />
+
+        	<field name="headers" label="X_HOOK_HEADERS" type="textarea" cols="25" rows="5"/>
+        </fieldset>
+    </fields>
+</form>

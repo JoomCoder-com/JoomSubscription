@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset label="EM_TAB_GENERAL" name="General">
+		<field label="E_WHOMODERATE" name="moderate" type="accesslevel" default="3"/>
+		<field label="E_POWERED" name="copyright" type="radio" class="btn-group" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field label="E_TEMPLATEPREFIX" name="tmpl_prefix" type="radio" class="btn-group" default="">
+			<option value="">Default (Bootstrap 2)</option>
+			<option value="t3">T3 (Bootstrap 3)</option>
+			<option value="warp">Warp (UI-KIT)</option>
+			<option value="gantry">Gantry (Gantry-style)</option>
+			<option value="b4">BS 4</option>
+		</field>
+		<field label="E_DATEFORMAT" name="date_format" type="list" default="l, F d, Y">
+			<option value="h:i A, l, d F Y">12:00 AM, Tuesday, 30 December 2007</option>
+			<option value="h:i A, l, F d, Y">12:00 AM, Tuesday, December 30, 2007</option>
+			<option value="Y-m-d h:i">2007-01-30 12:00</option>
+			<option value="l, d F Y">Tuesday, 30 December 2007</option>
+			<option value="l, F d, Y">Tuesday, December 30, 2007</option>
+			<option value="d F Y">30 December 2007</option>
+			<option value="F d, Y">December 30, 2007</option>
+			<option value="d M Y">30 Dec 2007</option>
+			<option value="M d, Y">Dec 30, 2007</option>
+			<option value="d.m.y">30.12.07</option>
+			<option value="m.d.y">12.30.17</option>
+			<option value="d-m-y">30-12-07</option>
+			<option value="m-d-y">12-30-07</option>
+			<option value="d/m/y">30/12/07</option>
+			<option value="m/d/y">12/30/07</option>
+			<option value="Y年m月d日">2015年12月31日</option>
+		</field>
+		<field name="iid_history" type="menuitem" label="E_HISTORYIID" description="E_HISTORYIID_DESCR">
+			<option value="">- Current -</option>
+		</field>
+		<field name="iid_list" type="menuitem" label="E_LISTIID" description="E_LISTIID_DESCR">
+			<option value="">- Current -</option>
+		</field>
+		<field label="E_ACTIVATE" description="E_ACTIVATEDESCR" name="activate" type="radio" class="btn-group" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<!--<field label="E_COMPATIBILITY" description="E_COMPATIBILITYDESCR" name="compatibility" type="radio" class="btn-group" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field label="E_COMPATEXCLUDE" name="compatibility_exclude" type="list" multiple="true" class="btn-group" default="">
+			<option value="emhistory">EM_OPT_SUBHISTORY</option>
+			<option value="emlist">EM_OPT_SUBLIST</option>
+			<option value="empayment">EM_OPT_PAYMENTCONF</option>
+		</field>-->
+
+		<field label="E_LOGIN_URL" name="general_login_url" type="text" default="index.php?option=com_users&amp;view=login"/>
+		<field name="cron_key" type="text" default="" size="40" label="E_CRONSECRETWORD"/>
+		<field label="E_PR_DEC" name="price_dec" type="list" class="btn-group" default="2">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</field>
+		<field name="price_sep" type="text" default="," size="2" label="E_PR_SEPR"/>
+		<field name="price_point" type="text" default="." size="2" label="E_PR_POINT"/>
+	</fieldset>
+
+	<fieldset label="EM_TAB_INV" name="Invoice" addfieldpath="/components/com_joomsubscription/models/fields/">
+		<field label="E_USEINVOICE" name="use_invoice" type="radio" class="btn-group" default="0">
+			<option value="0">JNO</option>
+			<option value="1">EM_YES_REQ</option>
+			<option value="2">EM_YES_OPTIONAL</option>
+		</field>
+		<field label="E_VIESREG" name="vies" type="radio" class="btn-group" default="0">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field label="E_VATREG" name="vat" type="radio" class="btn-group" default="0">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field label="E_TAXREC" name="tax_id_rec" type="radio" class="btn-group" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="name" type="text" default="" size="40" label="E_INVOICE_NAME"/>
+		<field name="logo" type="media" default="" size="40" label="E_INVOICE_LOGO"/>
+		<field id="country" name="country" type="emcountry" label="E_INVOICE_COUNTRY" required="true" class="inputbox"/>
+		<field name="address" type="textarea" default="" size="40" label="E_INVOICE_ADDRESS"/>
+		<field name="tax_id" type="text" default="" size="40" label="E_INVOICE_TAX_ID"/>
+		<field name="phone" type="text" default="" size="40" label="E_INVOICE_PHONE"/>
+		<field id="country_id" name="country_limit" type="emcountryl" label="E_CONLIMIT" multiple="1"/>
+	</fieldset>
+</config>

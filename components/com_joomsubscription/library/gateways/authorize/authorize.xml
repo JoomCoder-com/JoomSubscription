@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Authorize.net</name>
+	<config>
+		<fields name="authorize">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay through Authorize.net" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/authorize" hide_default="1" default="authorize.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS">
+				<field name="x_login" size="50" type="text" default="" label="A_LOGIN" />
+				<field name="transaction" size="50" type="text" default="" label="A_TRANSACTION_ID" />
+				<field name="md5hash" type="text" default="" label="A_MD5" description="A_MD5_DESCR" />
+				<field name="currency" type="list" default="USD" label="CO_CURRENCY">
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="USD">U.S. Dollars (USD)</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" label="EMR_ERROR_LOG" default="0">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

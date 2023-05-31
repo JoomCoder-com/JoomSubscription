@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="EM_PURCHASE">
+        <message>EM_PURCHASE_DESCR</message>
+    </layout>
+    <fields name="params">
+        <fieldset name="form" label="EM_GENERAL_SETTINGS" addfieldpath="/components/com_joomsubscription/models/fields">
+            <field name="groups" type="groupslist" all="1" multiple="multiple" label="EM_PLAN_GROUPS" description="EM_PLAN_GROUPS_PURCHASE"/>
+			<field name="link" type="radio" class="btn-group" label="EM_SHOW_ALLP" default="1" description="EM_SHOW_ALLP_DESCR">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</field>
+        </fieldset>
+    </fields>
+</metadata>

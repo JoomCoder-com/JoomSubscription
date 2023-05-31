@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_K2GROUP</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_K2GROUP_DESCR" addfieldpath="/components/com_joomsubscription/library/actions/k2group/elements/">
+			<field name="group_active" label="X_K2GROUP_ACTIVE" type="k2group"/>
+			<field name="group_disactive" label="X_K2GROUP_DISACTIVE" default="1" type="radio" class="btn-group">
+				<option value="0">X_NO</option>
+				<option value="1">X_YES</option>
+			</field>
+			<field name="message" label="X_K2GROUP_MSG" type="text" default="You have been assigned special user group %s"/>
+		</fieldset>
+	</fields>
+</form>

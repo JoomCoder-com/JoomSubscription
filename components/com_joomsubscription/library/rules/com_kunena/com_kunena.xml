@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_RULE_KUNENAS</name>
+	<fields name="rule">
+		<fieldset name="rule" description="KUN_RULE_DESC" addfieldpath="/library/kunena/form/fields">
+			<field name="cats" type="kunenacategorylist" multiple="true" label="KUN_ACCESS"/>
+			<field name="inlist" type="radio" class="btn-group" default="1" label="KUN_ACCESS_LIST">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="submit" type="kunenacategorylist" multiple="true" label="KUN_SUBMIT"/>
+			<field name="replay" type="kunenacategorylist" multiple="true" label="KUN_REPLY"/>
+		</fieldset>
+		<fieldset name="core" label="EM_CORE">
+			<field name="count_limit_mode" type="radio" class="btn-group" default="0" label="EM_COUNT_USAGE">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="message" type="text" multiple="true" label="EM_RESCR_MSG" default="You cannot post on Kunena forum"/>
+		</fieldset>
+	</fields>
+</form>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_JSPT</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_JSPT_DESCR" addfieldpath="/components/com_joomsubscription/library/actions/jspt/fields">
+
+			<field name="profile_active" label="ACT_JSPT_PROFILE" type="jsptprofile"/>
+			<field name="profile_remove" label="ACT_JSPT_REMOVE" default="1" type="radio" class="btn-group">
+				<option value="0">X_NO</option>
+				<option value="1">X_YES</option>
+			</field>
+			<field name="profile_deactive" label="ACT_JSPT_UNPROFILE" type="jsptprofile"/>
+			<field name="profile_template" label="ACT_JSPT_TMPL" default="joomsocial" type="text"/>
+		</fieldset>
+	</fields>
+</form>

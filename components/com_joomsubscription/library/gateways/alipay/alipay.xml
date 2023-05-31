@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>AliPay</name>
+	<config>
+		<fields name="alipay">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay with AliPay" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/alipay" hide_default="1" default="alipay.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
+
+                <field name="partner" type="text" label="AP_PARTNER"/>
+                <field name="key" type="text" label="AP_KEY"/>
+                <field name="email" type="text" label="AP_EMAIL"/>
+                <field name="cert" type="text" default="/components/com_joomsubscription/library/gateways/alipay/cacert.pem" label="AP_CERT" description="AP_CERT_DESCR"/>
+				<field name="service" type="list" default="" label="AP_SERVICE">
+					<option value="create_partner_trade_by_buyer">create_partner_trade_by_buyer</option>
+					<option value="create_direct_pay_by_user">create_direct_trade_by_user</option>
+					<option value="create_forex_trade">create_forex_trade</option>
+				</field>
+				<field name="currency" type="list" default="USD" label="AP_CURRENCY">
+					<option value="RMB">Chinese Yuan (RMB)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="JPY">Yen (JPY)</option>
+                    <option value="EUR">Euros (EUR)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="NZD">New Zealand Dollars (NZD)</option>
+					<option value="RUB">Russian Ruble (RUB)</option>
+					<option value="MOP">Macau Pataca (MOP)</option>
+				</field>
+
+
+				<field name="charset" type="list" default="utf-8" label="AP_CHARSET">
+					<option value="gbk">GBK</option>
+					<option value="utf-8">UTF-8</option>
+				</field>
+				<field name="transport" type="list" default="https" label="AP_TRANSPORT">
+					<option value="http">HTTP</option>
+					<option value="https">HTTPS</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

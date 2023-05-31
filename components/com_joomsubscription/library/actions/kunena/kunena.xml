@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_KUNENA</name>
+	<fields name="action">
+		<fieldset name="action" description="ACT_KUNENA_DESCR" addfieldpath="/components/com_joomsubscription/library/actions/kunena/elements/">
+			<field name="rank_active" label="X_KUNENA_ACTIVE" type="kunenaranks"/>
+			<field name="rank_disactive" label="X_KUNENA_DISACTIVE" default="1" type="radio" class="btn-group">
+				<option value="0">X_NO</option>
+				<option value="1">X_YES</option>
+			</field>
+			<field name="message" label="X_KUNENA_MSG" type="text" default="You have been assigned special rank on the forum %s"/>
+		</fieldset>
+	</fields>
+</form>

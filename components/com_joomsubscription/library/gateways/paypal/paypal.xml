@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>PayPal</name>
+	<config>
+		<fields name="paypal">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay with paypal" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/paypal" hide_default="1" default="2co1.gif" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+			<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
+				<field name="email" type="text" label="PP_ACOUNT"/>
+				<field name="lc" type="text" default="US" label="PP_LANG" description="PP_LANG_DESCR">
+					<option value="AU">Australia</option>
+					<option value="AT">Austria</option>
+					<option value="BE">Belgium</option>
+					<option value="BR">Brazil</option>
+					<option value="CA">Canada</option>
+					<option value="CH">Switzerland</option>
+					<option value="CN">China</option>
+					<option value="DE">Germany</option>
+					<option value="ES">Spain</option>
+					<option value="GB">United Kingdom</option>
+					<option value="FR">France</option>
+					<option value="IT">Italy</option>
+					<option value="NL">Netherlands</option>
+					<option value="PL">Poland</option>
+					<option value="PT">Portugal</option>
+					<option value="RU">Russia</option>
+					<option value="US">United States</option>
+				</field>
+				<field name="currency" type="list" default="USD" label="PP_CURRENCY">
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="EUR">Euros (EUR)</option>
+					<option value="GBP">Pounds Sterling (GBP)</option>
+					<option value="CAD">Canadian Dollars (CAD)</option>
+					<option value="JPY">Yen (JPY)</option>
+					<option value="AUD">Australian Dollars (AUD)</option>
+					<option value="NZD">New Zealand Dollars (NZD)</option>
+					<option value="CHF">Swiss Francs (CHF)</option>
+					<option value="HKD">Hong Kong Dollars (HKD)</option>
+					<option value="SGD">Singapore Dollars (SGD)</option>
+					<option value="SEK">Swedish Kronor (SEK)</option>
+					<option value="DKK">Danish Kroner (DKK)</option>
+					<option value="PLN">Polish Zloty (PLN)</option>
+					<option value="NOK">Norwegian Kroner (NOK)</option>
+					<option value="HUF">Hungarian Forint (HUF)</option>
+					<option value="CZK">Czech Koruna (CZK)</option>
+					<option value="RUB">Russian Ruble (RUB)</option>
+					<option value="TRY">Turkish Lira (TRY)</option>
+				</field>
+				<field name="tax" type="text" default="0.00" label="PP_TAX"/>
+				<field name="tax_rate" type="text" default="0" label="PP_TAXRATE"/>
+				<field name="ship" type="list" class="btn-group" label="PP_SHIP" default="1">
+					<option value="0">PP_SHIP_1</option>
+					<option value="1">PP_SHIP_2</option>
+					<option value="2">PP_SHIP_3</option>
+				</field>
+			</fieldset>
+			<fieldset name="rec" label="PP_RECURRENT">
+				<field name="recurred" type="radio" class="btn-group" default="0" label="PP_RECURRING">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="recurred_times" type="text" label="PP_RECURRING_TIMES" description="PP_RECURRING_TIMES_DESCR" size="5"/>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="sandbox" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>

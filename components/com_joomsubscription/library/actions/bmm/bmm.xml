@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_ACTION_BMM</name>
+	<fields name="action">
+        <fieldset name="action" description="ACT_BMM_DESCR"   addfieldpath="/components/com_joomsubscription/library/actions/bmm/elements/">
+			<field name="api_key" type="text" label="PLG_USER_BMM_FIELD_APIKEY_LABEL"/>
+			<field name="api_pass" type="text" label="PLG_USER_BMM_FIELD_APIPASS_LABEL"/>
+			<field name="list_id" type="bmmlists" label="PLG_USER_BMM_FIELD_APIDEL_LABEL"/>
+			<field name="deactivate" label="PLG_USER_BMM_FIELD_DESACT_LABEL" default="0" type="list">
+				<option value="0">PLG_USER_BMM_FIELD_DESACT_OPT0</option>
+				<option value="1">PLG_USER_BMM_FIELD_DESACT_OPT1</option>
+				<option value="2">PLG_USER_BMM_FIELD_DESACT_OPT2</option>
+				<option value="3">PLG_USER_BMM_FIELD_DESACT_OPT3</option>
+			</field>
+			<field name="move_id" type="bmmlists" label="PLG_USER_BMM_FIELD_MOVE_LABEL"/>
+			<field name="msg" type="text" label="PLG_USER_BMM_FIELD_MSG_LABEL"/>
+        </fieldset>
+    </fields>
+</form>

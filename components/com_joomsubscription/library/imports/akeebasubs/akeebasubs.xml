@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<name>EMR_IMPORT_AKS</name>
+	<description>EMR_IMPORT_AKS_DESCR</description>
+	<icon>akeebasubs.png</icon>
+	<fields name="params" />
+ </form>

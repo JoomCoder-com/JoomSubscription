@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gateway>
+	<name>Paysera</name>
+	<config>
+		<fields name="paysera">
+			<fieldset name="general">
+				<field name="enable" type="radio" class="btn-group" default="0" label="E_ENABLE" description="E_ENABLEGATEWAY">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="label" size="50" type="text" default="Pay through paysera" label="ELABEL" description="E_LABEDESCR"/>
+				<field name="image" type="imagelist" directory="/components/com_joomsubscription/library/gateways/paysera" hide_default="1" default="paysera.png" label="EIMAGE" description="PARAMIMAGE"/>
+			</fieldset>
+
+			<fieldset name="settings" label="ESETTINGS" addfieldspath="/components/com_joomsubscription/models/fields/">
+				<field name="projectid" type="text" default="" label="PS_PROTECTID"/>
+				<field name="sign_password" type="text" default="" label="PS_SIGNPASS"/>
+				<field name="currency" type="list" default="USD" label="PS_CURRENCY">
+					<option value="EUR">Euros (EUR)</option>
+					<option value="USD">U.S. Dollars (USD)</option>
+					<option value="LTL">Lithuanian Litas (LTL)</option>
+				</field>
+				<field name="lang" type="list" default="LIT" label="PS_LANG">
+					<option value="LIT">LIT</option>
+					<option value="LAV">LAV</option>
+					<option value="EST">EST</option>
+					<option value="RUS">RUS</option>
+					<option value="ENG">ENG</option>
+					<option value="GER">GER</option>
+					<option value="POL">POL</option>
+				</field>
+			</fieldset>
+			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
+				<field name="demo" type="radio" class="btn-group" default="0" label="EMR_DEMOMODE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</gateway>
+

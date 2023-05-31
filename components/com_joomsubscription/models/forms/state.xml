@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field id="id" name="id" type="text" default="0" label="JGLOBAL_GROUP_ID_LABEL" readonly="true" class="readonly" />
+	<field id="country" name="country" type="emcountry" label="ECOUNTRY" required="true" />
+	<field id="state" name="state" type="text" label="ESTATE" class="inputbox" required="true" />
+	<field id="label" name="label" type="text" label="ELABEL" class="inputbox" required="true" />
+
+</form>
