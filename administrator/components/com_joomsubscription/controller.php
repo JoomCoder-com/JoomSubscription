@@ -9,7 +9,7 @@
 defined('_JEXEC') or die();
 
 jimport('joomla.application.component.controller');
-class JoomsubscriptionController extends JControllerLegacy
+class JoomsubscriptionController extends Joomla\CMS\MVC\Controller\BaseController
 {
 	function __construct()
 	{

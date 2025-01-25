@@ -18,7 +18,7 @@ class JoomsubscriptionViewEmList extends MViewBase
 		$model = $this->getModel();
 		$user = JFactory::getUser();
 
-		$this->mparams = ($app->getMenu()->getActive() ? $app->getMenu()->getActive()->params : new JRegistry());
+		$this->mparams = ($app->getMenu()->getActive() ? $app->getMenu()->getActive()->getParams() : new JRegistry());
 		$this->_prepareDocument();
 
 		$plan_ids = $app->input->getString('id', false);

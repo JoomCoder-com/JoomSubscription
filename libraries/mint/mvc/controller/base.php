@@ -7,6 +7,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
+use Joomla\CMS\MVC\Controller\BaseController;
+use Joomla\Filesystem\Path;
+
 defined('JPATH_PLATFORM') or die;
 
 /**
@@ -274,7 +277,8 @@ class MControllerBase extends JObject
 		}
 
 		// Get the controller class name.
-		$class = ucfirst($prefix) . 'Controller' . ucfirst($type);
+		$class = ucfirst((string)$prefix) . 'Controller' . ucfirst((string)$type);
+
 
 		// Include the class if not present.
 		if (!class_exists($class))
@@ -332,8 +336,7 @@ class MControllerBase extends JObject
 
 		$this->input = JFactory::getApplication()->input;
 
-		// Determine the methods to exclude from the base class.
-		$xMethods = get_class_methods('JControllerBase');
+        $xMethods = get_class_methods(BaseController::class);
 
 		// Get the public methods in this class using reflection.
 		$r = new ReflectionClass($this);
@@ -447,25 +450,20 @@ class MControllerBase extends JObject
 	 */
 	protected function addPath($type, $path)
 	{
-		// Just force path to array
-		settype($path, 'array');
+        if (!isset($this->paths[$type])) {
+            $this->paths[$type] = [];
+        }
 
-		if (!isset($this->paths[$type]))
-		{
-			$this->paths[$type] = array();
-		}
+        // Loop through the path directories
+        foreach ((array) $path as $dir) {
+            // No surrounding spaces allowed!
+            $dir = rtrim(Path::check($dir), '/') . '/';
 
-		// Loop through the path directories
-		foreach ($path as $dir)
-		{
-			// No surrounding spaces allowed!
-			$dir = rtrim(JPath::check($dir, '/'), '/') . '/';
+            // Add to the top of the search dirs
+            array_unshift($this->paths[$type], $dir);
+        }
 
-			// Add to the top of the search dirs
-			array_unshift($this->paths[$type], $dir);
-		}
-
-		return $this;
+        return $this;
 	}
 
 	/**

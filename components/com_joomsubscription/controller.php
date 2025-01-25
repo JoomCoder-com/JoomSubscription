@@ -43,8 +43,8 @@ class JoomsubscriptionController extends MControllerBase
 			{
 				$session = JFactory::getSession();
 				$session->set('try_this_plan', $sid);
-				JError::raiseWarning(100, JText::_('EMR_REDIRECT'));
-				$redirect = JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url') .
+				\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_REDIRECT'),'warning');
+				$redirect = JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url','index.php?option=com_users&view=login') .
 					'&return=' . urlencode(base64_encode(JUri::getInstance()->toString())), FALSE);
 			}
 		}
@@ -59,7 +59,7 @@ class JoomsubscriptionController extends MControllerBase
 		)
 		{
 			$app->enqueueMessage(JText::_('EMR_REDIRECT'), 'warning');
-			$redirect = JFactory::getURI()->base();
+			$redirect = \Joomla\CMS\Uri\Uri::base();
 		}
 
 		if($redirect)
