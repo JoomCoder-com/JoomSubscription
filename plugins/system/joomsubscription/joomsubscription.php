@@ -18,7 +18,7 @@ class plgSystemJoomsubscription extends JPlugin
 {
 	function onAfterRoute()
 	{
-		if(JFactory::getApplication()->isAdmin())
+		if(JFactory::getApplication()->isClient('administrator'))
 		{
 			return;
 		}
@@ -193,7 +193,7 @@ class plgSystemJoomsubscription extends JPlugin
 	{
 		$app = Jfactory::getApplication();
 
-		if($app->isAdmin())
+		if($app->isClient('administrator'))
 		{
 			return;
 		}

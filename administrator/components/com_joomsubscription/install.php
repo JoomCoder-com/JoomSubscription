@@ -295,7 +295,7 @@ class com_joomsubscriptionInstallerScript
 				}
 				foreach($source->fields AS $field)
 				{
-					if($source->primary == $field->name)
+					if(isset($source->primary) && $source->primary == $field->name)
 					{
 						continue;
 					}
