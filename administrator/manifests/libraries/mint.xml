@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="library" method="upgrade" version="3.0">
+	<name>Cobalt - Package - Library</name>
+	<libraryname>mint</libraryname>
+	<author>MintJoomla</author>
+	<creationDate>November 2012</creationDate>
+	<copyright>Copyright (C) 2012</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@mintjoomla.com</authorEmail>
+	<authorUrl>www.mintjoomla.com</authorUrl>
+	<version>9.30</version>
+	<description>
+    <![CDATA[
+	This is MintJoomla - Cobal t8 Library Pack
+	]]>
+	</description>
+	<files folder="mint">
+		<folder>Markdown</folder>
+		<folder>forms</folder>
+		<folder>image_processing</folder>
+		<folder>vendors</folder>
+		<folder>qrcode</folder>
+		<folder>mvc</folder>
+		<filename>resizeimage.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+	</files>
+</extension>
+
