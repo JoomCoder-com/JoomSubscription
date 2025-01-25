@@ -7,6 +7,9 @@
  * @copyright Copyright (C) 2012 JoomCoder (https://www.joomcoder.com/). All rights reserved.
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
+
+use Joomla\CMS\HTML\HTMLHelper;
+
 defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.mail.helper');
@@ -20,8 +23,8 @@ jimport('mint.mvc.view.base');
 jimport('mint.helper');
 jimport('mint.forms.helper');
 
-JHtml::_('bootstrap.framework');
-JHtml::_('behavior.framework');
+//JHtml::_('bootstrap.framework');
+//HTMLHelper::_('bootstrap.framework');
 
 $app = JFactory::getApplication();
 

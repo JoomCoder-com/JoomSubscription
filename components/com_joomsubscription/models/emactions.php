@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionModelsEmActions extends JModelBase
+class JoomsubscriptionModelsEmActions extends Joomla\CMS\MVC\Model\BaseModel
 {
 	public function getActionList()
 	{

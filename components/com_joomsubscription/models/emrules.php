@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionModelsEmRules extends JModelBase
+class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 {
 	public function getAdapters()
 	{

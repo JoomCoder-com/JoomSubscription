@@ -9,6 +9,6 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionModelsEmSelector extends JModelBase implements JModel
+class JoomsubscriptionModelsEmSelector extends Joomla\CMS\MVC\Model\BaseModel
 {
 }

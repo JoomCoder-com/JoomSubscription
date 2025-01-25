@@ -262,7 +262,7 @@ class JoomsubscriptionHelper
 		return $db->loadObject();
 	}
 
-	public static function getLastUserActiveSubscription($user_id = FALSE, $plan_id)
+	public static function getLastUserActiveSubscription($user_id, $plan_id)
 	{
 		if(!$user_id)
 		{
@@ -1248,7 +1248,7 @@ class JoomsubscriptionHelper
 	static public function loadHead()
 	{
 		$document = JFactory::getDocument();
-		if(!JFactory::getApplication()->isAdmin())
+		if(!JFactory::getApplication()->isClient('administrator'))
 		{
 			$document->addScript(JRoute::_('index.php?option=com_joomsubscription&task=emajax.mainJS&Itemid=1'));
 		}

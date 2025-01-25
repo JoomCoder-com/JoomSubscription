@@ -6,7 +6,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionViewsEMInvoiceToHtml extends JViewHtml
+class JoomsubscriptionViewsEMInvoiceToHtml extends Joomla\CMS\MVC\View\HtmlView
 {
 	function render()
 	{

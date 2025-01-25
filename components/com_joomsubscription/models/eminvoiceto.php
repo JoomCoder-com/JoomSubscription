@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionModelsEmInvoiceTo extends JModelBase
+class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 {
 	public function getList($user_id = null)
 	{

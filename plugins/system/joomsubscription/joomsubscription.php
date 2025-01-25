@@ -198,12 +198,12 @@ class plgSystemJoomsubscription extends JPlugin
 			return;
 		}
 
-		$body = JResponse::getBody();
+		$body = \Joomla\CMS\Factory::getApplication()->getBody();
 
 		$body = self::_searchPAID($body);
 		$body = self::_searchUNPAID($body);
 
-		JResponse::setBody($body);
+        \Joomla\CMS\Factory::getApplication()->setBody($body);
 
 	}
 
