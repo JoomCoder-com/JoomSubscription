@@ -62,7 +62,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 			}
 
 			$days = explode(',', $plan->params->get('alerts.general_expire'));
-			JArrayHelper::toInteger($days);
+			\Joomla\Utilities\ArrayHelper::toInteger($days);
 			sort($days);
 
 			foreach($days as $day)

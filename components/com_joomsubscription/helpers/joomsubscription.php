@@ -60,7 +60,7 @@ class JoomsubscriptionHelper
 
 		$grant = $plan->params->get('crossplans.grant_plans');
 		settype($grant, 'array');
-		JArrayHelper::toInteger($grant);
+		\Joomla\Utilities\ArrayHelper::toInteger($grant);
 
 		if(!empty($grant))
 		{
@@ -81,7 +81,7 @@ class JoomsubscriptionHelper
 
 		$unpublish = $plan->params->get('crossplans.plans_deactivate');
 		settype($unpublish, 'array');
-		JArrayHelper::toInteger($unpublish);
+		\Joomla\Utilities\ArrayHelper::toInteger($unpublish);
 
 		if($plan->upgrade_from > 0)
 		{
@@ -160,7 +160,7 @@ class JoomsubscriptionHelper
 
 		if($toint)
 		{
-			JArrayHelper::toInteger($out);
+			\Joomla\Utilities\ArrayHelper::toInteger($out);
 		}
 
 		return $out;

@@ -38,7 +38,7 @@ class JoomsubscriptionRuleCom_hwdmediashare extends JoomsubscriptionRule
 			if(preg_match("/{JOOMSUBSCRIPTION P=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$plan_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				JArrayHelper::toInteger($plan_ids);
+				\Joomla\Utilities\ArrayHelper::toInteger($plan_ids);
 				if(in_array($this->plan_id, $plan_ids))
 				{
 					return TRUE;

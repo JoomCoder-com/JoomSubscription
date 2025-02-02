@@ -79,13 +79,13 @@ class JoomsubscriptionModelEMUsers extends MModelList
 
 		$groups = json_decode(base64_decode($app->input->get('groups', '', 'default', 'BASE64')));
 		if (isset($groups)) {
-			JArrayHelper::toInteger($groups);
+			\Joomla\Utilities\ArrayHelper::toInteger($groups);
 		}
 		$this->setState('filter.groups', $groups);
 
 		$excluded = json_decode(base64_decode($app->input->get('excluded', '', 'default', 'BASE64')));
 		if (isset($excluded)) {
-			JArrayHelper::toInteger($excluded);
+			\Joomla\Utilities\ArrayHelper::toInteger($excluded);
 		}
 		$this->setState('filter.excluded', $excluded);
 

@@ -200,7 +200,7 @@ class JoomsubscriptionTableEmSubscription extends JTable
 			$last[] = $this->plan_id;
 		}
 
-		JArrayHelper::toInteger($last);
+		\Joomla\Utilities\ArrayHelper::toInteger($last);
 
 		$db->setQuery("SELECT UNIX_TIMESTAMP(NOW())");
 		$start = $db->loadResult();

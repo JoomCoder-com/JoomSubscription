@@ -263,7 +263,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 				'access_limit'      => 0,
 				'access_count'      => 0,
 				'access_count_mode' => 0,
-				'note'              => JArrayHelper::getValue($cp, 'notes'),
+				'note'              => \Joomla\Utilities\ArrayHelper::getValue($cp, 'notes'),
 
 				'invoice_num'       => $invoice->invoice_number_format,
 				'gateway_id'        => $invoice->invoice_number,

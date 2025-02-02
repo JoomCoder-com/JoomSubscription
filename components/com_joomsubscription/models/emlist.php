@@ -43,7 +43,7 @@ class JoomsubscriptionModelEmList extends MModelList
 				{
 					$id = explode(',', $id);
 				}
-				JArrayHelper::toInteger($id);
+				\Joomla\Utilities\ArrayHelper::toInteger($id);
 				$id = implode(',', $id);
 				if($app->input->getInt('revert', 0) == 1)
 				{

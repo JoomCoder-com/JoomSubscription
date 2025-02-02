@@ -77,7 +77,7 @@ class JoomsubscriptionApi
 	{
 		settype($plans, 'array');
 		$plans = array_unique($plans);
-		JArrayHelper::toInteger($plans);
+		\Joomla\Utilities\ArrayHelper::toInteger($plans);
 
 		if(empty($plans))
 		{

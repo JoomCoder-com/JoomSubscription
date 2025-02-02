@@ -106,7 +106,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 			if(preg_match("/{JOOMSUBSCRIPTION U=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$user_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				//JArrayHelper::toInteger($user_ids);
+				//\Joomla\Utilities\ArrayHelper::toInteger($user_ids);
 				if(in_array($user->id, $user_ids))
 				{
 					return TRUE;
@@ -116,7 +116,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 			if(preg_match("/{JCSBOT USER=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$user_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				//JArrayHelper::toInteger($user_ids);
+				//\Joomla\Utilities\ArrayHelper::toInteger($user_ids);
 				if(in_array($user->id, $user_ids))
 				{
 					return TRUE;
@@ -129,7 +129,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 			if(preg_match("/{JOOMSUBSCRIPTION P=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$plan_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				//JArrayHelper::toInteger($plan_ids);
+				//\Joomla\Utilities\ArrayHelper::toInteger($plan_ids);
 				if(in_array($this->plan_id, $plan_ids))
 				{
 					return TRUE;
@@ -139,7 +139,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 			if(preg_match("/{JCSBOT SUBSCRIPTION=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$plan_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				//JArrayHelper::toInteger($plan_ids);
+				//\Joomla\Utilities\ArrayHelper::toInteger($plan_ids);
 				if(in_array($this->plan_id, $plan_ids))
 				{
 					return TRUE;

@@ -117,7 +117,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 	{
 		$user = $this->_getUser();
 
-		return JArrayHelper::getValue($user, 'id', 0, 'INT');
+		return \Joomla\Utilities\ArrayHelper::getValue($user, 'id', 0, 'INT');
 	}
 
 	private function _getUser()

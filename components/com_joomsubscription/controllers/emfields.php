@@ -23,8 +23,8 @@ class JoomsubscriptionControllerEmFields extends MControllerAdmin
 		$order = $this->input->post->get('order', array(), 'array');
 
 		// Sanitize the input
-		JArrayHelper::toInteger($pks);
-		JArrayHelper::toInteger($order);
+		\Joomla\Utilities\ArrayHelper::toInteger($pks);
+		\Joomla\Utilities\ArrayHelper::toInteger($order);
 
 		// Get the model
 		$model = $this->getModel();
