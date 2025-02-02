@@ -25,10 +25,32 @@ class JoomsubscriptionViewAbout extends JViewLegacy
 	{
 		$this->addToolbar();
 
-		$file = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'joomsubscription.xml';
-		$data = JApplicationHelper::parseXMLInstallFile($file);
 
-		$this->data    = $data;
+		// Path to the XML manifest file
+		$file = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'joomsubscription.xml';
+
+		// Check if the file exists
+		if (!file_exists($file)) {
+			throw new InvalidArgumentException('The specified file does not exist.');
+		}
+
+		// Load and parse the XML file
+		$xmlContent = simplexml_load_file($file);
+
+		if (!$xmlContent) {
+			throw new RuntimeException('Failed to load and parse the XML file.');
+		}
+
+		// Extract relevant data from the XML
+		$this->data = [
+			'version'      => (string) $xmlContent->version ?? '',
+			'author'       => (string) $xmlContent->author ?? '',
+			'authorEmail'  => (string) $xmlContent->authorEmail ?? '',
+			'authorUrl'    => (string) $xmlContent->authorUrl ?? '',
+			'copyright'    => (string) $xmlContent->copyright ?? '',
+			'description'  => (string) $xmlContent->description ?? '',
+		];
+
 		$this->sidebar = JHtmlSidebar::render();
 
 		parent::display($tpl);

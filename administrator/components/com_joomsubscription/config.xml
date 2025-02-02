@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<fieldset label="EM_TAB_GENERAL" name="General">
-		<field label="E_WHOMODERATE" name="moderate" type="accesslevel" default="3"/>
+		<field label="E_WHOMODERATE" name="moderate" type="accesslevel" default="6"/>
 		<field label="E_POWERED" name="copyright" type="radio" class="btn-group" default="1">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
