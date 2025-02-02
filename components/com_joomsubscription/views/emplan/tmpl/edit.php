@@ -66,8 +66,8 @@ JHtml::_('dropdown.init');
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active" id="page-general">
-			<div class="row-fluid">
-				<div class="span7">
+			<div class="row">
+				<div class="col-7">
 					<div class="control-group">
 						<div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
 						<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
@@ -94,25 +94,25 @@ JHtml::_('dropdown.init');
 					</div>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'main', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				</div>
-				<div class="span5">
+				<div class="col-5">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'period', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'period2', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'period3', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				</div>
 			</div>
-			<div class="control-group row-fluid">
+			<div class="control-group row">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'descriptions', $this->item->params, 'descriptions',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 			</div>
 		</div>
 
 		<div class="tab-pane" id="page-prop">
-			<div class="row-fluid">
-				<div class="span7">
+			<div class="row">
+				<div class="col-7">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'limits', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'properties', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'rds', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				</div>
-				<div class="span5">
+				<div class="col-5">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'grant', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'donation', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				</div>
@@ -157,14 +157,14 @@ JHtml::_('dropdown.init');
 		</div>
 
 		<div class="tab-pane" id="page-cross-plans">
-			<div class="row-fluid">
-				<div class="span6">
+			<div class="row">
+				<div class="col-6">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_period', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_deactivated', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_hide', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				</div>
-				<div class="span6">
+				<div class="col-6">
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_require', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_grant', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_upgrade', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
@@ -174,7 +174,7 @@ JHtml::_('dropdown.init');
 
 
 		<div class="tab-pane" id="page-alerts">
-			<div class="row-fluid">
+			<div class="row">
 				<?php echo MFormHelper::renderFieldset($this->params_form, 'alerts', $this->item->params, 'alerts',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
 				<?php echo MFormHelper::renderFieldset($this->params_form, 'messages', $this->item->params, 'alerts', MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_CLASSIC); ?>
 			</div>

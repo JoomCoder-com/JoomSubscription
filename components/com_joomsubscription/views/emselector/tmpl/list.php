@@ -49,8 +49,8 @@ defined('_JEXEC') or die();
 	</small>
 
 	<?php foreach($plans AS $item): ?>
-		<div class="row-fluid plan-list">
-			<div class="span9">
+		<div class="row plan-list">
+			<div class="col-9">
 				<h3>
 					<?php echo $item->name; ?>
 					<small>
@@ -81,7 +81,7 @@ defined('_JEXEC') or die();
 					</small>
 				</div>
 			</div>
-			<div class="span3 plan-price">
+			<div class="col-3 plan-price">
 				<?php echo JoomsubscriptionApi::getPrice($item->price, $item->params); ?>
 				<?php if($item->total > $item->price): ?>
 					<br>

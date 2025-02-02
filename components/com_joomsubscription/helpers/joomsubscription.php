@@ -1236,15 +1236,6 @@ class JoomsubscriptionHelper
 		return $out[$key];
 	}
 
-	static public function copyright()
-	{
-		if(!JComponentHelper::getParams('com_joomsubscription')->get('copyright', 1))
-		{
-			return;
-		}
-		echo '<div style="text-align: center;"><small>' . JText::_('EMR_POWERED') . '</small></div>';
-	}
-
 	static public function loadHead()
 	{
 		$document = JFactory::getDocument();

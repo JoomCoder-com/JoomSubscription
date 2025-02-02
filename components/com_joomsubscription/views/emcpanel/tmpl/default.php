@@ -43,81 +43,81 @@ ul.unstyled {
     </h1>
 </div>
 <hr />
-<div class="row-fluid">
-    <div class="span12">
+<div class="row">
+    <div class="col-12">
         <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONS'); ?></h3>-->
-        <div class="row-fluid">
-            <div class="cpbut span2">
+        <div class="row">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/sales.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emsales') ?>">
                     <?php echo JText::_('ESUBSCRIPTIONS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emplans') ?>">
                     <?php echo JText::_('EPLANS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/groups.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emgroups') ?>">
                     <?php echo JText::_('EGROUPS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/fields.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emfields') ?>">
                     <?php echo JText::_('EFIELDS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/coupons.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emcoupons') ?>">
                     <?php echo JText::_('ECOUPONS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/taxes.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emtaxes') ?>">
                     <?php echo JText::_('ETAXES') ?>
                 </a>
             </div>
         </div>
-        <div class="row-fluid">
+        <div class="row">
             <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONSUSER'); ?></h3>-->
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/purchase.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emlist') ?>">
                     <?php echo JText::_('EPLUNLIST') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/history.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emhistory') ?>">
                     <?php echo JText::_('EPLUNHISTORY') ?>
                 </a>
             </div>
             <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONSTOOLS'); ?></h3>-->
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/states.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emstates') ?>">
                     <?php echo JText::_('ESTATES') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/analytics.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>">
                     <?php echo JText::_('EANALYTICS') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/import.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emimports') ?>">
                     <?php echo JText::_('EIMPORT') ?>
                 </a>
             </div>
-            <div class="cpbut span2">
+            <div class="cpbut col-2">
                 <a target="_blank" style="background-image: url(<?php echo JUri::
 root(true); ?>/components/com_joomsubscription/images/cpanel/support.png)" href="https://www.joomcoder.com/support/community-forum/category-items/6-community-forum/52-joomsubscription-9.html">
                     <?php echo JText::_('ESUPPORT') ?>
@@ -125,7 +125,7 @@ root(true); ?>/components/com_joomsubscription/images/cpanel/support.png)" href=
             </div>
         </div>
     </div>
-    <div class="span12">
+    <div class="col-12">
     <hr />
     <?php if ($this->data): ?>
 	<div id="chart" style="width:100%; height:300px;"></div>

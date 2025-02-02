@@ -31,8 +31,8 @@ defined('_JEXEC') or die('Restricted access');
 <div class="alert alert-success">
 	<?php echo JText::_('EM_NOSAVEACT'); ?>
 </div>
-<div class="row-fluid">
-	<div class="span5">
+<div class="row">
+	<div class="col-5">
 		<div id="actions-list">
 			<?php foreach($this->actions AS $action): ?>
 				<div class="alert alert-info" data-action-id="<?php echo $action->id; ?>">
@@ -42,7 +42,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="span7">
+	<div class="col-7">
 		<legend><?php echo JText::_('E_ADD_ACTION') ?></legend>
 		<p>
 			<small><?php echo JText::_('EMR_NEW_ACTION'); ?></small>

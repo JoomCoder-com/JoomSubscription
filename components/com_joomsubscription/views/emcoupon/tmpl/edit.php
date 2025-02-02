@@ -44,8 +44,8 @@ JHtml::_('formbehavior.chosen', 'select');
 		<?php endif;?>
 	</h1>
 </div>
-	<div class="row-fluid">
-		<div class="span7">
+	<div class="row">
+		<div class="col-7">
 			<fieldset class="adminform">
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>

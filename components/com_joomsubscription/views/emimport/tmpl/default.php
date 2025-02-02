@@ -41,8 +41,8 @@ $fieldset = $this->import->form->getFieldset();
 		</div>
 	</div>
 	</div>
-	<div class="row-fluid">
-		<div class="span6">
+	<div class="row">
+		<div class="col-6">
 			<p>
 				<?php echo $this->import->description; ?>
 			</p>

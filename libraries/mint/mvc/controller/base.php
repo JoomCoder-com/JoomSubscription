@@ -700,7 +700,7 @@ class MControllerBase extends JObject
 	{
 		$this->task = $task;
 
-		$task = strtolower($task);
+		$task = strtolower((string)$task);
 		if (isset($this->taskMap[$task]))
 		{
 			$doTask = $this->taskMap[$task];

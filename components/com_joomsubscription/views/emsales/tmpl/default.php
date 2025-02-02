@@ -39,7 +39,7 @@ $userId = $user->get('id');
 		</h1>
 	</div>
 	<div class="clearfix"></div>
-	<div class="row-fluid">
+	<div class="row">
 		<div class="btn-group pull-left hidden-phone">
 			<?php echo JHtml::_('select.genericlist', $this->model->getGroups(TRUE), 'filter_group', 'onchange="this.form.submit()"', 'value', 'text', $this->escape($this->state->get('group_id')), FALSE, TRUE); ?>
 		</div>

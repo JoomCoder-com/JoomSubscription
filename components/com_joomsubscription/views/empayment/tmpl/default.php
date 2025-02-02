@@ -256,8 +256,8 @@ $total = $this->plan->total;
 
 				<div class="controls">
 					<?php if($this->user->get('id')): ?>
-						<div class="row-fluid">
-							<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="span12"', 'value', 'text', JFactory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
+						<div class="row">
+							<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', JFactory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
 						</div>
 
 						<div id="invoice_data" class="hide"></div>

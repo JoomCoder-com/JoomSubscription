@@ -45,8 +45,8 @@ $width = round(100 / count($plans), 2);
 </style>
 <br>
 <?php foreach($plans AS $item):?>
-	<div class="row-fluid plan-list">
-		<div class="span8">
+	<div class="row plan-list">
+		<div class="col-8">
 			<h3>
 				<?php echo $item->name;?>
 				<small>
@@ -77,7 +77,7 @@ $width = round(100 / count($plans), 2);
 				</small>
 			</div>
 		</div>
-		<div class="span4 plan-price">
+		<div class="col-4 plan-price">
 			<?php if($item->is_donation): ?>
 				<small class="em-min"><?php echo JText::_('EMINIMUM'); ?></small>
 			<?php endif; ?>

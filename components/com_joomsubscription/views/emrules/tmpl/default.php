@@ -31,8 +31,8 @@ defined('_JEXEC') or die('Restricted access');
 <div class="alert alert-success">
 	<?php echo JText::_('EM_NOSAVERULE'); ?>
 </div>
-<div class="row-fluid">
-	<div class="span5">
+<div class="row">
+	<div class="col-5">
 		<div id="rules-list">
 			<?php foreach($this->rules AS $rule): ?>
 				<div class="alert alert-info" data-rule-id="<?php echo $rule->id; ?>">
@@ -42,7 +42,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="span7">
+	<div class="col-7">
 		<legend><?php echo JText::_('E_ADD_RULE') ?></legend>
 		<p>
 			<small><?php echo JText::_('EMR_NEW_RULE'); ?></small>

@@ -20,7 +20,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 <form action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emusers&layout=modal&tmpl=component&groups='.JRequest::getVar('groups', '', 'default', 'BASE64').'&excluded='.JRequest::getVar('excluded', '', 'default', 'BASE64'));?>" method="post" name="adminForm" id="adminForm">
 	<div class="controls">
 		<div class="input-append">
-			<input class="span3" type="text" name="filter_search"	id="filter_search" value="<?php echo $this->state->get('filter.search'); ?>"/>
+			<input class="col-3" type="text" name="filter_search"	id="filter_search" value="<?php echo $this->state->get('filter.search'); ?>"/>
 			<button class="btn" type="submit" rel="tooltip" data-original-title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>">
 				<img src="<?php echo JUri::root(true);?>/components/com_joomsubscription/images/magnifier.png" align="absmiddle">
 			</button>

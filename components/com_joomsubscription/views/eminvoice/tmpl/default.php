@@ -164,7 +164,7 @@ defined('_JEXEC') or die('Restricted access');
 			</tr>
 		</table>
 
-		<div class="row-fluid">
+		<div class="row">
 			<span class="order-item"><?php echo JText::_('E_ORDER_ITEM') ?></span>
 			<table class="table table-bordered table-items table-condensed">
 				<thead>

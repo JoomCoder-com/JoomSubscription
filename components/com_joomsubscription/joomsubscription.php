@@ -27,5 +27,3 @@ include_once __DIR__.'/api.php';
 $controller = MControllerBase::getInstance('Joomsubscription');
 $controller->execute($app->input->getCmd('task'));
 $controller->redirect();
-
-JoomsubscriptionHelper::copyright();

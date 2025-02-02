@@ -9,8 +9,8 @@ JHtml::_('formbehavior.chosen', 'select');
 <br/>
 <div class="container-fluid">
 	<form action="<?php echo JUri::getInstance()->toString(); ?>" method="post">
-		<div class="row-fluid">
-			<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="span12"', 'value', 'text', JFactory::getApplication()->input->get('invoice')); ?>
+		<div class="row">
+			<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', JFactory::getApplication()->input->get('invoice')); ?>
 		</div>
 		<div id="invoice_data" class="hide"></div>
 		<button type="submit" class="btn btn-primary btn-large" id="apply-btn"><?php echo JText::_('EAPPLY'); ?></button>
