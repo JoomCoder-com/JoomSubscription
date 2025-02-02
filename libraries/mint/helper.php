@@ -8,13 +8,22 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
+use Joomla\CMS\Filter\InputFilter;
+
 defined('JPATH_PLATFORM') or die;
 
 class Mint
 {
 	static function _($text, $default = NULL, $jsSafe = FALSE, $interpretBackSlashes = TRUE, $script = FALSE)
 	{
-		$key   = strtoupper(JFilterInput::getInstance(NULL, NULL, 1, 1)->clean(strip_tags($text), 'cmd'));
+		// Initialize the InputFilter instance
+		$inputFilter = InputFilter::getInstance();
+
+// Clean the input text by stripping tags and sanitizing it as a command
+		$cleanedText = $inputFilter->clean(strip_tags($text), 'cmd');
+
+// Convert the cleaned text to uppercase
+		$key = strtoupper($cleanedText);
 		$trans = JText::_($key, $jsSafe, $interpretBackSlashes, $script);
 
 		if($key === $trans)

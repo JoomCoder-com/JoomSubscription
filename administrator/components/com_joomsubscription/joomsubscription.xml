@@ -7,7 +7,7 @@
 	<license>GPL GNU</license>
 	<authorEmail>support@mintjoomla.com</authorEmail>
 	<authorUrl>https://www.joomcoder.com/</authorUrl>
-	<version>10.107</version>
+	<version>##VERSION##</version>
 	<scriptfile>install.php</scriptfile>
 	<files folder="site">
 		<filename>api.php</filename>

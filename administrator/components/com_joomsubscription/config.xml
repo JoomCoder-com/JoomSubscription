@@ -83,7 +83,7 @@
 		</field>
 		<field name="name" type="text" default="" size="40" label="E_INVOICE_NAME"/>
 		<field name="logo" type="media" default="" size="40" label="E_INVOICE_LOGO"/>
-		<field id="country" name="country" type="emcountry" label="E_INVOICE_COUNTRY" required="true" class="inputbox"/>
+		<field id="country" name="country" type="emcountry" label="E_INVOICE_COUNTRY" required="true" />
 		<field name="address" type="textarea" default="" size="40" label="E_INVOICE_ADDRESS"/>
 		<field name="tax_id" type="text" default="" size="40" label="E_INVOICE_TAX_ID"/>
 		<field name="phone" type="text" default="" size="40" label="E_INVOICE_PHONE"/>

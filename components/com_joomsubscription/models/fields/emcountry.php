@@ -13,7 +13,7 @@ jimport('mint.helper');
 JFormHelper::loadFieldClass('list');
 jimport('mint.helper');
 
-class JFormFieldEmCountry extends JFormFieldList
+class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField
 {
 	/**
 	 * The form field type.
