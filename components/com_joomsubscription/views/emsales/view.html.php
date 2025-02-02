@@ -92,10 +92,10 @@ class JoomsubscriptionViewEmSales extends MViewBase
 		$this->appParams = $app->getParams();
 
 		// Check for empty title and add site name if param is set
-		$menu = $menus->getActive();
+		$menu = $app->getMenu()->getActive();
 		if ($menu)
 		{
-			$title .= ' - '.$menu->params->get('page_title', $menu->title);
+			$title .= ' - '.$menu->getParams()->get('page_title', $menu->title);
 			$this->appParams->def('page_heading', $title);
 		}
 		if (empty($title)) {

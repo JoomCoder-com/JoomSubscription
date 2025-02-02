@@ -54,7 +54,7 @@ JRoute::_('index.php?option=com_joomsubscription&view=emsales') ?>">
                 </a>
             </div>
             <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png)" href="<?php echo
+                <a class="pb-5" style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png)" href="<?php echo
 JRoute::_('index.php?option=com_joomsubscription&view=emplans') ?>">
                     <?php echo JText::_('EPLANS') ?>
                 </a>
