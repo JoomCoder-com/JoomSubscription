@@ -46,83 +46,109 @@ ul.unstyled {
 <div class="row">
     <div class="col-12">
         <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONS'); ?></h3>-->
-        <div class="row">
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/sales.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emsales') ?>">
-                    <?php echo JText::_('ESUBSCRIPTIONS') ?>
+        <div class="row mb-3">
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/sales.png"/>
+                    </span>
+	                <?php echo JText::_('ESUBSCRIPTIONS') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a class="pb-5" style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emplans') ?>">
-                    <?php echo JText::_('EPLANS') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emplans') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png"/>
+                    </span>
+			        <?php echo JText::_('EPLANS') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/groups.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emgroups') ?>">
-                    <?php echo JText::_('EGROUPS') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emgroups') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/groups.png"/>
+                    </span>
+			        <?php echo JText::_('EGROUPS') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/fields.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emfields') ?>">
-                    <?php echo JText::_('EFIELDS') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emfields') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/fields.png"/>
+                    </span>
+			        <?php echo JText::_('EFIELDS') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/coupons.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emcoupons') ?>">
-                    <?php echo JText::_('ECOUPONS') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emcoupons') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/coupons.png"/>
+                    </span>
+			        <?php echo JText::_('ECOUPONS') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/taxes.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emtaxes') ?>">
-                    <?php echo JText::_('ETAXES') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emtaxes') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/taxes.png"/>
+                    </span>
+			        <?php echo JText::_('ETAXES') ?>
                 </a>
             </div>
+
         </div>
-        <div class="row">
-            <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONSUSER'); ?></h3>-->
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/purchase.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emlist') ?>">
-                    <?php echo JText::_('EPLUNLIST') ?>
+        <div class="row mb-3">
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emlist') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/purchase.png"/>
+                    </span>
+			        <?php echo JText::_('EPLUNLIST') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/history.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emhistory') ?>">
-                    <?php echo JText::_('EPLUNHISTORY') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emhistory') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/history.png"/>
+                    </span>
+			        <?php echo JText::_('EPLUNHISTORY') ?>
                 </a>
             </div>
-            <!--<h3 class="uk-panel-title"><?php echo JText::_('EMCPQUIKICONSTOOLS'); ?></h3>-->
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/states.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emstates') ?>">
-                    <?php echo JText::_('ESTATES') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emstates') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/states.png"/>
+                    </span>
+			        <?php echo JText::_('ESTATES') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/analytics.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>">
-                    <?php echo JText::_('EANALYTICS') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/analytics.png"/>
+                    </span>
+			        <?php echo JText::_('ESTATES') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a style="background-image: url(<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/import.png)" href="<?php echo
-JRoute::_('index.php?option=com_joomsubscription&view=emimports') ?>">
-                    <?php echo JText::_('EIMPORT') ?>
+
+            <div class="col-2 text-center">
+                <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emimports') ?>">
+                    <span class="d-block">
+                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/import.png"/>
+                    </span>
+			        <?php echo JText::_('EIMPORT') ?>
                 </a>
             </div>
-            <div class="cpbut col-2">
-                <a target="_blank" style="background-image: url(<?php echo JUri::
-root(true); ?>/components/com_joomsubscription/images/cpanel/support.png)" href="https://www.joomcoder.com/support/community-forum/category-items/6-community-forum/52-joomsubscription-9.html">
-                    <?php echo JText::_('ESUPPORT') ?>
-                </a>
-            </div>
+
         </div>
     </div>
     <div class="col-12">
@@ -190,100 +216,114 @@ root(true); ?>/components/com_joomsubscription/images/cpanel/support.png)" href=
 <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>" class="btn btn-success btn-mini"><?php echo
 JText::_('EMOREDETAILS') ?></a>
 <?php endif; ?>
-<hr />
-<div class="uk-panel">
-    <h3 class="uk-panel-title"><?php echo JText::_('ELASTSUBSCR'); ?></h3>
-    <table class="table table-condensed table-striped table-subscr">
-        <?php foreach ($this->latest as $subscription): ?>
-        <tr>
-            <td width="20">
-                <img data-uk-tooltip title="<?php echo JText::_($subscription->
-state); ?>" src="<?php echo
-JUri::root(true); ?>/components/com_joomsubscription/images/<?php echo
-$subscription->img; ?>" alt="" /><br />
-                <small><?php echo $subscription->id; ?></small>
-            </td>
-            <td>
-                <?php echo JText::_($subscription->name); ?>
-                <br />
-                <small><?php echo $subscription->username; ?></small>
-            </td>
-            <td width="1%" nowrap="nowrap">
-                <small>
-                    <?php echo $subscription->gateway; ?>
-                    <br />
-                    <?php echo $subscription->gateway_id; ?>
-                </small>
-            </td>
-            <td width="1%" nowrap="nowrap" align="right">
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?php echo JText::_('ELASTSUBSCR'); ?></h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-condensed table-striped table-subscr">
+		            <?php foreach ($this->latest as $subscription): ?>
+                        <tr>
+                            <td width="20">
+                                <img data-uk-tooltip title="<?php echo JText::_($subscription->
+					            state); ?>" src="<?php echo
+					            JUri::root(true); ?>/components/com_joomsubscription/images/<?php echo
+					            $subscription->img; ?>" alt="" /><br />
+                                <small><?php echo $subscription->id; ?></small>
+                            </td>
+                            <td>
+					            <?php echo JText::_($subscription->name); ?>
+                                <br />
+                                <small><?php echo $subscription->username; ?></small>
+                            </td>
+                            <td width="1%" nowrap="nowrap">
+                                <small>
+						            <?php echo $subscription->gateway; ?>
+                                    <br />
+						            <?php echo $subscription->gateway_id; ?>
+                                </small>
+                            </td>
+                            <td width="1%" nowrap="nowrap" align="right">
                 <span class="subscr-date"><?php echo JoomsubscriptionHelper::
-getFormattedDate($subscription->purchased, 'd M H:i'); ?></span><br />
-                <div class="pull-right <?php echo $subscription->price > 0 ?
-'price-pos' : 'price-neg'; ?>">
-                    <?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
-params); ?>
-                </div>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-</div>
+	                getFormattedDate($subscription->purchased, 'd M H:i'); ?></span><br />
+                                <div class="pull-right <?php echo $subscription->price > 0 ?
+						            'price-pos' : 'price-neg'; ?>">
+						            <?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
+						            params); ?>
+                                </div>
+                            </td>
+                        </tr>
+		            <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+
+
 <?php if ($this->activate): ?>
-<div class="uk-panel uk-panel-box">
-    <h3 class="uk-panel-title"><?php echo JText::_('ENOTACTIVESUBSCR'); ?> <span class="badge badge-important"><?php echo
-count($this->activate); ?></span></h3>
-    <div class="uk-alert uk-alert-danger uk-alert-small">
-        <small>
-					<?php echo JText::_('EADTIVATEDESCR'); ?>
-				</small>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="uk-panel-title"><?php echo JText::_('ENOTACTIVESUBSCR'); ?> <span class="badge badge-important"><?php echo
+			        count($this->activate); ?></span></h3>
+        </div>
+        <div class="card-header">
+            <div class="uk-alert uk-alert-danger uk-alert-small">
+                <small>
+			        <?php echo JText::_('EADTIVATEDESCR'); ?>
+                </small>
+            </div>
+            <form action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales'); ?>" method="post" id="activate-form">
+                <table class="table table-condensed table-striped table-subscr">
+			        <?php foreach ($this->activate as $subscription): ?>
+                        <tr valign="top">
+                            <td width="1%">
+						        <?php echo $subscription->id; ?>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn btn-activate btn-mini btn-primary" data-subscr-id="<?php echo
+						        $subscription->id; ?>">
+							        <?php echo JText::_('EACTIVATE'); ?>
+                                </a>
+						        <?php echo JText::_($subscription->name); ?>
+                                <br />
+                                <small><?php echo $subscription->username; ?> [<b><?php echo
+								        $subscription->user_id; ?></b>]</small>
+                            </td>
+                            <td width="1%" nowrap="nowrap">
+                                <small>
+							        <?php echo $subscription->gateway; ?>
+                                    <br /><?php echo $subscription->gateway_id; ?>
+                                </small>
+                            </td>
+                            <td width="1%" nowrap="nowrap" align="right">
+						        <?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
+						        params); ?>
+                            </td>
+                            <td width="1%" nowrap="nowrap"><img src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/exclamation-diamond.png" alt="" /></td>
+                        </tr>
+			        <?php endforeach; ?>
+                </table>
+                <input type="hidden" name="cid[]" value="" />
+                <input type="hidden" name="return" value="cpanel" />
+                <input type="hidden" name="task" value="emsales.publish" />
+		        <?php echo JHtml::_('form.token'); ?>
+            </form>
+            <script type="text/javascript">
+                (function($) {
+                    $.each($('.btn-activate'), function(k, v) {
+                        $(v).click(function() {
+                            $('input[name^="cid"]').val($(v).data('subscr-id'));
+                            $('#activate-form').submit();
+                        });
+                    });
+                }(jQuery))
+            </script>
+        </div>
+        </div>
     </div>
-    <form action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales'); ?>" method="post" id="activate-form">
-        <table class="table table-condensed table-striped table-subscr">
-            <?php foreach ($this->activate as $subscription): ?>
-            <tr valign="top">
-                <td width="1%">
-                    <?php echo $subscription->id; ?>
-                </td>
-                <td>
-                    <a href="javascript:void(0);" class="btn btn-activate btn-mini btn-primary" data-subscr-id="<?php echo
-$subscription->id; ?>">
-                        <?php echo JText::_('EACTIVATE'); ?>
-                    </a>
-                    <?php echo JText::_($subscription->name); ?>
-                    <br />
-                    <small><?php echo $subscription->username; ?> [<b><?php echo
-$subscription->user_id; ?></b>]</small>
-                </td>
-                <td width="1%" nowrap="nowrap">
-                    <small>
-									<?php echo $subscription->gateway; ?>
-									<br /><?php echo $subscription->gateway_id; ?>
-								</small>
-                </td>
-                <td width="1%" nowrap="nowrap" align="right">
-                    <?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
-params); ?>
-                </td>
-                <td width="1%" nowrap="nowrap"><img src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/exclamation-diamond.png" alt="" /></td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <input type="hidden" name="cid[]" value="" />
-        <input type="hidden" name="return" value="cpanel" />
-        <input type="hidden" name="task" value="emsales.publish" />
-        <?php echo JHtml::_('form.token'); ?>
-    </form>
-			<script type="text/javascript">
-				(function($) {
-					$.each($('.btn-activate'), function(k, v) {
-						$(v).click(function() {
-							$('input[name^="cid"]').val($(v).data('subscr-id'));
-							$('#activate-form').submit();
-						});
-					});
-				}(jQuery))
-			</script>
-</div>
+
+
 <?php endif; ?>
         </div>
     </div>
