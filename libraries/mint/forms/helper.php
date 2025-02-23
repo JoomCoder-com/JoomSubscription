@@ -290,13 +290,13 @@ class MFormHelper
 			$tag  = $lang->getTag();
 			if($tag != 'en-GB')
 			{
-				if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_emerald_gateway_{$gateway}.ini"))
+				if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_gateway_{$gateway}.ini"))
 				{
 					$tag == 'en-GB';
 				}
 			}
 
-			$lang->load('com_emerald_gateway_' . $gateway, JPATH_ROOT, $tag, TRUE);
+			$lang->load('com_-+_gateway_' . $gateway, JPATH_ROOT, $tag, TRUE);
 
 			$xml    = new SimpleXMLElement($file, NULL, TRUE);
 			$params = new JForm($gateway, array('control' => 'params[gateways]'));

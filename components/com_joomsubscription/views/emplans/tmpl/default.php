@@ -51,22 +51,24 @@ if ($saveOrder)
 <?php echo $this->menu->render(null); ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emplans');?>" method="post" name="adminForm" id="adminForm">
-	<div class="page-header">
-		<div class="input-append pull-right">
-			<input type="text" placeholder="<?php echo JText::_('CFILTER_SEARCH_PLANSDESC'); ?>" style="margin-left: 5px;" name="filter_search" id="filter_search" value="<?php echo $this->state->get('filter.search'); ?>" />
 
-			<button rel="tooltip" class="btn" type="submit" data-original-title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
-			<button rel="tooltip" class="btn" type="button" onclick="document.getElementById('filter_search').value='';this.form.submit();" data-original-title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>"><i class="icon-remove"></i></button>
-		</div>
-		<h1>
+    <?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.common.pageHeader',['title' => 'COM_JOOMSUBSCRIPTION_PLANS']); ?>
 
-			<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png">
-			<?php echo JText::_('COM_JOOMSUBSCRIPTION_PLANS'); ?>
-		</h1>
-	</div>
+
+    <div class="border rounded p-3">
+        <div class="row">
+            <div class="col-md-8">
+	            <?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.list.actionButtons',[]); ?>
+            </div>
+            <div class="col-md-4">
+			    <?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.list.search',['filterName' => 'search','current' => $this]); ?>
+            </div>
+
+        </div>
+    </div>
+
+
 	<div id="j-main-container">
-		<?php echo $this->buttons->render(null); ?>
-		<div class="clearfix"></div>
 		<table class="table table-striped" id="plansList">
 			<thead>
 				<tr>
