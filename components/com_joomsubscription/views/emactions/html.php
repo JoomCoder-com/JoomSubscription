@@ -8,12 +8,12 @@ defined('_JEXEC') or die('Restricted access');
 
 class JoomsubscriptionViewsEmActionsHtml extends Joomla\CMS\MVC\View\HtmlView
 {
-	function render()
+	function display($tpl = null)
 	{
 		$this->model = new JoomsubscriptionModelsEmActions();
 		$this->actions = $this->model->getActions($this->plan->id);
 
-		return parent::render();
+		parent::display();
 	}
 	function getName()
 	{

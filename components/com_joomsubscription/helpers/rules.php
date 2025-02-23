@@ -16,17 +16,17 @@ class JoomsubscriptionRulesHelper
 {
 	public static function rules_form($plan)
 	{
-		$paths = new SplPriorityQueue;
-		$paths->insert(JPATH_ROOT . '/components/com_joomsubscription/views/emrules/tmpl', 1);
 
 		$template = JFactory::getApplication()->getTemplate();
-		$paths->insert(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/emrules', 2);
+		$view = new JoomsubscriptionViewsEmRulesHtml();
 
-		$view = new JoomsubscriptionViewsEmRulesHtml(new JoomsubscriptionModelsEmRules(), $paths);
+		$view->addTemplatePath(JPATH_ROOT . '/components/com_joomsubscription/views/emrules/tmpl');
+		$view->addTemplatePath(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/emrules');
+
 		$view->setLayout('default');
 		$view->plan = $plan;
 
-		return $view->render();
+		$view->display();
 	}
 
 	public static function get_rule_class($rule)

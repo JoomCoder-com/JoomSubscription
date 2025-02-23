@@ -54,18 +54,18 @@ class JoomsubscriptionActionsHelper
 
 	public static function actions_form($plan)
 	{
-		$paths = new SplPriorityQueue;
-		$paths->insert(JPATH_ROOT . '/components/com_joomsubscription/views/emactions/tmpl', 1);
 
 		$template = JFactory::getApplication()->getTemplate();
-		$paths->insert(JPATH_ROOT . '/templates/' . $template . '/html/com_joomsubscription/emactions', 2);
+		$view = new JoomsubscriptionViewsEmActionsHtml();
+
+		$view->addTemplatePath(JPATH_ROOT . '/components/com_joomsubscription/views/emactions/tmpl');
+		$view->addTemplatePath(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/emactions');
 
 
-		$view = new JoomsubscriptionViewsEmActionsHtml(new JoomsubscriptionModelsEmActions(), $paths);
 		$view->setLayout('default');
 		$view->plan = $plan;
 
-		return $view->render();
+		$view->display();
 	}
 
 	public static function load_lang($action)
