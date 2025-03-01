@@ -7,11 +7,7 @@
 			<option value="1">JYES</option>
 		</field>
 		<field label="E_TEMPLATEPREFIX" name="tmpl_prefix" type="radio" class="btn-group" default="">
-			<option value="">Default (Bootstrap 2)</option>
-			<option value="t3">T3 (Bootstrap 3)</option>
-			<option value="warp">Warp (UI-KIT)</option>
-			<option value="gantry">Gantry (Gantry-style)</option>
-			<option value="b4">BS 4</option>
+			<option value="">Default (Bootstrap 5)</option>
 		</field>
 		<field label="E_DATEFORMAT" name="date_format" type="list" default="l, F d, Y">
 			<option value="h:i A, l, d F Y">12:00 AM, Tuesday, 30 December 2007</option>
