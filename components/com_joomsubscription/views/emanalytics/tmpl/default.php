@@ -12,51 +12,97 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php echo $this->menu->render(NULL); ?>
 
-<div class="page-header">
+<div class="page-header border-bottom py-3">
 	<h1>
         <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/analytics.png" />
         <?php echo JText::_('E_ANALYTICS'); ?>
     </h1>
 </div>
 
-<div style="height: 250px" id="chart-sales">
-	<div class="progress progress-striped active">
-		<div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">
+            Sales
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="height: 250px" id="chart-sales">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div style="height: 200px" id="chart-counts">
-	<div class="progress progress-striped active">
-		<div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">
+            Counts
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="height: 200px" id="chart-counts">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div style="height: 250px" id="chart-sales-plans">
-	<div class="progress progress-striped active">
-		<div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">
+            Sales Plans
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="height: 250px" id="chart-sales-plans">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<!--
-<div style="height: 250px" id="chart-count-plans">
-	<div class="progress progress-striped active">
-		<div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">
+            Pie Sales
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="height: 550px" id="chart-pie-sales">
+            <div class="progress progress-striped active">
+                <div class="bar"
+                     style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+            </div>
+        </div>
+    </div>
+
 </div>
--->
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">
+            Pie Counts
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="height: 550px" id="chart-pie-counts">
+            <div class="progress progress-striped active">
+                <div class="bar"
+                     style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 <hr>
-<div style="height: 550px" id="chart-pie-sales">
-	<div class="progress progress-striped active">
-		<div class="bar"
-			 style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
-</div>
-<hr>
-<div style="height: 550px" id="chart-pie-counts">
-	<div class="progress progress-striped active">
-		<div class="bar"
-			 style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
-	</div>
-</div>
+
 
 <script type="text/javascript">
 (function($) {
