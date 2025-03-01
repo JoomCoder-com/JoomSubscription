@@ -7,6 +7,9 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+
 defined('_JEXEC') or die('Restricted access');
 
 /** @var \Joomla\Component\Content\Site\View\Form\HtmlView $this */
@@ -58,132 +61,142 @@ JHtml::_('dropdown.init');
 	</h1>
 </div>
 
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#page-general" data-toggle="tab"><?php echo JText::_('FS_GENERAL') ?></a></li>
-		<li><a href="#page-prop" data-toggle="tab"><?php echo JText::_('FS_PROPERTIES') ?></a></li>
-		<li><a href="#page-restrict" data-toggle="tab"><?php echo JText::_('FS_RESTRICTIONS') ?></a></li>
-		<li><a href="#page-actions" data-toggle="tab"><?php echo JText::_('FS_ACTIONS') ?></a></li>
-		<li><a href="#page-gateway" data-toggle="tab"><?php echo JText::_('FS_GATEWAYS') ?></a></li>
-		<li><a href="#page-cross-plans" data-toggle="tab"><?php echo JText::_('FS_CROSSPLANS') ?></a></li>
-		<li><a href="#page-alerts" data-toggle="tab"><?php echo JText::_('FS_ALERTS') ?></a></li>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="page-general">
-			<div class="row">
-				<div class="col-7">
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
-					</div>
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('name'); ?></div>
-					</div>
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('group_id'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('group_id'); ?></div>
-					</div>
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
-					</div>
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('access'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('access'); ?></div>
-					</div>
-					<div class="control-group">
-						<div class="control-label"><?php echo $this->form->getLabel('access_pay'); ?></div>
-						<div class="controls"><?php echo $this->form->getInput('access_pay'); ?></div>
-					</div>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'main', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-				<div class="col-5">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'period', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'period2', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'period3', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-			</div>
-			<div class="control-group row">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'descriptions', $this->item->params, 'descriptions',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-			</div>
-		</div>
-
-		<div class="tab-pane" id="page-prop">
-			<div class="row">
-				<div class="col-7">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'limits', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'properties', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'rds', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-				<div class="col-5">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'grant', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'donation', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-			</div>
-		</div>
-
-		<div class="tab-pane" id="page-restrict">
-			<?php echo JoomsubscriptionRulesHelper::rules_form($this->item); ?>
-		</div>
-
-		<div class="tab-pane" id="page-actions">
-			<?php echo JoomsubscriptionActionsHelper::actions_form($this->item); ?>
-		</div>
-
-		<div class="tab-pane" id="page-gateway">
-
-			<?php echo MFormHelper::renderFieldset($this->params_form, 'maingate', $this->item->params, 'gateway',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-
-			<?php $gateways = MFormHelper::getGateways($this->params_form, $this->item->params['gateways']); ?>
-			<?php if(!empty($gateways)): ?>
-				<div class="accordion" id="gateways">
-					<?php foreach($gateways as $name => $gateway): ?>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse"
-								   data-parent="#gateways" href="#<?php echo $name ?>">
-									<?php echo $gateway['title']; ?>
-								</a>
-							</div>
-							<div id="<?php echo $name ?>" class="accordion-body collapse">
-								<div class="accordion-inner">
-									<?php echo $gateway['html']; ?>
-								</div>
-							</div>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			<?php endif; ?>
-			<p></p>
-			<small><?php echo JText::_('EMR_NEW_GATEWAY'); ?></small>
-			</p>
-		</div>
-
-		<div class="tab-pane" id="page-cross-plans">
-			<div class="row">
-				<div class="col-6">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_period', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_deactivated', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_hide', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-				<div class="col-6">
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_require', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_grant', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-					<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_upgrade', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				</div>
-			</div>
-		</div>
 
 
-		<div class="tab-pane" id="page-alerts">
-			<div class="row">
-				<?php echo MFormHelper::renderFieldset($this->params_form, 'alerts', $this->item->params, 'alerts',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
-				<?php echo MFormHelper::renderFieldset($this->params_form, 'messages', $this->item->params, 'alerts', MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_CLASSIC); ?>
-			</div>
-		</div>
+	<?php echo HTMLHelper::_('uitab.startTabSet', 'plan', ['active' => 'general', 'recall' => true, 'breakpoint' => 768]); ?>
 
-	</div>
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'general', Text::_('FS_GENERAL')); ?>
+
+    <div class="row">
+        <div class="col-7">
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+            </div>
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+            </div>
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('group_id'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('group_id'); ?></div>
+            </div>
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('published'); ?></div>
+            </div>
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('access'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('access'); ?></div>
+            </div>
+            <div class="control-group">
+                <div class="control-label"><?php echo $this->form->getLabel('access_pay'); ?></div>
+                <div class="controls"><?php echo $this->form->getInput('access_pay'); ?></div>
+            </div>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'main', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+        <div class="col-5">
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'period', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'period2', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'period3', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+    </div>
+    <div class="control-group row">
+		<?php echo MFormHelper::renderFieldset($this->params_form, 'descriptions', $this->item->params, 'descriptions',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+    </div>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'prop', Text::_('FS_PROPERTIES')); ?>
+
+    <div class="row">
+        <div class="col-7">
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'limits', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'properties', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'rds', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+        <div class="col-5">
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'grant', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'donation', $this->item->params, 'properties',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+    </div>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'restrict', Text::_('FS_RESTRICTIONS')); ?>
+
+	<?php echo JoomsubscriptionRulesHelper::rules_form($this->item); ?>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'actions', Text::_('FS_ACTIONS')); ?>
+
+	<?php echo JoomsubscriptionActionsHelper::actions_form($this->item); ?>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'gateway', Text::_('FS_GATEWAYS')); ?>
+
+	<?php echo MFormHelper::renderFieldset($this->params_form, 'maingate', $this->item->params, 'gateway',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+
+	<?php $gateways = MFormHelper::getGateways($this->params_form, $this->item->params['gateways']); ?>
+	<?php if(!empty($gateways)): ?>
+        <div class="accordion" id="gateways">
+			<?php foreach($gateways as $name => $gateway): ?>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse"
+                           data-parent="#gateways" href="#<?php echo $name ?>">
+							<?php echo $gateway['title']; ?>
+                        </a>
+                    </div>
+                    <div id="<?php echo $name ?>" class="accordion-body collapse">
+                        <div class="accordion-inner">
+							<?php echo $gateway['html']; ?>
+                        </div>
+                    </div>
+                </div>
+			<?php endforeach; ?>
+        </div>
+	<?php endif; ?>
+    <p>
+        <small><?php echo JText::_('EMR_NEW_GATEWAY'); ?></small>
+    </p>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'cross-plans', Text::_('FS_CROSSPLANS')); ?>
+
+    <div class="row">
+        <div class="col-6">
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_period', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_deactivated', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_hide', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+        <div class="col-6">
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_require', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_grant', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+			<?php echo MFormHelper::renderFieldset($this->params_form, 'crossplans_upgrade', $this->item->params, 'crossplans',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+        </div>
+    </div>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+	<?php echo HTMLHelper::_('uitab.addTab', 'plan', 'alerts', Text::_('FS_ALERTS')); ?>
+
+    <div class="row">
+		<?php echo MFormHelper::renderFieldset($this->params_form, 'alerts', $this->item->params, 'alerts',  MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_TABLE); ?>
+		<?php echo MFormHelper::renderFieldset($this->params_form, 'messages', $this->item->params, 'alerts', MFormHelper::FIELDSET_SEPARATOR_HEADER, MFormHelper::STYLE_CLASSIC); ?>
+    </div>
+
+	<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+
+
+	<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
+
 	<div class="clearfix"></div>
 
 	<input type="hidden" name="task" value=""/> <input type="hidden" name="return" value="<?php echo $this->state->get('plan.return'); ?>"/>
