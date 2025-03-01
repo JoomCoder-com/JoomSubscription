@@ -47,7 +47,7 @@ class JFormFieldEmuser extends JFormField
 		$attr .= $this->required ? ' required' : '';
 
 		// Load the modal behavior script.
-		JHtml::_('behavior.modal', 'a.modal_' . $this->id);
+		//JHtml::_('behavior.modal', 'a.modal_' . $this->id);
 
 		// Build the script.
 		$script = array();

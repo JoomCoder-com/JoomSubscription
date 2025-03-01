@@ -10,8 +10,12 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-JHtml::_('behavior.formvalidation');
-JHtml::_('behavior.keepalive');
+/** @var \Joomla\Component\Content\Site\View\Form\HtmlView $this */
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
+$wa->useScript('keepalive')
+	->useScript('form.validate');
+
 JHtml::_('dropdown.init');
 JHtml::_('formbehavior.chosen', 'select');
 ?>
