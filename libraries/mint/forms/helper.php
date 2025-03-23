@@ -280,6 +280,7 @@ class MFormHelper
 		$gateways_path = JPATH_COMPONENT . '/library/gateways/';
 		$gateways      = JFolder::folders($gateways_path);
 
+
 		foreach($gateways as $gateway)
 		{
 			$file = $gateways_path . $gateway . DIRECTORY_SEPARATOR . $gateway . '.xml';
@@ -298,7 +299,7 @@ class MFormHelper
 
 			$lang->load('com_-+_gateway_' . $gateway, JPATH_ROOT, $tag, TRUE);
 
-			$xml    = new SimpleXMLElement($file, NULL, TRUE);
+			$xml    = new SimpleXMLElement($file,0,true);
 			$params = new JForm($gateway, array('control' => 'params[gateways]'));
 			$params->loadFile($file, TRUE, 'config');
 

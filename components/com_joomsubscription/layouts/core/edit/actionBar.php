@@ -26,10 +26,10 @@ $controller = $app->input->getCmd('view', 'emplan');
 	<?php //endif; ?>
 
 	<div class="btn-group m-0">
-		<button type="button" class="btn btn-success" onclick="Joomsubscription.submitbutton('<?php echo $controller;?>.save');">
+		<button type="button" class="btn btn-outline-success" onclick="Joomsubscription.submitbutton('<?php echo $controller;?>.save');">
 			<?php echo JText::_('ESAVE'); ?>
 		</button>
-		<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+		<button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 			<span class="visually-hidden">Toggle Dropdown</span>
 		</button>
 		<ul class="dropdown-menu">
@@ -59,7 +59,7 @@ $controller = $app->input->getCmd('view', 'emplan');
 	<?php //endif; ?>
 
 	<?php //if(in_array($this->tmpl_params->get('tmpl_core.form_show_close_button'), $this->user->getAuthorisedViewLevels())):?>
-	<button type="button" class="btn-submit btn btn-danger" onclick="Joomsubscription.submitbutton('<?php echo $controller;?>.cancel');">
+	<button type="button" class="btn-submit btn btn-outline-danger" onclick="Joomsubscription.submitbutton('<?php echo $controller;?>.cancel');">
 		<?php echo JText::_('ECANCEL'); ?>
 	</button>
 	<?php //endif; ?>
