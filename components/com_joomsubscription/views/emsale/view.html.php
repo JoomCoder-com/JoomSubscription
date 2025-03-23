@@ -23,6 +23,7 @@ class JoomsubscriptionViewEmSale extends MViewBase
 	 */
 	public function display($tpl = null)
 	{
+
 		$this->user = JFactory::getUser();
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');

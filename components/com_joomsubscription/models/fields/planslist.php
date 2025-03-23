@@ -20,6 +20,7 @@ class JFormFieldPlanslist extends JFormFieldList
 	 * @since	1.6
 	 */
 	protected $type = 'Planslist';
+	public $extend;
 
 	/**
 	 * Method to get the field input markup.
