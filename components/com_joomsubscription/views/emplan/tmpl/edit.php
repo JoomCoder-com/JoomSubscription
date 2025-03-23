@@ -19,21 +19,12 @@ $wa->useScript('keepalive')
 	->useScript('form.validate');
 
 JHtml::_('dropdown.init');
+
+// temporary will be removed on future versions
+\Joomla\CMS\Factory::getDocument()->addScript(JURI::root(true) . '/components/com_joomsubscription/library/js/main.js');
+
 ?>
 
-<script type="text/javascript">
-	Joomsubscription.submitbutton = function(task) {
-		if(task == 'emplan.cancel' || document.formvalidator.isValid('#item-form')) {
-			Joomsubscription.submitform(task, document.getElementById('item-form'));
-		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
-		}
-	}
-
-	jQuery(document).ready(function() {
-		Joomsubscription.redrawBS();
-	});
-</script>
 <style type="text/css">
 	ul.unstyled input[type="text"] {
 		width: 98%;
@@ -42,7 +33,7 @@ JHtml::_('dropdown.init');
 		margin-bottom: 0;
 	}
 </style>
-<form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+<form method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
 <div class="page-header d-flex justify-content-between">
 	<h1>
 		<?php if($this->item->id): ?>

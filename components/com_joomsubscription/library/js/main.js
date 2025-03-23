@@ -125,6 +125,5 @@ jQuery(document).ready(function($){
 			floatnum[obj.id] = obj.value;
 		};
 	}
-
 	window.Joomsubscription = new Joomsubscription();
 });
