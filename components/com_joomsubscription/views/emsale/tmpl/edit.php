@@ -32,13 +32,7 @@ $app = JFactory::getApplication();
 	}
 </script>
 <form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
-<div class="page-header">
-    <div class="pull-right">
-        <?php
-        $layout = Mint::loadLayout('buttons', $basePath = JPATH_COMPONENT . '/layouts');
-        echo $layout->render(NULL);
-        ?>    
-    </div>
+<div class="page-header d-flex justify-content-between border-bottom">
 	<h1>
 		<?php if($this->item->id):?>
             <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/sales.png" />
@@ -48,6 +42,7 @@ $app = JFactory::getApplication();
 			<?php echo JText::_('ENEWSUBSCRIPTION');?>
 		<?php endif;?>
 	</h1>
+    <?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>
 </div>
 
 	<div class="row">

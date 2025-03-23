@@ -22,6 +22,5 @@ extract($displayData);
 		<div class="col-md-4">
 			<?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.list.search',['filterName' => 'search','current' => $current]); ?>
 		</div>
-
 	</div>
 </div>
