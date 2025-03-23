@@ -928,7 +928,7 @@ class JoomsubscriptionHelper
 		$plan->terms = '';
 		if($plan->params->get('properties.terms'))
 		{
-			if(JFactory::getApplication()->isSite())
+			if(JFactory::getApplication()->isClient('site'))
 			{
 				include_once JPATH_ROOT . '/components/com_content/models/article.php';
 

@@ -50,8 +50,6 @@ foreach(glob(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components/com_joomsubscription
 
 JFactory::getLanguage()->load('com_joomsubscription');
 
-JoomsubscriptionHelper::loadHead();
-
 /**
  * Member API file
  *

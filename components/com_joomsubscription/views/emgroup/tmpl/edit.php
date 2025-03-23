@@ -19,16 +19,8 @@ JHtml::_('dropdown.init');
 JHtml::_('formbehavior.chosen', 'select');
 ?>
 
-<script type="text/javascript">
-	Joomsubscription.submitbutton = function(task) {
-		if(task == 'emgroup.cancel' || document.formvalidator.isValid('#item-form')) {
-			Joomsubscription.submitform(task, document.getElementById('item-form'));
-		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
-		}
-	}
-</script>
-<form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
+
+<form method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
 <div class="page-header d-flex justify-content-between">
 	<h1>
 		<?php if($this->item->id): ?>

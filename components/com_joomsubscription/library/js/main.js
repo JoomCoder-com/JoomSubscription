@@ -1,4 +1,4 @@
-(function($) {
+jQuery(document).ready(function($){
 	function Joomsubscription() {
 		var floatnum = [];
 
@@ -127,5 +127,4 @@
 	}
 
 	window.Joomsubscription = new Joomsubscription();
-}(jQuery));
-
+});
