@@ -37,7 +37,7 @@ class JFormFieldTemplateslist extends JFormFieldList
 		$tmpls_path = JPATH_ROOT . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_joomsubscription' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'emlist' . DIRECTORY_SEPARATOR . 'tmpl';
 
 		$files = JFolder::files($tmpls_path, '^default_list_.*\.php$');
-		$exclude = explode(',', $this->element['exclude']);
+		$exclude = explode(',', (string) $this->element['exclude']);
 
 		foreach($files as $key => $file)
 		{
