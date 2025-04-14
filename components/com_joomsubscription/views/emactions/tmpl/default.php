@@ -48,7 +48,7 @@ defined('_JEXEC') or die('Restricted access');
 			<small><?php echo JText::_('EMR_NEW_ACTION'); ?></small>
 		</p>
 
-		<p><?php echo JHtml::_('select.genericlist', $this->model->getActionList(), 'action_type'); ?></p>
+		<p><?php echo JHtml::_('select.genericlist', $this->model->getActionList(), 'action_type','class="form-select"'); ?></p>
 
 		<div id="action-form">
 		</div>

@@ -15,7 +15,7 @@
 	</field>
 
 	<field id="user_ids" name="user_ids" type="text" label="E_BIND_TO_USER" default="0" class="inputbox" description="E_BIND_TO_DESCR"/>
-	<field id="plan_ids" name="plan_ids" multiple="multiple" type="planslist" label="E_BIND_TO_PLAN" default="0" class="inputbox" description="E_BIND_TO_DESCR"/>
+	<field id="plan_ids" name="plan_ids" multiple="multiple" type="planslist" label="E_BIND_TO_PLAN" default="0" class="form-select" description="E_BIND_TO_DESCR"/>
 
 	<field id="use_num" name="use_num" type="text" label="E_USE_MAX_LIMIT" default="1" class="inputbox" />
 	<field id="use_user" name="use_user" type="text" label="E_LIMIT_USER" default="1" class="inputbox" />

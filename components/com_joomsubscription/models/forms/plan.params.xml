@@ -150,7 +150,7 @@
 	<fields name="crossplans" addfieldpath="/libraries/mint/forms/fields/">
 
 		<fieldset name="crossplans_require" label="X_CROSSPLAN_REQUIRE" description="X_CROSSPLAN_REQUIRE_DESCR">
-			<field name="req_plans" type="planslist" multiple="multiple" class="inputbox" size="7" label="X_CROSSPLAN_REQ"/>
+			<field name="req_plans" type="planslist" multiple="multiple" class="form-select" size="7" label="X_CROSSPLAN_REQ"/>
 			<field name="required" type="list" default="0" label="X_REQUIRED" description="X_REQUIRED_DESCR">
 				<option value="0">X_NOT</option>
 				<option value="1">X_YESOR</option>
@@ -163,12 +163,12 @@
 		</fieldset>
 
 		<fieldset name="crossplans_upgrade" label="X_CROSSPLAN_UPGRADE" description="X_CROSSPLAN_UPGRADE_DESCR">
-			<field name="ud_plans" type="planslist" multiple="multiple" class="inputbox" size="7" label="EPLANS"/>
+			<field name="ud_plans" type="planslist" multiple="multiple" class="form-select" size="7" label="EPLANS"/>
 			<field name="ud_price_step" type="text" default="1" label="X_UPGRADE_STEP" description="X_UPGRADE_STEP_DESCR" />
 		</fieldset>
 
 		<fieldset name="crossplans" label="X_CROSSPLAN_SETTINGS" description="X_PLAN_TO_CROSS_DESCR">
-			<field name="plan_price" type="planslist" multiple="multiple" current="1" size="7" label="X_PLAN_TO_CROSS"/>
+			<field name="plan_price" type="planslist" class="form-select" multiple="multiple" current="1" size="7" label="X_PLAN_TO_CROSS"/>
 			<field name="method" type="list" default="none" label="X_RECALC_PRICE" description="X_RECALC_PRICE_DESCR">
 				<option value="or">X_SUBSTRACT_EXPENSIVE</option>
 				<option value="and">X_SUBSTRACT_SUM_OF_ALL</option>
@@ -184,10 +184,10 @@
 
 
 		<fieldset name="crossplans_deactivated" label="X_DEACTIVATE_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_DIACTIVATE_DESCR">
-			<field name="plans_deactivate" type="planslist" multiple="multiple" size="7" current="1" label="X_CROSSPLAN_TO_DIACTIVATE"/>
+			<field name="plans_deactivate" type="planslist" class="form-select" multiple="multiple" size="7" current="1" label="X_CROSSPLAN_TO_DIACTIVATE"/>
 		</fieldset>
 		<fieldset name="crossplans_hide" label="X_HIDE_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_HIDE_DESCR">
-			<field name="plans_hide" type="planslist" multiple="multiple" size="7" label="X_CROSSPLAN_TO_HIDE"/>
+			<field name="plans_hide" type="planslist" multiple="multiple" class="form-select" size="7" label="X_CROSSPLAN_TO_HIDE"/>
 			<field name="plans_hide_active" type="mradio" class="btn-group" default="0" label="X_CROSS_HIDE_ACTIVE">
 				<option value="1">JYES</option>
 				<option value="0">JNO</option>
@@ -195,7 +195,7 @@
 		</fieldset>
 
 		<fieldset name="crossplans_grant" label="X_GRANT_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_GRANT_DESCR">
-			<field name="grant_plans" type="planslist" multiple="multiple" size="7"
+			<field name="grant_plans" type="planslist" multiple="multiple" class="form-select" size="7"
 				   label="X_CROSSPLAN_TO_GRANT"/>
 			<field name="show_grant" type="mradio" class="btn-group" default="1" label="X_SHOWPLANS_FRONTEND"
 				   description="X_SHOWPLANS_FRONTEND_DESCR">
@@ -205,7 +205,7 @@
 		</fieldset>
 
 		<fieldset name="crossplans_period" label="X_PERIOD_CROSSPLANS_SETTINGS" description="X_PERIOD_CROSSPLAN_DESCR">
-			<field name="cp_plans" type="planslist" multiple="multiple" size="7" label="X_PERIOD_CROSSPLAN"/>
+			<field name="cp_plans" type="planslist" multiple="multiple" class="form-select" size="7" label="X_PERIOD_CROSSPLAN"/>
 		</fieldset>
 	</fields>
 

@@ -5,7 +5,7 @@
 	</layout>
 	<fields name="params">
 		<fieldset name="form" label="EM_GENERAL_SETTINGS" addfieldpath="/components/com_joomsubscription/models/fields/">
-			<field name="groups" type="groupslist" multiple="multiple"  label="EM_PLAN_GROUPS" description="EM_PLAN_GROUPS_DESCR"/>
+			<field name="groups" type="groupslist" multiple="multiple"  class="form-select" label="EM_PLAN_GROUPS" description="EM_PLAN_GROUPS_DESCR"/>
 			<field name="link" type="radio" class="btn-group" label="EM_SHOW_ALL" default="1" description="EM_SHOW_ALL_DESCR">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
