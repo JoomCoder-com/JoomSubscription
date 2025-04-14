@@ -74,7 +74,7 @@ class JoomsubscriptionActionsHelper
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_action_{$action}.ini"))
+			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_action_{$action}.ini"))
 			{
 				$tag == 'en-GB';
 			}
