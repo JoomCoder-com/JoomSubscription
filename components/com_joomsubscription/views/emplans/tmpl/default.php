@@ -153,7 +153,7 @@ if ($saveOrder)
                                     <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emplan.edit&id=' . (int) $item->id); ?>">
 										<?php echo $this->escape(JText::_($item->name)); ?>
                                     </a>
-                                    <small>
+                                    <small class="ms-2 border rounded shadow-sm px-2 bg-white">
 										<?php
 										if ($item->params->get('properties.date_fixed'))
 										{
@@ -179,7 +179,7 @@ if ($saveOrder)
                                 </div>
                             </td>
                             <td class="nowrap center">
-                                <div class="badge<?php echo($item->subscr ? ' badge-success' : null); ?>">
+                                <div class="badge<?php echo($item->subscr ? ' bg-success' : ' bg-warning'); ?>">
 									<?php echo $item->subscr; ?>
                                 </div>
                             </td>

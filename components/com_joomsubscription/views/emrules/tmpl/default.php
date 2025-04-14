@@ -47,7 +47,7 @@ defined('_JEXEC') or die('Restricted access');
 		<p>
 			<small><?php echo JText::_('EMR_NEW_RULE'); ?></small>
 		</p>
-		<p><?php echo JHtml::_('select.genericlist', $this->model->getAdapters(), 'rule_components'); ?></p>
+		<p><?php echo JHtml::_('select.genericlist', $this->model->getAdapters(), 'rule_components',"class='form-select'"); ?></p>
 
 		<div id="rule-form" class="in">
 		</div>

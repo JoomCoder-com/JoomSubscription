@@ -3,7 +3,7 @@
     <name>EMR_RULE_DEFAULT</name>
     <fields name="rule">
         <fieldset name="com" description="EM_RULE_COMPONENTS"  addfieldpath="/components/com_joomsubscription/library/rules/default/elements/">
-            <field name="component" type="componentslist" label="EM_RULE_DEF_COMLIST"/>
+            <field name="component" type="componentslist"  label="EM_RULE_DEF_COMLIST"/>
         </fieldset>
         <fieldset name="rule" description="X_BASICRULE">
             <field name="var1" type="text" label="X_VARIABLE"/>

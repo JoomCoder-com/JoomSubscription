@@ -91,7 +91,9 @@ class JoomsubscriptionRulesHelper
 		self::load_lang($type);
 		$path = JPATH_COMPONENT.DIRECTORY_SEPARATOR.'library'.DIRECTORY_SEPARATOR.'rules';
 		$xml = $path.DIRECTORY_SEPARATOR.$type.DIRECTORY_SEPARATOR.$type.'.xml';
-		$xml = new SimpleXMLElement($xml, null, true);
+
+
+		$xml = new SimpleXMLElement($xml, 0, true);
 		return $type. ' - ' . JText::_($xml->name);
 	}
 }
