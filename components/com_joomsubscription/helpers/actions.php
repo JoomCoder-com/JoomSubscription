@@ -91,7 +91,7 @@ class JoomsubscriptionActionsHelper
 
 		if(!in_array($action->type, $actions))
 		{
-			throw new Exception('Action isnot installed', 500);
+			throw new Exception('Action is not installed', 500);
 			$action->type = 'default';
 		}
 		$key = $action->type . ':' . $action->id;
