@@ -131,7 +131,7 @@ class JoomsubscriptionActionsHelper
 
 		$name = self::get_action_name($action->type);
 
-		return sprintf('<h4 data-toggle="collapse" data-target="#action-%s"><span class="pull-right"><small data-action-edit="%d">Edit</small></span>%s</h4><div id="action-%s" class="collapse fade"><small>%s</small></div>',
+		return sprintf('<h4 data-toggle="collapse" data-target="#action-%s"><span class="float-end"><small data-action-edit="%d">Edit</small></span>%s</h4><div id="action-%s" class="collapse fade"><small>%s</small></div>',
 			$action->id, $action->id, $name, $action->id, $out);
 	}
 

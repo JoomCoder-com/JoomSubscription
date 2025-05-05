@@ -165,7 +165,7 @@ defined('_JEXEC') or die('Restricted access');
 			</tbody>
 		</table>
 
-		<table class=" table table-bordered pull-right" style="width: 25%;">
+		<table class=" table table-bordered float-end" style="width: 25%;">
 			<tbody>
 				<tr>
 					<td class="align-right bold"><?php echo JText::_('EDISCOUNT')?>:</td>

@@ -33,7 +33,7 @@ $total = $this->plan->total;
 	</tbody>
 </table>
 
-<table class="pull-right table-condensed table table-bordered" style="width: 40%">
+<table class="float-end table-condensed table table-bordered" style="width: 40%">
 	<?php if(!empty($this->coupon->discount_total)): $total -= $this->coupon->discount_total; ?>
 		<tr>
 			<td>

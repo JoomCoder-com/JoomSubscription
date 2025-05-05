@@ -19,7 +19,7 @@ echo $this->menu->render(null);
 <?php //if($this->mparams->get('page_heading', false)): ?>
 <div class="page-header <?php echo $this->mparams->get('pageclass_sfx'); ?>">
     <?php if(count($this->usersubs)): ?>
-    <div class="input-append pull-right">
+    <div class="input-append float-end">
     	<a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emhistory'); ?>">
     		<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png" />
     		<?php echo JText::_('EMP_CHECKHISTORY'); ?>

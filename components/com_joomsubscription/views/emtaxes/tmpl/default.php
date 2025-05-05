@@ -33,7 +33,7 @@ $listDirn = $this->state->get('list.direction');
 
     <div class="card my-3">
         <div class="card-body">
-            <div class="input-append pull-right">
+            <div class="input-append float-end">
 		        <span class="float-start">
                      <?php echo JHtml::_('select.genericlist', $this->countries, 'filter_country', 'onchange="this.form.submit();"', 'id', 'name', $this->state->get('filter.country'))?>
                 </span>
@@ -69,7 +69,7 @@ $listDirn = $this->state->get('list.direction');
                 <tfoot>
                 <tr>
                     <td colspan="8">
-                        <div class="pull-right">
+                        <div class="float-end">
 							<?php echo str_replace('<option value="0">'.JText::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
                         </div>
                         <div style="pull-left">

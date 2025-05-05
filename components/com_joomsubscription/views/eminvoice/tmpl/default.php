@@ -207,7 +207,7 @@ defined('_JEXEC') or die('Restricted access');
 				</tbody>
 			</table>
 
-			<table class=" table table-bordered pull-right" style="width: 35%;">
+			<table class=" table table-bordered float-end" style="width: 35%;">
 				<tbody>
 				<tr>
 					<td class="align-right bold">

@@ -32,32 +32,32 @@ defined('_JEXEC') or die('Restricted access');
 	<?php echo JText::_('EM_NOSAVEACT'); ?>
 </div>
 <div class="row">
+    <div class="col-7">
+        <legend><?php echo JText::_('E_ADD_ACTION') ?></legend>
+        <p>
+            <small><?php echo JText::_('EMR_NEW_ACTION'); ?></small>
+        </p>
+
+        <p><?php echo JHtml::_('select.genericlist', $this->model->getActionList(), 'action_type','class="form-select"'); ?></p>
+
+        <div id="action-form">
+        </div>
+
+        <div class="form-actions" style="display: none;" id="form-actions-2">
+            <button class="btn btn-primary" type="button" id="btn-add-action" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
+            <button class="btn btn-link" type="button" id="btn-close-action" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
+        </div>
+
+    </div>
 	<div class="col-5">
 		<div id="actions-list">
 			<?php foreach($this->actions AS $action): ?>
-				<div class="alert alert-info" data-action-id="<?php echo $action->id; ?>">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<div class="alert alert-light" data-action-id="<?php echo $action->id; ?>">
+					<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					<?php echo JoomsubscriptionActionsHelper::description($action); ?>
 				</div>
 			<?php endforeach; ?>
 		</div>
-	</div>
-	<div class="col-7">
-		<legend><?php echo JText::_('E_ADD_ACTION') ?></legend>
-		<p>
-			<small><?php echo JText::_('EMR_NEW_ACTION'); ?></small>
-		</p>
-
-		<p><?php echo JHtml::_('select.genericlist', $this->model->getActionList(), 'action_type','class="form-select"'); ?></p>
-
-		<div id="action-form">
-		</div>
-
-		<div class="form-actions" style="display: none;" id="form-actions-2">
-			<button class="btn btn-primary" type="button" id="btn-add-action" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
-			<button class="btn btn-link" type="button" id="btn-close-action" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
-		</div>
-
 	</div>
 </div>
 

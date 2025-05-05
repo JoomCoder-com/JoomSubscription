@@ -39,7 +39,7 @@ if($controller == 'emtaxes')
 		<?php echo JText::_('EDELETE'); ?>
 	</button>
 </div>
-<div class="pull-right">
+<div class="float-end">
 	<button type="button" class="btn-submit btn btn-success" onclick="Joomsubscription.submitbutton('<?php echo $single; ?>.add');">
 		<?php echo JText::_('EADD'); ?>
 	</button>

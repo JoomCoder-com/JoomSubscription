@@ -7,9 +7,12 @@
  * @copyright Copyright (C) 2012 JoomCoder (https://www.joomcoder.com/). All rights reserved.
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
+
+use Joomla\Utilities\ArrayHelper;
+
 defined('_JEXEC') or die();
 
-class JoomsubscriptionRuleCom_hwdmediashare extends JoomsubscriptionRule
+class JoomsubscriptionRuleCom_joommedia extends JoomsubscriptionRule
 {
 	public function isProtected()
 	{
@@ -32,13 +35,13 @@ class JoomsubscriptionRuleCom_hwdmediashare extends JoomsubscriptionRule
 
 		if($this->params->get('type_article'))
 		{
-			$item = $db->setQuery("SELECT description FROM #__hwdms_media WHERE id = " . $id);
+			$item = $db->setQuery("SELECT description FROM #__joommedia_media WHERE id = " . $id);
 			$item = $db->loadResult();
 			$text = strip_tags($item);
 			if(preg_match("/{JOOMSUBSCRIPTION P=([0-9 ,]*)}/iU", $text, $matches))
 			{
 				$plan_ids = JoomsubscriptionHelper::getValues($matches[1], TRUE);
-				\Joomla\Utilities\ArrayHelper::toInteger($plan_ids);
+				ArrayHelper::toInteger($plan_ids);
 				if(in_array($this->plan_id, $plan_ids))
 				{
 					return TRUE;
@@ -53,7 +56,7 @@ class JoomsubscriptionRuleCom_hwdmediashare extends JoomsubscriptionRule
 
 		if($this->params->get('catids'))
 		{
-			$db->setQuery("SELECT category_id FROM #__hwdms_category_map WHERE element_id = " . $id);
+			$db->setQuery("SELECT category_id FROM #__joommedia_category_map WHERE element_id = " . $id);
 			$item_cats = $db->loadColumn();
 
 			if($item_cats)
@@ -77,11 +80,11 @@ class JoomsubscriptionRuleCom_hwdmediashare extends JoomsubscriptionRule
 
 		if($this->params->get('catids'))
 		{
-			$out[] = JText::sprintf('HWD_READ_RESTRICT', implode(', ', $this->params->get('catids')));
+			$out[] = JText::sprintf('JOOMMEDIA_READ_RESTRICT', implode(', ', $this->params->get('catids')));
 		}
 		if($this->params->get('ids'))
 		{
-			$out[] = JText::sprintf('HWD_LIST_RESTRICT', $this->params->get('ids'));
+			$out[] = JText::sprintf('JOOMMEDIA_LIST_RESTRICT', $this->params->get('ids'));
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);

@@ -214,7 +214,7 @@ defined('_JEXEC') or die();
                     <td width="1%" nowrap="nowrap" align="right">
                 <span class="subscr-date"><?php echo JoomsubscriptionHelper::
 	                getFormattedDate($subscription->purchased, 'd M H:i'); ?></span><br />
-                        <div class="pull-right <?php echo $subscription->price > 0 ?
+                        <div class="float-end <?php echo $subscription->price > 0 ?
 							'price-pos' : 'price-neg'; ?>">
 							<?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
 							params); ?>

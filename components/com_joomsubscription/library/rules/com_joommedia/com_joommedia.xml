@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-    <name>EMR_RULE_HWD</name>
+    <name>EMR_RULE_JOOMMEDIA</name>
     <fields name="rule">
-        <fieldset name="rule" description="HWD_RULE_DESC"
-                  addfieldpath="/components/com_joomsubscription/library/rules/com_hwdmediashare/fields/">
-            <field name="catids" type="category" extension="com_hwdmediashare" class="inputbox" default="" size="10"
-                   label="COM_HWDMS_CATEGORY_LABEL" multiple="multiple">
+        <fieldset name="rule" description="JOOMMEDIA_RULE_DESC"
+                  addfieldpath="/components/com_joomsubscription/library/rules/com_joommedia/fields/">
+            <field name="catids" type="category" extension="com_joommedia" class="inputbox" default="" size="10"
+                   label="COM_JOOMMEDIA_CATEGORY_LABEL" multiple="multiple">
                 <option value="0">JOPTION_SELECT_CATEGORY</option>
             </field>
-            <field name="ids" type="text" label="HWD_RECORD_IDS" description="HWD_RECORD_IDS_DESCR"/>
+            <field name="ids" type="text" label="JOOMMEDIA_RECORD_IDS" description="JOOMMEDIA_RECORD_IDS_DESCR"/>
             <field name="type_article" type="radio" class="btn-group" default="0" label="X_ARTICLE_INDIVID"
                    description="X_ARTICLE_INDIVIDDESCR">
                 <option value="0">JNO</option>

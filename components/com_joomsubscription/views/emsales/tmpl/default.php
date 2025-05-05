@@ -91,7 +91,7 @@ $userId    = $user->get('id');
                         <tfoot>
                         <tr>
                             <td colspan="7">
-                                <div class="pull-right">
+                                <div class="float-end">
 					                <?php echo str_replace('<option value="0">' . JText::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
                                 </div>
                                 <div style="pull-left">

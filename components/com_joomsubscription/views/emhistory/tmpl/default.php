@@ -11,7 +11,7 @@ defined('_JEXEC') or die();
 echo $this->menu->render(NULL);
 ?>
 <div class="page-header">
-<div class="input-append pull-right">
+<div class="input-append float-end">
 	<a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emlist'); ?>">
 		<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/purchase-small.png" />
         <?php echo JText::_('EPURCHASENEW'); ?>
@@ -68,7 +68,7 @@ echo $this->menu->render(NULL);
 				<tr>
 					<td>
 						<?php if(!empty($b)): ?>
-							<div class="pull-right">
+							<div class="float-end">
 								<div class="btn-group">
 									<a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-mini">
 										<span class="caret"></span>
@@ -84,7 +84,7 @@ echo $this->menu->render(NULL);
 							</div>
 						<?php endif; ?>
 
-						<div class="pull-right">
+						<div class="float-end">
 							<?php
 							JHtml::_('dropdown.edit', $item->sid, 'type.');
 							echo JHtml::_('dropdown.render');
@@ -168,7 +168,7 @@ echo $this->menu->render(NULL);
 		</table>
 	<?php endforeach; ?>
 	<div>
-		<div class="pull-right">
+		<div class="float-end">
 			<?php echo str_replace('<option value="0">' . JText::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
 		</div>
 		<div style="pull-left">

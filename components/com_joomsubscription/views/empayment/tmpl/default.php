@@ -92,7 +92,7 @@ $total = $this->plan->total;
 
 <div class="page-header">
 	<?php if(count(JoomsubscriptionHelper::getUserPlans())): ?>
-		<div class="input-append pull-right">
+		<div class="input-append float-end">
 			<a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emhistory'); ?>">
 				<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png"/>
 				<?php echo JText::_('EMP_CHECKHISTORY'); ?>
@@ -178,7 +178,7 @@ $total = $this->plan->total;
 		</tbody>
 	</table>
 
-	<table class="pull-right table-condensed table table-bordered" style="width: 40%">
+	<table class="float-end table-condensed table table-bordered" style="width: 40%">
 		<?php if(!empty($this->coupon->discount_total)): $total -= $this->coupon->discount_total; ?>
 			<tr>
 				<td>

@@ -32,31 +32,31 @@ defined('_JEXEC') or die('Restricted access');
 	<?php echo JText::_('EM_NOSAVERULE'); ?>
 </div>
 <div class="row">
+    <div class="col-7">
+        <legend><?php echo JText::_('E_ADD_RULE') ?></legend>
+        <p>
+            <small><?php echo JText::_('EMR_NEW_RULE'); ?></small>
+        </p>
+        <p><?php echo JHtml::_('select.genericlist', $this->model->getAdapters(), 'rule_components',"class='form-select'"); ?></p>
+
+        <div id="rule-form" class="in">
+        </div>
+
+        <div class="form-actions" id="form-actions" style="display: none;">
+            <button class="btn btn-primary" type="button" id="btn-add" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
+            <button class="btn btn-link" type="button" id="btn-close" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
+        </div>
+
+    </div>
 	<div class="col-5">
 		<div id="rules-list">
 			<?php foreach($this->rules AS $rule): ?>
-				<div class="alert alert-info" data-rule-id="<?php echo $rule->id; ?>">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<div class="alert alert-light alert-dismissible fade show" data-rule-id="<?php echo $rule->id; ?>">
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					<?php echo JoomsubscriptionRulesHelper::description($rule); ?>
 				</div>
 			<?php endforeach; ?>
 		</div>
-	</div>
-	<div class="col-7">
-		<legend><?php echo JText::_('E_ADD_RULE') ?></legend>
-		<p>
-			<small><?php echo JText::_('EMR_NEW_RULE'); ?></small>
-		</p>
-		<p><?php echo JHtml::_('select.genericlist', $this->model->getAdapters(), 'rule_components',"class='form-select'"); ?></p>
-
-		<div id="rule-form" class="in">
-		</div>
-
-		<div class="form-actions" id="form-actions" style="display: none;">
-			<button class="btn btn-primary" type="button" id="btn-add" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
-			<button class="btn btn-link" type="button" id="btn-close" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
-		</div>
-
 	</div>
 </div>
 
@@ -115,8 +115,8 @@ defined('_JEXEC') or die('Restricted access');
 					$('*[data-rule-id="' + json.id + '"]').remove();
 
 					list.append($(document.createElement('div'))
-						.addClass('alert alert-info').attr('data-rule-id', json.id)
-						.html('<button type="button" class="close" data-dismiss="alert">&times;</button>' + json.html)
+						.addClass('alert alert-light  alert-dismissible fade show').attr('data-rule-id', json.id)
+						.html('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + json.html)
 						.on('close', function() {
 							delete_rule(json.id);
 						}));

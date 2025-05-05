@@ -32,7 +32,7 @@ JHtml::_('formbehavior.chosen', 'select');
 </script>
 <form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 <div class="page-header">
-    <div class="pull-right">
+    <div class="float-end">
         <?php
         $layout = Mint::loadLayout('buttons', $basePath = JPATH_COMPONENT . '/layouts');
         echo $layout->render(NULL);

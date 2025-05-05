@@ -33,7 +33,7 @@ $fieldset = $this->import->form->getFieldset();
 </div>
 <form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
 	<div class="form-actions">
-	<div class="pull-right btn-toolbar">
+	<div class="float-end btn-toolbar">
 		<div>
 			<button type="button" class="btn btn-primary <?php if(!$this->canImport) echo 'disabled'; ?>" onclick="<?php echo $this->canImport ? "Joomsubscription.submitbutton('emimport.run');" : 'javascript:void(0);'?>">
 				<?php echo JText::_('EIMPORT'); ?>
