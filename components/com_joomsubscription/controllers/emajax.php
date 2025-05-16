@@ -315,7 +315,8 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 	public function deleteAction()
 	{
 		$id      = $this->input->getInt('id');
-		$actions = JTable::getInstance('EmActions', 'JoomsubscriptionTable');
+
+		$actions = \Joomla\CMS\Table\Table::getInstance('EmActions', 'JoomsubscriptionTable');
 		$actions->load($id);
 		$actions->delete();
 

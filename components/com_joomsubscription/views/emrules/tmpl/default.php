@@ -62,43 +62,43 @@ defined('_JEXEC') or die('Restricted access');
 
 <script type="text/javascript">
 	(function($) {
-		var form = $('#rule-form');
-		var actions = $('#form-actions');
-		var select = $('#rule_components');
-		var list = $('#rules-list');
+		var formRule = $('#rule-form');
+		var actionsRule = $('#form-actions');
+		var selectRule = $('#rule_components');
+		var listRule = $('#rules-list');
 
-		updateEdit();
+        updateEditRule();
 
 		$('#btn-close').click(function() {
-			actions.hide();
-			form.slideUp('fast', function() {
+			actionsRule.hide();
+			formRule.slideUp('fast', function() {
 				$(this).html('');
 			});
 		});
 
-		$(".alert").on('close', function() {
+		$("#rules-list .alert").on('close, close.bs.alert', function() {
 			delete_rule($(this).data('rule-id'));
 		});
 
 		$('#btn-add').click(function() {
-			var formdata = jQuery('*[name^="rules\\[rule\\]"]').filter(':input');
-			var data = {};
-			$.each(formdata, function(k, v) {
+			var formdataRule = jQuery('*[name^="rules\\[rule\\]"]').filter(':input');
+			var dataRule = {};
+			$.each(formdataRule, function(k, v) {
 				var el = $(v);
 				if((v.type == 'radio' || v.type == 'checkbox') && v.checked == false) {
 					return true;
 				}
-				data[el.attr('name').replace('rules[rule][', 'rules[')] = el.val();
+				dataRule[el.attr('name').replace('rules[rule][', 'rules[')] = el.val();
 			});
 
-			data.component = select.val();
-			data.plan_id = '<?php echo $this->plan->id; ?>';
+            dataRule.component = selectRule.val();
+            dataRule.plan_id = '<?php echo $this->plan->id; ?>';
 
 			$.ajax({
 				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.setRuleForm&tmpl=component', FALSE); ?>',
 				dataType: 'json',
 				type:     'POST',
-				data:     data
+				data:     dataRule
 			})
 				.done(function(json) {
 					if(json.error) {
@@ -106,31 +106,31 @@ defined('_JEXEC') or die('Restricted access');
 						return;
 					}
 
-					actions.hide();
-					select.val('').trigger("liszt:updated");
-					form.slideUp('fast', function() {
+					actionsRule.hide();
+					selectRule.val('').trigger("liszt:updated");
+					formRule.slideUp('fast', function() {
 						$(this).html('');
 					});
 
 					$('*[data-rule-id="' + json.id + '"]').remove();
 
-					list.append($(document.createElement('div'))
+					listRule.append($(document.createElement('div'))
 						.addClass('alert alert-light  alert-dismissible fade show').attr('data-rule-id', json.id)
 						.html('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + json.html)
 						.on('close', function() {
 							delete_rule(json.id);
 						}));
-					updateEdit();
+                    updateEditRule();
 				});
 
 		});
 
-		select.change(function() {
-			showForm($(this).val());
+		selectRule.change(function() {
+            showFormRule($(this).val());
 		});
 
-		function showForm(id) {
-			form.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo JText::_('EMLOAD'); ?></div></div>')
+		function showFormRule(id) {
+			formRule.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo JText::_('EMLOAD'); ?></div></div>')
 			$.ajax({
 				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.getRuleForm&tmpl=component', FALSE); ?>',
 				dataType: 'html',
@@ -139,13 +139,12 @@ defined('_JEXEC') or die('Restricted access');
 					component: id
 				}
 			}).done(function(html) {
-					actions.show();
-					form.html(html).hide().slideDown('fast', function() {
+					actionsRule.show();
+					formRule.html(html).hide().slideDown('fast', function() {
 						Joomsubscription.redrawBS();
 					});
 				});
 		}
-
 		function delete_rule(id) {
 			$.ajax({
 				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.deleteRule&tmpl=component', FALSE); ?>',
@@ -153,12 +152,13 @@ defined('_JEXEC') or die('Restricted access');
 				type:     'POST',
 				data:     {id: id}
 			});
-		}
 
-		function updateEdit() {
-			$('small[data-rule-edit]').unbind('click').click(function() {
-				select.val($(this).data('controller'));
-				showForm($(this).data('rule-edit'));
+            return true;
+		}
+		function updateEditRule() {
+			$('[data-rule-edit]').unbind('click').click(function() {
+				selectRule.val($(this).data('controller'));
+                showFormRule($(this).data('rule-edit'));
 			});
 		}
 

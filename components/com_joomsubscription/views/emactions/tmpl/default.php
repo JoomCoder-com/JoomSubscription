@@ -68,7 +68,7 @@ defined('_JEXEC') or die('Restricted access');
 		var select = $('#action_type');
 		var list = $('#actions-list');
 
-		updateEdit();
+        updateEditAction();
 
 		$('#btn-close-action').click(function() {
 			actions.hide();
@@ -77,8 +77,8 @@ defined('_JEXEC') or die('Restricted access');
 			});
 		});
 
-		$(".alert").on('close, closed.bs.alert', function() {
-			delete_rule($(this).data('action-id'));
+        $("#actions-list .alert").on('close, close.bs.alert', function() {
+            delete_action($(this).data('action-id'));
 		});
 
 		$('#btn-add-action').click(function() {
@@ -118,19 +118,19 @@ defined('_JEXEC') or die('Restricted access');
 						.addClass('alert alert-info').attr('data-action-id', json.id)
 						.html('<button type="button" class="close" data-dismiss="alert">&times;</button>' + json.html)
 						.on('close', function() {
-							delete_rule(json.id);
+                            delete_action(json.id);
 						}));
 
-					updateEdit();
+                updateEditAction();
 				});
 
 		});
 
 		select.change(function() {
-			showForm($(this).val());
+            showFormAction($(this).val());
 		});
 
-		function showForm(id) {
+		function showFormAction(id) {
 			if(!id) {
 				return;
 			}
@@ -151,7 +151,7 @@ defined('_JEXEC') or die('Restricted access');
 				});
 		}
 
-		function delete_rule(id) {
+		function delete_action(id) {
 			$.ajax({
 				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.deleteAction&tmpl=component', FALSE); ?>',
 				dataType: 'json',
@@ -160,10 +160,10 @@ defined('_JEXEC') or die('Restricted access');
 			});
 		}
 
-		function updateEdit() {
+		function updateEditAction() {
 			$('small[data-action-edit]').unbind('click').click(function() {
 				select.val('');
-				showForm($(this).data('action-edit'));
+                showFormAction($(this).data('action-edit'));
 			});
 		}
 
