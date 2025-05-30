@@ -29,6 +29,10 @@ class JFormFieldEsprofiles extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
+
+		if(!JFile::exists(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php'))
+			return false;
+
 		require_once(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php');
 
 		if(!class_exists('Foundry'))
@@ -39,7 +43,7 @@ class JFormFieldEsprofiles extends JFormFieldList
 		$model    = Foundry::model('Profiles');
 		$profiles = $model->getProfiles();
 
-		$options[] = JHtml::_('select.option', '', JText::_('ES_SELECTPROFILE'));
+		$options[] = JHtml::_('select.option', '', \Joomla\CMS\Language\Text::_('ES_SELECTPROFILE'));
 		foreach($profiles AS $profile)
 		{
 			$options[] = JHtml::_('select.option', $profile->id, $profile->title);

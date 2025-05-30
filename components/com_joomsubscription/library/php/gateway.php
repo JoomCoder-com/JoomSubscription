@@ -20,20 +20,27 @@ class JoomsubscriptionGateway extends JObject
 
 	public function __construct($type, $params)
 	{
+
 		$this->params = new JRegistry($params);
 		$this->type   = $type;
 
+		$this->loadLang();
+
+	}
+
+
+	public function loadLang(){
 		$lang = JFactory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_gateway_{$type}.ini"))
+			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$type}.ini"))
 			{
 				$tag == 'en-GB';
 			}
 		}
 
-		$lang->load('com_joomsubscription_gateway_' . $type, JPATH_ROOT, $tag, TRUE);
+		$result = $lang->load('com_joomsubscription_gateway_' . $type, JPATH_SITE, $tag, TRUE);
 	}
 
 	public function init_params($params)

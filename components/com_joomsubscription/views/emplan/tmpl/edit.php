@@ -26,26 +26,36 @@ JHtml::_('dropdown.init');
 ?>
 
 <style type="text/css">
-	ul.unstyled input[type="text"] {
-		width: 98%;
-	}
-	.alert-tiny {
-		margin-bottom: 0;
-	}
+    ul.unstyled input[type="text"] {
+        width: 98%;
+    }
+    .alert-tiny {
+        margin-bottom: 0;
+    }
+    /* BS5 accordion custom styles */
+    .accordion-button {
+        font-weight: 500;
+    }
+    .accordion-button.gateway-enabled {
+        background-color: #f0f0f0;
+    }
+    .accordion-button:not(.collapsed).gateway-enabled {
+        background-color: #e0e0e0;
+    }
 </style>
 <form method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
-<div class="page-header d-flex justify-content-between">
-	<h1>
-		<?php if($this->item->id): ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
-			<?php echo JText::sprintf('EEDITPLAN', $this->item->name); ?>
-		<?php else: ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
-			<?php echo JText::_('ENEWPLAN'); ?>
-		<?php endif; ?>
-	</h1>
-	<?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>
-</div>
+    <div class="page-header d-flex justify-content-between">
+        <h1>
+			<?php if($this->item->id): ?>
+                <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
+				<?php echo JText::sprintf('EEDITPLAN', $this->item->name); ?>
+			<?php else: ?>
+                <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
+				<?php echo JText::_('ENEWPLAN'); ?>
+			<?php endif; ?>
+        </h1>
+		<?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>
+    </div>
 
 
 
@@ -130,15 +140,17 @@ JHtml::_('dropdown.init');
 	<?php if(!empty($gateways)): ?>
         <div class="accordion" id="gateways">
 			<?php foreach($gateways as $name => $gateway): ?>
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a class="accordion-toggle" data-toggle="collapse"
-                           data-parent="#gateways" href="#<?php echo $name ?>">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-<?php echo $name ?>">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse-<?php echo $name ?>" aria-expanded="false"
+                                aria-controls="collapse-<?php echo $name ?>">
 							<?php echo $gateway['title']; ?>
-                        </a>
-                    </div>
-                    <div id="<?php echo $name ?>" class="accordion-body collapse">
-                        <div class="accordion-inner">
+                        </button>
+                    </h2>
+                    <div id="collapse-<?php echo $name ?>" class="accordion-collapse collapse"
+                         aria-labelledby="heading-<?php echo $name ?>" data-bs-parent="#gateways">
+                        <div class="accordion-body">
 							<?php echo $gateway['html']; ?>
                         </div>
                     </div>
@@ -183,62 +195,62 @@ JHtml::_('dropdown.init');
 
 	<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 
-	<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-	<input type="hidden" name="task" value=""/> <input type="hidden" name="return" value="<?php echo $this->state->get('plan.return'); ?>"/>
+    <input type="hidden" name="task" value=""/> <input type="hidden" name="return" value="<?php echo $this->state->get('plan.return'); ?>"/>
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 <script type="text/javascript">
-	(function($) {
-		$.each($('input[name$="\\[enable\\]"]'), function(k, v) {
-			if(v.value == 0) {
-				return true;
-			}
-			var el = $(v);
-			var parent = el.closest('.accordion-group');
+    (function($) {
+        $.each($('input[name$="\\[enable\\]"]'), function(k, v) {
+            if(v.value == 0) {
+                return true;
+            }
+            var el = $(v);
+            var parent = el.closest('.accordion-item');
 
-			if(el.is(':checked')) {
-				set_bg(parent);
-			}
+            if(el.is(':checked')) {
+                set_bg(parent);
+            }
 
-			el.change(function() {
-				if($(this).is(':checked')) {
-					set_bg(parent);
-				} else {
-					unset_bg(parent);
-				}
-			});
-		});
+            el.change(function() {
+                if($(this).is(':checked')) {
+                    set_bg(parent);
+                } else {
+                    unset_bg(parent);
+                }
+            });
+        });
 
-		function set_bg(parent) {
-			$('.accordion-heading', parent).css('background-color', '#f0f0f0');
-		}
+        function set_bg(parent) {
+            $('.accordion-button', parent).addClass('gateway-enabled');
+        }
 
-		function unset_bg(parent) {
-			$('.accordion-heading', parent).css('background-color', 'transparent');
-		}
+        function unset_bg(parent) {
+            $('.accordion-button', parent).removeClass('gateway-enabled');
+        }
 
-		$('#params_properties_price').keyup(function() {
-			Joomsubscription.formatFloat(this, 2, 10);
-		});
-		$('#params_properties_discount').keyup(function() {
-			Joomsubscription.formatFloat(this, 2, 10);
-		});
-		$('#params_properties_days').keyup(function() {
-			Joomsubscription.formatInt(this);
-		});
-		$('#params_properties_purchase_limit').keyup(function() {
-			Joomsubscription.formatInt(this);
-		});
-		$('#params_properties_purchase_limit_user').keyup(function() {
-			Joomsubscription.formatInt(this);
-		});
-		$('#params_properties_purchase_limit_user_period').keyup(function() {
-			Joomsubscription.formatInt(this);
-		});
-		$('#params_properties_count_limit').keyup(function() {
-			Joomsubscription.formatInt(this);
-		});
+        $('#params_properties_price').keyup(function() {
+            Joomsubscription.formatFloat(this, 2, 10);
+        });
+        $('#params_properties_discount').keyup(function() {
+            Joomsubscription.formatFloat(this, 2, 10);
+        });
+        $('#params_properties_days').keyup(function() {
+            Joomsubscription.formatInt(this);
+        });
+        $('#params_properties_purchase_limit').keyup(function() {
+            Joomsubscription.formatInt(this);
+        });
+        $('#params_properties_purchase_limit_user').keyup(function() {
+            Joomsubscription.formatInt(this);
+        });
+        $('#params_properties_purchase_limit_user_period').keyup(function() {
+            Joomsubscription.formatInt(this);
+        });
+        $('#params_properties_count_limit').keyup(function() {
+            Joomsubscription.formatInt(this);
+        });
 
-	}(jQuery))
+    }(jQuery))
 </script>
