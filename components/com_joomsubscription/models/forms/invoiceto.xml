@@ -3,7 +3,7 @@
 	<fields name="fields">
 		<fieldset name="fields" addfieldpath="/libraries/mint/forms/elements">
 			<field id="billto" name="billto" type="text" label="E_INVOICE_BILLTO" required="true" class="inputbox"/>
-			<field id="who" name="vies" type="mradio" class="btn-group" label="E_INVWHO" default="1">
+			<field id="who" name="vies" layout="joomla.form.field.radio.switcher" type="radio" label="E_INVWHO" default="1">
 				<option value="0">E_INVWHO_COMP</option>
 				<option value="1">E_INVWHO_IND</option>
 			</field>
@@ -13,7 +13,7 @@
 			<field id="country" name="country" type="emcountry" label="E_INVOICE_COUNTRY" required="true" class="inputbox"/>
 			<field id="tax_id" name="tax_id" type="text" label="E_INVOICE_TAX_ID" class="inputbox"/>
 			<field id="phone" name="phone" type="text" label="E_INVOICE_PHONE" class="inputbox"/>
-			<field id="vies" name="vies" type="mradio" class="btn-group" label="E_VIESREG" default="0">
+			<field id="vies" name="vies" layout="joomla.form.field.radio.switcher" type="radio" label="E_VIESREG" default="0">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>

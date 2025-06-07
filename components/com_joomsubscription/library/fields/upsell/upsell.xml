@@ -44,7 +44,7 @@
 			<field name="val2" type="text" label="X_VALUE"/>
 		</fieldset>
 		<fieldset name="core" label="EM_CORE"  addfieldpath="/libraries/mint/forms/elements">
-			<field name="count_limit_mode" type="mradio" class="btn-group" default="0" label="EM_COUNT_USAGE">
+			<field name="count_limit_mode" layout="joomla.form.field.radio.switcher" type="radio" default="0" label="EM_COUNT_USAGE">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>

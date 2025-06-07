@@ -5,7 +5,7 @@
 	<field id="state_id" name="state_id" type="text" label="ESTATE" class="inputbox" />
 	<field id="tax" name="tax" type="text" label="ETAX" class="inputbox" required="true" />
 	<field id="tax_name" name="tax_name" type="text" label="ETAX_NAME" class="inputbox" required="true" default="VAT"/>
-	<field id="vies" name="vies" type="mradio" class="btn-group" label="E_ISITVAT" default="1">
+	<field id="vies" name="vies" layout="joomla.form.field.radio.switcher" type="radio" label="E_ISITVAT" default="1">
 		<option value="0">No</option>
 		<option value="1">Yes</option>
 	</field>

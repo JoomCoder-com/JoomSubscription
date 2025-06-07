@@ -19,9 +19,9 @@
 		</fieldset>
 		<fieldset name="limits" label="X_LIMITS">
 			<field name="purchase_limit" type="text" label="X_PURCHASE_LIMIT" default="0" description="X_PURCHASE_LIMIT_DESCR"/>
-			<field name="purchase_limit_active" type="mradio" class="btn-group inputbox" label="X_PURCHASE_LIMIT_ACT" default="0" description="X_PURCHASE_LIMIT_ACT_DESCR">
-				<option value="1">JYES</option>
+			<field name="purchase_limit_active" layout="joomla.form.field.radio.switcher" type="radio" label="X_PURCHASE_LIMIT_ACT" default="0" description="X_PURCHASE_LIMIT_ACT_DESCR">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 			<field name="purchase_limit_user" type="text" label="X_PURCHASE_LIMIT_PER_USER" default="0" description="X_PURCHASE_LIMIT_PER_USER_DESCR"/>
 			<field name="purchase_limit_user_period" type="text" label="X_PURCHASE_LIMIT_PER_USER_PER_PERIOD" default="0" description="X_PURCHASE_LIMIT_PER_USER_PER_PERIOD_DESCR"/>
@@ -55,13 +55,13 @@
 		</fieldset>
 
 		<fieldset name="rds" label="X_RDS">
-			<field id="rds" name="rds" type="mradio" label="X_RDS" description="X_RDS_DESCR" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="rds" name="rds" layout="joomla.form.field.radio.switcher" type="radio" label="X_RDS" description="X_RDS_DESCR" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field id="rds_email_login" name="rds_email_login" type="mradio" label="X_RDS_EMAIL_LOGIN" description="X_RDS_EMAIL_LOGIN_DESCR" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="rds_email_login" name="rds_email_login" layout="joomla.form.field.radio.switcher" type="radio" label="X_RDS_EMAIL_LOGIN" description="X_RDS_EMAIL_LOGIN_DESCR" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 		</fieldset>
 
@@ -95,41 +95,39 @@
 		</fieldset>
 
 		<fieldset name="grant" label="X_GRANT" description="X_GRANTDESC">
-			<field id="grant_reg" name="grant_reg" type="mradio" label="EGRANT_REG" description="EGRANT_REG_DESCR" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="grant_reg" name="grant_reg" layout="joomla.form.field.radio.switcher" type="radio" label="EGRANT_REG" description="EGRANT_REG_DESCR" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field id="grant_new" name="grant_new" type="mradio" label="EGRANT_NEW" description="EGRANT_NEW_DESCR" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="grant_new" name="grant_new" layout="joomla.form.field.radio.switcher" type="radio" label="EGRANT_NEW" description="EGRANT_NEW_DESCR" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 			<field name="granturl" type="text" label="X_GRANTURL" default=""/>
 		</fieldset>
 
 		<fieldset name="donation" label="X_DONATION" description="X_DONATION_DESCR">
-			<field id="donation" name="donation" type="mradio" label="X_DONATION_ENABLE" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="donation" name="donation" layout="joomla.form.field.radio.switcher" type="radio" label="X_DONATION_ENABLE" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 			<field name="donation_max_price" type="text" label="X_DONATION_MAX_PRICE" />
 			<field name="donation_step" type="text" label="X_DONATION_STEP" description="X_DONATION_STEP_DESCR" default="5"/>
-			<field id="donation_manual" name="donation_manual" type="mradio" label="X_DONATION_MANUAL" class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="donation_manual" name="donation_manual" layout="joomla.form.field.radio.switcher" type="radio" label="X_DONATION_MANUAL" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 		</fieldset>
 
 		<fieldset name="properties" label="X_PROPERTIES" addfieldpath="/administrator/components/com_content/models/fields/modal">
 			<field name="fields" type="emfields" multiple="true" label="X_EMFIELDS"/>
-			<field id="invisible" name="invisible" type="mradio" label="EINVISIBLE" class="btn-group inputbox"
-				   default="0">
-				<option value="1">JYES</option>
+			<field id="invisible" name="invisible" layout="joomla.form.field.radio.switcher" type="radio" label="EINVISIBLE"  default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field id="invisible_in_history" name="invisible_in_history" type="mradio" label="EINVISIBLEINHISTORY"
-				   class="btn-group inputbox" default="0">
-				<option value="1">JYES</option>
+			<field id="invisible_in_history" name="invisible_in_history" layout="joomla.form.field.radio.switcher" type="radio" label="EINVISIBLEINHISTORY" default="0">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 			<field name="muaccess" type="text" label="X_MUACCESS" description="X_MUACCESS_DESCR"/>
 			<field name="redirect" type="text" label="X_REDIRECTTO" description="X_REDIRECTTO_DESCR"/>
@@ -156,9 +154,9 @@
 				<option value="1">X_YESOR</option>
 				<option value="2">X_YESAND</option>
 			</field>
-			<field name="required_behave" type="mradio" class="btn-group" default="0" label="X_REQUIREDBEHAVE" description="X_REQUIREDBEHAVE_DESCR">
-				<option value="1">JYES</option>
+			<field name="required_behave" layout="joomla.form.field.radio.switcher" type="radio" default="0" label="X_REQUIREDBEHAVE" description="X_REQUIREDBEHAVE_DESCR">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 		</fieldset>
 
@@ -175,9 +173,9 @@
 				<option value="disc">X_SUBSTRACT_SUM_DSCK</option>
 				<option value="fix">X_SUBSTRACT_SUM_FIX</option>
 			</field>
-			<field name="plan_price_active" type="mradio" class="btn-group" default="0" label="X_CROSS_PRICE_ACTIVE">
-				<option value="1">JYES</option>
+			<field name="plan_price_active" layout="joomla.form.field.radio.switcher" type="radio" default="0" label="X_CROSS_PRICE_ACTIVE">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 			<field name="plan_price_discount" type="text" default="20" label="X_CROSSPLAN_PRICE_DSCOUNT"/>
 		</fieldset>
@@ -188,16 +186,16 @@
 		</fieldset>
 		<fieldset name="crossplans_hide" label="X_HIDE_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_HIDE_DESCR">
 			<field name="plans_hide" type="planslist" multiple="multiple" class="form-select" size="7" label="X_CROSSPLAN_TO_HIDE"/>
-			<field name="plans_hide_active" type="mradio" class="btn-group" default="0" label="X_CROSS_HIDE_ACTIVE">
-				<option value="1">JYES</option>
+			<field name="plans_hide_active" layout="joomla.form.field.radio.switcher" type="radio" default="0" label="X_CROSS_HIDE_ACTIVE">
 				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 		</fieldset>
 
 		<fieldset name="crossplans_grant" label="X_GRANT_CROSSPLANS_SETTINGS" description="X_CROSSPLAN_TO_GRANT_DESCR">
 			<field name="grant_plans" type="planslist" multiple="multiple" class="form-select" size="7"
 				   label="X_CROSSPLAN_TO_GRANT"/>
-			<field name="show_grant" type="mradio" class="btn-group" default="1" label="X_SHOWPLANS_FRONTEND"
+			<field name="show_grant" layout="joomla.form.field.radio.switcher" type="radio" default="1" label="X_SHOWPLANS_FRONTEND"
 				   description="X_SHOWPLANS_FRONTEND_DESCR">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
@@ -224,25 +222,25 @@
 			<field name="msg_cancel" type="editor" filter="safehtml" label="X_CANCEL_ALERT" hide="article,pagebreak,readmore"/>
 		</fieldset>
 		<fieldset name="alerts" label="X_ALERTS">
-			<field name="alert_enable_success" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLSUCCESS">
+			<field name="alert_enable_success" layout="joomla.form.field.radio.switcher" type="radio" default="1" label="X_ALERT_ENABLSUCCESS">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
-			<field name="alert_enable_fail" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLFAIL">
+			<field name="alert_enable_fail" layout="joomla.form.field.radio.switcher" type="radio" default="1" label="X_ALERT_ENABLFAIL">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
-			<field name="alert_enable_expire" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLEXPIRE">
+			<field name="alert_enable_expire" layout="joomla.form.field.radio.switcher" type="radio" default="1" label="X_ALERT_ENABLEXPIRE">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
-			<field name="alert_enable_cancel" type="mradio" class="btn-group" default="1" label="X_ALERT_ENABLCANSEL">
+			<field name="alert_enable_cancel" layout="joomla.form.field.radio.switcher" type="radio" default="1" label="X_ALERT_ENABLCANSEL">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
 			<field label="EMR_EXPIREALERTBEFORE" name="general_expire" type="text" size="15" default="10,5" description="EMR_EXPIREALERTBEFORE_DESCR"/>
 			<field name="extra_emails" type="text" label="X_EXTRA_ADMIN_ALERT_EMAIL" description="X_EXTRA_ADMIN_ALERT_EMAILDESCR"/>
-			<field name="send_as" type="mradio" class="btn-group" default="html" label="X_SEND_AS">
+			<field name="send_as" layout="joomla.form.field.radio.switcher" type="radio" default="html" label="X_SEND_AS">
 				<option value="text">ETEXT</option>
 				<option value="html">EHTML</option>
 			</field>
