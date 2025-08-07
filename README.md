@@ -109,7 +109,6 @@ $hasAccess = JoomsubscriptionApi::hasSubscription(
 - **Documentation**: Available in component admin area
 - **Issues**: Please report bugs via GitHub Issues
 - **Website**: https://www.joomcoder.com/
-- **Email**: support@joomcoder.com
 
 ## License
 
