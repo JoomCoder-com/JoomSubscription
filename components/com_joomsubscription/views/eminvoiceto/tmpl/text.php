@@ -23,6 +23,6 @@ defined('_JEXEC') or die('Restricted access');
 	<?php endif; ?>
 
 	<?php if($this->data->fields->get('phone')): ?>
-		<abbr title="<?php echo JText::_('E_INVOICE_PHONE'); ?>"><?php echo JString::substr(JText::_('E_INVOICE_PHONE'), 0, 1); ?>:</abbr> <?php echo $this->data->fields->get('phone'); ?>
+		<abbr title="<?php echo JText::_('E_INVOICE_PHONE'); ?>"><?php echo Joomla\String\StringHelper::substr(JText::_('E_INVOICE_PHONE'), 0, 1); ?>:</abbr> <?php echo $this->data->fields->get('phone'); ?>
 	<?php endif; ?>
 </address>

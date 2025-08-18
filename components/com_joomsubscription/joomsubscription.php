@@ -19,6 +19,8 @@ $doc = JFactory::getDocument();
 HTMLHelper::_('behavior.core');
 HTMLHelper::_('jquery.framework');
 
+// require new joomsusbcription library
+require_once __DIR__.'/libraries/vendor/autoload.php';
 
 include_once __DIR__.'/api.php';
 

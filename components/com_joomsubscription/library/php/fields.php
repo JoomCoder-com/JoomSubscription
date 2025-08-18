@@ -68,7 +68,7 @@ class JoomsubscriptionField extends JObject
 
 	public function getDescription()
 	{
-		return Mint::markdown(Mint::_($this->data->description));
+		return \Michelf\MarkdownExtra::defaultTransform(Mint::_($this->data->description));
 	}
 
 	public function getLabel()

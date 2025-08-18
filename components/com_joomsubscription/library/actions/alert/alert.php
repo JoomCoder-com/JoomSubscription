@@ -30,7 +30,7 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 
 		$is_html = !(strlen(strip_tags($body)) == strlen($body));
 
-		$body = Mint::markdown($body);
+		$body = \Michelf\MarkdownExtra::defaultTransform($body);
 
 		$mail->IsHTML(TRUE);
 

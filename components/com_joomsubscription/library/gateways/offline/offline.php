@@ -6,6 +6,9 @@
  * @copyright Copyright (C) 2012 JoomCoder (https://www.joomcoder.com/). All rights reserved.
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
+
+use Michelf\MarkdownExtra;
+
 defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.menu');
@@ -57,7 +60,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		);
 
 		$body = str_replace($from, $to, Mint::_($this->params->get('cus_body')));
-		$body = Mint::markdown($body);
+		$body = \Michelf\MarkdownExtra::defaultTransform($body);
 
 		$mail = JFactory::getMailer();
 		$mail->setSender($sender);
@@ -65,7 +68,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$mail->setBody(JMailHelper::cleanBody($body));
 		$mail->setSubject(JMailHelper::cleanSubject($subject));
 
-		if(JString::strlen($body) != JString::strlen(strip_tags($body)))
+		if(Joomla\String\StringHelper::strlen($body) != Joomla\String\StringHelper::strlen(strip_tags($body)))
 		{
 			$mail->IsHTML(TRUE);
 		}
@@ -83,7 +86,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$sender[1] = $user->get('name');
 
 		$body = str_replace($from, $to, $this->params->get('adm_body'));
-		$body = Mint::markdown($body);
+		$body = MarkdownExtra::defaultTransform($body);
 
 		$mail = JFactory::getMailer();
 		$mail->setSender($sender);
@@ -92,7 +95,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$mail->setBody(JMailHelper::cleanBody($body));
 		$mail->setSubject(JMailHelper::cleanSubject($subject));
 
-		if(JString::strlen($body) != JString::strlen(strip_tags($body)))
+		if(Joomla\String\StringHelper::strlen($body) != Joomla\String\StringHelper::strlen(strip_tags($body)))
 		{
 			$mail->IsHTML(TRUE);
 		}

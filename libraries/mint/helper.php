@@ -54,17 +54,6 @@ class Mint
 
 		return $val;
 	}
-	static function markdown($val, $extra = FALSE)
-	{
-		if(!class_exists('MarkdownInterface'))
-		{
-			include_once __DIR__ . '/Markdown/MarkdownExtra.inc.php';
-		}
-
-		$val = \Michelf\MarkdownExtra::defaultTransform($val);
-
-		return $val;
-	}
 
 	static public function loadLayout($name, $path)
 	{
@@ -142,7 +131,7 @@ class MintArrayHelper
 		}
 		foreach($array as $k => &$val)
 		{
-			$val = JString::strtolower($val);
+			$val = Joomla\String\StringHelper::strtolower($val);
 		}
 		if(!$array)
 		{

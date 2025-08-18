@@ -140,7 +140,7 @@ class CobaltUploadHandler extends UploadHandler
 			$file_size = $this->get_file_size($file_path, $append_file);
 			if($file_size === $file->size)
 			{
-				$ext = JString::strtolower(JFile::getExt($file->name));
+				$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
 				$subfolder = $ext;
 				$input = JFactory::getApplication()->input;
 				if($field_id = $input->getInt('field_id'))
@@ -190,7 +190,7 @@ class CobaltUploadHandler extends UploadHandler
 		$input = JFactory::getApplication()->input;
 		$time = time();
 		$date = date($params->get('folder_format', 'Y-m'), $time);
-		$ext = JString::strtolower(JFile::getExt($file->name));
+		$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
 		$filename = $time . '_' . md5($file->name . '-' . $file->size . '-' . $time) . '.' . $ext;
 		$src = JPATH_ROOT . '/tmp/' . $file->name;
 		$file->filename = $filename;

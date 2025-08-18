@@ -37,7 +37,7 @@ class JoomsubscriptionFieldCrosssell extends JoomsubscriptionField
 			JoomsubscriptionApi::getPrice($sell_price, $plan->params)
 		), $note);
 
-		$this->note = Mint::markdown($note);
+		$this->note = \Michelf\MarkdownExtra::defaultTransform($note);
 
 		return $this->_load_template('input');
 	}
