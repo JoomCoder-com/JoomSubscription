@@ -101,13 +101,13 @@ echo $this->menu->render(NULL);
 							</p>
 						<?php endif; ?>
 						<?php if($item->activated == 0): ?>
-							<div class="alert alert-warning">
+							<div class="alert alert-warning mt-2">
 								<?php echo JText::_('EMR_SUBSCR_INACTIVE'); ?>
 							</div>
-							<a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $item->id) ?>" class="btn-small btn-primary ">
+							<a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $item->id) ?>" class="btn btn-outline-primary">
 								<?php echo JText::_('E_PPAYAGAIN'); ?>
 							</a>
-								<button type="button" class="btn-small btn-cancel-order btn-primary" data-subscr-id="<?php echo $item->sid ?>">
+								<button type="button" class="btn btn-cancel-order btn-outline-danger" data-subscr-id="<?php echo $item->sid ?>">
 									<?php echo JText::_('ECANCEL'); ?>
 								</button>
 						<?php else: ?>
@@ -156,7 +156,7 @@ echo $this->menu->render(NULL);
 						<?php echo ($item->access_limit > 0) ? '<span class="badge badge-warning">' . $item->access_limit . '</span>' : '<span class="label label-success">' . JText::_('ENOLIMITS') . '</span>'; ?>
 					</td>
 					<td>
-						<span class="badge <?php echo (($item->access_limit > 0) && ($item->access_count >= $item->access_limit)) ? 'badge-important' : 'badge-success'; ?>">
+						<span class="badge <?php echo (($item->access_limit > 0) && ($item->access_count >= $item->access_limit)) ? 'bg-dark' : 'bg-success'; ?>">
 							<?php echo $item->access_count; ?></span>
 					</td>
 					<td align="right" nowrap>
