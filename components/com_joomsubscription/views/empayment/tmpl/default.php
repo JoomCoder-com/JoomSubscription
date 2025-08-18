@@ -16,11 +16,11 @@ $total = $this->plan->total;
 
 <script type="text/javascript">
 	(function($) {
-		Joomsubscription.submitbutton = function(task) {
-			Joomsubscription.submitform(task, document.getElementById('formsubscr'));
+		Joomla.submitbutton = function(task) {
+            Joomla.submitform(task, document.getElementById('formsubscr'));
 		};
 
-		Joomsubscription.validate_form = function() {
+        Joomla.validate_form = function() {
 			if($('#invoiceto_fields_billto').length && !$('#invoiceto_fields_billto').val()) {
 				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_BILLTO'))); ?>');
 				return;
@@ -73,8 +73,8 @@ $total = $this->plan->total;
 			return true;
 		};
 
-		Joomsubscription.checkout = function(processor) {
-			if(!Joomsubscription.validate_form()) {
+        Joomla.checkout = function(processor) {
+			if(!Joomla.validate_form()) {
 				return;
 			}
 			$('input[name="task"]').val('empayment.send');
@@ -351,7 +351,7 @@ $total = $this->plan->total;
 	(function($) {
 
 		$('button[data-payment-gateway]').click(function() {
-			Joomsubscription.checkout($(this).data('payment-gateway'));
+            Joomla.checkout($(this).data('payment-gateway'));
 		});
 
 		$('#payfree').click(function() {
