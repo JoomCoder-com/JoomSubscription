@@ -34,13 +34,14 @@ class JoomsubscriptionGateway extends JObject
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$type}.ini"))
+			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$this->type}.ini"))
 			{
 				$tag == 'en-GB';
 			}
 		}
 
-		$result = $lang->load('com_joomsubscription_gateway_' . $type, JPATH_SITE, $tag, TRUE);
+
+		$result = $lang->load('com_joomsubscription_gateway_' . $this->type, JPATH_SITE, $tag, TRUE);
 	}
 
 	public function init_params($params)
