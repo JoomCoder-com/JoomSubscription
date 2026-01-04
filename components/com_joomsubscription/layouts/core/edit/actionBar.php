@@ -12,7 +12,7 @@ use Joomla\CMS\Router\Route;
 
 extract($displayData);
 
-$app = JFactory::getApplication();
+$app = \Joomla\CMS\Factory::getApplication();
 $controller = $app->input->getCmd('view', 'emplan');
 
 ?>
@@ -38,7 +38,7 @@ $controller = $app->input->getCmd('view', 'emplan');
 					<?php echo JText::_('ESAVE2NEW'); ?>
 				</a>
 			</li>
-			<?php if(JFactory::getApplication()->input->getInt('id')): ?>
+			<?php if(\Joomla\CMS\Factory::getApplication()->input->getInt('id')): ?>
 				<li>
 					<a class="dropdown-item" href="javascript:void(0);" onclick="Joomla.submitbutton('<?php echo $controller;?>.save2copy');">
 						<?php echo JText::_('ESAVE2COPY'); ?>

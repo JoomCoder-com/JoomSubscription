@@ -143,14 +143,14 @@ $total = $this->plan->total;
 					{
 						$options[] = JHtml::_('select.option', $value, JoomsubscriptionApi::getPrice($value, $this->plan->params));
 					}
-					$damount = JFactory::getApplication()->input->get('donation_amount', $value);
+					$damount = \Joomla\CMS\Factory::getApplication()->input->get('donation_amount', $value);
 					$total   = $damount;
 					echo JHtml::_('select.genericlist', $options, 'donation_amount', $attribs = NULL, $optKey = 'value', $optText = 'text', $damount);
 					?>
 
 				<?php elseif($this->plan->is_donation == 2): ?>
 					<?php
-					$total = JFactory::getApplication()->input->get('donation_amount', $total);
+					$total = \Joomla\CMS\Factory::getApplication()->input->get('donation_amount', $total);
 					if($total <= $this->plan->total)
 						$total = $this->plan->total;
 					?>
@@ -209,7 +209,7 @@ $total = $this->plan->total;
 
 	<hr/>
 	<div class="form-horizontal">
-		<?php if($this->plan->params->get('properties.muaccess') || $this->coupons && ($this->plan->price > 0 || JFactory::getApplication()->getUserState('last-joomsubscription-coupon'))): ?>
+		<?php if($this->plan->params->get('properties.muaccess') || $this->coupons && ($this->plan->price > 0 || \Joomla\CMS\Factory::getApplication()->getUserState('last-joomsubscription-coupon'))): ?>
 			<div class="control-group">
 				<label class="control-label" for="coupon"><?php echo JText::_('EMR_COUPONSERT') ?></label>
 
@@ -257,7 +257,7 @@ $total = $this->plan->total;
 				<div class="controls">
 					<?php if($this->user->get('id')): ?>
 						<div class="row">
-							<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', JFactory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
+							<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
 						</div>
 
 						<div id="invoice_data" class="hide"></div>

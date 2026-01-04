@@ -16,7 +16,7 @@ class JoomsubscriptionRuleCom_joommedia extends JoomsubscriptionRule
 {
 	public function isProtected()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$id = $this->input->getInt('id', FALSE);
 
 		if($this->input->getCmd('view') != 'mediaitem' && !$id)
@@ -88,6 +88,6 @@ class JoomsubscriptionRuleCom_joommedia extends JoomsubscriptionRule
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 	}
 }

@@ -17,7 +17,7 @@ class JoomsubscriptionGatewayPayfast extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$subscription->gateway_id = $this->get_gateway_id();
 
@@ -40,7 +40,7 @@ class JoomsubscriptionGatewayPayfast extends JoomsubscriptionGateway
 
 	public function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('merchant_id') || !$this->params->get('merchant_key'))
 		{
@@ -78,19 +78,19 @@ class JoomsubscriptionGatewayPayfast extends JoomsubscriptionGateway
 			$url = 'https://sandbox.payfast.co.za/eng/process?' . http_build_query($param);
 		}
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	public function get_subscrption_id($who = NULL)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		return $app->input->get('em_id', $app->input->get('m_payment_id'));
 	}
 
 	public function get_gateway_id()
 	{
-		return JFactory::getApplication()->input->get('pf_payment_id');
+		return \Joomla\CMS\Factory::getApplication()->input->get('pf_payment_id');
 	}
 
 	private function _validateITN()

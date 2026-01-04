@@ -38,7 +38,7 @@ class JoomsubscriptionHelper
 			return;
 		}
 
-		$db             = JFactory::getDbo();
+		$db             = \Joomla\CMS\Factory::getDbo();
 		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
 
 		if($joomsubscription_params->get('use_invoice', 0) && $subscription->price > 0 && $subscription->invoice_id && !$subscription->invoice_num)
@@ -98,7 +98,7 @@ class JoomsubscriptionHelper
 		{
 			JoomsubscriptionActionsHelper::run('onSuccess', $subscription);
 
-			$suser = JFactory::getUser($subscription->user_id);
+			$suser = \Joomla\CMS\Factory::getUser($subscription->user_id);
 			if(
 				$subscription->published == 1  &&
 				JComponentHelper::getParams('com_joomsubscription')->get('activate') &&
@@ -168,7 +168,7 @@ class JoomsubscriptionHelper
 
 	public static function redirect($plan, $success = TRUE)
 	{
-		$app      = JFactory::getApplication();
+		$app      = \Joomla\CMS\Factory::getApplication();
 		$redirect = '';
 
 		if(!is_object($plan->params))
@@ -203,10 +203,10 @@ class JoomsubscriptionHelper
 			$redirect = JoomsubscriptionApi::getLink('emhistory', FALSE);
 		}
 
-		if(JFactory::getSession()->get('joomsubscription_access_url') && $success)
+		if(\Joomla\CMS\Factory::getSession()->get('joomsubscription_access_url') && $success)
 		{
-			$redirect = JFactory::getSession()->get('joomsubscription_access_url');
-			JFactory::getSession()->set('joomsubscription_access_url', NULL);
+			$redirect = \Joomla\CMS\Factory::getSession()->get('joomsubscription_access_url');
+			\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', NULL);
 		}
 
 		$app->redirect($redirect);
@@ -223,7 +223,7 @@ class JoomsubscriptionHelper
 	{
 		if(!($user instanceof JUser))
 		{
-			$user = JFactory::getUser($user);
+			$user = \Joomla\CMS\Factory::getUser($user);
 		}
 		$moderate = JComponentHelper::getParams('com_joomsubscription')->get('moderate');
 
@@ -233,7 +233,7 @@ class JoomsubscriptionHelper
 	public static function userLastPlan($user_id, $plan_id)
 	{
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT id, UNIX_TIMESTAMP(extime) AS etm
 			FROM #__joomsubscription_subscriptions
 			WHERE user_id = {$user_id}
@@ -248,7 +248,7 @@ class JoomsubscriptionHelper
 
 	public static function getUserSubscr($usid)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$sql = "SELECT p.name,  p.params as plan_params, u.*,
 		IF(u.extime > NOW() OR u.extime = '0000-00-00 00:00:00', 0, 1) AS expired,
@@ -266,10 +266,10 @@ class JoomsubscriptionHelper
 	{
 		if(!$user_id)
 		{
-			$user_id = JFactory::getUser()->get('id');
+			$user_id = \Joomla\CMS\Factory::getUser()->get('id');
 		}
 
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select("us.*");
 		$query->from("#__joomsubscription_subscriptions AS us");
@@ -293,14 +293,14 @@ class JoomsubscriptionHelper
 	{
 		if(!$user_id)
 		{
-			$user_id = JFactory::getUser()->get('id');
+			$user_id = \Joomla\CMS\Factory::getUser()->get('id');
 		}
 		if(is_array($plans))
 		{
 			$plans = implode(',', $plans);
 		}
 
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select("us.*");
 		$query->from("#__joomsubscription_subscriptions AS us");
@@ -339,7 +339,7 @@ class JoomsubscriptionHelper
 
 		if(empty($user_id))
 		{
-			$user_id = JFactory::getUser()->get('id');
+			$user_id = \Joomla\CMS\Factory::getUser()->get('id');
 		}
 
 		$key = $user_id . '-' . $only_active;
@@ -368,7 +368,7 @@ class JoomsubscriptionHelper
 					AND published = 1";
 		}
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT p.id FROM `#__joomsubscription_plans` AS p WHERE p.id IN({$query})";
 		$db->setQuery($sql);
 		$result    = $db->loadColumn();
@@ -387,7 +387,7 @@ class JoomsubscriptionHelper
 			return $out[$plan->id];
 		}
 
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$query = $db->getQuery(TRUE);
 
@@ -420,7 +420,7 @@ class JoomsubscriptionHelper
 			return $out[$user_id];
 		}
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT * FROM `#__joomsubscription_subscriptions` WHERE user_id = {$user_id} AND activated = 1";
 		if($plans)
 		{
@@ -442,7 +442,7 @@ class JoomsubscriptionHelper
 			return $out[$user_id];
 		}
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT * FROM `#__joomsubscription_subscriptions` WHERE user_id = {$user_id} AND activated = 0";
 		if($plans)
 		{
@@ -521,7 +521,7 @@ class JoomsubscriptionHelper
 	{
 		static $out = array();
 
-		$user = JFactory::getUser($user_id);
+		$user = \Joomla\CMS\Factory::getUser($user_id);
 		if(!$user->get('id'))
 		{
 			return 0;
@@ -532,7 +532,7 @@ class JoomsubscriptionHelper
 			return $out[$plan_id];
 		}
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT count(*) FROM #__joomsubscription_subscriptions WHERE plan_id = {$plan_id} AND user_id = {$user->id} AND activated = 1";
 		if($period)
 		{
@@ -555,7 +555,7 @@ class JoomsubscriptionHelper
 	static public function preparePlans($items)
 	{
 		$out = $groups = array();
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 
 		foreach($items as $k => $plan)
 		{
@@ -691,7 +691,7 @@ class JoomsubscriptionHelper
 
 	public static function getPlanDetails($plan)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		if(!is_object($plan->params))
 		{
@@ -875,7 +875,7 @@ class JoomsubscriptionHelper
 
 		if($plan->params->get('properties.donation', 0))
 		{
-			$app = JFactory::getApplication();
+			$app = \Joomla\CMS\Factory::getApplication();
 
 			$max_price = $plan->params->get('properties.donation_max_price', 0);
 			if($max_price && $max_price > $plan->price && !$plan->params->get('properties.donation_manual', 0))
@@ -928,7 +928,7 @@ class JoomsubscriptionHelper
 		$plan->terms = '';
 		if($plan->params->get('properties.terms'))
 		{
-			if(JFactory::getApplication()->isClient('site'))
+			if(\Joomla\CMS\Factory::getApplication()->isClient('site'))
 			{
 				include_once JPATH_ROOT . '/components/com_content/models/article.php';
 
@@ -975,7 +975,7 @@ class JoomsubscriptionHelper
 
 		if(!$loaded)
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT id, params FROM #__joomsubscription_plans WHERE id IN (" . implode(',', $user_plans) . ")");
 			$list = $db->loadAssocList('id', 'params');
 
@@ -1015,8 +1015,8 @@ class JoomsubscriptionHelper
 			$subscription       = $subscription_model->getItem($subscription);
 		}
 
-		$config = JFactory::getConfig();
-		$mail   = JFactory::getMailer();
+		$config = \Joomla\CMS\Factory::getConfig();
+		$mail   = \Joomla\CMS\Factory::getMailer();
 
 		$plan = isset($options['plan']) ? $options['plan'] : FALSE;
 		$day  = isset($options['day']) ? $options['day'] : 0;
@@ -1073,7 +1073,7 @@ class JoomsubscriptionHelper
 		$sender[1] = $config->get('fromname');
 
 		$mail->setSender($sender);
-		$mail->AddAddress(JFactory::getUser($subscription->user_id)->email);
+		$mail->AddAddress(\Joomla\CMS\Factory::getUser($subscription->user_id)->email);
 		if($plan->params->get('alerts.extra_emails', FALSE))
 		{
 			$emails = explode(',', $plan->params->get('alerts.extra_emails'));
@@ -1092,9 +1092,9 @@ class JoomsubscriptionHelper
 	{
 		$params = JComponentHelper::getParams('com_joomsubscription');
 
-		$body = str_ireplace('[USER]', str_replace("\n", ' ', JFactory::getUser($subscription->user_id)->name), $body);
-		$body = str_ireplace('[LOGINNAME]', str_replace("\n", ' ', JFactory::getUser($subscription->user_id)->username), $body);
-		$body = str_ireplace('[EMAIL]', JFactory::getUser($subscription->user_id)->email, $body);
+		$body = str_ireplace('[USER]', str_replace("\n", ' ', \Joomla\CMS\Factory::getUser($subscription->user_id)->name), $body);
+		$body = str_ireplace('[LOGINNAME]', str_replace("\n", ' ', \Joomla\CMS\Factory::getUser($subscription->user_id)->username), $body);
+		$body = str_ireplace('[EMAIL]', \Joomla\CMS\Factory::getUser($subscription->user_id)->email, $body);
 		$body = str_ireplace('[DAY]', $day, $body);
 		$body = str_ireplace('[PLAN]', $plan->name, $body);
 		$body = str_ireplace('[ORDER_ID]', $subscription->gateway_id, $body);
@@ -1136,7 +1136,7 @@ class JoomsubscriptionHelper
 			$body = str_ireplace($m[0], JHtml::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
 		}
 
-		$id = JFactory::getApplication()->input->cookie->get('i_want_to_prolong');
+		$id = \Joomla\CMS\Factory::getApplication()->input->cookie->get('i_want_to_prolong');
 		if($id)
 		{
 			include_once JPATH_ROOT . '/components/com_cobalt/api.php';
@@ -1150,7 +1150,7 @@ class JoomsubscriptionHelper
 
 	public static function isActiveSubscription($subscription_id)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select('id');
 		$query->from('#__joomsubscription_subscriptions');
@@ -1181,7 +1181,7 @@ class JoomsubscriptionHelper
 			return $out[$key];
 		}
 
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('u.*');
@@ -1228,7 +1228,7 @@ class JoomsubscriptionHelper
 			return $out[$key];
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id FROM #__joomsubscription_url_history WHERE url = '" . $db->escape($url) . "' AND user_id = $user_id LIMIT 1");
 
 		$out[$key] = (int)!!$db->loadResult();
@@ -1238,8 +1238,8 @@ class JoomsubscriptionHelper
 
 	static public function loadHead()
 	{
-		$document = JFactory::getDocument();
-		if(!JFactory::getApplication()->isClient('administrator'))
+		$document = \Joomla\CMS\Factory::getDocument();
+		if(!\Joomla\CMS\Factory::getApplication()->isClient('administrator'))
 		{
 			$document->addScript(JRoute::_('index.php?option=com_joomsubscription&task=emajax.mainJS&Itemid=1'));
 		}
@@ -1267,7 +1267,7 @@ class JoomsubscriptionHelper
 	{
 
 		$params = JComponentHelper::getParams('com_joomsubscription');
-		$app    = JFactory::getApplication();
+		$app    = \Joomla\CMS\Factory::getApplication();
 		$out    = array(
 			'name'    => '',
 			'percent' => 0
@@ -1302,7 +1302,7 @@ class JoomsubscriptionHelper
 
 		/* END RULES NOT TO PAY TAX */
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$query = $db->getQuery(TRUE);
 		$query->select('tax, tax_name');
@@ -1346,10 +1346,10 @@ class JoomsubscriptionHelper
 
 	public static function getInvoiceNum()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$num_file    = JPATH_ROOT . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_joomsubscription' . DIRECTORY_SEPARATOR . 'invoice_num.txt';
 
-		if(!JFile::exists($num_file))
+		if(!is_file($num_file))
 		{
 			$db->setQuery("SELECT max(invoice_num) FROM #__joomsubscription_subscriptions");
 			$max_num     = $db->loadResult();
@@ -1378,7 +1378,7 @@ class JoomsubscriptionAjaxHelper
 			'error'   => $msg
 		);
 		echo json_encode($out);
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public static function send($result, $key = 'result')
@@ -1388,6 +1388,6 @@ class JoomsubscriptionAjaxHelper
 			$key      => $result
 		);
 		echo json_encode($out);
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

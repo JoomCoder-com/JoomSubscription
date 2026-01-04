@@ -33,7 +33,7 @@ class JoomsubscriptionViewsEmSelectorHtml extends Joomla\CMS\MVC\View\HtmlView
 		include_once JPATH_ROOT.'/components/com_joomsubscription/models/empayment.php';
 		$model = new JoomsubscriptionModelEmPayment();
 
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$this->plan = JoomsubscriptionApi::getPreparedPlan($app->input->get('id'));
 		$this->coupon  = JoomsubscriptionHelperCoupon::getCoupon($app->input->get('coupon'), $this->plan->id, $this->plan->total, TRUE);

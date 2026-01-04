@@ -8,7 +8,7 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 {
 	public function accept(&$subscription, $plan)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		if($post->get('pam') != $this->params->get('pam'))
 		{
@@ -50,7 +50,7 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 
 	public function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('p1'))
 		{
@@ -102,18 +102,18 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 		$c .= '<script>document.getElementById("vcsform").submit();</script>';
 
 		echo $c;
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function get_subscrption_id($who = null)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		return $app->input->get('em_id', $app->input->get('p2'));
 	}
 
 	public function get_gateway_id()
 	{
-		return JFactory::getApplication()->input->get('Uti');
+		return \Joomla\CMS\Factory::getApplication()->input->get('Uti');
 	}
 }

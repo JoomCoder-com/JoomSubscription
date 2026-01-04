@@ -34,7 +34,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 	}
 	/*public function getComponents()
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('e.element as value');
@@ -58,7 +58,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 
 		foreach($coms AS &$c)
 		{
-			JFactory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
+			\Joomla\CMS\Factory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
 			$c->text = $c->value;
 
 			$trans = strip_tags(JText::_($c->value));
@@ -75,7 +75,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 
 	public function getRules($plan_id)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('*');

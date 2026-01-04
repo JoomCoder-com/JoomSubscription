@@ -16,8 +16,8 @@ class JoomsubscriptionController extends MControllerBase
 
 	public function display($cachable = FALSE, $urlparams = array())
 	{
-		$app            = JFactory::getApplication();
-		$user           = JFactory::getUser();
+		$app            = \Joomla\CMS\Factory::getApplication();
+		$user           = \Joomla\CMS\Factory::getUser();
 		$joomsubscription_config = JComponentHelper::getParams('com_joomsubscription');
 		$is_moder       = in_array($joomsubscription_config->get('moderate'), $user->getAuthorisedViewLevels());
 		$redirect       = FALSE;
@@ -41,7 +41,7 @@ class JoomsubscriptionController extends MControllerBase
 				JoomsubscriptionApi::getPreparedPlan($sid) &&
 				JoomsubscriptionApi::getPreparedPlan($sid)->params->get('properties.rds', 0)))
 			{
-				$session = JFactory::getSession();
+				$session = \Joomla\CMS\Factory::getSession();
 				$session->set('try_this_plan', $sid);
 				\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_REDIRECT'),'warning');
 				$redirect = JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url','index.php?option=com_users&view=login') .
@@ -64,7 +64,7 @@ class JoomsubscriptionController extends MControllerBase
 
 		if($redirect)
 		{
-			JFactory::getApplication()->redirect($redirect, FALSE);
+			\Joomla\CMS\Factory::getApplication()->redirect($redirect, FALSE);
 
 			return;
 		}

@@ -34,7 +34,7 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 
 		$subscription->gateway_id = $this->get_gateway_id();
 
-		$post = JFactory::getApplication()->input->post;
+		$post = \Joomla\CMS\Factory::getApplication()->input->post;
 		if($post->get('trade_status') == 'TRADE_SUCCESS')
 		{
 			$subscription->published = 1;
@@ -90,7 +90,7 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 
 			return FALSE;
 		}
-		if(!JFile::exists($this->_getCertFile()))
+		if(!is_file($this->_getCertFile()))
 		{
 			$this->setError(JText::_('AP_ERR_NOCERT'));
 
@@ -119,7 +119,7 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 				$param["logistics_type"]    = "EXPRESS";
 				$param["logistics_fee"]     = "0.00";
 				$param["logistics_payment"] = "BUYER_PAY";
-				$param["receive_name"]      = JFactory::getUser()->get('username');
+				$param["receive_name"]      = \Joomla\CMS\Factory::getUser()->get('username');
 
 
 				$invoice = new JoomsubscriptionModelsEmInvoiceTo();
@@ -145,12 +145,12 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 		{
 			$url = "https://mapi.alipay.net/gateway.do?";
 		}
-		JFactory::getApplication()->redirect($url . http_build_query($param));
+		\Joomla\CMS\Factory::getApplication()->redirect($url . http_build_query($param));
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return trim($post->get('trade_no'));
 	}

@@ -26,8 +26,8 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 		{
 			$this->_makeAPICall('add_contact', array(
 				"campaign"  => $this->params->get('campaign_id'),
-				"name"      => JFactory::getUser()->get('name'),
-				"email"     => JFactory::getUser()->get('email'),
+				"name"      => \Joomla\CMS\Factory::getUser()->get('name'),
+				"email"     => \Joomla\CMS\Factory::getUser()->get('email'),
 				"cycle_day" => 1,
 				"ip"        => $_SERVER['REMOTE_ADDR']
 			));
@@ -35,7 +35,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 
 		if($this->params->get('msg'))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
 		}
 	}
 
@@ -94,7 +94,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 
 	public function getlists()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$this->params->set('api_key', $app->input->getString('api_key'));
 
 		$campaigns = $this->_makeAPICall('get_campaigns');
@@ -112,7 +112,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 	private function _userExists()
 	{
 		$user = $this->_makeAPICall('get_contacts', array(
-			'email' => array('EQUALS' => JFactory::getUser()->get('email'))
+			'email' => array('EQUALS' => \Joomla\CMS\Factory::getUser()->get('email'))
 		));
 
 		if(count($user) == 0)
@@ -142,7 +142,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 		}
 		catch(Exception $e)
 		{
-			JFactory::getApplication()->enqueueMessage($e->getMessage() . $what);
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage($e->getMessage() . $what);
 
 			return NULL;
 		}

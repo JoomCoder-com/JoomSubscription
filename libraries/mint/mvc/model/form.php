@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 jimport('mint.mvc.model.base');
 
 /**
@@ -44,7 +44,7 @@ abstract class MModelForm extends MModelBase
 		// Only attempt to check the row in if it exists.
 		if ($pk)
 		{
-			$user = JFactory::getUser();
+			$user = \Joomla\CMS\Factory::getUser();
 
 			// Get an instance of the row to checkin.
 			$table = $this->getTable();
@@ -108,7 +108,7 @@ abstract class MModelForm extends MModelBase
 				return true;
 			}
 
-			$user = JFactory::getUser();
+			$user = \Joomla\CMS\Factory::getUser();
 
 			// Check if this is the user having previously checked out the row.
 			if ($table->checked_out > 0 && $table->checked_out != $user->get('id'))

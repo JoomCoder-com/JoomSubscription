@@ -32,7 +32,7 @@ class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField
 	protected function getOptions()
 	{
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT id as value, name as text FROM #__joomsubscription_country ";
 
 		$options = JComponentHelper::getParams('com_joomsubscription');

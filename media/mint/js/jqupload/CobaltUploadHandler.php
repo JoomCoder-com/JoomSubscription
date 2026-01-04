@@ -61,7 +61,7 @@ class CobaltUploadHandler extends UploadHandler
 
 	protected function get_full_url()
 	{
-		return JFactory::getURI()->base();
+		return \Joomla\CMS\Factory::getURI()->base();
 	}
 
 	protected function get_download_url($file_name, $version = null, $direct = false)
@@ -142,7 +142,7 @@ class CobaltUploadHandler extends UploadHandler
 			{
 				$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
 				$subfolder = $ext;
-				$input = JFactory::getApplication()->input;
+				$input = \Joomla\CMS\Factory::getApplication()->input;
 				if($field_id = $input->getInt('field_id'))
 				{
 					$field = JTable::getInstance('Field', 'CobaltTable');
@@ -181,13 +181,13 @@ class CobaltUploadHandler extends UploadHandler
 
 	protected function handle_image_file($file_path, $file)
 	{
-		$file->thumbnailUrl = CImgHelper::getThumb($file->path, $this->options['thumbnail']['max_width'], $this->options['thumbnail']['max_height'], 'uploader', JFactory::getUser()->get('id'));
+		$file->thumbnailUrl = CImgHelper::getThumb($file->path, $this->options['thumbnail']['max_width'], $this->options['thumbnail']['max_height'], 'uploader', \Joomla\CMS\Factory::getUser()->get('id'));
 	}
 
 	public function savefile(&$file, $subfolder)
 	{
 		$params = JComponentHelper::getParams('com_cobalt');
-		$input = JFactory::getApplication()->input;
+		$input = \Joomla\CMS\Factory::getApplication()->input;
 		$time = time();
 		$date = date($params->get('folder_format', 'Y-m'), $time);
 		$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
@@ -197,14 +197,14 @@ class CobaltUploadHandler extends UploadHandler
 
 		$dest = JPATH_ROOT . DIRECTORY_SEPARATOR . $params->get('general_upload') . DIRECTORY_SEPARATOR . $subfolder . DIRECTORY_SEPARATOR;
 		$index = '<html><body></body></html>';
-		if(! JFolder::exists($dest))
+		if(! is_dir($dest))
 		{
 			JFolder::create($dest, 0755);
 			JFile::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
 		}
 
 		$dest .= $date . DIRECTORY_SEPARATOR;
-		if(! JFolder::exists($dest))
+		if(! is_dir($dest))
 		{
 			JFolder::create($dest, 0755);
 			JFile::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
@@ -248,7 +248,7 @@ class CobaltUploadHandler extends UploadHandler
 				$data['height'] = $size[1];
 			}
 
-			$session = JFactory::getSession();
+			$session = \Joomla\CMS\Factory::getSession();
 			$width = (int)$session->get('width', FALSE, $input->get('key'));
 			$height = (int)$session->get('height', FALSE, $input->get('key'));
 

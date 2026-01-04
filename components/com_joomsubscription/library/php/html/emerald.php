@@ -25,7 +25,7 @@ abstract class JHtmlJoomsubscription
 	{
 		if (empty(self::$groups))
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$query = $db->getQuery(true);
 
 			$query->select('g.id AS value, g.name AS text');
@@ -43,7 +43,7 @@ abstract class JHtmlJoomsubscription
 	{
 		if (empty(self::$groups))
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$query = $db->getQuery(true);
 
 			$query->select('p.id AS value, p.name AS text');

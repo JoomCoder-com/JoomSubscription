@@ -21,27 +21,27 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 	public function getinvoicetext()
 	{
 		echo JoomsubscriptionInvoiceHelper::text();
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function getinvoiceform()
 	{
 		echo JoomsubscriptionInvoiceHelper::form();
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function coupon()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$app->setUserState('last-joomsubscription-coupon', $app->input->getString('coupon'));
 		$app->redirect(JUri::getInstance()->toString());
 	}
 
 	public function send()
 	{
-		$app        = JFactory::getApplication();
+		$app        = \Joomla\CMS\Factory::getApplication();
 		$this->plan = JoomsubscriptionApi::getPreparedPlan($this->input->get('sid'));
-		$user_id    = JFactory::getUser()->get('id');
+		$user_id    = \Joomla\CMS\Factory::getUser()->get('id');
 
 		if(!$user_id && $this->plan->params->get('properties.rds', 0))
 		{
@@ -65,7 +65,7 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 			$this->redirect();
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT id FROM #__users WHERE email = '{$email}'");
 		$result = $db->loadObject();
@@ -102,7 +102,7 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 		$pass              = JUserHelper::genRandomPassword();
 		$data['password1'] = $pass;
 
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$lang->load('com_users');
 
 		MModelBase::addIncludePath(JPATH_ROOT . '/components/com_users/models');
@@ -135,9 +135,9 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 			$credentials['username'] = $username;
 			$credentials['password'] = $pass;
 
-			$url = JFactory::getSession()->get('joomsubscription_access_url', NULL);
-			$result = JFactory::getApplication()->login($credentials, $options);
-			JFactory::getSession()->set('joomsubscription_access_url', $url);
+			$url = \Joomla\CMS\Factory::getSession()->get('joomsubscription_access_url', NULL);
+			$result = \Joomla\CMS\Factory::getApplication()->login($credentials, $options);
+			\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', $url);
 		}
 
 		if(!is_int($return))

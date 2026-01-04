@@ -15,7 +15,7 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 {
 	function accept(&$subscription, $plan)
 	{
-		$post    = JFactory::getApplication()->input->post;
+		$post    = \Joomla\CMS\Factory::getApplication()->input->post;
 		$gateway = $this->get_gateway_id();
 		$date    = JDate::getInstance()->toISO8601();
 
@@ -68,7 +68,7 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 	private function _checkHash()
 	{
 		$hash = ['action', 'orderSumAmount', 'orderSumCurrencyPaycash', 'orderSumBankPaycash', 'shopId', 'invoiceId', 'customerNumber'];
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		foreach($hash AS $h)
 		{
@@ -96,8 +96,8 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
-		$post = JFactory::getApplication()->input;
+		$user = \Joomla\CMS\Factory::getUser();
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		if(!$this->params->get('shopId') || !$this->params->get('scid'))
 		{
@@ -129,19 +129,19 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 
 		$url .= http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('invoiceId');
 	}
 
 	function get_subscrption_id($who = NULL)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('orderNumber');
 	}

@@ -15,7 +15,7 @@ class JoomsubscriptionGatewayRbk extends JoomsubscriptionGateway
 
 	function accept(&$subscription, $plan)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$key[] =  $this->params->get('eshopid');
 		$key[] = $post->get('orderId');
@@ -54,7 +54,7 @@ class JoomsubscriptionGatewayRbk extends JoomsubscriptionGateway
 
 			return FALSE;
 		}
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$param['eshopId'] = $this->params->get('eshopid');
 		$param['orderId'] = $subscription->id;
@@ -68,19 +68,19 @@ class JoomsubscriptionGatewayRbk extends JoomsubscriptionGateway
 
 		$url = 'https://rbkmoney.ru/acceptpurchase.aspx?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('paymentId');
 	}
 
 	function get_subscrption_id($who = null)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		return $app->input->get('orderId', $app->input->get('em_id'));
 	}

@@ -42,7 +42,7 @@ class JoomsubscriptionActionHikashop extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		$db  = JFactory::getDbo();
+		$db  = \Joomla\CMS\Factory::getDbo();
 		$out = array();
 
 		if($this->params->get('products'))

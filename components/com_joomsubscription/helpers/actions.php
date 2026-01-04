@@ -17,7 +17,7 @@ class JoomsubscriptionActionsHelper
 {
 	public static function run($method, $subscription)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$query = $db->getQuery(TRUE);
 		$query->select("*");
@@ -55,7 +55,7 @@ class JoomsubscriptionActionsHelper
 	public static function actions_form($plan)
 	{
 
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$view = new JoomsubscriptionViewsEmActionsHtml();
 
 		$view->addTemplatePath(JPATH_ROOT . '/components/com_joomsubscription/views/emactions/tmpl');
@@ -70,11 +70,11 @@ class JoomsubscriptionActionsHelper
 
 	public static function load_lang($action)
 	{
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_action_{$action}.ini"))
+			if(!is_file(JPATH_BASE . "/language/{$tag}/com_joomsubscription_action_{$action}.ini"))
 			{
 				$tag == 'en-GB';
 			}
@@ -150,7 +150,7 @@ class JoomsubscriptionActionsHelper
 			return array();
 		}
 
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select('*');
 		$query->from('#__joomsubscription_plans_actions');
@@ -166,7 +166,7 @@ class JoomsubscriptionActionsHelper
 
 	public static function cleanUrlHistory($subscription_id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("DELETE FROM `#__joomsubscription_url_history` WHERE subscription_id = " . $subscription_id);
 		$db->execute();
 	}

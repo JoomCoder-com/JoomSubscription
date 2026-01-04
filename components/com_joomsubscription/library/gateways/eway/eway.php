@@ -67,7 +67,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 		}
 
 		$request = new eWAY\CreateAccessCodesSharedRequest();
-		$user    = JFactory::getUser();
+		$user    = \Joomla\CMS\Factory::getUser();
 
 		if($subscription->invoice_id)
 		{
@@ -102,7 +102,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 		$request->TransactionType = 'Purchase';
 
 		$langs             = array('en', 'es', 'fr', 'de', 'nl');
-		$lang              = substr(JFactory::getLanguage()->getTag(), 0, 2);
+		$lang              = substr(\Joomla\CMS\Factory::getLanguage()->getTag(), 0, 2);
 		$request->Language = strtoupper(in_array($lang, $langs) ? $lang : '');
 
 		$service = $this->_getService();
@@ -123,7 +123,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 		}
 		else
 		{
-			JFactory::getApplication()->redirect($result->SharedPaymentUrl);
+			\Joomla\CMS\Factory::getApplication()->redirect($result->SharedPaymentUrl);
 			exit();
 		}
 
@@ -138,7 +138,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 	function get_subscrption_id($who)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->getInt('em_id');
 	}
@@ -160,7 +160,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 		if(!$result)
 		{
-			$app        = JFactory::getApplication();
+			$app        = \Joomla\CMS\Factory::getApplication();
 			$AccessCode = $app->input->get('AccessCode');
 			$service    = $this->_getService();
 

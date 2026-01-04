@@ -29,7 +29,7 @@ class JFormFieldEmFields extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id as value, `name` as text FROM `#__joomsubscription_fields` ORDER By ordering");
 		return $db->loadObjectList();
 

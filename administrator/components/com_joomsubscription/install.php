@@ -22,7 +22,7 @@ class com_joomsubscriptionInstallerScript
 
 	function uninstall($parent)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SHOW TABLES lIKE '%_joomsubscription_%'");
 		$list = $db->loadColumn();
 
@@ -46,7 +46,7 @@ class com_joomsubscriptionInstallerScript
 		$this->_deleteFiles('/administrator/components/com_joomsubscription/xml/', 'file');
 		$this->_deleteFiles('/administrator/components/com_joomsubscription/controllers/', 'file');
 
-		if(JFile::exists(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php'))
+		if(is_file(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php'))
 		{
 			JFile::delete(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php');
 		}
@@ -57,7 +57,7 @@ class com_joomsubscriptionInstallerScript
 	{
 		$function = $type . 's';
 
-		if(!JFolder::exists(JPATH_ROOT . $dir))
+		if(!is_dir(JPATH_ROOT . $dir))
 		{
 			return;
 		}
@@ -77,7 +77,7 @@ class com_joomsubscriptionInstallerScript
 
 	private function _install()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery('DELETE FROM `#__joomsubscription_states`');
 		$db->execute();
@@ -136,7 +136,7 @@ class com_joomsubscriptionInstallerScript
 
 	private function _get_default($field)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$default = ' DEFAULT ' . $db->q($field->default);
 		if($field->default === NULL && $field->null == 'YES')
 		{
@@ -152,8 +152,8 @@ class com_joomsubscriptionInstallerScript
 
 	private function _updateTables()
 	{
-		$prefix = JFactory::getApplication()->getCfg('dbprefix');
-		$db     = JFactory::getDbo();
+		$prefix = \Joomla\CMS\Factory::getApplication()->getCfg('dbprefix');
+		$db     = \Joomla\CMS\Factory::getDbo();
 
 
 		$db->setQuery("SHOW TABLES lIKE '%_joomsubscription_%'");
@@ -216,7 +216,7 @@ class com_joomsubscriptionInstallerScript
 
 					if($sql)
 					{
-						JFactory::getApplication()->enqueueMessage("Successful update: " . $sql);
+						\Joomla\CMS\Factory::getApplication()->enqueueMessage("Successful update: " . $sql);
 						$db->setQuery($sql);
 						$db->execute();
 					}

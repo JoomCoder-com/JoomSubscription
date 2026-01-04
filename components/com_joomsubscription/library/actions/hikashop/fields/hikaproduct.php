@@ -19,7 +19,7 @@ class JFormFieldHikaproduct extends JFormFieldList
 	{
 		$options = array();
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT product_id, category_id FROM #__hikashop_product_category");
 		$product_cats = $db->loadAssocList('product_id', 'category_id');

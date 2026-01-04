@@ -45,7 +45,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('purse'))
 		{
@@ -85,7 +85,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 		$c .= '</form>';
 		$c .= '<script>document.getElementById("wmform").submit();</script>';
 		echo $c;
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$app->enqueueMessage(JText::_('PAY_REDIRECTING'));
 
 		return TRUE;
@@ -93,21 +93,21 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 
 	function get_plan_id()
 	{
-		return JFactory::getApplication()->input->getInt('PLAN_ID');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('PLAN_ID');
 	}
 
 	function get_user_id()
 	{
-		return JFactory::getApplication()->input->getInt('USER_ID');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('USER_ID');
 	}
 
 	function get_amount()
 	{
-		return JFactory::getApplication()->input->get('LMI_PAYMENT_AMOUNT');
+		return \Joomla\CMS\Factory::getApplication()->input->get('LMI_PAYMENT_AMOUNT');
 	}
 
 	function get_gateway_id()
 	{
-		return JFactory::getApplication()->input->get('LMI_SYS_INVS_NO');
+		return \Joomla\CMS\Factory::getApplication()->input->get('LMI_SYS_INVS_NO');
 	}
 }

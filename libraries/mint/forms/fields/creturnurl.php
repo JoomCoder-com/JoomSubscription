@@ -33,7 +33,7 @@ class JFormFieldCreturnurl extends JFormFieldList
 	 */
 	protected function getInput()
 	{
-		$id = JFactory::getApplication()->input->getInt('fid');
+		$id = \Joomla\CMS\Factory::getApplication()->input->getInt('fid');
 
 		if(!$id)
 		{

@@ -26,7 +26,7 @@ jimport('mint.forms.helper');
 //JHtml::_('bootstrap.framework');
 //HTMLHelper::_('bootstrap.framework');
 
-$app = JFactory::getApplication();
+$app = \Joomla\CMS\Factory::getApplication();
 
 JLoader::discover('MModel', JPATH_LIBRARIES . '/mint/mvc/model');
 JLoader::discover('MView', JPATH_LIBRARIES . '/mint/mvc/view');
@@ -48,7 +48,7 @@ foreach(glob(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components/com_joomsubscription
 	require_once $filename;
 }
 
-JFactory::getLanguage()->load('com_joomsubscription');
+\Joomla\CMS\Factory::getLanguage()->load('com_joomsubscription');
 
 /**
  * Member API file
@@ -85,7 +85,7 @@ class JoomsubscriptionApi
 		$plans = implode(',', $plans);
 
 
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$query = $db->getQuery(TRUE);
 		$query->select('id');
@@ -100,10 +100,10 @@ class JoomsubscriptionApi
 			return TRUE;
 		}
 
-		$app     = JFactory::getApplication();
+		$app     = \Joomla\CMS\Factory::getApplication();
 		$uri     = JUri::getInstance();
 		$url     = $url ? $url : $uri->toString();
-		$user_id = $user_id ? $user_id : JFactory::getUser()->get('id');
+		$user_id = $user_id ? $user_id : \Joomla\CMS\Factory::getUser()->get('id');
 		$params  = JComponentHelper::getParams('com_joomsubscription');
 		$itemid  = $params->get('iid_list', $app->input->getInt('Itemid'));
 
@@ -111,7 +111,7 @@ class JoomsubscriptionApi
 		{
 			if($redirect)
 			{
-				JFactory::getSession()->set('joomsubscription_access_url', $url);
+				\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', $url);
 				JError::raiseWarning(403, JText::_($msg));
 				$return = urlencode(base64_encode($url));
 				$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE, $plans));
@@ -131,7 +131,7 @@ class JoomsubscriptionApi
 				{
 					JError::raiseWarning(403, JText::_($msg));
 				}
-				JFactory::getSession()->set('joomsubscription_access_url', $url);
+				\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', $url);
 				$re = JoomsubscriptionApi::getLink('emlist', FALSE, $plans);
 				$app->redirect($re);
 			}
@@ -175,7 +175,7 @@ class JoomsubscriptionApi
 	public static function applyCount($user_subscr_id, $url = NULL, $note = '')
 	{
 		$url = ($url ? $url : JUri::getInstance()->toString());
-		$db  = JFactory::getDbo();
+		$db  = \Joomla\CMS\Factory::getDbo();
 
 		include_once JPATH_ROOT . '/components/com_joomsubscription/tables/emsubscription.php';
 		$subscr = new JoomsubscriptionTableEmSubscription($db);
@@ -227,7 +227,7 @@ class JoomsubscriptionApi
 		// This plan is not allowed for this user.
 		if(empty($plan->id))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::_('EMR_PLANNOTALLOWED'), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_PLANNOTALLOWED'), 'notice');
 
 			return FALSE;
 		}
@@ -316,7 +316,7 @@ class JoomsubscriptionApi
 
 	public static function getLink($type, $rout = TRUE, $ids = NULL, $full = TRUE)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		if(!empty($ids))
 		{
@@ -350,7 +350,7 @@ class JoomsubscriptionApi
 
 		$url = 'index.php?option=com_joomsubscription&view=' . $type;
 		$iid = JComponentHelper::getParams('com_joomsubscription')->get('iid_' . str_replace('em', '', $type),
-			JFactory::getApplication()->input->getInt('Itemid'));
+			\Joomla\CMS\Factory::getApplication()->input->getInt('Itemid'));
 		$url .= '&Itemid=' . $iid;
 
 
@@ -427,7 +427,7 @@ class JoomsubscriptionApi
 		{
 			$plans = implode(', ', $plans);
 		}
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$query = $db->getQuery(TRUE);
 
@@ -451,8 +451,8 @@ class JoomsubscriptionApi
 	{
 		$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$plan  = self::getPreparedPlan($plan_id);
-		$app   = JFactory::getApplication();
-		$db    = JFactory::getDbo();
+		$app   = \Joomla\CMS\Factory::getApplication();
+		$db    = \Joomla\CMS\Factory::getDbo();
 
 		if(empty($plan->id))
 		{
@@ -593,7 +593,7 @@ class JoomsubscriptionApi
 			$table->published  = 1;
 			$table->gateway_id = time();
 
-			JFactory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
 
 			JoomsubscriptionHelper::activateSubscription($table, $plan);
 			$table->store();
@@ -603,7 +603,7 @@ class JoomsubscriptionApi
 
 
 		$processor_file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
-		if(!JFile::exists($processor_file))
+		if(!is_file($processor_file))
 		{
 			JError::raiseWarning(500, JText::sprintf('EMR_PROCNOTFOUND', $processor_file));
 			if($redirect)
@@ -664,7 +664,7 @@ class JoomsubscriptionApi
 			return TRUE;
 		}
 
-		$app   = JFactory::getApplication();
+		$app   = \Joomla\CMS\Factory::getApplication();
 		$invto = $app->input->getInt('invoice');
 		$app->setUserState('com_joomsubscription.invoiceto.selector', $invto);
 
@@ -699,13 +699,13 @@ class JoomsubscriptionApi
 
 	public static function  saveBillAddress($user_id = 0)
 	{
-		$app    = JFactory::getApplication();
+		$app    = \Joomla\CMS\Factory::getApplication();
 		$post   = $app->input->get('invoiceto', array(), 'array');
 		$fields = @$post['fields'];
 
 		if(!$user_id)
 		{
-			$user_id = JFactory::getUser()->get('id');
+			$user_id = \Joomla\CMS\Factory::getUser()->get('id');
 		}
 
 		$app->setUserState('com_joomsubscription.invoiceto.data', $post);
@@ -793,7 +793,7 @@ class JoomsubscriptionApi
 
 	protected function applyCoupon($coupon, $plan, $subscription, $user_id)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$query = $db->getQuery(TRUE);
 		$query->update('#__joomsubscription_coupons');

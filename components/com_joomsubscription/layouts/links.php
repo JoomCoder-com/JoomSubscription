@@ -13,7 +13,7 @@ use Joomla\CMS\Router\Route;
 defined('_JEXEC') or die();
 
 if (!JoomsubscriptionHelper::isModer()) return;
-$view = JFactory::getApplication()->input->getCmd('view');
+$view = \Joomla\CMS\Factory::getApplication()->input->getCmd('view');
 
 $navMenu = [
 	['title' => 'ESUBSCRIPTIONS', 'url' => 'index.php?option=com_joomsubscription&view=emsales'],

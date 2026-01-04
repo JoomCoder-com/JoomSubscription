@@ -21,11 +21,11 @@ class JoomsubscriptionImportsHelper
 		$classname = 'JoomsubscriptionImport'.ucfirst($type);
 		$obj = new $classname();
 
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_import_{$type}.ini"))
+			if(!is_file(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_import_{$type}.ini"))
 			{
 				$tag == 'en-GB';
 			}

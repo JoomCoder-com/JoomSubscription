@@ -21,7 +21,7 @@ class JoomsubscriptionTableEmSubscription extends JTable
 	{
 		if(!$this->params)
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT params FROM #__joomsubscription_plans WHERE id = ".$this->plan_id);
 			$params = new JRegistry($db->loadResult());
 
@@ -90,7 +90,7 @@ class JoomsubscriptionTableEmSubscription extends JTable
 
 	public function set_period($plan)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		if((int)$this->ctime)
 		{
@@ -188,7 +188,7 @@ class JoomsubscriptionTableEmSubscription extends JTable
 
 	private function _get_start($plan)
 	{
-		$db   = JFactory::getDbo();
+		$db   = \Joomla\CMS\Factory::getDbo();
 		$last = array();
 
 		if($plan->params->get('crossplans.cp_plans'))

@@ -12,7 +12,7 @@ use Joomla\CMS\Router\Route;
 
 extract($displayData);
 
-$app        = JFactory::getApplication();
+$app        = \Joomla\CMS\Factory::getApplication();
 $controller = $app->input->getCmd('view', 'emplan');
 if($controller == 'emtaxes')
 {

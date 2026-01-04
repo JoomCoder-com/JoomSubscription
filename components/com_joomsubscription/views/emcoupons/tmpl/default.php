@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 JHtml::_('formbehavior.chosen', 'select');
 $params = $this->state->get('params');
 
-$user   = JFactory::getUser();
+$user   = \Joomla\CMS\Factory::getUser();
 $userId = $user->get('id');
 
 $listOrder = $this->state->get('list.ordering');

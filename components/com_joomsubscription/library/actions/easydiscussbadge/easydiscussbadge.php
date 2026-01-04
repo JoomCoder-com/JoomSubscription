@@ -27,7 +27,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_badge_name($this->params->get('add'))), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_badge_name($this->params->get('add'))), 'notice');
 		}
 	}
 
@@ -69,7 +69,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 			return;
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("DELETE FROM `#__discuss_badges_users` WHERE badge_id = " . $this->params->get('add') . " AND user_id = " . $subscription->user_id);
 	}
 
@@ -97,7 +97,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 
 	private function _badge_add($id, $subscription)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT id FROM `#__discuss_badges_users` WHERE badge_id = {$id} AND user_id = " . $subscription->user_id);
 		if($db->loadResult())
@@ -115,7 +115,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 	{
 		if($this->_load_api())
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT title FROM `#__discuss_badges` WHERE id = " . $id);
 
 			return $db->loadResult();
@@ -128,7 +128,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 	{
 
 		$api = JPATH_ROOT . '/components/com_easydiscuss/helpers/helper.php';
-		if(!JFile::exists($api))
+		if(!is_file($api))
 		{
 			return FALSE;
 		}

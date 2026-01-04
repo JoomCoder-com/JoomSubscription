@@ -13,7 +13,7 @@ class JoomsubscriptionActionSm extends JoomsubscriptionAction
 {
 	public function onActive($subscription)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		$id   = $this->userExists($user->get('id'));
 
 		$fields['action']     = 'create';
@@ -48,7 +48,7 @@ class JoomsubscriptionActionSm extends JoomsubscriptionAction
 			return;
 		}
 
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		$id   = $this->userExists($user->get('id'));
 
 		if(!$id)

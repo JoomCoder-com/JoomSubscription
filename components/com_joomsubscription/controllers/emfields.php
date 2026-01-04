@@ -38,6 +38,6 @@ class JoomsubscriptionControllerEmFields extends MControllerAdmin
 		}
 
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

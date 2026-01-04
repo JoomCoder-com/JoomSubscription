@@ -13,10 +13,10 @@ class JoomsubscriptionViewEmMua extends MViewBase
 {
 	function display($tpl = NULL)
 	{
-		$app   = JFactory::getApplication();
-		$user  = JFactory::getUser();
+		$app   = \Joomla\CMS\Factory::getApplication();
+		$user  = \Joomla\CMS\Factory::getUser();
 		$model = MModelBase::getInstance('EmMua', 'JoomsubscriptionModel');
-		$doc   = JFactory::getDocument();
+		$doc   = \Joomla\CMS\Factory::getDocument();
 
 		$app->getPathway()->addItem(JText::_('EMR_MUA_TITLE'));
 		$doc->setTitle(JText::_('EMR_MUA_TITLE'));

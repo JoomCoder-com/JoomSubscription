@@ -15,7 +15,7 @@ jimport('joomla.utilities.date');
 JHtml::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR. DIRECTORY_SEPARATOR .'helpers'. DIRECTORY_SEPARATOR .'html');
 
 $controller	= JControllerLegacy::getInstance('Joomsubscription');
-$controller->execute(JFactory::getApplication()->input->get('task'));
+$controller->execute(\Joomla\CMS\Factory::getApplication()->input->get('task'));
 $controller->redirect();
 ?>
 <div style="clear:both;"></div>

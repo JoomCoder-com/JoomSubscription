@@ -25,7 +25,7 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		$post = JFactory::getApplication()->input->post;
+		$post = \Joomla\CMS\Factory::getApplication()->input->post;
 
 		$gateway = $this->get_gateway_id();
 
@@ -109,7 +109,7 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 		$param['lc']      = $params->get('lc', 'EN');
 		$param['rm']      = "2";
 		$param['charset'] = 'utf-8';
-		$param['email']   = JFactory::getUser()->get('email');
+		$param['email']   = \Joomla\CMS\Factory::getUser()->get('email');
 
 		if($params->get('tax'))
 		{
@@ -166,7 +166,7 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 			$url = 'https://www.sandbox.paypal.com/cgi-bin/webscr?' . http_build_query($param);
 		}
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	private function _IPNcheck()
@@ -255,26 +255,26 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 
 	function get_plan_id()
 	{
-		return JFactory::getApplication()->input->get('order_id');
+		return \Joomla\CMS\Factory::getApplication()->input->get('order_id');
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return trim($post->get('subscr_id') . ' ' . $post->get('tx', $post->get('txn_id')));
 	}
 
 	function get_amount()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return (float)$post->get('amount', $post->get('mc_amount3', $post->get('mc_gross')));
 	}
 
 	function get_user_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->getInt('cm', $post->getInt('custom'));
 	}

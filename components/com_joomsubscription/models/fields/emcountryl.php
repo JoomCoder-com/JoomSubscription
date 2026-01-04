@@ -31,9 +31,9 @@ class JFormFieldEmCountryl extends JFormFieldList
 	{
 		// Initialise variables.
 		$options = array();
-		$app_input = JFactory::getApplication()->input;
+		$app_input = \Joomla\CMS\Factory::getApplication()->input;
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->setQuery("SELECT id as value, name as text FROM #__joomsubscription_country ORDER BY name ASC");
 		$options = $db->loadObjectList();
 

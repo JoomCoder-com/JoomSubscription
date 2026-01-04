@@ -24,7 +24,7 @@ class JoomsubscriptionViewEmImport extends MViewBase
 	 */
 	public function display($tpl = NULL)
 	{
-		$app  = JFactory::getApplication();
+		$app  = \Joomla\CMS\Factory::getApplication();
 		$type = $app->input->get('name');
 
 		$this->import = JoomsubscriptionImportsHelper::createImportObject($type);
@@ -42,8 +42,8 @@ class JoomsubscriptionViewEmImport extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app     = JFactory::getApplication();
-		$doc     = JFactory::getDocument();
+		$app     = \Joomla\CMS\Factory::getApplication();
+		$doc     = \Joomla\CMS\Factory::getDocument();
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 		$type    = $app->input->get('name');

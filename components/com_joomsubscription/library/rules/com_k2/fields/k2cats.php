@@ -17,11 +17,11 @@ class JFormFieldK2cats extends JFormFieldList
 
 	public function getOptions()
 	{
-		if(!JFolder::exists(JPATH_ROOT.'/components/com_k2'))
+		if(!is_dir(JPATH_ROOT.'/components/com_k2'))
 		{
 			return array(JHtml::_('select.option', '', 'K2 is not installed'));
 		}
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id as value, name as text, parent FROM #__k2_categories ORDER BY parent ASC, id ASC");
 		$list = $db->loadObjectList();
 		foreach($list AS $cat)

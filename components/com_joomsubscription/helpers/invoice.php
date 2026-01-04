@@ -19,7 +19,7 @@ class JoomsubscriptionInvoiceHelper
 		$paths = new SplPriorityQueue;
 		$paths->insert(JPATH_ROOT . '/components/com_joomsubscription/views/eminvoiceto/tmpl', 1);
 
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$paths->insert(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/eminvoiceto', 2);
 
 		$view = new JoomsubscriptionViewsEMInvoiceToHtml(new JoomsubscriptionModelsEmInvoiceTo(), $paths);
@@ -33,7 +33,7 @@ class JoomsubscriptionInvoiceHelper
 		$paths = new SplPriorityQueue;
 		$paths->insert(JPATH_ROOT . '/components/com_joomsubscription/views/eminvoiceto/tmpl', 1);
 
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$paths->insert(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/eminvoiceto', 2);
 
 		$view = new JoomsubscriptionViewsEMInvoiceToHtml(new JoomsubscriptionModelsEmInvoiceTo(), $paths);

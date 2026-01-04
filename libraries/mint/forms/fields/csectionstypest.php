@@ -6,10 +6,10 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
-$document = JFactory::getDocument();
+$document = \Joomla\CMS\Factory::getDocument();
 $document->addScript(JURI::root(TRUE).'/administrator/components/com_cobalt/library/js/main.js');
 
 
@@ -18,7 +18,7 @@ class JFormFieldCsectionstypest extends JFormField
 	protected $type = 'Csectionstypest';
 	protected function getInput()
 	{
-		$doc 		= JFactory::getDocument();
+		$doc 		= \Joomla\CMS\Factory::getDocument();
 		$multi    	= $this->element['multiple'];
 		$required    	= $this->element['required'];
 

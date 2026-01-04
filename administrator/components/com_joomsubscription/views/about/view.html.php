@@ -63,7 +63,7 @@ class JoomsubscriptionViewAbout extends JViewLegacy
 			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/information.png" align="absmiddle"> ' .
 			JText::_('About'),
 			'index.php?option=com_joomsubscription&view=about',
-			JFactory::getApplication()->input->getCmd('view', 'about') == 'about'
+			\Joomla\CMS\Factory::getApplication()->input->getCmd('view', 'about') == 'about'
 		);
 		JHtmlSidebar::addEntry(
 			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/gear.png" align="absmiddle"> ' .

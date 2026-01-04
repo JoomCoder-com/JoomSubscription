@@ -15,7 +15,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 	{
 		$this->log('Start check Skrill');
 
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$md5 = md5(
 			$post->get('merchant_id') .
@@ -60,7 +60,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$param['pay_to_email']        = $this->params->get('pay_to_email');
 		$param['transaction_id']      = $subscription->id;
@@ -73,7 +73,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 
 		$param['status_url']     = $this->_get_notify_url($subscription->id);
-		$param['language']       = strtoupper(substr(JFactory::getLanguage()->getTag(), 0, 2));
+		$param['language']       = strtoupper(substr(\Joomla\CMS\Factory::getLanguage()->getTag(), 0, 2));
 		$param['pay_from_email'] = $user->get('email');
 		$param['currency']       = $this->params->get('currency', 'USD');
 
@@ -83,19 +83,19 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 			$url = 'https://www.moneybookers.com/app/test_payment.pl.?' . http_build_query($param);
 		}
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return trim($post->get('mb_transaction_id'));
 	}
 
 	function get_subscrption_id($who)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->getInt('em_id') ? $post->getInt('em_id') : $post->getInt('cid', $post->getInt('transaction_id'));
 	}

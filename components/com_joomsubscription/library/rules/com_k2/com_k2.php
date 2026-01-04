@@ -14,7 +14,7 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 	public function isProtected()
 	{
 		$item_cat = NULL;
-		$db       = JFactory::getDbo();
+		$db       = \Joomla\CMS\Factory::getDbo();
 		$id       = $this->input->getInt('id');
 
 		if($this->input->getCmd('task') == 'download' && $id)
@@ -70,7 +70,7 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 		}
 		if(!empty($js))
 		{
-			JFactory::getDocument()->addScriptDeclaration('jQuery(function(){' . implode("\n", $js) . '});');
+			\Joomla\CMS\Factory::getDocument()->addScriptDeclaration('jQuery(function(){' . implode("\n", $js) . '});');
 		}
 
 		return FALSE;
@@ -96,6 +96,6 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 	}
 }

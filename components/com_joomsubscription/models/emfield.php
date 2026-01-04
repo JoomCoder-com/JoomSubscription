@@ -19,7 +19,7 @@ class JoomsubscriptionModelEmField extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = true)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.field', 'field', array(
 			'control' => 'jform',
@@ -34,7 +34,7 @@ class JoomsubscriptionModelEmField extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.field.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.field.data', array());
 
 		if(empty($data))
 		{
@@ -48,10 +48,10 @@ class JoomsubscriptionModelEmField extends MModelAdmin
 	{
 		if ($table->ctime == '' || $table->ctime == '0000-00-00 00:00:00')
 		{
-			$table->ctime = JFactory::getDate()->toSql();
+			$table->ctime = \Joomla\CMS\Factory::getDate()->toSql();
 		}
 
-		$params = JFactory::getApplication()->input->get('params', array(), 'array');
+		$params = \Joomla\CMS\Factory::getApplication()->input->get('params', array(), 'array');
 
 		$registry = new JRegistry();
 		$registry->loadArray($params);

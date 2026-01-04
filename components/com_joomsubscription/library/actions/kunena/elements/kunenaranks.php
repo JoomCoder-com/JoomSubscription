@@ -29,12 +29,12 @@ class JFormFieldKunenaRanks extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
-		if(!JFolder::exists(JPATH_ROOT.'/components/com_kunena'))
+		if(!is_dir(JPATH_ROOT.'/components/com_kunena'))
 		{
 			return array(JHtml::_('select.option', '', 'Kunena is not installed'));
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT rank_id as value, rank_title as text FROM #__kunena_ranks");
 		return $db->loadObjectList();
 	}

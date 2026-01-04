@@ -15,7 +15,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 	public function run($config)
 	{
 		$new_plan = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
-		$db       = JFactory::getDbo();
+		$db       = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT * FROM #__osmembership_plans");
 		$levels   = $db->loadObjectList();
@@ -64,7 +64,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 
 		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
-		$db  = JFactory::getDbo();
+		$db  = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT * FROM `#__osmembership_subscribers` WHERE user_id > 0 AND `plan_id` = " . (int)$level->id . " ORDER BY payment_date ASC";
 
 		if($config->get('only_active'))
@@ -145,7 +145,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 			return $out[$id];
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT country_2_code FROM #__osmembership_countries WHERE `name` = '{$id}'");
 		$out[$id] = $db->loadResult();
 
@@ -155,7 +155,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 
 	private function _getOrder($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__osemsc_order WHERE order_id = {$id}");
 
 		$item         = $db->loadObject();
@@ -171,7 +171,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 		if(empty($id))
 		{
 
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT * FROM #__joomsubscription_plans_groups LIMIT 1");
 			$groups = $db->loadObject();
 
@@ -200,7 +200,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 
 	public function check()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SHOW TABLES LIKE "%_osmembership_plans"');
 		$result = $db->loadResult();
 		if(!$result)

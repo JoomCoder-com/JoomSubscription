@@ -14,8 +14,8 @@ class JoomsubscriptionControllerEmHistory extends MControllerAdmin
 {
 	public function cancels()
 	{
-		$cid   = JFactory::getApplication()->input->get('id');
-		$app   = JFactory::getApplication();
+		$cid   = \Joomla\CMS\Factory::getApplication()->input->get('id');
+		$app   = \Joomla\CMS\Factory::getApplication();
 		$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$table->load($cid);

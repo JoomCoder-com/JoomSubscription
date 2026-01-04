@@ -30,7 +30,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 			$subscr[$this->params->get('del_active')] = array('status' => 0);
 		}
 
-		$user      = JFactory::getUser($subscription->user_id);
+		$user      = \Joomla\CMS\Factory::getUser($subscription->user_id);
 		$userClass = acymailing_get('class.subscriber');
 		$subid     = $userClass->subid($user->get('id'));
 
@@ -49,7 +49,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_list_name($this->params->get('mail_list'))), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_list_name($this->params->get('mail_list'))), 'notice');
 		}
 	}
 
@@ -92,7 +92,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 		}
 
 
-		$user      = JFactory::getUser($subscription->user_id);
+		$user      = \Joomla\CMS\Factory::getUser($subscription->user_id);
 		$userClass = acymailing_get('class.subscriber');
 		$subid     = $userClass->subid($user->get('id'));
 
@@ -144,7 +144,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 	private function _load_api()
 	{
 		$api = JPATH_ADMINISTRATOR . '/components/com_acymailing/helpers/helper.php';
-		if(!JFile::exists($api))
+		if(!is_file($api))
 		{
 			return FALSE;
 		}

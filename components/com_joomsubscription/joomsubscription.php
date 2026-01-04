@@ -12,8 +12,8 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-$app = JFactory::getApplication();
-$doc = JFactory::getDocument();
+$app = \Joomla\CMS\Factory::getApplication();
+$doc = \Joomla\CMS\Factory::getDocument();
 
 // Include scripts
 HTMLHelper::_('behavior.core');

@@ -24,7 +24,7 @@ class JoomsubscriptionModelEmPlan extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = true)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.plan', 'plan', array(
 			'control' => 'jform',
@@ -51,7 +51,7 @@ class JoomsubscriptionModelEmPlan extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.emplan.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.emplan.data', array());
 
 		if(empty($data))
 		{
@@ -68,7 +68,7 @@ class JoomsubscriptionModelEmPlan extends MModelAdmin
 			$table->ctime = JDate::getInstance()->toSql();
 		}
 
-		$params = JFactory::getApplication()->input->get('params', array(), 'array');
+		$params = \Joomla\CMS\Factory::getApplication()->input->get('params', array(), 'array');
 
 		$registry = new JRegistry();
 		$registry->loadArray($params);

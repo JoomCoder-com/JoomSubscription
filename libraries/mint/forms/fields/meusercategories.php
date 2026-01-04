@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 jimport('joomla.form.formfield');
 
@@ -17,8 +17,8 @@ class JFormFieldMEUsercategories extends JFormField
 
     protected function getInput()
     {
-        $db	= JFactory::getDBO();
-        $user = JFactory::getUser(JRequest::getInt('cat_user_id'));
+        $db	= \Joomla\CMS\Factory::getDBO();
+        $user = \Joomla\CMS\Factory::getUser(JRequest::getInt('cat_user_id'));
         $section_id = JRequest::getInt('section_id');
 
 		$sql = "SELECT id AS value, name AS text FROM `#__js_res_category_user`
@@ -31,7 +31,7 @@ class JFormFieldMEUsercategories extends JFormField
 		$html .= JHtml::_('select.genericlist', $categories, $this->name, 'class="inputbox"', 'value', 'text', $this->value, $this->id);
 		if($this->required)
 		{
-		    $uri		= JFactory::getUri();
+		    $uri		= \Joomla\CMS\Factory::getUri();
             $return		= base64_encode($uri);
 		    $html .= '<a class="btn" href="'.JRoute::_('index.php?option=com_cobalt&view=category&section_id='.JRequest::getInt('section_id').'&task=usercategory.add&return='.$return).'">
 		    			<img src="'.JURI::root().'media/mint/icons/16/plus-button.png" align="absmiddle" alt="'.JText::_('Add New').'" /> '.JText::_('Add New').'

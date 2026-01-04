@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 defined('_JEXEC') or die();
-$user = JFactory::getUser();
+$user = \Joomla\CMS\Factory::getUser();
 $plans = $this->plans;
 $width = round(100 / count($plans), 2);
 ?>

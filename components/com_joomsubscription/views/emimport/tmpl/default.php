@@ -17,7 +17,7 @@ $wa->useScript('keepalive')
 JHtml::_('dropdown.init');
 JHtml::_('formbehavior.chosen', 'select');
 
-$app = JFactory::getApplication();
+$app = \Joomla\CMS\Factory::getApplication();
 $fieldset = $this->import->form->getFieldset();
 ?>
 <script type="text/javascript">

@@ -16,10 +16,10 @@ class JoomsubscriptionSelectorHelper
 {
 	public static function render($name, $plan_ids = 0, $group_ids = 0, $default = array(), $required = false, $layout = 'default')
 	{
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$lang->load('com_joomsubscription', JPATH_BASE);
 
-		$session = JFactory::getSession();
+		$session = \Joomla\CMS\Factory::getSession();
 		if(empty($default['plan_id']) && $session->get('try_this_plan')) {
 			$default['plan_id'] = $session->get('try_this_plan');
 		}
@@ -27,7 +27,7 @@ class JoomsubscriptionSelectorHelper
 		$paths = new SplPriorityQueue;
 		$paths->insert(JPATH_ROOT . '/components/com_joomsubscription/views/emselector/tmpl', 1);
 
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$paths->insert(JPATH_ROOT . '/templates/'.$template.'/html/com_joomsubscription/emselector', 2);
 
 		$view = new JoomsubscriptionViewsEmSelectorHtml(new JoomsubscriptionModelsEmSelector(), $paths);

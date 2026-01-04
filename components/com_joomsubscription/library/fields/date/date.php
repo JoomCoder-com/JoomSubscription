@@ -12,7 +12,7 @@ class JoomsubscriptionFieldDate extends JoomsubscriptionField
 {
 	public function affectPrice($plan = NULL)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		if(empty($this->default['cal']))
 		{
 			$this->setError(JText::_('EMR_NODATE'));
@@ -31,7 +31,7 @@ class JoomsubscriptionFieldDate extends JoomsubscriptionField
 	public function affectDates($subscription)
 	{
 		$out = array();
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$out['ctime'] = $this->default['cal'] . ' 00:00:00';
 

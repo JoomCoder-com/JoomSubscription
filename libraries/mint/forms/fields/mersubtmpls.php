@@ -7,7 +7,7 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
@@ -15,7 +15,7 @@ jimport('joomla.filesystem.file');
 
 JFormHelper::loadFieldClass('list');
 
-if(JFile::exists(JPATH_ROOT.'/components/com_cobalt/library/php/helpers/templates.php'))
+if(is_file(JPATH_ROOT.'/components/com_cobalt/library/php/helpers/templates.php'))
 {
 	require_once JPATH_ROOT.'/components/com_cobalt/library/php/helpers/templates.php';
 }
@@ -38,8 +38,8 @@ class JFormFieldMersubtmpls extends JFormFieldList
 		jimport('joomla.filesystem.folder');
 		jimport('joomla.filesystem.file');
 
-		$app      = JFactory::getApplication();
-/*		$document = JFactory::getDocument();
+		$app      = \Joomla\CMS\Factory::getApplication();
+/*		$document = \Joomla\CMS\Factory::getDocument();
 		$document->addStyleDeclaration('.tmpl_button{padding: 2px; font-size: 110%;}.tmpl_button img { padding: 0 2px 0 0; margin: 0px;}');
 		$document->addScript(JUri::base(TRUE) . '/components/com_cobalt/library/js/main.js');*/
 
@@ -77,7 +77,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 
 	function getTmplObjectList($type)
 	{
-		$app    = JFactory::getApplication();
+		$app    = \Joomla\CMS\Factory::getApplication();
 		$result = array();
 
 		$layouts_path = CobaltTmplHelper::getTmplPath($type);
@@ -103,7 +103,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 
 	private function _getKey()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		if($this->_key)
 		{
 			return $this->_key;

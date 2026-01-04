@@ -44,7 +44,7 @@ class JoomsubscriptionGatewayPaysera extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		try {
 			$param = array(
 				'projectid' => $this->params->get('projectid'),
@@ -80,7 +80,7 @@ class JoomsubscriptionGatewayPaysera extends JoomsubscriptionGateway
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('orderid');
 	}

@@ -10,8 +10,8 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 {
 	function display($tpl = NULL)
 	{
-		$app  = JFactory::getApplication();
-		$user = JFactory::getUser();
+		$app  = \Joomla\CMS\Factory::getApplication();
+		$user = \Joomla\CMS\Factory::getUser();
 		$id   = $app->input->getInt('id', 0);
 
 		if(!$user->get('id'))
@@ -55,7 +55,7 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 	protected function _address()
 	{
 		$this->setLayout('address');
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		if($app->input->get('add_address', 0) && JoomsubscriptionApi::addInvoceTo($this->subscr))
 		{
@@ -73,8 +73,8 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 
 	protected function _invoice()
 	{
-		$app           = JFactory::getApplication();
-		$db            = JFactory::getDbo();
+		$app           = \Joomla\CMS\Factory::getApplication();
+		$db            = \Joomla\CMS\Factory::getDbo();
 		$model_invoice = new JoomsubscriptionModelsEmInvoiceTo();
 		$this->invoice = $model_invoice->getText($this->subscr->invoice_id);
 

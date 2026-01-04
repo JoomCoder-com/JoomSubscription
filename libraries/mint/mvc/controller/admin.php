@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Base class for a Joomla Administrator Controller
@@ -111,7 +111,7 @@ class MControllerAdmin extends MControllerBase
 		JSession::checkToken() or die(JText::_('JINVALID_TOKEN'));
 
 		// Get items to remove from the request.
-		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
+		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
 
 		if (!is_array($cid) || count($cid) < 1)
 		{
@@ -185,7 +185,7 @@ class MControllerAdmin extends MControllerBase
 		JSession::checkToken() or die(JText::_('JINVALID_TOKEN'));
 
 		// Get items to publish from the request.
-		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
+		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
 		$data = array('publish' => 1, 'unpublish' => 0, 'archive' => 2, 'trash' => -2, 'report' => -3);
 		$task = $this->getTask();
 		$value = \Joomla\Utilities\ArrayHelper::getValue($data, $task, 0, 'int');
@@ -248,7 +248,7 @@ class MControllerAdmin extends MControllerBase
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
-		$ids = JFactory::getApplication()->input->post->get('cid', array(), 'array');
+		$ids = \Joomla\CMS\Factory::getApplication()->input->post->get('cid', array(), 'array');
 		$inc = ($this->getTask() == 'orderup') ? -1 : 1;
 
 		$model = $this->getModel();
@@ -323,7 +323,7 @@ class MControllerAdmin extends MControllerBase
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
-		$ids = JFactory::getApplication()->input->post->get('cid', array(), 'array');
+		$ids = \Joomla\CMS\Factory::getApplication()->input->post->get('cid', array(), 'array');
 
 		$model = $this->getModel();
 		$return = $model->checkin($ids);
@@ -372,6 +372,6 @@ class MControllerAdmin extends MControllerBase
 		}
 
 		// Close the application
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

@@ -20,7 +20,7 @@ class JoomsubscriptionActionJspt extends JoomsubscriptionAction
 			return;
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("DELETE FROM `#__xipt_users` WHERE userid = " . $subscription->user_id);
 		$db->execute();
@@ -32,7 +32,7 @@ class JoomsubscriptionActionJspt extends JoomsubscriptionAction
 
 	public function onDisactive($subscription)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		if($this->params->get('profile_remove') || $this->params->get('profile_deactive'))
 		{
@@ -76,7 +76,7 @@ class JoomsubscriptionActionJspt extends JoomsubscriptionAction
 
 	private function _getProfileType($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT `name` FROM `#__xipt_profiletypes` WHERE id = " . $id);
 

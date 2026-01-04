@@ -19,7 +19,7 @@ class JoomsubscriptionModelEmTax extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = true)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.tax', 'tax', array(
 			'control' => 'jform',
@@ -34,7 +34,7 @@ class JoomsubscriptionModelEmTax extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.emtax.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.emtax.data', array());
 
 		if(empty($data))
 		{

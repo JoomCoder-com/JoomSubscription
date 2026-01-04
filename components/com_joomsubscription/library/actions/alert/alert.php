@@ -19,8 +19,8 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 			return;
 		}
 
-		$mail   = JFactory::getMailer();
-		$config = JFactory::getConfig();
+		$mail   = \Joomla\CMS\Factory::getMailer();
+		$config = \Joomla\CMS\Factory::getConfig();
 		$plan   = JoomsubscriptionApi::getPlan($subscription->plan_id);
 
 		$body = $this->_prepare($this->params->get('body'), $subscription, $plan);
@@ -41,14 +41,14 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 		$mail->setBody(JMailHelper::cleanBody($body));
 		$mail->setSubject(JMailHelper::cleanSubject($subject));
 
-		if($this->params->get('file') && JFile::exists(JPATH_ROOT.'/'.ltrim($this->params->get('file'), "/\\")))
+		if($this->params->get('file') && is_file(JPATH_ROOT.'/'.ltrim($this->params->get('file'), "/\\")))
 		{
 			$mail->addAttachment(JPATH_ROOT.'/'.ltrim($this->params->get('file'), "/\\"));
 		}
 
 		if($this->params->get('mode') == 1)
 		{
-			$mail->AddAddress(JFactory::getUser($subscription->user_id)->get('email'));
+			$mail->AddAddress(\Joomla\CMS\Factory::getUser($subscription->user_id)->get('email'));
 		}
 		else
 		{
@@ -71,7 +71,7 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 
 	private function _prepare($text, $subscr, $plan)
 	{
-		$user = JFactory::getUser($subscr->user_id);
+		$user = \Joomla\CMS\Factory::getUser($subscr->user_id);
 
 		$change = array(
 			'[ID]'             => $subscr->id,

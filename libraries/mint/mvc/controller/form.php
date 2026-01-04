@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Controller tailored to suit most form-based admin operations.
@@ -145,7 +145,7 @@ class MControllerForm extends MControllerBase
 	 */
 	public function add()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$context = "$this->option.edit.$this->context";
 
 		// Access check.
@@ -192,7 +192,7 @@ class MControllerForm extends MControllerBase
 	 */
 	protected function allowAdd($data = array())
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		return ($user->authorise('core.create', $this->option) || count($user->getAuthorisedCategories($this->option, 'core.create')));
 	}
 
@@ -210,7 +210,7 @@ class MControllerForm extends MControllerBase
 	 */
 	protected function allowEdit($data = array(), $key = 'id')
 	{
-		return JFactory::getUser()->authorise('core.edit', $this->option);
+		return \Joomla\CMS\Factory::getUser()->authorise('core.edit', $this->option);
 	}
 
 	/**
@@ -297,7 +297,7 @@ class MControllerForm extends MControllerBase
 	{
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$model = $this->getModel();
 		$table = $model->getTable();
 		$checkin = property_exists($table, 'checked_out');
@@ -360,7 +360,7 @@ class MControllerForm extends MControllerBase
 	 */
 	public function edit($key = null, $urlVar = null)
 	{
-		$app   = JFactory::getApplication();
+		$app   = \Joomla\CMS\Factory::getApplication();
 		$model = $this->getModel();
 		$table = $model->getTable();
 		$cid   = $this->input->post->get('cid', array(), 'array');
@@ -496,7 +496,7 @@ class MControllerForm extends MControllerBase
 	 */
 	protected function getRedirectToListAppend()
 	{
-		$tmpl = JFactory::getApplication()->input->get('tmpl');
+		$tmpl = \Joomla\CMS\Factory::getApplication()->input->get('tmpl');
 		$append = '';
 
 		// Setup redirect info.
@@ -532,8 +532,8 @@ class MControllerForm extends MControllerBase
 	 */
 	public function loadhistory()
 	{
-		$app = JFactory::getApplication();
-		$lang  = JFactory::getLanguage();
+		$app = \Joomla\CMS\Factory::getApplication();
+		$lang  = \Joomla\CMS\Factory::getLanguage();
 		$model = $this->getModel();
 		$table = $model->getTable();
 		$historyId = $app->input->get('version_id', null, 'integer');
@@ -612,8 +612,8 @@ class MControllerForm extends MControllerBase
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
-		$app   = JFactory::getApplication();
-		$lang  = JFactory::getLanguage();
+		$app   = \Joomla\CMS\Factory::getApplication();
+		$lang  = \Joomla\CMS\Factory::getLanguage();
 		$model = $this->getModel();
 		$table = $model->getTable();
 		$data  = $this->input->post->get('jform', array(), 'array');

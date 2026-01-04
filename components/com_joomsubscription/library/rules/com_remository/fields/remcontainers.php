@@ -17,11 +17,11 @@ class JFormFieldRemcontainers extends JFormFieldList
 
 	public function getOptions()
 	{
-		if(!JFolder::exists(JPATH_ROOT.'/components/com_remository'))
+		if(!is_dir(JPATH_ROOT.'/components/com_remository'))
 		{
 			return array(JHtml::_('select.option', '', 'Remository is not installed'));
 		}
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT `id`, `name`, parentid FROM `#__downloads_containers` ORDER BY `name` ASC");
 		$list = $db->loadObjectList();
 

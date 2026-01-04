@@ -12,7 +12,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 {
 	public function run($params)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select('*');
 		$query->from('#__jcs_plans');
@@ -100,7 +100,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 
 	public function check()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SHOW TABLES LIKE "%_jcs_plans"');
 		$result = $db->loadResult();
 		if(!$result)

@@ -13,8 +13,8 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 {
 	public function getList($user_id = null)
 	{
-		$user = JFactory::getUser($user_id);
-		$db = JFactory::getDbo();
+		$user = \Joomla\CMS\Factory::getUser($user_id);
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 
 		$query->select('fields, id as value');
@@ -72,7 +72,7 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 
 	public function getText($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$line = array();
 		$db->setQuery("SELECT * FROM #__joomsubscription_invoice_to WHERE id = ".$id);
 
@@ -109,7 +109,7 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 		$form = new JForm('comjoomsubscription.invoiceto', array('control' => 'invoiceto'));
 		$form->loadFile(JPATH_COMPONENT.'/models/forms/invoiceto.xml');
 
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.invoiceto.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.data', array());
 
 		if($data)
 		{

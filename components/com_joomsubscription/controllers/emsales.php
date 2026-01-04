@@ -21,9 +21,9 @@ class JoomsubscriptionControllerEmSales extends MControllerAdmin
 
 	protected function postDeleteHook(MModelBase $model, $id = NULL)
 	{
-		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
+		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
 		$id  = implode(',', $cid);
-		$db  = JFactory::getDbo();
+		$db  = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("DELETE FROM `#__joomsubscription_url_history` WHERE subscription_id IN({$id})");
 		$db->execute();

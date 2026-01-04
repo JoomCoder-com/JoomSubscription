@@ -13,14 +13,14 @@ class JoomsubscriptionActionProlong extends JoomsubscriptionAction
 {
 	public function onActive($subscription)
 	{
-		$id = JFactory::getApplication()->input->cookie->get('i_want_to_prolong');
+		$id = \Joomla\CMS\Factory::getApplication()->input->cookie->get('i_want_to_prolong');
 
 		if(!$id)
 		{
 			return;
 		}
 
-		//JFactory::getApplication()->input->cookie->set('i_want_to_prolong', 0);
+		//\Joomla\CMS\Factory::getApplication()->input->cookie->set('i_want_to_prolong', 0);
 
 		include_once JPATH_ROOT . '/components/com_cobalt/api.php';
 
@@ -32,14 +32,14 @@ class JoomsubscriptionActionProlong extends JoomsubscriptionAction
 			return;
 		}
 
-		JFactory::getApplication()->input->set('subscr_id', $subscription->id);
+		\Joomla\CMS\Factory::getApplication()->input->set('subscr_id', $subscription->id);
 
 		if($field->prolongRecord(array(), $record, $subscription))
 		{
 			$url  = JRoute::_(Url::record($record));
 			$note = JText::sprintf('P_PROLONG_SUCCESS', JHtml::link($url, $record->title));
-			JFactory::getApplication()->enqueueMessage($note);
-			JFactory::getApplication()->redirect(JoomsubscriptionApi::getLink('emhistory', FALSE));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage($note);
+			\Joomla\CMS\Factory::getApplication()->redirect(JoomsubscriptionApi::getLink('emhistory', FALSE));
 		}
 	}
 

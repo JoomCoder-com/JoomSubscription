@@ -14,7 +14,7 @@ class JFormFieldAccessTable extends JFormField
 
 	protected function getInput()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 
 		$db->setQuery('SELECT * FROM #__viewlevels WHERE title NOT IN ("Public", "Guest")');

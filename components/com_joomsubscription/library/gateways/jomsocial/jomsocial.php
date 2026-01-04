@@ -11,7 +11,7 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 	{
 		$out = sprintf('<button type="button" style="width: 210px" class="btn btn-warning"	data-payment-gateway="%s"><small>%s</small></button>',
 			$this->type,
-			sprintf('<div class="lead" style="margin-bottom:0">%s</div>%s', JText::_('JS_PAYWITHPOINTS'), JText::sprintf('JS_PONTCOUNT', $this->_getuserpoints(JFactory::getUser()->get('id')), $this->_convert($total)))
+			sprintf('<div class="lead" style="margin-bottom:0">%s</div>%s', JText::_('JS_PAYWITHPOINTS'), JText::sprintf('JS_PONTCOUNT', $this->_getuserpoints(\Joomla\CMS\Factory::getUser()->get('id')), $this->_convert($total)))
 		);
 
 		return $out;
@@ -52,7 +52,7 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 
 	function accept(&$subscription, $plan)
 	{
-		$app          = JFactory::getApplication();
+		$app          = \Joomla\CMS\Factory::getApplication();
 		$user_points  = $this->_getuserpoints($subscription->user_id);
 		$price_points = $this->_convert($subscription->price);
 
@@ -90,11 +90,11 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		JFactory::getApplication()->redirect($this->_get_notify_url($subscription->id));
+		\Joomla\CMS\Factory::getApplication()->redirect($this->_get_notify_url($subscription->id));
 	}
 
 	function get_gateway_id()
 	{
-		return strtoupper(substr(md5(JFactory::getApplication()->input->get('em_id')), 0, 10));
+		return strtoupper(substr(md5(\Joomla\CMS\Factory::getApplication()->input->get('em_id')), 0, 10));
 	}
 }

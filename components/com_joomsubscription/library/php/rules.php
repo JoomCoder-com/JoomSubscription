@@ -23,7 +23,7 @@ class JoomsubscriptionRule extends JObject
 		$this->type    = $rule->option;
 		$this->id      = $rule->id;
 		$this->plan_id = $rule->plan_id;
-		$this->input   = JFactory::getApplication()->input;
+		$this->input   = \Joomla\CMS\Factory::getApplication()->input;
 	}
 
 	public function getDescription()

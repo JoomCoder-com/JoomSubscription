@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die();
 
-if(JFolder::exists(JPATH_ROOT . '/administrator/components/com_k2/tables'))
+if(is_dir(JPATH_ROOT . '/administrator/components/com_k2/tables'))
 {
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2user.php';
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2usergroup.php';
@@ -38,7 +38,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 
 		if(!$table->id)
 		{
-			$user = JFactory::getUser($subscription->user_id);
+			$user = \Joomla\CMS\Factory::getUser($subscription->user_id);
 			$data = array(
 				'id'          => NULL,
 				'userID'      => $user->get('id'),
@@ -54,7 +54,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getUserGroup($this->params->get('group_active'))));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getUserGroup($this->params->get('group_active'))));
 		}
 	}
 

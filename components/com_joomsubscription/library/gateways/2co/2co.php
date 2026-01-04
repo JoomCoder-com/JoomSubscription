@@ -15,7 +15,7 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 {
 	function accept(&$subscription, $plan)
 	{
-		$post    = JFactory::getApplication()->input;
+		$post    = \Joomla\CMS\Factory::getApplication()->input;
 		$gateway = $this->get_gateway_id();
 
 		$hash  = $this->params->get('sword') . $this->params->get('vendor') . $gateway . $post->get('total');
@@ -96,7 +96,7 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('vendor'))
 		{
@@ -137,31 +137,31 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 
 		$url = 'https://www.2checkout.com/checkout/purchase?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_plan_id()
 	{
-		//$post = JFactory::getApplication()->input;
+		//$post = \Joomla\CMS\Factory::getApplication()->input;
 		//return $post->get('vendor_order_id', $post->get('merchant_order_id'));
-		return JFactory::getApplication()->input->getInt('cart_order_id');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('cart_order_id');
 	}
 
 	function get_user_id()
 	{
-		return JFactory::getApplication()->input->getInt('user_id');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('user_id');
 	}
 
 	function get_amount()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('total', $post->get('item_list_amount_1'));
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('order_number', $post->get('invoice_id'));
 	}
@@ -171,7 +171,7 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 		// If it is IPN asks for subscription ID work as usual.
 		if($who == 'NOTIFY_URL')
 		{
-			$post = JFactory::getApplication()->input;
+			$post = \Joomla\CMS\Factory::getApplication()->input;
 
 			return $post->get('vendor_order_id', $post->get('merchant_order_id'));
 		}

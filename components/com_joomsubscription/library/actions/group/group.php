@@ -87,7 +87,7 @@ class JoomsubscriptionActionGroup extends JoomsubscriptionAction
 	{
 		if(empty(self::$_groups))
 		{
-			$db    = JFactory::getDbo();
+			$db    = \Joomla\CMS\Factory::getDbo();
 			$query = $db->getQuery(TRUE);
 			$query->select('id, title');
 			$query->from('#__usergroups');

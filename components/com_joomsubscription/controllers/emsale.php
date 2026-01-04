@@ -28,7 +28,7 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 
 	public function save($key = NULL, $urlVar = NULL)
 	{
-		$app  = JFactory::getApplication();
+		$app  = \Joomla\CMS\Factory::getApplication();
 		$form = $app->input->get('jform', array(), 'array');
 		if(empty($form['id']))
 		{

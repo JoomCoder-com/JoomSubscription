@@ -10,7 +10,7 @@
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\Filesystem\Path;
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Base class for a Joomla Controller
@@ -231,7 +231,7 @@ class MControllerBase extends JObject
 			return self::$instance;
 		}
 
-		$input = JFactory::getApplication()->input;
+		$input = \Joomla\CMS\Factory::getApplication()->input;
 
 		// Get the environment configuration.
 		$basePath = array_key_exists('base_path', $config) ? $config['base_path'] : JPATH_COMPONENT;
@@ -334,7 +334,7 @@ class MControllerBase extends JObject
 			JLog::addLogger(array('text_file' => 'jcontroller.log.php'), JLog::ALL, array('controller'));
 		}
 
-		$this->input = JFactory::getApplication()->input;
+		$this->input = \Joomla\CMS\Factory::getApplication()->input;
 
         $xMethods = get_class_methods(BaseController::class);
 
@@ -511,7 +511,7 @@ class MControllerBase extends JObject
 	{
 		if ($id)
 		{
-			$app = JFactory::getApplication();
+			$app = \Joomla\CMS\Factory::getApplication();
 			$values = (array) $app->getUserState($context . '.id');
 
 			$result = in_array((int) $id, $values);
@@ -630,7 +630,7 @@ class MControllerBase extends JObject
 	 */
 	public function display($cachable = false, $urlparams = array())
 	{
-		$document = JFactory::getDocument();
+		$document = \Joomla\CMS\Factory::getDocument();
 		$viewType = $document->getType();
 		$viewName = $this->input->get('view', $this->default_view);
 		$viewLayout = $this->input->get('layout', 'default', 'string');
@@ -646,17 +646,17 @@ class MControllerBase extends JObject
 
 		$view->document = $document;
 
-		$conf = JFactory::getConfig();
+		$conf = \Joomla\CMS\Factory::getConfig();
 
 		// Display the view
 		if ($cachable && $viewType != 'feed' && $conf->get('caching') >= 1)
 		{
 			$option = $this->input->get('option');
-			$cache = JFactory::getCache($option, 'view');
+			$cache = \Joomla\CMS\Factory::getCache($option, 'view');
 
 			if (is_array($urlparams))
 			{
-				$app = JFactory::getApplication();
+				$app = \Joomla\CMS\Factory::getApplication();
 
 				if (!empty($app->registeredurlparams))
 				{
@@ -749,7 +749,7 @@ class MControllerBase extends JObject
 			$model->setState('task', $this->task);
 
 			// Let's get the application object and set menu information if it's available
-			$app = JFactory::getApplication();
+			$app = \Joomla\CMS\Factory::getApplication();
 			$menu = $app->getMenu();
 
 			if (is_object($menu))
@@ -875,7 +875,7 @@ class MControllerBase extends JObject
 	 */
 	protected function holdEditId($context, $id)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$values = (array) $app->getUserState($context . '.id');
 
 		// Add the id to the list if non-zero.
@@ -912,7 +912,7 @@ class MControllerBase extends JObject
 	{
 		if ($this->redirect)
 		{
-			$app = JFactory::getApplication();
+			$app = \Joomla\CMS\Factory::getApplication();
 
 			// Enqueue the redirect message
 			$app->enqueueMessage($this->message, $this->messageType);
@@ -988,7 +988,7 @@ class MControllerBase extends JObject
 	 */
 	protected function releaseEditId($context, $id)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$values = (array) $app->getUserState($context . '.id');
 
 		// Do a strict search of the edit list values.

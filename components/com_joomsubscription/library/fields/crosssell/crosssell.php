@@ -16,7 +16,7 @@ class JoomsubscriptionFieldCrosssell extends JoomsubscriptionField
 		$note = Mint::_($this->params->get('params.note'));
 
 		$plan       = JoomsubscriptionApi::getPlan($this->params->get('params.plan_to_sell'));
-		$current    = JoomsubscriptionApi::getPlan(JFactory::getApplication()->input->get('sid'));
+		$current    = JoomsubscriptionApi::getPlan(\Joomla\CMS\Factory::getApplication()->input->get('sid'));
 		$sell_price = $this->params->get('params.price');
 		$save_a     = $plan->params->get('properties.price') - $this->params->get('params.price');
 		$save_p     = round($save_a / ($plan->params->get('properties.price') / 100));
@@ -53,7 +53,7 @@ class JoomsubscriptionFieldCrosssell extends JoomsubscriptionField
 	{
 		if($this->default == 1)
 		{
-			JoomsubscriptionApi::addSubscription(JFactory::getUser()->get('id'), $this->params->get('params.plan_to_sell'), 1,
+			JoomsubscriptionApi::addSubscription(\Joomla\CMS\Factory::getUser()->get('id'), $this->params->get('params.plan_to_sell'), 1,
 				'CrossSell', $this->params->get('params.price'),
 				$subscription->id . '-' . $subscription->gateway_id);
 

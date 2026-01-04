@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 define('FORM_SEPARATOR_NONE', 0);
 define('FORM_SEPARATOR_SLIDER', 1);
@@ -25,7 +25,7 @@ class MEFormHelper
 	{
 		$result = NULL;
 
-		if(! JFolder::exists(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . $ext))
+		if(! is_dir(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . $ext))
 		{
 			switch($ext)
 			{
@@ -162,7 +162,7 @@ class MEFormHelper
 
 		$fields = $form->getFieldset($name);
 		$defaultGetName = empty($group) ? '%2$s' : '%s.%s';
-		$doc = JFactory::getDocument();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$doc->addStyleSheet(JURI::root() . 'libraries/mint/forms/style.css');
 		$out = '';
 		switch($type)

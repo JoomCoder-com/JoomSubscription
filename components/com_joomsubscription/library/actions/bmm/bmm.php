@@ -16,9 +16,9 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 
 		$plan = JoomsubscriptionApi::getPlan($subscription->plan_id);
 		$data = array(
-			'email'     => JFactory::getUser()->get('email'),
-			'firstname' => JFactory::getUser()->get('name'),
-			'Extra 3'   => JFactory::getUser()->get('id'),
+			'email'     => \Joomla\CMS\Factory::getUser()->get('email'),
+			'firstname' => \Joomla\CMS\Factory::getUser()->get('name'),
+			'Extra 3'   => \Joomla\CMS\Factory::getUser()->get('id'),
 			'Extra 6'   => $plan->name . " [{$plan->cname}]",
 			'Date 1'    => JHtml::_('date', $subscription->ctime, 'm/d/Y'),
 			'Date 2'    => JHtml::_('date', $subscription->extime, 'm/d/Y')
@@ -36,7 +36,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 			$this->_makeAPICall('listAddContacts', $this->params->get('list_id'), array($data));
 			if($this->params->get('msg'))
 			{
-				JFactory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+				\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
 			}
 		}
 	}
@@ -71,21 +71,21 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 		switch($this->params->get('deactivate'))
 		{
 			case 1:
-				$this->_makeAPICall('listUnsubscribeContacts', $this->params->get('list_id'), array(JFactory::getUser()->get('email')));
+				$this->_makeAPICall('listUnsubscribeContacts', $this->params->get('list_id'), array(\Joomla\CMS\Factory::getUser()->get('email')));
 				break;
 			case 2:
-				$this->_makeAPICall('listDeleteEmailContact', $this->params->get('list_id'), JFactory::getUser()->get('email'));
+				$this->_makeAPICall('listDeleteEmailContact', $this->params->get('list_id'), \Joomla\CMS\Factory::getUser()->get('email'));
 				break;
 			case 3:
 				if($this->params->get('move_id'))
 				{
-					$this->_makeAPICall('listDeleteEmailContact', $this->params->get('list_id'), JFactory::getUser()->get('email'));
+					$this->_makeAPICall('listDeleteEmailContact', $this->params->get('list_id'), \Joomla\CMS\Factory::getUser()->get('email'));
 
 					$plan = JoomsubscriptionApi::getPlan($subscription->plan_id);
 					$data = array(
-						'email'     => JFactory::getUser()->get('email'),
-						'firstname' => JFactory::getUser()->get('name'),
-						'Extra 3'   => JFactory::getUser()->get('id'),
+						'email'     => \Joomla\CMS\Factory::getUser()->get('email'),
+						'firstname' => \Joomla\CMS\Factory::getUser()->get('name'),
+						'Extra 3'   => \Joomla\CMS\Factory::getUser()->get('id'),
 						'Extra 6'   => $plan->name . " [{$plan->cname}]",
 						'Date 1'    => JHtml::_('date', $subscription->ctime, 'm/d/Y'),
 						'Date 2'    => JHtml::_('date', $subscription->extime, 'm/d/Y')
@@ -99,7 +99,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 
 	public function getlists()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$this->params->set('api_key', $app->input->getString('name'));
 		$this->params->set('api_pass', $app->input->getString('pass'));
 		$contactLists = $this->_makeAPICall('listGet', "", 1, 100, "", "");
@@ -122,8 +122,8 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 
 	private function _getUser()
 	{
-		//$user = $this->_makeAPICall('listGetContactDetails', $this->params->get('list_id'), JFactory::getUser()->get('email'));
-		$user = $this->_makeAPICall('listGetContacts', $this->params->get('list_id'), JFactory::getUser()->get('email'), 1, 1, "", "");
+		//$user = $this->_makeAPICall('listGetContactDetails', $this->params->get('list_id'), \Joomla\CMS\Factory::getUser()->get('email'));
+		$user = $this->_makeAPICall('listGetContacts', $this->params->get('list_id'), \Joomla\CMS\Factory::getUser()->get('email'), 1, 1, "", "");
 
 		return array_key_exists(0, $user) ? $user[0] : array();
 	}
@@ -144,7 +144,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 		}
 		catch(Exception $e)
 		{
-			JFactory::getApplication()->enqueueMessage($e->getMessage() . $what);
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage($e->getMessage() . $what);
 
 			return NULL;
 		}

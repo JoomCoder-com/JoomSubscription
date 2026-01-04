@@ -99,26 +99,26 @@ class JoomsubscriptionField extends JObject
 
 	public function _load_template($what)
 	{
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$override = JPATH_ROOT . '/templates/' . $template . '/html/com_joomsubscription/fields/' . $this->type . '/';
 
 		ob_start();
 
-		if(JFile::exists($override . $this->id . '-' . $what . '.php'))
+		if(is_file($override . $this->id . '-' . $what . '.php'))
 		{
 			include $override . $this->id . '-' . $what . '.php';
 
 			return;
 		}
 
-		if(JFile::exists($override . $what . '.php'))
+		if(is_file($override . $what . '.php'))
 		{
 			include $override . $what . '.php';
 
 			return;
 		}
 
-		if(JFile::exists($this->root . '/tmpl/' . $this->id . '-' . $what . '.php'))
+		if(is_file($this->root . '/tmpl/' . $this->id . '-' . $what . '.php'))
 		{
 			include $this->root . '/tmpl/' . $this->id . '-' . $what . '.php';
 

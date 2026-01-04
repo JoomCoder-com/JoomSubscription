@@ -14,7 +14,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 {
 	function accept(&$subscription, $plan)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$key[] = $post->get('OutSum');
 		$key[] = $post->getInt('InvId');
@@ -57,7 +57,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 		$param['InvId']         = $InvId;
 		$param['InvDesc']       = $name;
 		//$param['IncCurrLabel']  = $this->params->get('curr');
-		$param['Email']         = JFactory::getUser()->get('email');
+		$param['Email']         = \Joomla\CMS\Factory::getUser()->get('email');
 		$param['Culture']       = $this->params->get('lang');
 
 		$param['SignatureValue'] = md5($param['MerchantLogin'].':'.$param['OutSum'].':'.$param['InvId'].':'.$this->params->get('merpas1'));
@@ -69,7 +69,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 			$url = 'http://test.robokassa.ru/Index.aspx?' . http_build_query($param);
 		}
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
@@ -79,7 +79,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 
 	function get_subscrption_id($who = NULL)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$id = $app->input->getInt('InvId');
 

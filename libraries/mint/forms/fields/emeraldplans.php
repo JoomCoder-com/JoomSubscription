@@ -6,7 +6,7 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 JFormHelper::loadFieldClass('melist');
@@ -24,7 +24,7 @@ class JFormFieldEmeraldplans extends JFormFieldGroupedList
 	{
 		$this->multiple = true;
 
-		if(!JFolder::exists(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_emerald') || !JComponentHelper::isEnabled('com_emerald'))
+		if(!is_dir(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_emerald') || !JComponentHelper::isEnabled('com_emerald'))
 		{
 			return '<b>' . JText::_('Please install Emerald extension') . '</b>';
 		}
@@ -53,7 +53,7 @@ class JFormFieldEmeraldplans extends JFormFieldGroupedList
 
 		if(empty($groups))
 		{
-			$db = JFactory::getDBO();
+			$db = \Joomla\CMS\Factory::getDBO();
 
 			$query = "SELECT sp.id AS value,
 						 sp.name AS text,

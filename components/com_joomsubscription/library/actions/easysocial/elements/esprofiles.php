@@ -30,7 +30,7 @@ class JFormFieldEsprofiles extends JFormFieldList
 	protected function getOptions()
 	{
 
-		if(!JFile::exists(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php'))
+		if(!is_file(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php'))
 			return false;
 
 		require_once(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php');

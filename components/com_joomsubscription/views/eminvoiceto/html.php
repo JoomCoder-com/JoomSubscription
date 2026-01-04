@@ -26,10 +26,10 @@ class JoomsubscriptionViewsEMInvoiceToHtml extends Joomla\CMS\MVC\View\HtmlView
 					$this->form->setFieldAttribute('tax_id', 'required', true);
 				}
 
-				$this->defaults = JFactory::getApplication()->getUserState('com_joomsubscription.invoiceto.data', array());
+				$this->defaults = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.data', array());
 				break;
 			case 'text':
-				$this->data = $this->model->getText(JFactory::getApplication()->input->getInt('id'));
+				$this->data = $this->model->getText(\Joomla\CMS\Factory::getApplication()->input->getInt('id'));
 				break;
 		}
 

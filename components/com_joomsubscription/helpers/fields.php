@@ -37,11 +37,11 @@ class JoomsubscriptionFieldsHelper
 
 	public static function load_lang($field)
 	{
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_field_{$field}.ini"))
+			if(!is_file(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_field_{$field}.ini"))
 			{
 				$tag == 'en-GB';
 			}

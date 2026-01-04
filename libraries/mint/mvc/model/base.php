@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Base class for a Joomla Model
@@ -250,7 +250,7 @@ abstract class MModelBase extends JObject
 		}
 		else
 		{
-			$this->_db = JFactory::getDbo();
+			$this->_db = \Joomla\CMS\Factory::getDbo();
 		}
 
 		// Set the default view search path
@@ -462,7 +462,7 @@ abstract class MModelBase extends JObject
 		// Only attempt to check the row in if it exists.
 		if ($version_id)
 		{
-			$user = JFactory::getUser();
+			$user = \Joomla\CMS\Factory::getUser();
 
 			// Get an instance of the row to checkout.
 			$historyTable = JTable::getInstance('Contenthistory');
@@ -555,11 +555,11 @@ abstract class MModelBase extends JObject
 	 */
 	protected function cleanCache($group = null, $client_id = 0)
 	{
-		$conf = JFactory::getConfig();
+		$conf = \Joomla\CMS\Factory::getConfig();
 		$dispatcher = \Joomla\CMS\Factory::getApplication();
 
 		$options = array(
-			'defaultgroup' => ($group) ? $group : (isset($this->option) ? $this->option : JFactory::getApplication()->input->get('option')),
+			'defaultgroup' => ($group) ? $group : (isset($this->option) ? $this->option : \Joomla\CMS\Factory::getApplication()->input->get('option')),
 			'cachebase' => ($client_id) ? JPATH_ADMINISTRATOR . '/cache' : $conf->get('cache_path', JPATH_SITE . '/cache'));
 
 		$cache = JCache::getInstance('callback', $options);

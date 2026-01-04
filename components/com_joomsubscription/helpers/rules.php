@@ -17,7 +17,7 @@ class JoomsubscriptionRulesHelper
 	public static function rules_form($plan)
 	{
 
-		$template = JFactory::getApplication()->getTemplate();
+		$template = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$view = new JoomsubscriptionViewsEmRulesHtml();
 
 		$view->addTemplatePath(JPATH_ROOT . '/components/com_joomsubscription/views/emrules/tmpl');
@@ -57,7 +57,7 @@ class JoomsubscriptionRulesHelper
 		}
 		$out = self::get_rule_class($rule)->getDescription();
 
-		JFactory::getLanguage()->load($rule->option.'.sys', JPATH_ADMINISTRATOR);
+		\Joomla\CMS\Factory::getLanguage()->load($rule->option.'.sys', JPATH_ADMINISTRATOR);
 
 		$name = '<span class="float-end" data-rule-edit="'.$rule->id.'" data-controller="'.$rule->controller.'"><i class="fas fa-edit fw-light text-muted"></i></span>';
 		$name .= JText::_($rule->option);
@@ -73,11 +73,11 @@ class JoomsubscriptionRulesHelper
 
 	public static function load_lang($rule)
 	{
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_rule_{$rule}.ini"))
+			if(!is_file(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_rule_{$rule}.ini"))
 			{
 				$tag == 'en-GB';
 			}

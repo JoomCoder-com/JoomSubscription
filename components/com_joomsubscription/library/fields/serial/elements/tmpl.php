@@ -39,7 +39,7 @@
 						dataType: 'json',
 						type: 'POST',
 						data: {
-							field_id: <?php echo JFactory::getApplication()->input->get('field_id'); ?>
+							field_id: <?php echo \Joomla\CMS\Factory::getApplication()->input->get('field_id'); ?>
 						}
 					}).done(function (json) {
 						$('#alercntr').html('<p class="alert alert-info"><?php echo JText::_('EMR_NOUNUSEDSERIALS') ?></p>');

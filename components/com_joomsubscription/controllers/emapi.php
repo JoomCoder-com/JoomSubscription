@@ -15,23 +15,23 @@ class JoomsubscriptionControllerEmApi extends MControllerForm
 
 	public function plans()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id, name FROM #__jcs_plans");
 
 		echo json_encode($db->loadObjectList());
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function action()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$action = $app->input->get('action');
 		$method = $app->input->get('method');
 
 		$file = JPATH_ROOT."/components/com_joomsubscription/library/actions/{$action}/{$action}.php";
 
-		if(JFile::exists($file))
+		if(is_file($file))
 		{
 			include_once $file;
 			$class = 'JoomsubscriptionAction'.ucfirst($action);
@@ -54,6 +54,6 @@ class JoomsubscriptionControllerEmApi extends MControllerForm
 			}
 		}
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

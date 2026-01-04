@@ -8,7 +8,7 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Image Resizer.
@@ -434,7 +434,7 @@ class JS_Image_Resizer
 		require_once $libDir . DIRECTORY_SEPARATOR . 'gifresizer.php';
 
 		$path = JPATH_ROOT . DIRECTORY_SEPARATOR . 'images/cobalt_thumbs' . DIRECTORY_SEPARATOR . 'gif_frames' . DIRECTORY_SEPARATOR;
-		if(!JFolder::exists($path))
+		if(!is_dir($path))
 		{
 			$a = '';
 			JFolder::create($path, 0777);

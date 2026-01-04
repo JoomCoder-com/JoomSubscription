@@ -28,14 +28,14 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 		if(!$processor)
 		{
 			JError::raiseError(505, JText::_('EMR_NOPROCESSOR'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
-		if(!JFile::exists($file))
+		if(!is_file($file))
 		{
 			JError::raiseError(500, JText::sprintf('EMR_PROCNOTFOUND', $processor));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		include_once $file;
@@ -45,7 +45,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 		if(!class_exists($class))
 		{
 			JError::raiseWarning(404, JText::_('EMR_GATEWAY_CLASS_NOTFOUND'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$class = new $class($processor, array());
@@ -60,7 +60,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 			{
 				JError::raiseError(500, JText::_('EMR_PLAN_NOT_FOUND'));
 				$class->log('Cannot find subscription ID');
-				JFactory::getApplication()->close();
+				\Joomla\CMS\Factory::getApplication()->close();
 			}
 
 			$table->create($processor, $class->get_gateway_id(), $class->get_user_id(), $plan_id, $class->get_amount());
@@ -73,7 +73,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 		if(empty($table->id))
 		{
 			JError::raiseWarning(404, JText::_('EMR_MUA_PLAN_NOTFOUND'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$plan = JoomsubscriptionApi::getPreparedPlan($table->plan_id);
@@ -81,7 +81,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 		if(empty($plan->id))
 		{
 			JError::raiseError(500, JText::_('EMR_PLAN_NOT_FOUND') );
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$class->init_params($plan->params->get('gateways.' . $processor));
@@ -89,16 +89,16 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 		if(!$class->params->get('enable'))
 		{
 			JError::raiseError(500, JText::sprintf('EMR_PROCDISABLE', $table->gateway));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$class->log('Accept started ---', $table->getProperties());
 		$class->log('Accept started Request ---', $_REQUEST);
 		if(!$class->accept($table, $plan))
 		{
-			$class->log('Accept method fail ---', JFactory::getApplication()->input->post);
+			$class->log('Accept method fail ---', \Joomla\CMS\Factory::getApplication()->input->post);
 			JError::raiseError(500, $class->getError());
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		JoomsubscriptionHelper::activateSubscription($table, $plan);
@@ -107,7 +107,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		$class->log('Accept finished ---', $table->getProperties());
 
-		$user = JFactory::getUser($table->user_id);
+		$user = \Joomla\CMS\Factory::getUser($table->user_id);
 
 		if($table->published == 1 && $table->activated == 1 && ($user->get('block') == 1 || $user->get('activation')))
 		{
@@ -116,6 +116,6 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 			$user->save();
 		}
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

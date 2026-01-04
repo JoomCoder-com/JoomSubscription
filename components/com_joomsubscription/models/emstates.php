@@ -28,7 +28,7 @@ class JoomsubscriptionModelEmStates extends MModelList
 
 	protected function populateState($ordering = 'st.label', $direction = 'asc')
 	{
-		$app = JFactory::getApplication ();
+		$app = \Joomla\CMS\Factory::getApplication ();
 
 		$country = $app->getUserStateFromRequest ( $this->context . '.filter.country', 'filter_country' );
 		$this->setState ( 'filter.country', $country );

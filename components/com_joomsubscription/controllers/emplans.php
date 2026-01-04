@@ -18,8 +18,8 @@ class JoomsubscriptionControllerEmPlans extends MControllerAdmin
 	}
 	public function delete()
 	{
-		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
-		$app = JFactory::getApplication();
+		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		if (!is_array($cid) || count($cid) < 1)
 		{
@@ -28,7 +28,7 @@ class JoomsubscriptionControllerEmPlans extends MControllerAdmin
 		}
 		else
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			foreach($cid AS $plan_id)
 			{
 				$db->setQuery("SELECT count(*) FROM #__joomsubscription_subscriptions WHERE plan_id = $plan_id");
@@ -70,6 +70,6 @@ class JoomsubscriptionControllerEmPlans extends MControllerAdmin
 		}
 
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

@@ -10,8 +10,8 @@ class JoomsubscriptionViewEmBill extends MViewBase
 {
 	function display($tpl = null)
 	{
-		$app = JFactory::getApplication();
-		$user = JFactory::getUser();
+		$app = \Joomla\CMS\Factory::getApplication();
+		$user = \Joomla\CMS\Factory::getUser();
 		$id = $app->input->getInt('id', 0);
 
 		if (!$user->get('id'))
@@ -26,7 +26,7 @@ class JoomsubscriptionViewEmBill extends MViewBase
 		}
 
 		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 
 		$query->select('*');

@@ -88,8 +88,8 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 			$this->params->get('params.alert') > 0 &&
 			(count($list) <= $this->params->get('params.alert')))
 		{
-			$mail      = JFactory::getMailer();
-			$config    = JFactory::getConfig();
+			$mail      = \Joomla\CMS\Factory::getMailer();
+			$config    = \Joomla\CMS\Factory::getConfig();
 			$sender[0] = $config->get('mailfrom');
 			$sender[1] = $config->get('fromname');
 

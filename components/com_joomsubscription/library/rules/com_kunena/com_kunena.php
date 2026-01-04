@@ -80,7 +80,7 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 							checkcat(jQuery('#postcatid'));
 						});
 					";
-					JFactory::getDocument()->addScriptDeclaration($js);
+					\Joomla\CMS\Factory::getDocument()->addScriptDeclaration($js);
 				}
 			}
 		}
@@ -115,7 +115,7 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 								});
 							});
 						";
-						JFactory::getDocument()->addScriptDeclaration($js);
+						\Joomla\CMS\Factory::getDocument()->addScriptDeclaration($js);
 					}
 					break;
 			}
@@ -148,6 +148,6 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 	}
 }

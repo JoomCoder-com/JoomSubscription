@@ -15,7 +15,7 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 
 	function accept(&$subscription, $plan)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		if($this->_clean($this->_getHash($_POST)) != $this->_clean($post->get('ik_sign')))
 		{
@@ -56,7 +56,7 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 		$param['ik_cur']   = $this->params->get('currency');
 		$param['ik_am']    = $amount;
 		$param['ik_desc']  = $name;
-		$param['ik_usr']   = JFactory::getUser()->get('email');
+		$param['ik_usr']   = \Joomla\CMS\Factory::getUser()->get('email');
 
 		$param['ik_ia_u']  = $this->_get_notify_url($subscription->id);
 		$param['ik_ia_m']  = 'POST';
@@ -71,7 +71,7 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 
 		$url = 'http://sci.interkassa.com/?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	private function _getHash($array)
@@ -95,14 +95,14 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 
 	function get_gateway_id($who = NULL)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->get('ik_inv_id', $post->get('ik_trn_id'));
 	}
 
 	function get_subscrption_id($who)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		return $app->input->get('ik_pm_no', $app->input->get('em_id'));
 	}

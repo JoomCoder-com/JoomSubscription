@@ -13,7 +13,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 
 	function accept(&$subscription, $plan)
 	{
-		$post = JFactory::getApplication()->input->post;
+		$post = \Joomla\CMS\Factory::getApplication()->input->post;
 
 		$md5 = md5($this->params->get('md5hash') . $this->params->get('x_login') . $post->get('x_trans_id') . $post->get('x_amount'));
 		if(strtoupper($md5) != strtoupper($post->get('x_MD5_Hash')))
@@ -42,7 +42,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('x_login') || !$this->params->get('transaction'))
 		{
@@ -91,33 +91,33 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 		}
 		$url .= http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_subscrption_id($who)
 	{
-		return JFactory::getApplication()->input->getInt('em_id', JFactory::getApplication()->input->getInt('x_invoice_num'));
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('em_id', \Joomla\CMS\Factory::getApplication()->input->getInt('x_invoice_num'));
 	}
 
 	function get_plan_id()
 	{
-		$ids = explode('-', JFactory::getApplication()->input->getInt('x_invoice_num'));
+		$ids = explode('-', \Joomla\CMS\Factory::getApplication()->input->getInt('x_invoice_num'));
 
 		return $ids[0];
 	}
 
 	function get_user_id()
 	{
-		return JFactory::getApplication()->input->getInt('x_cust_id');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('x_cust_id');
 	}
 
 	function get_amount()
 	{
-		return JFactory::getApplication()->input->get('x_amount');
+		return \Joomla\CMS\Factory::getApplication()->input->get('x_amount');
 	}
 
 	function get_gateway_id()
 	{
-		return JFactory::getApplication()->input->get('x_trans_id');
+		return \Joomla\CMS\Factory::getApplication()->input->get('x_trans_id');
 	}
 }

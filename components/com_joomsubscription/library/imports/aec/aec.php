@@ -24,7 +24,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 	{
 		$this->params = $params;
 		$plans        = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
-		$db           = JFactory::getDbo();
+		$db           = \Joomla\CMS\Factory::getDbo();
 		$period_types = [
 			'Y' => 'YEAR',
 			'D' => 'DAY',
@@ -88,7 +88,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 	{
 		$ctable = JTable::getInstance('EmCouponhistory', 'JoomsubscriptionTable');
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT * FROM `#__acctexp_couponsxuser`");
 		$list = $db->loadObjectList();
@@ -178,7 +178,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 	{
 		$ctable = JTable::getInstance('EmCoupon', 'JoomsubscriptionTable');
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT * FROM `#__acctexp_coupons" . ($type == 1 ? '_static' : '') . "`");
 		$list = $db->loadObjectList();
@@ -227,7 +227,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 	{
 		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$query = $db->getQuery(TRUE);
 		$query->select('*')
@@ -291,7 +291,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function getInvoice($number)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__acctexp_invoices WHERE invoice_number = '{$number}'");
 		$invoice = $db->loadObject();
 
@@ -300,7 +300,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function getInvoiceBySubscriptionId($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__acctexp_invoices WHERE subscr_id = '{$id}'");
 		$invoice = $db->loadObject();
 
@@ -309,7 +309,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function getGroupId()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT id FROM #__joomsubscription_plans_groups LIMIT 1");
 		$id = $db->loadResult();
@@ -344,7 +344,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	public function check()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SHOW TABLES LIKE "%_acctexp_%"');
 		$result = $db->loadResult();
 		if(!$result)

@@ -173,7 +173,7 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 	private function _getData()
 	{
 
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('s.price, s.plan_id, date(s.created) as dt');

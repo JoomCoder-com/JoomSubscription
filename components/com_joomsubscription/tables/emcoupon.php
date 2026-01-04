@@ -20,7 +20,7 @@ class JoomsubscriptionTableEmCoupon extends JTable
 	{
 		if(!$this->id)
 		{
-			$db  = JFactory::getDBO();
+			$db  = \Joomla\CMS\Factory::getDBO();
 			$sql = "SELECT id FROM #__joomsubscription_coupons WHERE `value` = '{$this->value}'";
 			$db->setQuery($sql);
 			if($db->loadResult())

@@ -8,7 +8,7 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 class MFormHelper
 {
@@ -284,14 +284,14 @@ class MFormHelper
 		foreach($gateways as $gateway)
 		{
 			$file = $gateways_path . $gateway . DIRECTORY_SEPARATOR . $gateway . '.xml';
-			if(!JFile::exists($file))
+			if(!is_file($file))
 				continue;
 
-			$lang = JFactory::getLanguage();
+			$lang = \Joomla\CMS\Factory::getLanguage();
 			$tag  = $lang->getTag();
 			if($tag != 'en-GB')
 			{
-				if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$gateway}.ini"))
+				if(!is_file(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$gateway}.ini"))
 				{
 					$tag == 'en-GB';
 				}
@@ -311,7 +311,7 @@ class MFormHelper
 
 	private static function _get_templates()
 	{
-		$params = JComponentHelper::getParams(JFactory::getApplication()->input->get('option'));
+		$params = JComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
 		$prefix = $params->get('tmpl_prefix', 'default');
 		if(!empty(self::$templates[$prefix]))
 		{

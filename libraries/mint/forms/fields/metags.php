@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
@@ -18,7 +18,7 @@ class JFormFieldMetags extends JFormField
 
 	public function getInput()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$model = JModelLegacy::getInstance('Form', 'CobaltModel');
 		$type = $model->getRecordType($app->input->getInt('type_id'));
 

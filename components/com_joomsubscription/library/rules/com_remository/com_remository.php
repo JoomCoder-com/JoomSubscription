@@ -13,7 +13,7 @@ class JoomsubscriptionRuleCom_remository extends JoomsubscriptionRule
 {
 	public function isProtected()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$id = $this->input->getInt('id');
 
 		if(in_array($this->input->getCmd('func'), array('startdown', 'download')) && $id)
@@ -50,7 +50,7 @@ class JoomsubscriptionRuleCom_remository extends JoomsubscriptionRule
 
 	private function _getContainerNames($ids)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT name FROM #__downloads_containers WHERE id IN(" . implode(',', $ids) . ")");
 		$names = $db->loadColumn();
 

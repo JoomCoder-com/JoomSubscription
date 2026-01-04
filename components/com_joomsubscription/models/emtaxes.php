@@ -28,7 +28,7 @@ class JoomsubscriptionModelEmTaxes extends MModelList
 
 	protected function populateState($ordering = 't.id', $direction = 'asc')
 	{
-		$app = JFactory::getApplication ();
+		$app = \Joomla\CMS\Factory::getApplication ();
 
 		$country = $app->getUserStateFromRequest ( $this->context . '.filter.country', 'filter_country' );
 		$this->setState ( 'filter.country', $country );

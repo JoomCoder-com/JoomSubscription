@@ -17,7 +17,7 @@ class JFormFieldHikastatus extends JFormFieldList
 
 	public function getOptions()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$query = $db->getQuery(TRUE)
 			->select('a.category_name as value, a.category_name AS text, a.category_depth as level')

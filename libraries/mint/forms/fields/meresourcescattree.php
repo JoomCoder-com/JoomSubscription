@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
@@ -42,7 +42,7 @@ class JFormFieldMeresourcescattree extends JFormFieldList
 		// Initialise variables.
 		$options = array();
 		
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 		
 		$options = array();

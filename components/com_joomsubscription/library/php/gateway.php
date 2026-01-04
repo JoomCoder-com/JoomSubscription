@@ -30,11 +30,11 @@ class JoomsubscriptionGateway extends JObject
 
 
 	public function loadLang(){
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		if($tag != 'en-GB')
 		{
-			if(!JFile::exists(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$this->type}.ini"))
+			if(!is_file(JPATH_BASE . "/language/{$tag}/com_joomsubscription_gateway_{$this->type}.ini"))
 			{
 				$tag == 'en-GB';
 			}
@@ -51,7 +51,7 @@ class JoomsubscriptionGateway extends JObject
 
 	public function _get_notify_url($id)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$url = 'index.php?option=com_joomsubscription&task=plans.create&Itemid=1&processor=' . $this->type . '&em_id=' . $id;
 		$url = JRoute::_($url, FALSE, -1);
 		if($app->getCfg('force_ssl'))
@@ -64,7 +64,7 @@ class JoomsubscriptionGateway extends JObject
 
 	public function _get_return_url($id)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$url = 'index.php?option=com_joomsubscription&task=payment.back&Itemid=1&processor=' . $this->type . '&em_id=' . $id;
 		$url = JRoute::_($url, FALSE, -1);
 		if($app->getCfg('force_ssl'))
@@ -115,7 +115,7 @@ class JoomsubscriptionGateway extends JObject
 	{
 		$tmpl = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $this->type . '/tmpl/' . $this->params->get('tmpl', 'default.php');
 
-		if(!JFile::exists($tmpl))
+		if(!is_file($tmpl))
 		{
 			return NULL;
 		}
@@ -135,7 +135,7 @@ class JoomsubscriptionGateway extends JObject
 	 */
 	function get_subscrption_id($who = NULL)
 	{
-		return JFactory::getApplication()->input->get('em_id');
+		return \Joomla\CMS\Factory::getApplication()->input->get('em_id');
 	}
 
 	/**

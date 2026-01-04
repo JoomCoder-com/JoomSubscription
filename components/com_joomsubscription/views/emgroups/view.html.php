@@ -45,8 +45,8 @@ class JoomsubscriptionViewEmGroups extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app     = JFactory::getApplication();
-		$doc     = JFactory::getDocument();
+		$app     = \Joomla\CMS\Factory::getApplication();
+		$doc     = \Joomla\CMS\Factory::getDocument();
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 

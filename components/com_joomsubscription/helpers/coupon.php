@@ -20,15 +20,15 @@ class JoomsubscriptionHelperCoupon
 			return new stdClass();
 		}
 
-		$app   = JFactory::getApplication();
-		$user  = JFactory::getUser();
+		$app   = \Joomla\CMS\Factory::getApplication();
+		$user  = \Joomla\CMS\Factory::getUser();
 		$model = MModelBase::getInstance('EmPlans', 'JoomsubscriptionModel');
 
 		if(substr($value, 0, 4) == "MUA-")
 		{
 			$mua = explode("-", $value);
 
-			$db  = JFactory::getDbo();
+			$db  = \Joomla\CMS\Factory::getDbo();
 			$sql = "SELECT count(*) FROM #__joomsubscription_subscriptions WHERE user_id = '{$user->id}' AND parent='{$mua[1]}'";
 			$db->setQuery($sql);
 			$user_sub = $db->LoadResult();
@@ -114,7 +114,7 @@ class JoomsubscriptionHelperCoupon
 		}
 
 
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT *, IF(`extime` > NOW() OR `extime` = '0000-00-00 00:00:00', 0, 1) AS expired FROM #__joomsubscription_coupons WHERE `value` = '$value'";
 		$db->setQuery($sql);
 
@@ -162,7 +162,7 @@ class JoomsubscriptionHelperCoupon
 
 		if($coupon->user_ids)
 		{
-			$user = JFactory::getUser();
+			$user = \Joomla\CMS\Factory::getUser();
 			$ids  = explode(",", $coupon->user_ids);
 			if(!in_array($user->get('id'), $ids))
 			{
@@ -193,7 +193,7 @@ class JoomsubscriptionHelperCoupon
 		}
 		if($coupon->use_user > 0)
 		{
-			$user = JFactory::getUser();
+			$user = \Joomla\CMS\Factory::getUser();
 
 			$sql = "SELECT count(*) FROM #__joomsubscription_coupons_history WHERE `coupon_id` = '{$coupon->id}' AND user_id = " . $user->get('id');
 			$db->setQuery($sql);
@@ -229,8 +229,8 @@ class JoomsubscriptionHelperCoupon
 
 	/*public static function applyCoupon($coupon, $price)
 	{
-		$db   = JFactory::getDBO();
-		$user = JFactory::getUser();
+		$db   = \Joomla\CMS\Factory::getDBO();
+		$user = \Joomla\CMS\Factory::getUser();
 		settype($coupon, 'integer');
 
 		$sql = "UPDATE #__joomsubscription_coupons SET used_num = used_num + 1 WHERE `id` = " . $coupon;

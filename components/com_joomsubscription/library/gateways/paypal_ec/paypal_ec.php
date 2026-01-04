@@ -25,7 +25,7 @@ class JoomsubscriptionGatewayPaypal_ec extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		$post = JFactory::getApplication()->input->post;
+		$post = \Joomla\CMS\Factory::getApplication()->input->post;
 
 		$gateway = $this->get_gateway_id();
 
@@ -182,26 +182,26 @@ class JoomsubscriptionGatewayPaypal_ec extends JoomsubscriptionGateway
 
 	function get_plan_id()
 	{
-		return JFactory::getApplication()->input->get('order_id');
+		return \Joomla\CMS\Factory::getApplication()->input->get('order_id');
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return trim($post->get('subscr_id') . ' ' . $post->get('tx', $post->get('txn_id')));
 	}
 
 	function get_amount()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return (float)$post->get('amount', $post->get('mc_amount3', $post->get('mc_gross')));
 	}
 
 	function get_user_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->getInt('cm', $post->getInt('custom'));
 	}

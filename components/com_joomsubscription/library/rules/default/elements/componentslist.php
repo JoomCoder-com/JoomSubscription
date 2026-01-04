@@ -17,7 +17,7 @@ class JFormFieldComponentslist extends JFormFieldList
 
 	public function getOptions()
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('e.element as value');
@@ -41,7 +41,7 @@ class JFormFieldComponentslist extends JFormFieldList
 
 		foreach($coms AS &$c)
 		{
-			JFactory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
+			\Joomla\CMS\Factory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
 			$c->text = $c->value;
 
 			$trans = strip_tags(JText::_($c->value));

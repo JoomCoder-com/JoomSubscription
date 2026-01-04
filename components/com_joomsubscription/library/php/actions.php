@@ -24,7 +24,7 @@ class JoomsubscriptionAction extends JObject
 	{
 		$this->params  = new JRegistry($data->action);
 		$this->plan_id = $data->plan_id;
-		$this->user = JFactory::getUser();
+		$this->user = \Joomla\CMS\Factory::getUser();
 	}
 
 	/**

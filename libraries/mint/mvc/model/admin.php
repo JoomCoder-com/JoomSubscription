@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 jimport('mint.mvc.model.form');
 
 /**
@@ -168,7 +168,7 @@ abstract class MModelAdmin extends MModelForm
 		$done = false;
 
 		// Set some needed variables.
-		$this->user = JFactory::getUser();
+		$this->user = \Joomla\CMS\Factory::getUser();
 		$this->table = $this->getTable();
 		$this->tableClassName = get_class($this->table);
 		$this->contentType = new JUcmType;
@@ -276,7 +276,7 @@ abstract class MModelAdmin extends MModelForm
 		if (empty($this->batchSet))
 		{
 			// Set some needed variables.
-			$this->user = JFactory::getUser();
+			$this->user = \Joomla\CMS\Factory::getUser();
 			$this->table = $this->getTable();
 			$this->tableClassName = get_class($this->table);
 			$this->contentType = new JUcmType;
@@ -333,7 +333,7 @@ abstract class MModelAdmin extends MModelForm
 		if (empty($this->batchSet))
 		{
 			// Set some needed variables.
-			$this->user = JFactory::getUser();
+			$this->user = \Joomla\CMS\Factory::getUser();
 			$this->table = $this->getTable();
 			$this->tableClassName = get_class($this->table);
 			$this->contentType = new JUcmType;
@@ -437,7 +437,7 @@ abstract class MModelAdmin extends MModelForm
 		if (empty($this->batchSet))
 		{
 			// Set some needed variables.
-			$this->user = JFactory::getUser();
+			$this->user = \Joomla\CMS\Factory::getUser();
 			$this->table = $this->getTable();
 			$this->tableClassName = get_class($this->table);
 			$this->contentType = new JUcmType;
@@ -494,7 +494,7 @@ abstract class MModelAdmin extends MModelForm
 		if (empty($this->batchSet))
 		{
 			// Set some needed variables.
-			$this->user = JFactory::getUser();
+			$this->user = \Joomla\CMS\Factory::getUser();
 			$this->table = $this->getTable();
 			$this->tableClassName = get_class($this->table);
 			$this->contentType = new JUcmType;
@@ -581,7 +581,7 @@ abstract class MModelAdmin extends MModelForm
 	protected function batchTag($value, $pks, $contexts)
 	{
 		// Set the variables
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		$table = $this->getTable();
 
 		foreach ($pks as $pk)
@@ -630,7 +630,7 @@ abstract class MModelAdmin extends MModelForm
 	 */
 	protected function canDelete($record)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		return $user->authorise('core.delete', $this->option);
 	}
@@ -646,7 +646,7 @@ abstract class MModelAdmin extends MModelForm
 	 */
 	protected function canEditState($record)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		return $user->authorise('core.edit.state', $this->option);
 	}
@@ -886,7 +886,7 @@ abstract class MModelAdmin extends MModelForm
 		$key = $table->getKeyName();
 
 		// Get the pk of the record from the request.
-		$pk = JFactory::getApplication()->input->getInt($key);
+		$pk = \Joomla\CMS\Factory::getApplication()->input->getInt($key);
 		$this->setState($this->getName() . '.id', $pk);
 
 		// Load the parameters.
@@ -921,7 +921,7 @@ abstract class MModelAdmin extends MModelForm
 	public function publish(&$pks, $value = 1)
 	{
 		$dispatcher = \Joomla\CMS\Factory::getApplication();
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		$table = $this->getTable();
 		$pks = (array) $pks;
 
@@ -1280,7 +1280,7 @@ abstract class MModelAdmin extends MModelForm
 		}
 
 		// Check that the user has create permission for the component
-		$extension = JFactory::getApplication()->input->get('option', '');
+		$extension = \Joomla\CMS\Factory::getApplication()->input->get('option', '');
 
 		if (!$this->user->authorise('core.create', $extension . '.category.' . $categoryId))
 		{

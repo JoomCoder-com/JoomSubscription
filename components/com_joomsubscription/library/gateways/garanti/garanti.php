@@ -10,7 +10,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 	{
 		$this->log('Start check Garanti', $_POST);
 
-		$post = JFactory::getApplication()->input->post;
+		$post = \Joomla\CMS\Factory::getApplication()->input->post;
 
 		if($post->get('response') == 'Error')
 		{
@@ -66,7 +66,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 		}
 
 		$default_lang = $this->params->get('lang');
-		$lang         = strtolower(substr(JFactory::getLanguage()->getTag(), 0, 2));
+		$lang         = strtolower(substr(\Joomla\CMS\Factory::getLanguage()->getTag(), 0, 2));
 		if(in_array($lang, array('tr', 'en', 'ro')))
 		{
 			$default_lang = $lang;
@@ -74,7 +74,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 
 		$param = Array(
 			"secure3dsecuritylevel" => $this->params->get('level'),
-			"customeremailaddress"  => JFactory::getUser($subscription->user_id)->get('email'),
+			"customeremailaddress"  => \Joomla\CMS\Factory::getUser($subscription->user_id)->get('email'),
 			"txninstallmentcount"   => $this->params->get('installment', ''),
 			"terminalprovuserid"    => 'PROVOOS',
 			"terminalmerchantid"    => $this->params->get('merchant_id'),
@@ -126,27 +126,27 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 		$c .= '<script>document.getElementById("gb-form").submit();</script>';
 
 		echo $c;
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 		*/
 
-		JFactory::getApplication()->redirect($url . '?' . http_build_query($param));
+		\Joomla\CMS\Factory::getApplication()->redirect($url . '?' . http_build_query($param));
 	}
 
 	public function get_subscrption_id($who = NULL)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		return preg_replace('/[^0-9]/iU', '', $app->input->get('em_id', $app->input->get('orderid', $app->input->get('oid'))));
 	}
 
 	public function get_gateway_id()
 	{
-		return JFactory::getApplication()->input->get('transid');
+		return \Joomla\CMS\Factory::getApplication()->input->get('transid');
 	}
 
 	private function _validate()
 	{
-		$post        = JFactory::getApplication()->input->post;
+		$post        = \Joomla\CMS\Factory::getApplication()->input->post;
 		$hash_params = $post->getString('hashparams');
 		$isValidHash = FALSE;
 

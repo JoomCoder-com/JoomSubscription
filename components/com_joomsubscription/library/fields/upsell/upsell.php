@@ -27,7 +27,7 @@ class JoomsubscriptionFieldUpsell extends JoomsubscriptionField
 			return;
 		}
 
-		$input = JFactory::getApplication()->input;
+		$input = \Joomla\CMS\Factory::getApplication()->input;
 
 		if($input->get('option') != $this->params->get('params.component'))
 		{

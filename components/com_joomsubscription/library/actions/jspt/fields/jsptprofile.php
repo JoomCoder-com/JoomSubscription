@@ -17,7 +17,7 @@ class JFormFieldJsptprofile extends JFormFieldList
 
 	public function getOptions()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT `id` as `value`, `name` as `text` FROM `#__xipt_profiletypes`");
 		$options = $db->loadObjectList();

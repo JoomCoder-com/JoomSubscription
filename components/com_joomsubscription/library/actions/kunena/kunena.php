@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die();
 
-if(JFolder::exists(JPATH_ROOT . '/administrator/components/com_k2/tables'))
+if(is_dir(JPATH_ROOT . '/administrator/components/com_k2/tables'))
 {
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2user.php';
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2usergroup.php';
@@ -26,13 +26,13 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 			return;
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("UPDATE `#__kunena_users` SET rank = " . $this->params->get('rank_active') . " WHERE userid = " . $subscription->user_id);
 		$db->execute();
 
 		if(trim($this->params->get('message')))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getRank($this->params->get('rank_active'))));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getRank($this->params->get('rank_active'))));
 		}
 	}
 
@@ -65,7 +65,7 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 			return;
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT rank FROM `#__kunena_users` WHERE userid = " . $subscription->user_id);
 		$rank = $db->loadResult();
@@ -101,7 +101,7 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 
 	private function _getRank($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT rank_title FROM `#__kunena_ranks` WHERE rank_id = " . $id);
 
 		return $db->loadResult();

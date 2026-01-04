@@ -29,10 +29,10 @@ class JFormFieldEmserinfo extends JFormField
 	 */
 	protected function getInput()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery(sprintf("SELECT * FROM #__joomsubscription_serial WHERE field_id = %d AND active = %d",
-			JFactory::getApplication()->input->get('field_id'), 0));
+			\Joomla\CMS\Factory::getApplication()->input->get('field_id'), 0));
 
 		echo $db->getQuery();
 

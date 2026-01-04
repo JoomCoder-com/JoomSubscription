@@ -16,7 +16,7 @@ class JoomsubscriptionGatewaygoogleco extends JoomsubscriptionGateway
 	function accept(&$subscription, $plan)
 	{
 		$subscription->gateway_id = $this->get_gateway_id();
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		switch($post->get('_type'))
 		{
@@ -86,12 +86,12 @@ class JoomsubscriptionGatewaygoogleco extends JoomsubscriptionGateway
 
 		$url .= '?'.http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 		return $post->get('google-order-number');
 	}
 
@@ -99,13 +99,13 @@ class JoomsubscriptionGatewaygoogleco extends JoomsubscriptionGateway
 	{
 		if($who == 'NOTIFY_URL')
 		{
-			if(JFactory::getApplication()->input->get('_type') == 'new-order-notification')
+			if(\Joomla\CMS\Factory::getApplication()->input->get('_type') == 'new-order-notification')
 			{
-				return JFactory::getApplication()->input->get('shopping-cart.items.item-1.merchant-item-id');
+				return \Joomla\CMS\Factory::getApplication()->input->get('shopping-cart.items.item-1.merchant-item-id');
 			}
 			else
 			{
-				$db = JFactory::getDbo();
+				$db = \Joomla\CMS\Factory::getDbo();
 				$db->setQuery("SELECT id FROM #__joomsubscription_subscriptions WHERE gateway_id = '".$this->get_gateway_id()."' and gateway = 'google'");
 				return $db->loadResult();
 			}

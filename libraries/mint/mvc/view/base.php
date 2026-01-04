@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 /**
  * Base class for a Joomla View
@@ -627,7 +627,7 @@ class MViewBase extends JObject
 		// Clear prior output
 		$this->_output = NULL;
 
-		$template       = JFactory::getApplication()->getTemplate();
+		$template       = \Joomla\CMS\Factory::getApplication()->getTemplate();
 		$layout         = $this->getLayout();
 		$layoutTemplate = $this->getLayoutTemplate();
 
@@ -639,7 +639,7 @@ class MViewBase extends JObject
 		$tpl  = isset($tpl) ? preg_replace('/[^A-Z0-9_\.-]/i', '', $tpl) : $tpl;
 
 		// Load the language file for the template
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$lang->load('tpl_' . $template, JPATH_BASE, NULL, FALSE, TRUE)
 		|| $lang->load('tpl_' . $template, JPATH_THEMES . "/$template", NULL, FALSE, TRUE);
 
@@ -745,7 +745,7 @@ class MViewBase extends JObject
 	protected function _setPath($type, $path)
 	{
 		$component = JApplicationHelper::getComponentName();
-		$app       = JFactory::getApplication();
+		$app       = \Joomla\CMS\Factory::getApplication();
 
 		// Clear out the prior search dirs
 		$this->_path[$type] = array();
@@ -846,10 +846,10 @@ class MViewBase extends JObject
 
 	public function setDocTitle($text)
 	{
-		$app   = JFactory::getApplication();
+		$app   = \Joomla\CMS\Factory::getApplication();
 		$menus = $app->getMenu();
 		$menu  = $menus->getActive();
-		$doc   = JFactory::getDocument();
+		$doc   = \Joomla\CMS\Factory::getDocument();
 
 		$this->appParams = $app->getParams();
 

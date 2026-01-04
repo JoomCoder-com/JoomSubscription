@@ -14,7 +14,7 @@ class JoomsubscriptionModelEmPayment extends MModelList
 {
 	public function getPlan($id)
 	{
-		$user  = JFactory::getUser();
+		$user  = \Joomla\CMS\Factory::getUser();
 		$query = $this->_db->getQuery(TRUE);
 
 		$query->select('p.*');
@@ -41,8 +41,8 @@ class JoomsubscriptionModelEmPayment extends MModelList
 			return array();
 		}
 
-		$db  = JFactory::getDbo();
-		$app = JFactory::getApplication();
+		$db  = \Joomla\CMS\Factory::getDbo();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$db->setQuery("SELECT * FROM `#__joomsubscription_fields`
 			WHERE id IN (" . implode(',', $plan->params->get('properties.fields')) . ")
@@ -60,7 +60,7 @@ class JoomsubscriptionModelEmPayment extends MModelList
 		{
 			$file = $home . $item->type . "/" . $item->type . ".php";
 
-			if(!JFile::exists($file))
+			if(!is_file($file))
 			{
 				continue;
 			}
@@ -96,7 +96,7 @@ class JoomsubscriptionModelEmPayment extends MModelList
 
 	public function getCouponsNumber($plan_id)
 	{
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT * FROM #__joomsubscription_coupons WHERE
 			published = '1'
 			AND (extime = '0000-00-00 00:00:00' OR extime > NOW())
@@ -104,7 +104,7 @@ class JoomsubscriptionModelEmPayment extends MModelList
 		$db->setQuery($sql);
 
 		$all   = $db->loadObjectList();
-		$user  = JFactory::getUser();
+		$user  = \Joomla\CMS\Factory::getUser();
 		$total = 0;
 
 		foreach($all AS $coupon)

@@ -30,7 +30,7 @@ class JFormFieldOnCountry extends JFormFieldList
 	protected function getOptions()
 	{
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT id as value, name as text FROM #__onyx_country ";
 
 		if($this->element['use_country_limit'])

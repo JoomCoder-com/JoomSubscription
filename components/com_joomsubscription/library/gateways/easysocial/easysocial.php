@@ -28,7 +28,7 @@ class JoomsubscriptionGatewayEasysocial extends JoomsubscriptionGateway
 	{
 		require_once(JPATH_ADMINISTRATOR . '/components/com_easysocial/includes/foundry.php');
 
-		$app          = JFactory::getApplication();
+		$app          = \Joomla\CMS\Factory::getApplication();
 		$user_points  = Foundry::user()->getPoints();
 		$price_points = $this->_convert($subscription->price);
 
@@ -69,11 +69,11 @@ class JoomsubscriptionGatewayEasysocial extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		JFactory::getApplication()->redirect($this->_get_notify_url($subscription->id));
+		\Joomla\CMS\Factory::getApplication()->redirect($this->_get_notify_url($subscription->id));
 	}
 
 	function get_gateway_id()
 	{
-		return strtoupper(substr(md5(JFactory::getApplication()->input->get('em_id')), 0, 10));
+		return strtoupper(substr(md5(\Joomla\CMS\Factory::getApplication()->input->get('em_id')), 0, 10));
 	}
 }

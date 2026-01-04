@@ -32,7 +32,7 @@ class JoomsubscriptionRuleDefault extends JoomsubscriptionRule
 
 	public function isProtected()
 	{
-		$input = JFactory::getApplication()->input;
+		$input = \Joomla\CMS\Factory::getApplication()->input;
 
 		if($this->params->get('var1'))
 		{

@@ -9,7 +9,7 @@
  */
 
 defined('_JEXEC') or die();
-$app        = JFactory::getApplication();
+$app        = \Joomla\CMS\Factory::getApplication();
 $controller = $app->input->getCmd('view', 'emplan');
 if($controller == 'emtaxes')
 {

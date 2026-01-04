@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 
@@ -18,8 +18,8 @@ class JFormFieldMertype extends JFormField
 	{
 		global $app;
 		
-		$db			= JFactory::getDBO();
-		$doc 		= JFactory::getDocument();
+		$db			= \Joomla\CMS\Factory::getDBO();
+		$doc 		= \Joomla\CMS\Factory::getDocument();
 		$template 	= $app->getTemplate();
 		$multi    	= $this->element['multi'];		
 		

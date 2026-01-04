@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 define('EM_SEPARATOR_NONE', 0);
 define('EM_SEPARATOR_SLIDER', 1);
@@ -262,13 +262,13 @@ class EMFormHelper
 		foreach ($gateways as $gateway)
 		{
 			$file = $gateways_path. $gateway. DIRECTORY_SEPARATOR . $gateway.'.xml';
-			if (!JFile::exists($file)) continue;
+			if (!is_file($file)) continue;
 
-			$lang = JFactory::getLanguage();
+			$lang = \Joomla\CMS\Factory::getLanguage();
 			$tag  = $lang->getTag();
 			if($tag != 'en-GB')
 			{
-				if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_gateway_{$gateway}.ini"))
+				if(!is_file(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_gateway_{$gateway}.ini"))
 				{
 					$tag == 'en-GB';
 				}

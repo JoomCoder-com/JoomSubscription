@@ -14,8 +14,8 @@ class JoomsubscriptionViewEmHistory extends MViewBase
 {
 	function display($tpl = NULL)
 	{
-		$app        = JFactory::getApplication();
-		$this->user = JFactory::getUser();
+		$app        = \Joomla\CMS\Factory::getApplication();
+		$this->user = \Joomla\CMS\Factory::getUser();
 
 		$this->menu = Mint::loadLayout('links', JPATH_COMPONENT . '/layouts');
 
@@ -109,8 +109,8 @@ class JoomsubscriptionViewEmHistory extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app = JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app = \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 
 		$this->mparams = new JRegistry($app->getMenu()->getActive());
 

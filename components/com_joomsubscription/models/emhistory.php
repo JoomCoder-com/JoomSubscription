@@ -14,7 +14,7 @@ class JoomsubscriptionModelEmHistory extends MModelList
 
 	public function getListQuery()
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -35,7 +35,7 @@ class JoomsubscriptionModelEmHistory extends MModelList
 		$query->where('s.published = 1');
 		$query->where('s.invisible_in_history = 0');
 
-		//if(!JoomsubscriptionHelper::isModer(JFactory::getUser()))
+		//if(!JoomsubscriptionHelper::isModer(\Joomla\CMS\Factory::getUser()))
 		{
 			$query->where("u.user_id = " . $user->get('id'));
 		}
@@ -66,7 +66,7 @@ class JoomsubscriptionModelEmHistory extends MModelList
 
 	protected function populateState($ordering = null, $direction = null)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$cat = $app->getUserStateFromRequest($this->context . '.filter.cat_id', 'filter_cat');
 		$this->setState('filter.cat', $cat);
@@ -76,7 +76,7 @@ class JoomsubscriptionModelEmHistory extends MModelList
 
 	public function getSubscriptionCouponInfo($sid)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT ch.price, ch.discount, ch.discount_type, cc.value, cc.id
 		FROM #__joomsubscription_coupons_history ch
 		LEFT JOIN #__joomsubscription_coupons cc ON cc.id = ch.coupon_id

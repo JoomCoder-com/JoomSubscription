@@ -20,19 +20,19 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 
 		if(!$this->input)
 		{
-			$this->input = JFactory::getApplication()->input;
+			$this->input = \Joomla\CMS\Factory::getApplication()->input;
 		}
 
 		if(!$this->input->get('secret') || $config->get('cron_key', '123') != $this->input->get('secret'))
 		{
 			echo "Secret code is wrong. Add secret word in Joomsubscription global config and add <code>&secret=secretword</code> to URL.";
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 	}
 
 	public function send_expire_alerts()
 	{
-		$db           = JFactory::getDbo();
+		$db           = \Joomla\CMS\Factory::getDbo();
 		$subscr_table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$query = $db->getQuery(TRUE);
@@ -96,18 +96,18 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 			}
 		}
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function report()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$query = $db->getQuery(TRUE);
 		$query->select('s.*');
 		$query->from('#__joomsubscription_subscriptions AS s');
 
-		$query->where('s.created > NOW() - INTERVAL '.JFactory::getApplication()->input->getInt('limit', 90).' DAY');
+		$query->where('s.created > NOW() - INTERVAL '.\Joomla\CMS\Factory::getApplication()->input->getInt('limit', 90).' DAY');
 		$query->where('s.published = 1');
 
 		$query->select('p.name as plan_name');
@@ -129,7 +129,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 		foreach($list AS $l)
 		{
 			$invoice = new JRegistry($l->invoice);
-			$user    = JFactory::getUser($l->user_id);
+			$user    = \Joomla\CMS\Factory::getUser($l->user_id);
 
 			if($invoice->get('country'))
 			{
@@ -177,6 +177,6 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 			fputcsv($output, $product);
 		}
 		fclose($output) or die("Can't close php://output");
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }

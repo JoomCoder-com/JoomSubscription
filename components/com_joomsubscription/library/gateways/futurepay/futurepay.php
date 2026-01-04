@@ -9,7 +9,7 @@ class JoomsubscriptionGatewayFuturePay extends JoomsubscriptionGateway
 	function accept(&$subscription, $plan)
 	{
 		//http://www.worldpay.com/support/kb/bg/htmlredirect/rhtml5904.html
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		if($post->get('futurePayStatusChange'))
 		{
@@ -45,7 +45,7 @@ class JoomsubscriptionGatewayFuturePay extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(!$this->params->get('installID'))
 		{
@@ -110,27 +110,27 @@ class JoomsubscriptionGatewayFuturePay extends JoomsubscriptionGateway
 		}
 		$url .= http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_plan_id()
 	{
-		return JFactory::getApplication()->input->getInt('cartId');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('cartId');
 	}
 
 	function get_user_id()
 	{
-		return JFactory::getApplication()->input->getInt('MC_userid');
+		return \Joomla\CMS\Factory::getApplication()->input->getInt('MC_userid');
 	}
 
 	function get_amount()
 	{
-		return JFactory::getApplication()->input->get('amount');
+		return \Joomla\CMS\Factory::getApplication()->input->get('amount');
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$out = $post->get('transId');
 

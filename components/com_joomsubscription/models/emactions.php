@@ -29,7 +29,7 @@ class JoomsubscriptionModelsEmActions extends Joomla\CMS\MVC\Model\BaseModel
 
 	public function getActions($plan_id)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 
 		$query->select('*');

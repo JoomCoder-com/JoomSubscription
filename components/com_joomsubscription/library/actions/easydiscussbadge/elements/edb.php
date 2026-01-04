@@ -29,12 +29,12 @@ class JFormFieldEdb extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
-		if(!JFile::exists(JPATH_ROOT . '/components/com_easydiscuss/easydiscuss.php'))
+		if(!is_file(JPATH_ROOT . '/components/com_easydiscuss/easydiscuss.php'))
 		{
 			return array(JHtml::_('select.option', '', 'EasyDiscuss is not installed'));
 		}
 
-		$db      = JFactory::getDbo();
+		$db      = \Joomla\CMS\Factory::getDbo();
 		$options = parent::getOptions();
 
 		$db->setQuery("SELECT id, title FROM #__discuss_badges WHERE published = 1");

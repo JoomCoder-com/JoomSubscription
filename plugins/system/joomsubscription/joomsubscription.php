@@ -14,25 +14,25 @@ jimport('joomla.application.menu');
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
-class plgSystemJoomsubscription extends JPlugin
+class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 {
 	function onAfterRoute()
 	{
-		if(JFactory::getApplication()->isClient('administrator'))
+		if(\Joomla\CMS\Factory::getApplication()->isClient('administrator'))
 		{
 			return;
 		}
 
 		$joomsubscription_file = JPATH_ROOT . '/components/com_joomsubscription/api.php';
-		if(!JFile::exists($joomsubscription_file))
+		if(!is_file($joomsubscription_file))
 		{
 			return NULL;
 		}
 
 		include_once $joomsubscription_file;
 
-		$session = JFactory::getSession();
-		$config  = JFactory::getConfig();
+		$session = \Joomla\CMS\Factory::getSession();
+		$config  = \Joomla\CMS\Factory::getConfig();
 		$plan    = $session->get('joomsubscription_reg_plan', FALSE);
 
 		$cookie_domain = $config->get('cookie_domain', '');
@@ -59,12 +59,12 @@ class plgSystemJoomsubscription extends JPlugin
 			$session->clear('joomsubscription_reg_name');
 			$session->clear('joomsubscription_reg_pass');
 
-			JFactory::getApplication()->login($credentials, $options);
+			\Joomla\CMS\Factory::getApplication()->login($credentials, $options);
 		}
 
 		$this->_actions();
 
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		if(in_array($this->params->get('skip_access'), $user->getAuthorisedViewLevels()))
 		{
@@ -78,9 +78,9 @@ class plgSystemJoomsubscription extends JPlugin
 		// Check subscription required for any site page.
 		$this->_checkSubscr();
 
-		$app    = JFactory::getApplication();
+		$app    = \Joomla\CMS\Factory::getApplication();
 		$input  = $app->input;
-		$db     = JFactory::getDbo();
+		$db     = \Joomla\CMS\Factory::getDbo();
 		$option = $input->getCmd('option');
 
 		$plans = $messages = array();
@@ -191,7 +191,7 @@ class plgSystemJoomsubscription extends JPlugin
 
 	function onAfterRender()
 	{
-		$app = Jfactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		if($app->isClient('administrator'))
 		{
@@ -209,15 +209,15 @@ class plgSystemJoomsubscription extends JPlugin
 
 	function onAfterSubscriptionActivated($subscription, $plan)
 	{
-		$app     = Jfactory::getApplication();
-		$user_id = JFactory::getUser()->get('id');
+		$app     = \Joomla\CMS\Factory::getApplication();
+		$user_id = \Joomla\CMS\Factory::getUser()->get('id');
 		if($user_id
 			&& $subscription->user_id == $user_id
-			&& JFactory::getSession()->get('joomsubscription_access_url')
+			&& \Joomla\CMS\Factory::getSession()->get('joomsubscription_access_url')
 		)
 		{
-			$redirect = JFactory::getSession()->get('joomsubscription_access_url');
-			JFactory::getSession()->set('joomsubscription_access_url', NULL);
+			$redirect = \Joomla\CMS\Factory::getSession()->get('joomsubscription_access_url');
+			\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', NULL);
 			$app->redirect($redirect);
 		}
 	}
@@ -275,7 +275,7 @@ class plgSystemJoomsubscription extends JPlugin
 				$options = new JRegistry($match[1]);
 			}
 
-			$options->set('user_id', $options->get('user_id', JFactory::getUser()->get('id')));
+			$options->set('user_id', $options->get('user_id', \Joomla\CMS\Factory::getUser()->get('id')));
 
 
 			$ids = JoomsubscriptionHelper::getValues($options->get('id'), TRUE);
@@ -286,10 +286,10 @@ class plgSystemJoomsubscription extends JPlugin
 			}
 			else
 			{
-				$match[2] = str_replace(array('[NAME]'), array(JFactory::getUser()->get('name')), $match[2]);
+				$match[2] = str_replace(array('[NAME]'), array(\Joomla\CMS\Factory::getUser()->get('name')), $match[2]);
 				if(strpos($match[2], '[STAT_TOTAL]') !== FALSE || strpos($match[2], '[STAT_COUNTRIES]') !== FALSE )
                 {
-                    $db = JFactory::getDbo();
+                    $db = \Joomla\CMS\Factory::getDbo();
 					$db->setQuery("SELECT s.id, i.fields AS invoice
                               FROM `#__joomsubscription_subscriptions` AS s
                               LEFT JOIN `#__joomsubscription_invoice_to` AS i ON i.id = s.invoice_id
@@ -426,7 +426,7 @@ class plgSystemJoomsubscription extends JPlugin
 			$message = array();
 			if(JoomsubscriptionApi::hasSubscription($ids, $options->get('title'), $options->get('user_id'), $options->get('count', 1), $options->get('redirect', 0), md5($match[0])))
 			{
-				$content = str_replace(array('[NAME]'), array(JFactory::getUser()->get('name')), $match[2]);
+				$content = str_replace(array('[NAME]'), array(\Joomla\CMS\Factory::getUser()->get('name')), $match[2]);
 				if(strpos($content, '[REMAININGDAYS]') !== FALSE)
 				{
 					$content = str_replace('[REMAININGDAYS]', JoomsubscriptionApi::getDaysRemain($ids), $content);
@@ -434,7 +434,7 @@ class plgSystemJoomsubscription extends JPlugin
 				}
 				if($options->get('delay') > 0)
 				{
-					$subscription = JoomsubscriptionHelper::userActiveSubscriptionsByPlans($ids, JFactory::getUser()->get('id'));
+					$subscription = JoomsubscriptionHelper::userActiveSubscriptionsByPlans($ids, \Joomla\CMS\Factory::getUser()->get('id'));
 					$when         = strtotime($subscription->ctime) + (86400 * $options->get('delay'));
 					if($when > time())
 					{
@@ -471,7 +471,7 @@ class plgSystemJoomsubscription extends JPlugin
 			}
 			else if($options->get('title'))
 			{
-				$message[] = str_replace('[NAME]', JFactory::getUser()->get('name'), JText::_($options->get('title')));
+				$message[] = str_replace('[NAME]', \Joomla\CMS\Factory::getUser()->get('name'), JText::_($options->get('title')));
 
 				if($options->get('link', 1))
 				{
@@ -510,12 +510,12 @@ class plgSystemJoomsubscription extends JPlugin
 			return;
 		}
 
-		if(!JFactory::getUser()->get('id'))
+		if(!\Joomla\CMS\Factory::getUser()->get('id'))
 		{
 			return;
 		}
 
-		$app    = JFactory::getApplication();
+		$app    = \Joomla\CMS\Factory::getApplication();
 		$input  = $app->input;
 		$option = $input->getCmd('option');
 
@@ -543,12 +543,12 @@ class plgSystemJoomsubscription extends JPlugin
 
 	private function _actions()
 	{
-		if(!JFactory::getUser()->get('id'))
+		if(!\Joomla\CMS\Factory::getUser()->get('id'))
 		{
 			return;
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		//$db->setQuery("UPDATE #__users SET `activation` = '' WHERE `block` = 0");
 		//$db->execute();
@@ -561,7 +561,7 @@ class plgSystemJoomsubscription extends JPlugin
 		$query->where("track_active = 0");
 		$query->where("published = 1");
 		$query->where("activated = 1");
-		$query->where("user_id = " . JFactory::getUser()->get('id'));
+		$query->where("user_id = " . \Joomla\CMS\Factory::getUser()->get('id'));
 
 		$db->setQuery($query);
 		$list = $db->loadObjectList();
@@ -577,7 +577,7 @@ class plgSystemJoomsubscription extends JPlugin
 		$query->where("ctime < NOW()");
 		$query->where("track_disactive = 0");
 		$query->where("activated = 1");
-		$query->where("user_id = " . JFactory::getUser()->get('id'));
+		$query->where("user_id = " . \Joomla\CMS\Factory::getUser()->get('id'));
 
 		$db->setQuery($query);
 		$list = $db->loadObjectList();

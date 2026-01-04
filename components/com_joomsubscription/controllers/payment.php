@@ -18,14 +18,14 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 		if(!$processor)
 		{
 			JError::raiseError(505, JText::_('EMR_NOPROCESSOR'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
-		if(!JFile::exists($file))
+		if(!is_file($file))
 		{
 			JError::raiseError(500, JText::sprintf('EMR_PROCNOTFOUND', $processor));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		include_once $file;
@@ -35,7 +35,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 		if(!class_exists($class))
 		{
 			JError::raiseWarning(404, JText::_('EMR_GATEWAY_CLASS_NOTFOUND'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$class = new $class($processor, array());
@@ -45,7 +45,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 		if(!$subscription)
 		{
 			JError::raiseError(500, JText::_('EMR_MUA_PLAN_NOTFOUND'));
-			JFactory::getApplication()->close();
+			\Joomla\CMS\Factory::getApplication()->close();
 		}
 		$table->load($subscription);
 
@@ -59,7 +59,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 
 		if($table->published == 1)
 		{
-			JFactory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
 		}
 		else
 		{

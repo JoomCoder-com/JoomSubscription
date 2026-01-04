@@ -19,8 +19,8 @@ class JoomsubscriptionViewEmPayment extends MViewBase
 {
 	function display($tpl = NULL)
 	{
-		$app   = JFactory::getApplication();
-		$user  = JFactory::getUser();
+		$app   = \Joomla\CMS\Factory::getApplication();
+		$user  = \Joomla\CMS\Factory::getUser();
 		$model = $this->getModel();
 		$id    = $app->input->getInt('sid');
 
@@ -50,7 +50,7 @@ class JoomsubscriptionViewEmPayment extends MViewBase
 		$pathway = $app->getPathway();
 		$pathway->addItem($this->title);
 
-		$doc = JFactory::getDocument();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$doc->setTitle($this->title);
 
 		$this->params = JComponentHelper::getParams('com_joomsubscription');

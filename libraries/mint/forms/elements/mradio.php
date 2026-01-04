@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 JFormHelper::loadFieldClass('list');
 
@@ -47,11 +47,11 @@ class JFormFieldMRadio extends JFormFieldList
 
 	private function _get_templates()
 	{
-		$params = JComponentHelper::getParams(JFactory::getApplication()->input->get('option'));
+		$params = JComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
 		$prefix = $params->get('tmpl_prefix', 'default');
 
 		$file = __DIR__.'/tmpl/mradio-'.$prefix.'.php';
-		if(JFile::exists($file))
+		if(is_file($file))
 		{
 			return $file;
 		}

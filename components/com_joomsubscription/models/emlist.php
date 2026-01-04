@@ -18,8 +18,8 @@ class JoomsubscriptionModelEmList extends MModelList
 	{
 		if($this->_plans === null)
 		{
-			$app = JFactory::getApplication();
-			$user = JFactory::getUser();
+			$app = \Joomla\CMS\Factory::getApplication();
+			$user = \Joomla\CMS\Factory::getUser();
 
 			$query = $this->_db->getQuery(TRUE);
 
@@ -82,7 +82,7 @@ class JoomsubscriptionModelEmList extends MModelList
 
 	/*public function getAlert($id, $cross, $params)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 		$params = new JRegistry($params);
 		$method = $params->get('calculate_method');
 		$required = $params->get('required');
@@ -146,8 +146,8 @@ class JoomsubscriptionModelEmList extends MModelList
 
 	function deactivatePlans($res)
 	{
-		$db = JFactory::getDBO();
-		$user = JFactory::getUser();
+		$db = \Joomla\CMS\Factory::getDBO();
+		$user = \Joomla\CMS\Factory::getUser();
 		$sql = "SELECT params FROM #__joomsubscription_plans WHERE id = " . $res['sid'];
 		$db->setQuery($sql);
 		$params = $db->loadResult();
@@ -196,7 +196,7 @@ class JoomsubscriptionModelEmList extends MModelList
 
 	function getCrossPeriod($plans, $uid)
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT extime FROM #__joomsubscription_subscriptions WHERE plan_id IN ({$plans}) AND user_id = '$uid'
 		AND published = '1' AND extime > NOW()
 		ORDER BY extime DESC LIMIT 1";
@@ -213,7 +213,7 @@ class JoomsubscriptionModelEmList extends MModelList
 
 	function getMySQLDate($start, $offset, $type = 'SECOND')
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT '{$start}' + INTERVAL {$offset} {$type}";
 		$db->setQuery($sql);
 		return $db->loadResult();

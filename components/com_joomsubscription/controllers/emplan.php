@@ -28,8 +28,8 @@ class JoomsubscriptionControllerEmPlan extends MControllerForm
 
 	public function postSaveHook(MModelBase $model, $validData = array())
 	{
-		$app  = JFactory::getApplication();
-		$db   = JFactory::getDbo();
+		$app  = \Joomla\CMS\Factory::getApplication();
+		$db   = \Joomla\CMS\Factory::getDbo();
 		$item = $model->getItem();
 
 		$old_id = $app->input->get('id');

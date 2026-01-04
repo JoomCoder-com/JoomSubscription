@@ -6,7 +6,7 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
@@ -34,7 +34,7 @@ class JFormFieldMEplugins extends JFormMEFieldList
 	{
 		// Initialize variables.
 		$group = $this->element['group'];
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		
 		$query = $db->getQuery(true);
 		$query->select('element, name, folder');
@@ -50,7 +50,7 @@ class JFormFieldMEplugins extends JFormMEFieldList
 		$items = $db->loadObjectList();
 		$options = array();
 		
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		foreach($items as $item)
 		{
 			$source = JPATH_PLUGINS . '/' . $item->folder . '/' . $item->element;

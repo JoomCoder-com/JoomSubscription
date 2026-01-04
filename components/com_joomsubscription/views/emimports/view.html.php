@@ -15,13 +15,13 @@ class JoomsubscriptionViewEmImports extends MViewBase
 	{
 		$path = JPATH_COMPONENT.DIRECTORY_SEPARATOR.'library'.DIRECTORY_SEPARATOR.'imports'.DIRECTORY_SEPARATOR;
 		$imports = JFolder::folders($path);
-		$lang = JFactory::getLanguage();
+		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		foreach ($imports as $import)
 		{
 			if($tag != 'en-GB')
 			{
-				if(!JFile::exists(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_import_{$import}.ini"))
+				if(!is_file(JPATH_BASE . "/language/{$tag}/{$tag}.com_joomsubscription_import_{$import}.ini"))
 				{
 					$tag == 'en-GB';
 				}
@@ -45,13 +45,13 @@ class JoomsubscriptionViewEmImports extends MViewBase
 
 	private function _canImport()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SELECT COUNT(*) FROM #__joomsubscription_subscriptions');
 		$result = $db->loadResult();
 
 		if ($result) return false;
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SELECT COUNT(*) FROM #__joomsubscription_plans');
 		$result = $db->loadResult();
 
@@ -62,8 +62,8 @@ class JoomsubscriptionViewEmImports extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app	= JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app	= \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$menus	= $app->getMenu();
 		$pathway = $app->getPathway();
 

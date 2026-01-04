@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 defined('_JEXEC') or die();
-$user = JFactory::getUser();
+$user = \Joomla\CMS\Factory::getUser();
 
 echo $this->menu->render(null);
 ?>

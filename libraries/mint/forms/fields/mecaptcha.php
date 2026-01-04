@@ -6,7 +6,7 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 
 
 jimport('joomla.form.formfield');
@@ -24,7 +24,7 @@ class JFormFieldMECaptcha extends JFormFieldText
 	{
 		$conf = JComponentHelper::getParams('com_cobalt');
 		
-		$lang = JFactory::getLanguage()->getLocale();
+		$lang = \Joomla\CMS\Factory::getLanguage()->getLocale();
 		
 		$lang = $lang[4];
 		$supported_langs = array('en', 'nl', 'fr', 'de', 'pt', 'ru', 'tr', 'es');

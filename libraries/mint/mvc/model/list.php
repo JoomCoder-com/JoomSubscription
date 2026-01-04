@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 jimport('mint.mvc.model.base');
 
@@ -432,7 +432,7 @@ class MModelList extends MModelBase
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState($this->context, new stdClass);
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState($this->context, new stdClass);
 
 		// Pre-fill the list options
 		if (!property_exists($data, 'list'))
@@ -469,7 +469,7 @@ class MModelList extends MModelBase
 		// If the context is set, assume that stateful lists are used.
 		if ($this->context)
 		{
-			$app = JFactory::getApplication();
+			$app = \Joomla\CMS\Factory::getApplication();
 
 			// Receive & set filters
 			if ($filters = $app->getUserStateFromRequest($this->context . '.filter', 'filter', array(), 'array'))
@@ -658,7 +658,7 @@ class MModelList extends MModelBase
 	 */
 	public function getUserStateFromRequest($key, $request, $default = null, $type = 'none', $resetPage = true)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$input     = $app->input;
 		$old_state = $app->getUserState($key);
 		$cur_state = (!is_null($old_state)) ? $old_state : $default;

@@ -13,7 +13,7 @@ class JoomsubscriptionActionJs extends JoomsubscriptionAction
 {
 	public function onActive($subscription)
 	{
-		$doc  = JFactory::getDocument();
+		$doc  = \Joomla\CMS\Factory::getDocument();
 		$from = array(
 			'[PLAN_ID]',
 			'[USER_ID]',

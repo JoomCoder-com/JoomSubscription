@@ -20,7 +20,7 @@ class JFormFieldCobaltcomments extends JFormMEFieldList
 			$provider = $folder;
 
 			$xmlfile = $path. DIRECTORY_SEPARATOR .$folder. DIRECTORY_SEPARATOR .$folder.'.xml';
-			if(JFile::exists($xmlfile))
+			if(is_file($xmlfile))
 			{
 				$xml = simplexml_load_file($xmlfile);
 				$provider = $xml->name;

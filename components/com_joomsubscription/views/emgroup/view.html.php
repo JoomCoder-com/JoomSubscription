@@ -26,7 +26,7 @@ class JoomsubscriptionViewEmGroup extends MViewBase
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
-		$this->user = JFactory::getUser();
+		$this->user = \Joomla\CMS\Factory::getUser();
 
 		$params = new JForm('params', array('control' => 'params'));
 		$params->loadFile(JPATH_COMPONENT. '/models/forms/group.params.xml');
@@ -45,8 +45,8 @@ class JoomsubscriptionViewEmGroup extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app	= JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app	= \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$menus	= $app->getMenu();
 		$pathway = $app->getPathway();
 		$title = FALSE;

@@ -52,7 +52,7 @@ class JoomsubscriptionGatewaytbc extends JoomsubscriptionGateway
 
 		$url = 'https://payment.geopaysoft.com/result/' . $this->params->get('merchantname') . '/pay.php?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	public function get_gateway_id()
@@ -66,7 +66,7 @@ class JoomsubscriptionGatewaytbc extends JoomsubscriptionGateway
 	{
 		$response = $this->_getResponse();
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id FROM #__joomsubscription_subscriptions WHERE id = " . (int)$response['MERCHANTTRANSACTIONID']);
 
 		$id = $db->loadResult();

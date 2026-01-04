@@ -19,7 +19,7 @@ class JoomsubscriptionModelEmCoupon extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = TRUE)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.coupon', 'coupon', array(
 			'control'   => 'jform',
@@ -35,7 +35,7 @@ class JoomsubscriptionModelEmCoupon extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.coupon.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.coupon.data', array());
 
 		if(empty($data))
 		{

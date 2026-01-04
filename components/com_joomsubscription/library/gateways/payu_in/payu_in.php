@@ -15,7 +15,7 @@ class JoomsubscriptionGatewayPayu_in extends JoomsubscriptionGateway
 	{
 		$this->log('Start check PayU India');
 
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		$string = sprintf("%s|%s|||||||||||%s|%s|%s|%s|%s|%s",
 			$this->params->get('salt'), $post->get('status'), $post->get('email'), $post->get('firstname'),
@@ -48,7 +48,7 @@ class JoomsubscriptionGatewayPayu_in extends JoomsubscriptionGateway
 		}
 
 
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$param['key']         = $this->params->get('merchant');
 		$param['txnid']       = $subscription->id;
@@ -63,7 +63,7 @@ class JoomsubscriptionGatewayPayu_in extends JoomsubscriptionGateway
 		if($subscription->invoice_id)
 		{
 			$model = new JoomsubscriptionModelsEmInvoiceTo();
-			$data  = $model->getText(JFactory::getApplication()->input->getInt('id'));
+			$data  = $model->getText(\Joomla\CMS\Factory::getApplication()->input->getInt('id'));
 
 			$param['address1'] = $data->fields->get('address');
 			$param['zipcode']  = $data->fields->get('zip');
@@ -80,19 +80,19 @@ class JoomsubscriptionGatewayPayu_in extends JoomsubscriptionGateway
 
 		$url = 'https://secure.payu.in/_payment?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	function get_gateway_id()
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return trim($post->get('mihpayid'));
 	}
 
 	function get_subscrption_id($who)
 	{
-		$post = JFactory::getApplication()->input;
+		$post = \Joomla\CMS\Factory::getApplication()->input;
 
 		return $post->getInt('em_id', $post->getInt('txnid'));
 	}

@@ -29,12 +29,12 @@ class JFormFieldK2group extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
-		if(!JFolder::exists(JPATH_ROOT.'/components/com_k2'))
+		if(!is_dir(JPATH_ROOT.'/components/com_k2'))
 		{
 			return array(JHtml::_('select.option', '', 'K2 is not installed'));
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT id as value, name as text FROM #__k2_user_groups");
 		return $db->loadObjectList();
 	}

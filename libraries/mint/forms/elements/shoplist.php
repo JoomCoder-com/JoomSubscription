@@ -6,7 +6,7 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 
 JFormHelper::loadFieldClass('list');
 
@@ -15,7 +15,7 @@ class JFormFieldShopList extends JFormFieldList
 
 	protected function getOptions()
 	{
-		$db = JFactory::getDBO();
+		$db = \Joomla\CMS\Factory::getDBO();
 
 		$query = $db->getQuery(true);
 		$query->select('id as value, label as text');

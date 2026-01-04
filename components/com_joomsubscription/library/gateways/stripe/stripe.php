@@ -31,7 +31,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 		$event  = $this->_getEvent();
 		$object = $event['data']['object'];
-		$db     = JFactory::getDbo();
+		$db     = \Joomla\CMS\Factory::getDbo();
 
 		switch($event['type'])
 		{
@@ -88,7 +88,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 	public function popup($total, $name, $table, $plan)
 	{
-		$app = Jfactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$url = JUri::getInstance();
 		$url->setVar('validation', '1');
 
@@ -98,8 +98,8 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 	function pay($amount, $name, $subscription, $plan)
 	{
 
-		$user     = JFactory::getUser();
-		$app      = Jfactory::getApplication();
+		$user     = \Joomla\CMS\Factory::getUser();
+		$app      = \Joomla\CMS\Factory::getApplication();
 		$activate = FALSE;
 		$error    = FALSE;
 
@@ -214,9 +214,9 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 	private function _get_customer_id($user_id)
 	{
-		$app         = Jfactory::getApplication();
-		$user        = JFactory::getUser($user_id);
-		$db          = JFactory::getDbo();
+		$app         = \Joomla\CMS\Factory::getApplication();
+		$user        = \Joomla\CMS\Factory::getUser($user_id);
+		$db          = \Joomla\CMS\Factory::getDbo();
 		$token       = $app->input->get('stripe_token');
 		$customer_id = NULL;
 
@@ -262,8 +262,8 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 	private function _addCustomer($token, $user_id)
 	{
-		$db   = JFactory::getDbo();
-		$user = JFactory::getUser($user_id);
+		$db   = \Joomla\CMS\Factory::getDbo();
+		$user = \Joomla\CMS\Factory::getUser($user_id);
 
 		if(!empty($_SERVER['HTTP_CLIENT_IP']))
 		{
@@ -389,7 +389,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 				break;
 			default:
 				$this->log('Event type not accepted', $event['type']);
-				JFactory::getApplication()->close();
+				\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		if($invoice)
@@ -432,7 +432,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 			if(!empty($charge->invoice))
 			{
-				$db = JFactory::getDbo();
+				$db = \Joomla\CMS\Factory::getDbo();
 				$db->setQuery("UPDATE `#__joomsubscription_subscriptions` SET `published` = 0 WHERE `gateway_id` = '{$charge->invoice}'");
 				$db->execute();
 			}

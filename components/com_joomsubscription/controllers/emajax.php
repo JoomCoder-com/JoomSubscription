@@ -21,12 +21,12 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 				'html' => JoomsubscriptionSelectorHelper::render('', $this->input->getString('plans'), $this->input->getString('groups'), array(), 0, $this->input->get('layout', 'list'))
 			)
 		);
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function cleanSerials()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery(sprintf("DELETE FROM #__joomsubscription_serial WHERE field_id = %d and active = 0", $this->input->get('field_id')));
 		$db->execute();
 
@@ -36,13 +36,13 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 			)
 		);
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function fieldparams()
 	{
 
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$type = $app->input->get('field_type');
 		if(empty($type))
@@ -77,7 +77,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 	{
 		$id   = strtoupper($this->input->get('id'));
 		$name = $this->input->getString('name', 'invoiceto[fields][state]');
-		$db   = JFactory::getDbo();
+		$db   = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT id as value, label as text, state FROM #__joomsubscription_states WHERE country ='{$id}'");
 		$states = $db->loadObjectList();
@@ -94,7 +94,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		}
 
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function deleteRule()
@@ -106,7 +106,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		echo '[1]';
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function setRuleForm()
@@ -144,7 +144,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 			$data['rule']       = json_encode($array);
 			$data['plan_id']    = $this->input->post->get('plan_id');
 
-			$db    = JFactory::getDbo();
+			$db    = \Joomla\CMS\Factory::getDbo();
 			$query = $db->getQuery(TRUE)
 				->select('name')
 				->from('#__extensions')
@@ -171,7 +171,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		$out = array('html' => JoomsubscriptionRulesHelper::description($rules), 'id' => $rules->id);
 		echo json_encode($out);
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function getRuleForm()
@@ -182,7 +182,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if(preg_match("/^[0-9]*$/iU", $component))
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT * FROM #__joomsubscription_plans_rules WHERE id = " . $component);
 			$result    = $db->loadObject();
 			$component = $result->controller;
@@ -194,7 +194,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/rules/' . $component . '/' . $component . '.xml';
-		if(!JFile::exists($file))
+		if(!is_file($file))
 		{
 			echo "File not found: {$file}";
 		}
@@ -223,7 +223,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		echo $out;
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function getActionForm()
@@ -232,14 +232,14 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if(preg_match("/^[0-9]*$/iU", $type))
 		{
-			$db = JFactory::getDbo();
+			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT * FROM #__joomsubscription_plans_actions WHERE id = " . $type);
 			$result = $db->loadObject();
 			$type   = $result->type;
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/actions/' . $type . '/' . $type . '.xml';
-		if(!JFile::exists($file))
+		if(!is_file($file))
 		{
 			echo "File not found: {$file}";
 		}
@@ -265,7 +265,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		echo $out;
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function sendActionForm()
@@ -309,7 +309,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		$out = array('html' => JoomsubscriptionActionsHelper::description($actions), 'id' => $actions->id);
 		echo json_encode($out);
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function deleteAction()
@@ -322,7 +322,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		echo '[1]';
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function mainJS()
@@ -331,7 +331,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		include JPATH_ROOT . '/components/com_joomsubscription/library/js/main.js';
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 
 	public function getSelectorList()
@@ -341,7 +341,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		echo JoomsubscriptionSelectorHelper::selector_list($id, $group_ids);
 
-		JFactory::getApplication()->close();
+		\Joomla\CMS\Factory::getApplication()->close();
 	}
 }
 

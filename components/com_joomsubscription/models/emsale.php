@@ -19,7 +19,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = TRUE)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.subscription', 'sale', array(
 																		 'control'   => 'jform',
@@ -35,7 +35,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.emsale.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.emsale.data', array());
 
 		if(empty($data))
 		{
@@ -47,7 +47,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 	public function publish(&$pks, $value = 1)
 	{
-		$app   = JFactory::getApplication();
+		$app   = \Joomla\CMS\Factory::getApplication();
 		$table = $this->getTable();
 		$pks   = (array)$pks;
 

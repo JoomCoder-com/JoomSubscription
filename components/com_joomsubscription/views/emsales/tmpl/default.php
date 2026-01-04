@@ -15,7 +15,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 $listOrder = $this->state->get('list.ordering');
 $listDirn  = $this->state->get('list.direction');
-$user      = JFactory::getUser();
+$user      = \Joomla\CMS\Factory::getUser();
 $userId    = $user->get('id');
 ?>
 

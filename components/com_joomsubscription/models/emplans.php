@@ -30,7 +30,7 @@ class JoomsubscriptionModelEmPlans extends MModelList
 
 	protected function populateState($ordering = null, $direction = null)
 	{
-		$app = JFactory::getApplication ();
+		$app = \Joomla\CMS\Factory::getApplication ();
 
 		$search = $app->getUserStateFromRequest ( $this->context . '.filter.search', 'filter_search' );
 		$this->setState ( 'filter.search', $search );

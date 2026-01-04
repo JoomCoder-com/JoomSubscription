@@ -17,8 +17,8 @@ class JoomsubscriptionActionGoogle extends JoomsubscriptionAction
 		{
 			return;
 		}
-		$app         = JFactory::getApplication();
-		$doc         = JFactory::getDocument();
+		$app         = \Joomla\CMS\Factory::getApplication();
+		$doc         = \Joomla\CMS\Factory::getDocument();
 		$plan_model  = MModelBase::getInstance('EmPlan', 'JoomsubscriptionModel');
 		$group_model = MModelBase::getInstance('EmGroup', 'JoomsubscriptionModel');
 		$plan        = $plan_model->getItem($subscription->plan_id);

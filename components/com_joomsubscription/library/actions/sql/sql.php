@@ -72,7 +72,7 @@ class JoomsubscriptionActionSql extends JoomsubscriptionAction
 		);
 
 		$sql = str_replace($from, $to, $sql);
-		$db  = JFactory::getDbo();
+		$db  = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery($sql);
 		$db->query();
 	}

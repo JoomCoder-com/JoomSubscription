@@ -54,7 +54,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 			return FALSE;
 		}
 
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 		$kkb  = new KKBSign();
 		$kkb->invert();
 
@@ -102,7 +102,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 
 		$url .= '?' . http_build_query($param);
 
-		JFactory::getApplication()->redirect($url);
+		\Joomla\CMS\Factory::getApplication()->redirect($url);
 	}
 
 	public function get_gateway_id()
@@ -112,7 +112,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 
 	private function isError()
 	{
-		$doc = JFactory::getApplication()->input->getString('response');
+		$doc = \Joomla\CMS\Factory::getApplication()->input->getString('response');
 		$this->loadXml();
 
 		if(!$this->xml instanceof SimpleXMLElement)
@@ -132,7 +132,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 
 	private function loadXml()
 	{
-		$doc = JFactory::getApplication()->input->getString('response');
+		$doc = \Joomla\CMS\Factory::getApplication()->input->getString('response');
 		$this->xml = simplexml_load_string($doc);
 	}
 }

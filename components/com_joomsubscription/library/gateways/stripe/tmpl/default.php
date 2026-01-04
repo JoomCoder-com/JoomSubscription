@@ -1,5 +1,5 @@
 <?php
-JFactory::getDocument()->addScript('https://checkout.stripe.com/checkout.js');
+\Joomla\CMS\Factory::getDocument()->addScript('https://checkout.stripe.com/checkout.js');
 ?>
 
 <button id="customButton" class="btn btn-large btn-warning" type="button">Purchase</button>
@@ -34,12 +34,12 @@ JFactory::getDocument()->addScript('https://checkout.stripe.com/checkout.js');
 
 			var handler = StripeCheckout.configure({
 				key: '<?php echo JText::_($this->params->get('publish_key', 'pk_test_6pRNASCoBOKtIshFeQd4XMUh')) ?>',
-				<?php if(JFile::exists(JPATH_ROOT.$this->params->get('logo'))): ?>
+				<?php if(is_file(JPATH_ROOT.$this->params->get('logo'))): ?>
 				image: '<?php echo $this->params->get('logo') ?>',
 				<?php endif; ?>
 				locale: 'auto',
 				name: '<?php echo JText::_($this->params->get('name', 'Site name')) ?>',
-				email: <?php echo JFactory::getUser()->get('email') ?  "'".JFactory::getUser()->get('email')."'" : "$('#em_email').val()" ?>,
+				email: <?php echo \Joomla\CMS\Factory::getUser()->get('email') ?  "'".\Joomla\CMS\Factory::getUser()->get('email')."'" : "$('#em_email').val()" ?>,
 				billingAddress: <?php echo $this->params->get('billaddr') ? 'true' : 'false' ?>,
 				description: '<?php echo $plan->name ?>',
 				alipay: 'auto',
@@ -52,7 +52,7 @@ JFactory::getDocument()->addScript('https://checkout.stripe.com/checkout.js');
 			handler.open();
 		});
 
-		<?php if(JFactory::getApplication()->input->get('validation') == 1): ?>
+		<?php if(\Joomla\CMS\Factory::getApplication()->input->get('validation') == 1): ?>
 		<?php endif; ?>
 
 	}(jQuery));

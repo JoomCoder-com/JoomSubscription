@@ -26,7 +26,7 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
-		$this->user = JFactory::getUser();
+		$this->user = \Joomla\CMS\Factory::getUser();
 
 		if(!empty($this->item->plan_ids))
 		{
@@ -52,7 +52,7 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 	protected function addToolbar()
 	{
 
-		$user		= JFactory::getUser();
+		$user		= \Joomla\CMS\Factory::getUser();
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
 
@@ -69,8 +69,8 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app	= JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app	= \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$menus	= $app->getMenu();
 		$pathway = $app->getPathway();
 		$title = FALSE;

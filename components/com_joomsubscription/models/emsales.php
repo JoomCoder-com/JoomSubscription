@@ -35,7 +35,7 @@ class JoomsubscriptionModelEmSales extends MModelList
 
 	public function getListQuery()
 	{
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$db    = $this->getDbo();
 		$query = $db->getQuery(TRUE);
@@ -139,7 +139,7 @@ class JoomsubscriptionModelEmSales extends MModelList
 
 	protected function populateState($ordering = NULL, $direction = NULL)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$group_id = $app->getUserStateFromRequest($this->context . '.filter.group_id', 'filter_group');
 		$this->setState('group_id', $group_id);
@@ -158,7 +158,7 @@ class JoomsubscriptionModelEmSales extends MModelList
 
 	public function getSubscriptionCouponInfo($sid)
 	{
-		$db  = JFactory::getDBO();
+		$db  = \Joomla\CMS\Factory::getDBO();
 		$sql = "SELECT ch.price, ch.discount, ch.discount_type, cc.value, cc.id
 		FROM #__joomsubscription_coupons_history ch
 		LEFT JOIN #__joomsubscription_coupons cc ON cc.id = ch.coupon_id
@@ -181,7 +181,7 @@ class JoomsubscriptionModelEmSales extends MModelList
 
 	public function getGroups($empty_value = FALSE)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select('id as value, name as text');
 		$query->from('#__joomsubscription_plans_groups');
@@ -202,7 +202,7 @@ class JoomsubscriptionModelEmSales extends MModelList
 
 	public function getPlans($empty_value = FALSE)
 	{
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(TRUE);
 		$query->select('id as value, name as text');
 		$query->from('#__joomsubscription_plans');

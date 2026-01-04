@@ -15,7 +15,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 	public function run($params)
 	{
 		$plans = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
-		$db    = JFactory::getDbo();
+		$db    = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery('SELECT * FROM #__akeebasubs_levels');
 		$levels = $db->loadObjectList();
@@ -68,7 +68,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 	{
 		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM `#__akeebasubs_subscriptions` WHERE `enabled` = 1 AND `akeebasubs_level_id` = " . (int)$old_plan_id);
 		$subscrs = $db->loadObjectList();
 
@@ -107,7 +107,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 
 	private function getInvoiceNumber($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT invoice_no FROM #__akeebasubs_invoices WHERE akeebasubs_subscription_id = {$id}");
 
 		return (int)$db->loadResult();
@@ -124,7 +124,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 			return $ids[$id];
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 
 		$save = array(
 			'params'   => json_encode(array('properties' => array('template' => 'default'))),
@@ -164,7 +164,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 
 	public function check()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SHOW TABLES LIKE "%_akeebasubs_levels"');
 		$result = $db->loadResult();
 		if(!$result)

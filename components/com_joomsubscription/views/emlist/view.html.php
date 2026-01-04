@@ -13,10 +13,10 @@ class JoomsubscriptionViewEmList extends MViewBase
 {
 	function display($tpl = null)
 	{
-		$app = JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app = \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$model = $this->getModel();
-		$user = JFactory::getUser();
+		$user = \Joomla\CMS\Factory::getUser();
 
 		$this->mparams = ($app->getMenu()->getActive() ? $app->getMenu()->getActive()->getParams() : new JRegistry());
 		$this->_prepareDocument();
@@ -32,7 +32,7 @@ class JoomsubscriptionViewEmList extends MViewBase
 
 		if(count($items) <= 0 && !$user->get('id'))
 		{
-			JFactory::getApplication()->redirect(
+			\Joomla\CMS\Factory::getApplication()->redirect(
 				JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url') .
 					'&return=' . urlencode(base64_encode(JUri::getInstance()->toString())), FALSE)
 			);
@@ -52,8 +52,8 @@ class JoomsubscriptionViewEmList extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app = JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app = \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$this->addTemplatePath(JPATH_COMPONENT.'/views/elements/');
 
 		$this->mparams->set('page_title', $this->mparams->get('page_title', JText::_('EPURCHASENEW')));

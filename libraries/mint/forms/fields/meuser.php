@@ -7,7 +7,7 @@
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 jimport('joomla.form.formfield');
 
@@ -40,13 +40,13 @@ class JFormFieldMeuser extends JFormField
 		$html = array();
 
 // 		$params = JComponentHelper::getParams('com_cobalt');
-// 		if($params->get('moderator', -1) != JFactory::getUser()->get('id'))
+// 		if($params->get('moderator', -1) != \Joomla\CMS\Factory::getUser()->get('id'))
 // 		{
-// 			$user = JFactory::getUser(JRequest::getInt('user_id'));
+// 			$user = \Joomla\CMS\Factory::getUser(JRequest::getInt('user_id'));
 // 			$html[] =
 // 		}
-		$section_id = JFactory::getApplication()->input->getInt('section_id', 0);
-		$type_id = JFactory::getApplication()->input->getInt('type_id', '');
+		$section_id = \Joomla\CMS\Factory::getApplication()->input->getInt('section_id', 0);
+		$type_id = \Joomla\CMS\Factory::getApplication()->input->getInt('type_id', '');
 		if($type_id)
 		{
 			$type_id = '&amp;type_id='.$type_id;
@@ -81,7 +81,7 @@ class JFormFieldMeuser extends JFormField
 		$script[] = '});';
 
 		// Add the script to the document head.
-		JFactory::getDocument()->addScriptDeclaration(implode("\n", $script));
+		\Joomla\CMS\Factory::getDocument()->addScriptDeclaration(implode("\n", $script));
 
 		// Load the current username if available.
 		$table = JTable::getInstance('user');

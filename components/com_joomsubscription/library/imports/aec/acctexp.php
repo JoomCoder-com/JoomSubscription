@@ -15,7 +15,7 @@ jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
 require_once(JPATH_ROOT . '/components/com_joomsubscription/api.php');
-$app = JFactory::getApplication();
+$app = \Joomla\CMS\Factory::getApplication();
 
 if($app->input->getCmd('task') != 'paypalnotification')
 {

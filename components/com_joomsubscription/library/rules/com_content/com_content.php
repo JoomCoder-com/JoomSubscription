@@ -42,8 +42,8 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 
 	public function isProtected()
 	{
-		$input = JFactory::getApplication()->input;
-		$user  = JFactory::getUser();
+		$input = \Joomla\CMS\Factory::getApplication()->input;
+		$user  = \Joomla\CMS\Factory::getUser();
 
 		if($input->getCmd('view') != 'article')
 		{

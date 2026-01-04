@@ -19,7 +19,7 @@ class JoomsubscriptionModelEmState extends MModelAdmin
 
 	public function getForm($data = array(), $loadData = true)
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$form = $this->loadForm('com_joomsubscription.state', 'state', array(
 			'control' => 'jform',
@@ -34,7 +34,7 @@ class JoomsubscriptionModelEmState extends MModelAdmin
 
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_joomsubscription.edit.emstate.data', array());
+		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.edit.emstate.data', array());
 
 		if(empty($data))
 		{

@@ -65,7 +65,7 @@ $total = $this->plan->total;
 	<div class="form-inline">
 		<label for="coupon"><?php echo JText::_('EMR_COUPONSERT') ?></label>
 		<input type="text" id="selector-coupon" name="coupon"
-			   value="<?php echo JFactory::getApplication()->input->get('coupon'); ?>">
+			   value="<?php echo \Joomla\CMS\Factory::getApplication()->input->get('coupon'); ?>">
 		<button class="btn btn-primary" type="button"
 				id="selector-coupon-btn"><?php echo JText::_('EAPPLY'); ?></button>
 	</div>

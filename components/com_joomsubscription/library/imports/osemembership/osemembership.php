@@ -15,7 +15,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 	public function run($config)
 	{
 		$new_plan = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
-		$db       = JFactory::getDbo();
+		$db       = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT * FROM #__osemsc_ext WHERE `type` = 'payment'");
 		$levels = $db->loadObjectList();
@@ -68,7 +68,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 	{
 		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT * FROM `#__osemsc_member` WHERE `msc_id` = " . (int)$level;
 
 		if($config->get('only_active'))
@@ -133,7 +133,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 			return $out[$id];
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__osemsc_billinginfo WHERE user_id = {$id}");
 		$info = $db->loadObject();
 
@@ -166,7 +166,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 			return $out[$id];
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT country_2_code FROM #__osemsc_country WHERE country_3_code = '{$id}'");
 		$out[$id] = $db->loadResult();
 
@@ -176,7 +176,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 
 	private function _getOrder($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__osemsc_order WHERE order_id = {$id}");
 
 		$item = $db->loadObject();
@@ -186,7 +186,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 	}
 	private function _getOrderItem($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__osemsc_order_item WHERE order_item_id = {$id}");
 
 		$item = $db->loadObject();
@@ -197,7 +197,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 
 	private function _getGroupID($id)
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM #__osemsc_acl WHERE id = {$id}");
 
 		$group = $db->loadObject();
@@ -222,7 +222,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 
 	public function check()
 	{
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery('SHOW TABLES LIKE "%_osemsc_acl"');
 		$result = $db->loadResult();
 		if(!$result)

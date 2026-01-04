@@ -32,7 +32,7 @@ class JFormFieldPlanslist extends JFormFieldList
 	{
 		// Initialise variables.
 		$options = array();
-		$app_input = JFactory::getApplication()->input;
+		$app_input = \Joomla\CMS\Factory::getApplication()->input;
 		$exclude_id = false;
 
 		if(
@@ -46,7 +46,7 @@ class JFormFieldPlanslist extends JFormFieldList
 			$exclude_id = $app_input->getInt('id');
 		}
 
-		$db = JFactory::getDbo();
+		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 
 		$options = array();

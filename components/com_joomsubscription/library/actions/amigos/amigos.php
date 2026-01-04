@@ -17,7 +17,7 @@ class JoomsubscriptionActionAmigos extends JoomsubscriptionAction
 		{
 			return;
 		}
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		$url = $this->params->get('amigos_url') . "/index.php?option=com_amigos&task=sale&amigos_id=" . $app->input->get('amigosid');
 		$url .= "&amigos_ordertype=Joomsubscription&amigos_orderid={$subscription->id}&amigos_orderamount={$subscription->price}";

@@ -27,7 +27,7 @@ class Mooupload
 	
 	public function HTML4_upload()
 	{
-		$app      = JFactory::getApplication();
+		$app      = \Joomla\CMS\Factory::getApplication();
 		$response = array();
 
 		foreach($_FILES as $k => $file)
@@ -38,7 +38,7 @@ class Mooupload
 			$response ['error']  = $file ['error'];
 			$response ['size']   = $file ['size'];
 			$ext                 = JFile::getExt($response ['name']);
-			$session             = JFactory::getSession();
+			$session             = \Joomla\CMS\Factory::getSession();
 			$exts                = $session->get('file_formats', array(), $app->input->get('key'));
 			$ext                 = JFile::getExt($response ['name']);
 			$response ['finish'] = FALSE;
@@ -73,7 +73,7 @@ class Mooupload
 	
 	public function HTML5_upload()
 	{
-		$app          = JFactory::getApplication();
+		$app          = \Joomla\CMS\Factory::getApplication();
 		$max_upload   = $this->max_upload;
 		$max_post     = $this->_convert_size(ini_get('post_max_size'));
 		$memory_limit = $this->_convert_size(ini_get('memory_limit'));
@@ -96,7 +96,7 @@ class Mooupload
 		// 		Is resume?
 		
 		$flag    = ( bool )$headers ['X-File-Resume'] ? FILE_APPEND : 0;
-		$session = JFactory::getSession();
+		$session = \Joomla\CMS\Factory::getSession();
 		$exts    = $session->get('file_formats', array(), $app->input->get('key'));
 		$ext     = strtolower(JFile::getExt($response ['name']));
 		
@@ -131,8 +131,8 @@ class Mooupload
 
 	public function upload()
 	{
-		$session = JFactory::getSession();
-		$app = JFactory::getApplication();
+		$session = \Joomla\CMS\Factory::getSession();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$this->max_upload = (int)$session->get('max_size', $this->_convert_size(ini_get('upload_max_filesize')), $app->input->get('key'));
 		$this->destpath = JPATH_ROOT . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR;
 		

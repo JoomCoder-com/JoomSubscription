@@ -26,7 +26,7 @@ class JoomsubscriptionViewEmField extends MViewBase
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
-		$this->user = JFactory::getUser();
+		$this->user = \Joomla\CMS\Factory::getUser();
 
 		// Check for errors.
 		if(count($errors = $this->get('Errors')))
@@ -41,8 +41,8 @@ class JoomsubscriptionViewEmField extends MViewBase
 
 	private function _prepareDocument()
 	{
-		$app	= JFactory::getApplication();
-		$doc = JFactory::getDocument();
+		$app	= \Joomla\CMS\Factory::getApplication();
+		$doc = \Joomla\CMS\Factory::getDocument();
 		$menus	= $app->getMenu();
 		$pathway = $app->getPathway();
 		$title = FALSE;

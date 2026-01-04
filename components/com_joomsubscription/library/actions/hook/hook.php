@@ -51,7 +51,7 @@ class JoomsubscriptionActionHook extends JoomsubscriptionAction
 
 	private function _getData($subscription)
 	{
-		$user                                       = JFactory::getUser();
+		$user                                       = \Joomla\CMS\Factory::getUser();
 		$data                                       = array();
 		$data[$this->params->get('plan_id')]        = $subscription->plan_id;
 		$data[$this->params->get('user_id')]        = $subscription->user_id;

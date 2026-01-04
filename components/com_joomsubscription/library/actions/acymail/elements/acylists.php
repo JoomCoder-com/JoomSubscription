@@ -30,7 +30,7 @@ class JFormFieldAcylists extends JFormFieldList
 	protected function getOptions()
 	{
 		$api = JPATH_ADMINISTRATOR . '/components/com_acymailing/helpers/helper.php';
-		if(!JFile::exists($api))
+		if(!is_file($api))
 		{
 			return array(JHtml::_('select.option', '', 'Acymailing is not installed'));
 		}

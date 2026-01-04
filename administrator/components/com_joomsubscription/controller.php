@@ -13,7 +13,7 @@ class JoomsubscriptionController extends Joomla\CMS\MVC\Controller\BaseControlle
 {
 	function __construct()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 
 		if(!$app->input->get('view'))
 		{

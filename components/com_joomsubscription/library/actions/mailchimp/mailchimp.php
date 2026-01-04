@@ -15,14 +15,14 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 	{
 		$this->_makeAPICall('lists/subscribe', array(
 			"id"              => $this->params->get('list_id'),
-			"email"           => array('email' => JFactory::getUser()->get('email')),
+			"email"           => array('email' => \Joomla\CMS\Factory::getUser()->get('email')),
 			"update_existing" => 1,
-			"merge_vars"      => array("FNAME" => JFactory::getUser()->get('name'))
+			"merge_vars"      => array("FNAME" => \Joomla\CMS\Factory::getUser()->get('name'))
 		));
 
 		if($this->params->get('msg'))
 		{
-			JFactory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
 		}
 	}
 
@@ -59,7 +59,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 			case 2:
 				$this->_makeAPICall('lists/unsubscribe', array(
 					"id"            => $this->params->get('list_id'),
-					"email"         => array('email' => JFactory::getUser()->get('email')),
+					"email"         => array('email' => \Joomla\CMS\Factory::getUser()->get('email')),
 					"delete_member" => $this->params->get('deactivate') == 1 ? 0 : 1
 				));
 				break;
@@ -68,14 +68,14 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 				{
 					$this->_makeAPICall('lists/unsubscribe', array(
 						"id"    => $this->params->get('list_id'),
-						"email" => array('email' => JFactory::getUser()->get('email'))
+						"email" => array('email' => \Joomla\CMS\Factory::getUser()->get('email'))
 					));
 
 					$this->_makeAPICall('lists/subscribe', array(
 						"id"              => $this->params->get('move_id'),
-						"email"           => array('email' => JFactory::getUser()->get('email')),
+						"email"           => array('email' => \Joomla\CMS\Factory::getUser()->get('email')),
 						"update_existing" => 1,
-						"merge_vars"      => array("FNAME" => JFactory::getUser()->get('name'))
+						"merge_vars"      => array("FNAME" => \Joomla\CMS\Factory::getUser()->get('name'))
 					));
 				}
 				break;
@@ -84,7 +84,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 
 	public function getlists()
 	{
-		$app = JFactory::getApplication();
+		$app = \Joomla\CMS\Factory::getApplication();
 		$this->params->set('api_key', $app->input->getString('api_key'));
 
 		$lists = $this->_makeAPICall('lists/list', array('sort_field' => 'web'));
@@ -116,7 +116,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 		}
 		catch(Exception $e)
 		{
-			JFactory::getApplication()->enqueueMessage($e->getMessage() . $what);
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage($e->getMessage() . $what);
 
 			return NULL;
 		}

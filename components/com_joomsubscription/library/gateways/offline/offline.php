@@ -21,8 +21,8 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 
 	function accept(&$subscription, $plan)
 	{
-		$user = JFactory::getUser();
-		$db   = JFactory::getDBO();
+		$user = \Joomla\CMS\Factory::getUser();
+		$db   = \Joomla\CMS\Factory::getDBO();
 
 		$subscription->gateway_id = time();
 
@@ -31,8 +31,8 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 			$subscription->published = 1;
 		}
 
-		$app  = JFactory::getApplication();
-		$user = JFactory::getUser($subscription->user_id);
+		$app  = \Joomla\CMS\Factory::getApplication();
+		$user = \Joomla\CMS\Factory::getUser($subscription->user_id);
 
 		$subject = $this->params->get('cus_subj');
 
@@ -62,7 +62,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$body = str_replace($from, $to, Mint::_($this->params->get('cus_body')));
 		$body = \Michelf\MarkdownExtra::defaultTransform($body);
 
-		$mail = JFactory::getMailer();
+		$mail = \Joomla\CMS\Factory::getMailer();
 		$mail->setSender($sender);
 		$mail->AddAddress($user->get('email'));
 		$mail->setBody(JMailHelper::cleanBody($body));
@@ -88,7 +88,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$body = str_replace($from, $to, $this->params->get('adm_body'));
 		$body = MarkdownExtra::defaultTransform($body);
 
-		$mail = JFactory::getMailer();
+		$mail = \Joomla\CMS\Factory::getMailer();
 		$mail->setSender($sender);
 		$mail->ClearAllRecipients();
 		$mail->addRecipient(explode(',', $this->params->get('email', $app->getCfg('mailfrom'))), 'Admin');
@@ -122,7 +122,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 
 	function pay($amount, $name, $subscription, $plan)
 	{
-		JFactory::getApplication()->redirect($this->_get_notify_url($subscription->id));
+		\Joomla\CMS\Factory::getApplication()->redirect($this->_get_notify_url($subscription->id));
 	}
 
 }
