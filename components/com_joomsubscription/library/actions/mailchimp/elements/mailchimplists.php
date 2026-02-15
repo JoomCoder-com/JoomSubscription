@@ -9,9 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldmailchimplists extends JFormField
+class JFormFieldmailchimplists extends \Joomla\CMS\Form\FormField
 {
 	/**
 	 * The form field type.

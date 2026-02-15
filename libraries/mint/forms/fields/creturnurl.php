@@ -11,9 +11,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.filesystem.folder');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldCreturnurl extends JFormFieldList
+class JFormFieldCreturnurl extends \Joomla\CMS\Form\Field\ListField
 {
 	/**
 	 * The form field type.

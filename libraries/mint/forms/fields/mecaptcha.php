@@ -13,10 +13,7 @@ jimport('joomla.form.formfield');
 jimport('joomla.form.form');
 jimport('joomla.form.field');
 jimport('mint.recaptchalib'); 
-JFormHelper::loadFieldClass('text');
-
-
-class JFormFieldMECaptcha extends JFormFieldText
+class JFormFieldMECaptcha extends \Joomla\CMS\Form\Field\TextField
 {
 	protected $type = 'MECaptcha';
 

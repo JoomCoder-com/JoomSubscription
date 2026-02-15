@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 
-class JFormFieldMetags extends JFormField
+class JFormFieldMetags extends \Joomla\CMS\Form\FormField
 {
 	public $type = 'Metags';
 

@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldShopList extends JFormFieldList
+class JFormFieldShopList extends \Joomla\CMS\Form\Field\ListField
 {
 
 	protected function getOptions()

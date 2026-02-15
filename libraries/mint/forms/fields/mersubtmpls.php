@@ -13,8 +13,6 @@ jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 jimport('joomla.filesystem.file');
 
-JFormHelper::loadFieldClass('list');
-
 if(is_file(JPATH_ROOT.'/components/com_cobalt/library/php/helpers/templates.php'))
 {
 	require_once JPATH_ROOT.'/components/com_cobalt/library/php/helpers/templates.php';
@@ -24,7 +22,7 @@ else
 	require_once JPATH_ROOT.'/administrator/components/com_cobalt/helpers/templates.php';
 }
 
-class JFormFieldMersubtmpls extends JFormFieldList
+class JFormFieldMersubtmpls extends \Joomla\CMS\Form\Field\ListField
 {
 
 	protected $type = 'Mersubtmpls';

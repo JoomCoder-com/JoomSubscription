@@ -10,7 +10,6 @@
 defined('_JEXEC') or die;
 jimport('mint.helper');
 
-JFormHelper::loadFieldClass('list');
 jimport('mint.helper');
 
 class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField

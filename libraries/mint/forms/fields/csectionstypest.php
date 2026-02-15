@@ -13,7 +13,7 @@ $document = \Joomla\CMS\Factory::getDocument();
 $document->addScript(\Joomla\CMS\Uri\Uri::root(TRUE).'/administrator/components/com_cobalt/library/js/main.js');
 
 
-class JFormFieldCsectionstypest extends JFormField
+class JFormFieldCsectionstypest extends \Joomla\CMS\Form\FormField
 {
 	protected $type = 'Csectionstypest';
 	protected function getInput()

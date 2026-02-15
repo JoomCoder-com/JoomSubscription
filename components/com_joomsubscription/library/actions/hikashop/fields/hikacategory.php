@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldHikacategory extends JFormFieldList
+class JFormFieldHikacategory extends \Joomla\CMS\Form\Field\ListField
 {
 
 	protected $type = 'Hikacategory';

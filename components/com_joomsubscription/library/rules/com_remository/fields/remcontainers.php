@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldRemcontainers extends JFormFieldList
+class JFormFieldRemcontainers extends \Joomla\CMS\Form\Field\ListField
 {
 	protected $options = array();
 	protected $type = 'Remcontainers';

@@ -7,9 +7,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.filesystem.folder');
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldMjfolderList extends JFormFieldList
+class JFormFieldMjfolderList extends \Joomla\CMS\Form\Field\ListField
 {
 
 	public $type = 'MJFolderList';

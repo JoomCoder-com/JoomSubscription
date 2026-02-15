@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldKunenacat extends JFormFieldList
+class JFormFieldKunenacat extends \Joomla\CMS\Form\Field\ListField
 {
 
 	protected $type = 'Kunenakat';

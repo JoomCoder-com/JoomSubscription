@@ -17,7 +17,6 @@ jimport('joomla.html.html');
 jimport('joomla.form.form');
 jimport('joomla.form.field');
 jimport('joomla.form.helper');
-JFormHelper::loadFieldClass('list');
 
 /**
  * Form Field class for the Joomla Framework.
@@ -26,7 +25,7 @@ JFormHelper::loadFieldClass('list');
  * @subpackage	com_categories
  * @since		1.6
  */
-class JFormFieldCcategories extends JFormFieldList
+class JFormFieldCcategories extends \Joomla\CMS\Form\Field\ListField
 {
 
 	/**

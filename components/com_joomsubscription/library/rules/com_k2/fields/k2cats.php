@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldK2cats extends JFormFieldList
+class JFormFieldK2cats extends \Joomla\CMS\Form\Field\ListField
 {
 	protected $options = array();
 	protected $type = 'K2cats';

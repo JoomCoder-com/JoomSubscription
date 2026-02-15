@@ -12,8 +12,6 @@ jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 jimport('joomla.form.helper');
 
-JFormHelper::loadFieldClass('melist');
-
 class JFormFieldMEplugins extends JFormMEFieldList
 {
 	/**

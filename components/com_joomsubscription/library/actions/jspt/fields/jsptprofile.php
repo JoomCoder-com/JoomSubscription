@@ -8,9 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
-
-class JFormFieldJsptprofile extends JFormFieldList
+class JFormFieldJsptprofile extends \Joomla\CMS\Form\Field\ListField
 {
 
 	protected $type = 'jsptprofile';
