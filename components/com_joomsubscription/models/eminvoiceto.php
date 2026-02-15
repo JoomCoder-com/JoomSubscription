@@ -106,7 +106,7 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 	}
 	public function getForm()
 	{
-		$form = new JForm('comjoomsubscription.invoiceto', array('control' => 'invoiceto'));
+		$form = new \Joomla\CMS\Form\Form('comjoomsubscription.invoiceto', array('control' => 'invoiceto'));
 		$form->loadFile(JPATH_COMPONENT.'/models/forms/invoiceto.xml');
 
 		$data = \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.data', array());

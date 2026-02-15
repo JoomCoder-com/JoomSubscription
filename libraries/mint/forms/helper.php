@@ -300,7 +300,7 @@ class MFormHelper
 			$lang->load('com_joomsubscription_gateway_' . $gateway, JPATH_ROOT, $tag, TRUE);
 
 			$xml    = new SimpleXMLElement($file,0,true);
-			$params = new JForm($gateway, array('control' => 'params[gateways]'));
+			$params = new \Joomla\CMS\Form\Form($gateway, array('control' => 'params[gateways]'));
 			$params->loadFile($file, TRUE, 'config');
 
 			$out[$gateway] = array('title' => $xml->name, 'html' => MFormHelper::renderGroup($params, $defaults, $gateway));

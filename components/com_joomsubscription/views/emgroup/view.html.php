@@ -28,7 +28,7 @@ class JoomsubscriptionViewEmGroup extends MViewBase
 		$this->form = $this->get('Form');
 		$this->user = \Joomla\CMS\Factory::getUser();
 
-		$params = new JForm('params', array('control' => 'params'));
+		$params = new \Joomla\CMS\Form\Form('params', array('control' => 'params'));
 		$params->loadFile(JPATH_COMPONENT. '/models/forms/group.params.xml');
 		$this->params_form = $params;
 

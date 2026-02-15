@@ -28,7 +28,7 @@ class JoomsubscriptionViewEmTax extends MViewBase
 		$this->form = $this->get('Form');
 		$this->user = \Joomla\CMS\Factory::getUser();
 
-		$params = new JForm('params', array('control' => 'params'));
+		$params = new \Joomla\CMS\Form\Form('params', array('control' => 'params'));
 		$params->loadFile(JPATH_COMPONENT_ADMINISTRATOR. DIRECTORY_SEPARATOR .'xml'. DIRECTORY_SEPARATOR .'group.xml');
 		$this->params_form = $params;
 

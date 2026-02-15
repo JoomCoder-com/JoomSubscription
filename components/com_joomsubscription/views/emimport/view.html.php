@@ -29,7 +29,7 @@ class JoomsubscriptionViewEmImport extends MViewBase
 
 		$this->import = JoomsubscriptionImportsHelper::createImportObject($type);
 
-		$params = new JForm('import');
+		$params = new \Joomla\CMS\Form\Form('import');
 		$params->loadFile(JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'imports' . DIRECTORY_SEPARATOR . $type . DIRECTORY_SEPARATOR . $type . '.xml');
 		$this->import->form = $params;
 		$this->import->type = $type;

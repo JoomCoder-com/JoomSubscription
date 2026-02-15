@@ -1,6 +1,6 @@
 <?php
 include_once JPATH_ROOT . '/libraries/joomla/form/fields/calendar.php';
-$form = JForm::getInstance('myform', '<form><field id="cal" name="cal" type="calendar" label="EDISCOUNT" required="true" /></form>', array('control' => 'fields[' . $this->id . ']', 'load_data' => TRUE), FALSE, FALSE);
+$form = \Joomla\CMS\Form\Form::getInstance('myform', '<form><field id="cal" name="cal" type="calendar" label="EDISCOUNT" required="true" /></form>', array('control' => 'fields[' . $this->id . ']', 'load_data' => TRUE), FALSE, FALSE);
 
 $date = $this->default['cal'] ? $this->default['cal'] : date('Y-m-d');
 $days = range($this->params->get('params.min_days'), $this->params->get('params.max_days'));

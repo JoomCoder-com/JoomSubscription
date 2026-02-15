@@ -110,7 +110,7 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 
 		//В модели Registration этого нет, модель вызывается не из родного компонента.
 		//Формы не находит, ошибки не выдает, см. строка 128.
-		JForm::addFormPath(JPATH_ROOT . '/components/com_users/models/forms');
+		\Joomla\CMS\Form\Form::addFormPath(JPATH_ROOT . '/components/com_users/models/forms');
 
 		$return = $model->register($data);
 

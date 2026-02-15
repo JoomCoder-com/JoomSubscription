@@ -57,7 +57,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		$table->load($app->input->get('field_id'));
 		$table->params = new \Joomla\Registry\Registry(json_decode($table->params, TRUE));
 
-		$params = new JForm('params', array('control' => 'params'));
+		$params = new \Joomla\CMS\Form\Form('params', array('control' => 'params'));
 		$params->loadFile(JPATH_COMPONENT . "/library/fields/{$type}/{$type}.xml");
 
 		$form = MFormHelper::renderForm($params, $table->params->toArray(), 'params', MFormHelper::FIELDSET_SEPARATOR_FIELDSET, MFormHelper::STYLE_CLASSIC, MFormHelper::GROUP_SEPARATOR_NONE);
@@ -201,7 +201,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		JoomsubscriptionRulesHelper::load_lang($component);
 
-		$form = new JForm('params', array('control' => 'rules'));
+		$form = new \Joomla\CMS\Form\Form('params', array('control' => 'rules'));
 		$form->loadFile($file, TRUE, 'fields');
 		if(!empty($result->id))
 		{
@@ -246,7 +246,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		JoomsubscriptionActionsHelper::load_lang($type);
 
-		$form = new JForm('params',
+		$form = new \Joomla\CMS\Form\Form('params',
 			array(
 				'control' => 'actions'
 			));

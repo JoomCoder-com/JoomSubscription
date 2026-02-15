@@ -169,14 +169,14 @@ abstract class MModelForm extends MModelBase
 		}
 
 		// Get the form.
-		JForm::addFormPath(JPATH_COMPONENT . '/models/forms');
-		JForm::addFieldPath(JPATH_COMPONENT . '/models/fields');
-		JForm::addFormPath(JPATH_COMPONENT . '/model/form');
-		JForm::addFieldPath(JPATH_COMPONENT . '/model/field');
+		\Joomla\CMS\Form\Form::addFormPath(JPATH_COMPONENT . '/models/forms');
+		\Joomla\CMS\Form\Form::addFieldPath(JPATH_COMPONENT . '/models/fields');
+		\Joomla\CMS\Form\Form::addFormPath(JPATH_COMPONENT . '/model/form');
+		\Joomla\CMS\Form\Form::addFieldPath(JPATH_COMPONENT . '/model/field');
 
 		try
 		{
-			$form = JForm::getInstance($name, $source, $options, false, $xpath);
+			$form = \Joomla\CMS\Form\Form::getInstance($name, $source, $options, false, $xpath);
 
 			if (isset($options['load_data']) && $options['load_data'])
 			{

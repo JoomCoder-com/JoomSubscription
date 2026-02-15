@@ -277,7 +277,7 @@ class EMFormHelper
 			$lang->load('com_joomsubscription_gateway_' . $gateway, JPATH_ROOT, $tag, TRUE);
 
 			$xml = new SimpleXMLElement($file, null, true);
-			$params = new JForm($gateway, array('control' => 'params[gateways]'));
+			$params = new \Joomla\CMS\Form\Form($gateway, array('control' => 'params[gateways]'));
 			$params->loadFile($file, true,  'config');
 
 			$out[$gateway] = array('title' => $xml->name, 'html' => EMFormHelper::renderGroup($params, $defaults, $gateway));
