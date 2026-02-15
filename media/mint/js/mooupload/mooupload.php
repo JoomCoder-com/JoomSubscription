@@ -37,10 +37,10 @@ class Mooupload
 			// 			Basename for security issues
 			$response ['error']  = $file ['error'];
 			$response ['size']   = $file ['size'];
-			$ext                 = \Joomla\Filesystem\File::getExt($response ['name']);
+			$ext                 = pathinfo($response['name'], PATHINFO_EXTENSION);
 			$session             = \Joomla\CMS\Factory::getSession();
 			$exts                = $session->get('file_formats', array(), $app->input->get('key'));
-			$ext                 = \Joomla\Filesystem\File::getExt($response ['name']);
+			$ext                 = pathinfo($response['name'], PATHINFO_EXTENSION);
 			$response ['finish'] = FALSE;
 			
 			if(!in_array(strtolower($ext), $exts))
@@ -98,7 +98,7 @@ class Mooupload
 		$flag    = ( bool )$headers ['X-File-Resume'] ? FILE_APPEND : 0;
 		$session = \Joomla\CMS\Factory::getSession();
 		$exts    = $session->get('file_formats', array(), $app->input->get('key'));
-		$ext     = strtolower(\Joomla\Filesystem\File::getExt($response ['name']));
+		$ext     = strtolower(pathinfo($response['name'], PATHINFO_EXTENSION));
 		
 		if(!in_array($ext, $exts))
 		{
