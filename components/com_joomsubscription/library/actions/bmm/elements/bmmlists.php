@@ -9,9 +9,8 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-JFormHelper::loadFieldClass('list');
 
-class JFormFieldBmmlists extends JFormField
+class JFormFieldBmmlists extends \Joomla\CMS\Form\Field\ListField
 {
 	/**
 	 * The form field type.

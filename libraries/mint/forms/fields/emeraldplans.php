@@ -12,9 +12,8 @@ use Joomla\Utilities\ArrayHelper;
 defined('_JEXEC') or die();
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
-JFormHelper::loadFieldClass('melist');
 
-class JFormFieldEmeraldplans extends JFormFieldGroupedList
+class JFormFieldEmeraldplans extends \Joomla\CMS\Form\Field\GroupedlistField
 {
 
 	public $type = 'Emeraldplans';
