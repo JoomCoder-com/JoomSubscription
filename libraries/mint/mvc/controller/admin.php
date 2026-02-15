@@ -108,7 +108,7 @@ class MControllerAdmin extends MControllerBase
 	public function delete()
 	{
 		// Check for request forgeries
-		JSession::checkToken() or die(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or die(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		// Get items to remove from the request.
 		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
@@ -182,7 +182,7 @@ class MControllerAdmin extends MControllerBase
 	public function publish()
 	{
 		// Check for request forgeries
-		JSession::checkToken() or die(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or die(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		// Get items to publish from the request.
 		$cid = \Joomla\CMS\Factory::getApplication()->input->get('cid', array(), 'array');
@@ -246,7 +246,7 @@ class MControllerAdmin extends MControllerBase
 	public function reorder()
 	{
 		// Check for request forgeries.
-		JSession::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		$ids = \Joomla\CMS\Factory::getApplication()->input->post->get('cid', array(), 'array');
 		$inc = ($this->getTask() == 'orderup') ? -1 : 1;
@@ -279,7 +279,7 @@ class MControllerAdmin extends MControllerBase
 	public function saveorder()
 	{
 		// Check for request forgeries.
-		JSession::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		// Get the input
 		$pks = $this->input->post->get('cid', array(), 'array');
@@ -321,7 +321,7 @@ class MControllerAdmin extends MControllerBase
 	public function checkin()
 	{
 		// Check for request forgeries.
-		JSession::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		$ids = \Joomla\CMS\Factory::getApplication()->input->post->get('cid', array(), 'array');
 

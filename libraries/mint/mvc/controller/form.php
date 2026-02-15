@@ -295,7 +295,7 @@ class MControllerForm extends MControllerBase
 	 */
 	public function cancel($key = null)
 	{
-		JSession::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		$app = \Joomla\CMS\Factory::getApplication();
 		$model = $this->getModel();
@@ -610,7 +610,7 @@ class MControllerForm extends MControllerBase
 	public function save($key = null, $urlVar = null)
 	{
 		// Check for request forgeries.
-		JSession::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
+		\Joomla\CMS\Session\Session::checkToken() or jexit(\Joomla\CMS\Language\Text::_('JINVALID_TOKEN'));
 
 		$app   = \Joomla\CMS\Factory::getApplication();
 		$lang  = \Joomla\CMS\Factory::getLanguage();
