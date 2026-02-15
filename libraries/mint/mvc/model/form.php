@@ -259,7 +259,7 @@ abstract class MModelForm extends MModelBase
 	 * @since   12.2
 	 * @throws  Exception if there is an error in the form event.
 	 */
-	protected function preprocessForm(JForm $form, $data, $group = 'content')
+	protected function preprocessForm(\Joomla\CMS\Form\Form $form, $data, $group = 'content')
 	{
 		// Import the appropriate plugin group.
 		JPluginHelper::importPlugin($group);
