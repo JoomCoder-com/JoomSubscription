@@ -50,10 +50,16 @@ if($params->get('country'))
 			})
 				.done(function(html) {
 					state.html(html);
-					$('#invoicetofieldsstate').chosen({
-						disable_search_threshold: 10,
-						allow_single_deselect:    true
-					});
+					var stateEl = document.getElementById('invoicetofieldsstate');
+					if (stateEl) {
+						new Choices(stateEl, {
+							searchEnabled: true,
+							allowHTML: true,
+							shouldSort: false,
+							placeholderValue: '',
+							removeItemButton: true
+						});
+					}
 					Joomsubscription.redrawBS();
 				})
 		}

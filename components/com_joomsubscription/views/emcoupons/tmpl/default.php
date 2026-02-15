@@ -11,7 +11,6 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 $params = $this->state->get('params');
 
 $user   = \Joomla\CMS\Factory::getUser();

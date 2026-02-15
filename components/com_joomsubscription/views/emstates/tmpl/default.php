@@ -11,8 +11,6 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
-
 $listOrder = $this->state->get('list.ordering');
 $listDirn = $this->state->get('list.direction');
 ?>

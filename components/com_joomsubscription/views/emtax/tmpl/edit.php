@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 $wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate');
+$wa->usePreset('choicesjs');
 
 Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 ?>
 
 <script type="text/javascript">
@@ -127,10 +127,15 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 					}
 					$('#statediv').html(html);
-					$('#jformstate_id').chosen({
-						disable_search_threshold : 10,
-						allow_single_deselect : true
-					});
+					if (document.getElementById('jformstate_id')) {
+						new Choices(document.getElementById('jformstate_id'), {
+							searchEnabled: true,
+							allowHTML: true,
+							shouldSort: false,
+							placeholderValue: '',
+							removeItemButton: true
+						});
+					}
 				})
 		}
 

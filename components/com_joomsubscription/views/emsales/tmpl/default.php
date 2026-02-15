@@ -11,8 +11,6 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die();
 
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
-
 $listOrder = $this->state->get('list.ordering');
 $listDirn  = $this->state->get('list.direction');
 $user      = \Joomla\CMS\Factory::getUser();

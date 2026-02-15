@@ -9,7 +9,8 @@
  */
 defined('_JEXEC') or die();
 
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
+$wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
+$wa->usePreset('choicesjs');
 
 $total = $this->plan->total;
 ?>
@@ -399,11 +400,16 @@ $total = $this->plan->total;
 			dataType: 'html'
 		}).done(function(html) {
 			inv_dat.html(html).slideDown('fast');
-			jQuery('#invoiceto_fields_country')
-				.chosen({
-					disable_search_threshold: 10,
-					allow_single_deselect: true
+			var countryEl = document.getElementById('invoiceto_fields_country');
+			if (countryEl) {
+				new Choices(countryEl, {
+					searchEnabled: true,
+					allowHTML: true,
+					shouldSort: false,
+					placeholderValue: '',
+					removeItemButton: true
 				});
+			}
 		});
 	}
 </script>

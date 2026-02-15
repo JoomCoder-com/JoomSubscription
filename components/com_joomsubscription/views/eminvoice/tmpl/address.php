@@ -4,7 +4,8 @@
  *
  */
 defined('_JEXEC') or die('Restricted access');
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
+$wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
+$wa->usePreset('choicesjs');
 ?>
 <br/>
 <div class="container-fluid">
@@ -61,11 +62,16 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 			}).done(function(html){
 					inv_dat.html(html).slideDown('fast');
 					btn.show();
-					$('#invoiceto_fields_country')
-						.chosen({
-							disable_search_threshold: 10,
-							allow_single_deselect:    true
+					var countryEl = document.getElementById('invoiceto_fields_country');
+					if (countryEl) {
+						new Choices(countryEl, {
+							searchEnabled: true,
+							allowHTML: true,
+							shouldSort: false,
+							placeholderValue: '',
+							removeItemButton: true
 						});
+					}
 				});
 		}
 	}(jQuery))

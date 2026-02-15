@@ -15,7 +15,6 @@ $wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate');
 Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $app = \Joomla\CMS\Factory::getApplication();
 $fieldset = $this->import->form->getFieldset();

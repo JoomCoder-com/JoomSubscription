@@ -16,7 +16,6 @@ $wa->useScript('keepalive')
 	->useScript('form.validate');
 
 Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
-Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 ?>
 
 <script type="text/javascript">
