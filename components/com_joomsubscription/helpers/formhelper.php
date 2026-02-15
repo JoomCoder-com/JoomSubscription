@@ -106,7 +106,7 @@ class EMFormHelper
 
 	/**
 	 *
-	 * @param JForm $form form object
+	 * @param \Joomla\CMS\Form\Form $form form object
 	 * @param string $name name of the fieldset
 	 * @param string $group name of the group
 	 * @param string $type may be classic, table, params
