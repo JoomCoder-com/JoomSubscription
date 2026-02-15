@@ -67,7 +67,7 @@ class com_joomsubscriptionInstallerScript
 		foreach($res as $r)
 		{
 			$class = 'J' . ucfirst($type);
-			if($class::exists($r))
+			if($type === 'file' ? is_file($r) : is_dir($r))
 			{
 				$class::delete($r);
 			}
