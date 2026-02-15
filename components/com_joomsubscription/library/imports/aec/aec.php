@@ -56,7 +56,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 				'name'      => $level->name,
 				'group_id'  => $group_id,
 				'published' => $level->active,
-				'ctime'     => JDate::getInstance()->toSql(),
+				'ctime'     => \Joomla\CMS\Date\Date::getInstance()->toSql(),
 				'access'    => 1,
 				'invisible' => $level->visible == 1 ? 0 : 1,
 				'params'    => json_encode($params),
@@ -321,7 +321,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 		$save = array(
 			'params'   => json_encode(array('properties' => array('template' => 'default'))),
-			'ctime'    => JDate::getInstance()->toSql(),
+			'ctime'    => \Joomla\CMS\Date\Date::getInstance()->toSql(),
 			'access'   => 1,
 			'language' => '*',
 			'ordering' => 1

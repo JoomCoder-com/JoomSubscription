@@ -132,7 +132,7 @@ class JoomsubscriptionHelper
 
 	public static function getFormattedDate($date, $format = NULL)
 	{
-		$date = new JDate($date);
+		$date = new \Joomla\CMS\Date\Date($date);
 
 		return $date->format($format ? $format : \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('date_format'));
 	}
@@ -585,9 +585,9 @@ class JoomsubscriptionHelper
 
 			if($plan->params->get('properties.date_from') && $plan->params->get('properties.date_to'))
 			{
-				//$date_from = JDate::getInstance($plan->params->get('properties.date_to'), 'UTC')->toUnix();
-				$date_to = JDate::getInstance($plan->params->get('properties.date_to'), 'UTC')->toUnix();
-				$now = JDate::getInstance('now', 'UTC')->toUnix();
+				//$date_from = \Joomla\CMS\Date\Date::getInstance($plan->params->get('properties.date_to'), 'UTC')->toUnix();
+				$date_to = \Joomla\CMS\Date\Date::getInstance($plan->params->get('properties.date_to'), 'UTC')->toUnix();
+				$now = \Joomla\CMS\Date\Date::getInstance('now', 'UTC')->toUnix();
 
 				if($now > $date_to)
 				{
@@ -1118,7 +1118,7 @@ class JoomsubscriptionHelper
 				$time -= ($m[2] * 3600);
 			}
 
-			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
+			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', \Joomla\CMS\Date\Date::getInstance($time)->toSql(), $params->get('date_format')), $body);
 		}
 
 		if(preg_match("/\[END([\+\-]{1})([0-9\.]*)\]/iU", $body, $m))
@@ -1133,7 +1133,7 @@ class JoomsubscriptionHelper
 				$time -= ($m[2] * 3600);
 			}
 
-			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
+			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', \Joomla\CMS\Date\Date::getInstance($time)->toSql(), $params->get('date_format')), $body);
 		}
 
 		$id = \Joomla\CMS\Factory::getApplication()->input->cookie->get('i_want_to_prolong');

@@ -87,7 +87,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 					if($result)
 					{
 						$subscr_table->load($subscription->id);
-						$subscr_table->lastsent = JDate::getInstance()->toSql();
+						$subscr_table->lastsent = \Joomla\CMS\Date\Date::getInstance()->toSql();
 						$subscr_table->store();
 						$subscr_table->reset();
 						$subscr_table->id = NULL;

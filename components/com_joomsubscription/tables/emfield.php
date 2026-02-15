@@ -33,7 +33,7 @@ class JoomsubscriptionTableEmField extends \Joomla\CMS\Table\Table
 
 		if(empty($this->ctime) || $this->ctime == '0000-00-00 00:00:00')
 		{
-			$this->ctime = JDate::getInstance()->toSql();
+			$this->ctime = \Joomla\CMS\Date\Date::getInstance()->toSql();
 		}
 
 		return true;

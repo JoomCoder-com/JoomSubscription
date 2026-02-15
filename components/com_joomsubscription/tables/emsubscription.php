@@ -52,7 +52,7 @@ class JoomsubscriptionTableEmSubscription extends \Joomla\CMS\Table\Table
 			if(empty($this->id))
 			{
 				$new = array(
-					'created'    => JDate::getInstance()->toSql(),
+					'created'    => \Joomla\CMS\Date\Date::getInstance()->toSql(),
 					'plan_id'    => $plan_id,
 					'user_id'    => $user_id,
 					'published'  => 0,
@@ -74,7 +74,7 @@ class JoomsubscriptionTableEmSubscription extends \Joomla\CMS\Table\Table
 			$this->id              = NULL;
 			$this->ctime           = NULL;
 			$this->extime          = NULL;
-			$this->created         = JDate::getInstance('now')->toSql();
+			$this->created         = \Joomla\CMS\Date\Date::getInstance('now')->toSql();
 			$this->plan_id         = $plan->id;
 			$this->activated       = 0;
 			$this->gateway_id      = $gateway;

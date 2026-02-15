@@ -16,7 +16,7 @@ class JoomsubscriptionTableEmPlan extends \Joomla\CMS\Table\Table
 
 	function check()
 	{
-		$this->mtime = JDate::getInstance()->toSql();
+		$this->mtime = \Joomla\CMS\Date\Date::getInstance()->toSql();
 
 		return TRUE;
 	}

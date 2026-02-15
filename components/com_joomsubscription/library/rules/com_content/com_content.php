@@ -65,7 +65,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 
 		if($this->params->get('time'))
 		{
-			$articletime = JDate::getInstance($article->created)->toUnix();
+			$articletime = \Joomla\CMS\Date\Date::getInstance($article->created)->toUnix();
 			$point       = time() - ($this->params->get('time') * 86400);
 
 			if($articletime < $point)

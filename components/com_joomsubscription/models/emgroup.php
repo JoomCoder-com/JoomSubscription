@@ -48,7 +48,7 @@ class JoomsubscriptionModelEmGroup extends MModelAdmin
 	{
 		if ($table->ctime == '' || $table->ctime == '0000-00-00 00:00:00')
 		{
-			$table->ctime = JDate::getInstance()->toSql();
+			$table->ctime = \Joomla\CMS\Date\Date::getInstance()->toSql();
 		}
 
 		$params = \Joomla\CMS\Factory::getApplication()->input->get('params', array(), 'array');

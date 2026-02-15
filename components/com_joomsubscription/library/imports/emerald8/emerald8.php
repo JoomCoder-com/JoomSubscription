@@ -30,7 +30,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 		$table_group->name      = 'Import Joomsubscription8';
 		$table_group->published = 0;
 		$table_group->access    = 1;
-		$table_group->ctime     = JDate::getInstance()->toSql();
+		$table_group->ctime     = \Joomla\CMS\Date\Date::getInstance()->toSql();
 		$table_group->check();
 		$table_group->store();
 		$group_id = $table_group->id;

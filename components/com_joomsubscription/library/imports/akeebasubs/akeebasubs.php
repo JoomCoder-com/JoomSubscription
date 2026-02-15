@@ -128,7 +128,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 
 		$save = array(
 			'params'   => json_encode(array('properties' => array('template' => 'default'))),
-			'ctime'    => JDate::getInstance()->toSql(),
+			'ctime'    => \Joomla\CMS\Date\Date::getInstance()->toSql(),
 			'access'   => 1,
 			'language' => '*',
 			'ordering' => 1

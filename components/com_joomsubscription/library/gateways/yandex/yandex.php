@@ -17,7 +17,7 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 	{
 		$post    = \Joomla\CMS\Factory::getApplication()->input->post;
 		$gateway = $this->get_gateway_id();
-		$date    = JDate::getInstance()->toISO8601();
+		$date    = \Joomla\CMS\Date\Date::getInstance()->toISO8601();
 
 		$subscription->gateway_id = $gateway;
 

@@ -205,7 +205,7 @@ class JoomsubscriptionApi
 
 		if(empty($table->id))
 		{
-			$history['ctime'] = JDate::getInstance()->toSql();
+			$history['ctime'] = \Joomla\CMS\Date\Date::getInstance()->toSql();
 			$table->save($history);
 		}
 		else
@@ -250,7 +250,7 @@ class JoomsubscriptionApi
 		$subscr->user_id           = $user_id;
 		$subscr->plan_id           = $plan_id;
 		$subscr->price             = ($price === NULL ? $plan->price : $price);
-		$subscr->created           = JDate::getInstance()->toSql();
+		$subscr->created           = \Joomla\CMS\Date\Date::getInstance()->toSql();
 		$subscr->access_count_mode = $plan->params->get('properties.count_limit_mode');
 		$subscr->access_limit      = $plan->params->get('properties.count_limit');
 		$subscr->published         = $published;
@@ -811,7 +811,7 @@ class JoomsubscriptionApi
 		$data = array(
 			'user_id'         => $user_id,
 			'coupon_id'       => $coupon->id,
-			'ctime'           => JDate::getInstance()->toSql(),
+			'ctime'           => \Joomla\CMS\Date\Date::getInstance()->toSql(),
 			'plan_id'         => $plan->id,
 			'price'           => $subscription->price,
 			'discount'        => $coupon->discount_total,

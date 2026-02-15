@@ -50,7 +50,7 @@ class JoomsubscriptionModelEmCoupon extends MModelAdmin
 	{
 		if($table->ctime == '' || $table->ctime == '0000-00-00 00:00:00')
 		{
-			$table->ctime = JDate::getInstance()->toSql();
+			$table->ctime = \Joomla\CMS\Date\Date::getInstance()->toSql();
 		}
 		if($table->user_ids == 0)
 		{

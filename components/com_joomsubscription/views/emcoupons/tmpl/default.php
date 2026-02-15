@@ -146,7 +146,7 @@ $listDirn  = $this->state->get('list.direction');
                     </td>
                     <td class="nowrap center">
 						<?php if ($item->extime > 0): ?>
-							<?php $date = new JDate($item->extime); ?>
+							<?php $date = new \Joomla\CMS\Date\Date($item->extime); ?>
 							<?php if ($item->expire == 1): ?>
                                 <span style="color:red;">
 									<?php echo JoomsubscriptionHelper::getFormattedDate($item->extime); ?>
