@@ -26,7 +26,7 @@ class JFormFieldMeresourcessection extends JFormMEFieldList
 		$options = array();
 		if($this->element['select'] == 1)
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('CSELECTSECTION'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('CSELECTSECTION'));
 		}
 		foreach($sections as $type)
 		{

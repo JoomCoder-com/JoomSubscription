@@ -11,64 +11,64 @@ defined('_JEXEC') or die();
 ?>
 <div class="page-header border-bottom mb-3">
     <h1>
-        <img src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/dashboard.png" />
-        <strong><?php echo JText::_('ECPANEL'); ?></strong>
+        <img src="<?php echo \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/dashboard.png" />
+        <strong><?php echo \Joomla\CMS\Language\Text::_('ECPANEL'); ?></strong>
     </h1>
 </div>
 
 <div class="mb-3">
     <div class="row mb-3">
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsales') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/sales.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/sales.png"/>
                     </span>
-				<?php echo JText::_('ESUBSCRIPTIONS') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('ESUBSCRIPTIONS') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emplans') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emplans') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/plans.png"/>
                     </span>
-				<?php echo JText::_('EPLANS') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EPLANS') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emgroups') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emgroups') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/groups.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/groups.png"/>
                     </span>
-				<?php echo JText::_('EGROUPS') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EGROUPS') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emfields') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emfields') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/fields.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/fields.png"/>
                     </span>
-				<?php echo JText::_('EFIELDS') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EFIELDS') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emcoupons') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emcoupons') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/coupons.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/coupons.png"/>
                     </span>
-				<?php echo JText::_('ECOUPONS') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('ECOUPONS') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emtaxes') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emtaxes') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/taxes.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/taxes.png"/>
                     </span>
-				<?php echo JText::_('ETAXES') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('ETAXES') ?>
             </a>
         </div>
 
@@ -76,38 +76,38 @@ defined('_JEXEC') or die();
     <div class="row mb-3">
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emlist') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emlist') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/purchase.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/purchase.png"/>
                     </span>
-				<?php echo JText::_('EPLUNLIST') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EPLUNLIST') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emhistory') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emhistory') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/history.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/history.png"/>
                     </span>
-				<?php echo JText::_('EPLUNHISTORY') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EPLUNHISTORY') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emstates') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emstates') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/states.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/states.png"/>
                     </span>
-				<?php echo JText::_('ESTATES') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('ESTATES') ?>
             </a>
         </div>
 
         <div class="col-2 text-center">
-            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>">
+            <a class="d-block w-100 border rounded shadow-sm p-3" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emanalytics') ?>">
                     <span class="d-block">
-                        <img src="<?php echo  JUri::root(true); ?>/components/com_joomsubscription/images/cpanel/analytics.png"/>
+                        <img src="<?php echo  \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/cpanel/analytics.png"/>
                     </span>
-				<?php echo JText::_('ESTATES') ?>
+				<?php echo \Joomla\CMS\Language\Text::_('ESTATES') ?>
             </a>
         </div>
 
@@ -125,7 +125,7 @@ defined('_JEXEC') or die();
                             type: 'areaspline'
                         },
                         title: {
-                            text: '<?php echo htmlspecialchars(JText::_('ESALESPROGRESS'), ENT_QUOTES,
+                            text: '<?php echo htmlspecialchars(\Joomla\CMS\Language\Text::_('ESALESPROGRESS'), ENT_QUOTES,
 							    'UTF-8'); ?>'
                         },
                         tooltip: {
@@ -140,7 +140,7 @@ defined('_JEXEC') or die();
                         },
                         yAxis: [{
                             title: {
-                                text: '<?php echo JText::_('EA_SALESTOT'); ?>',
+                                text: '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESTOT'); ?>',
                                 style: {
                                     color: '#2e95b9'
                                 }
@@ -168,7 +168,7 @@ defined('_JEXEC') or die();
                             pointInterval: 24 * 3600 * 1000,
                             //pointStart: <?php echo mktime(0, 0, 0, date('m'), date('d') - 29, date('Y')); ?>000,
                             pointStart: new Date().getTime() - (24 * 3600 * 29 * 1000),
-                            name: '<?php echo JText::_('EA_SALESTOT'); ?>',
+                            name: '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESTOT'); ?>',
                             color: '#2e95b9',
                             data: [<?php echo $this->data['amount']; ?>
                             ]
@@ -176,9 +176,9 @@ defined('_JEXEC') or die();
                     });
                 }(jQuery))
             </script>
-            <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emanalytics') ?>" class="btn btn-success btn-sm">
+            <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emanalytics') ?>" class="btn btn-success btn-sm">
 			    <?php echo
-			    JText::_('EMOREDETAILS') ?>
+			    \Joomla\CMS\Language\Text::_('EMOREDETAILS') ?>
             </a>
     </div>
 </div>
@@ -186,21 +186,21 @@ defined('_JEXEC') or die();
 
 <div class="card mb-3">
     <div class="card-header">
-        <h3 class="card-title"><?php echo JText::_('ELASTSUBSCR'); ?></h3>
+        <h3 class="card-title"><?php echo \Joomla\CMS\Language\Text::_('ELASTSUBSCR'); ?></h3>
     </div>
     <div class="card-body">
         <table class="table table-condensed table-striped table-subscr">
 			<?php foreach ($this->latest as $subscription): ?>
                 <tr>
                     <td width="20">
-                        <img data-uk-tooltip title="<?php echo JText::_($subscription->
+                        <img data-uk-tooltip title="<?php echo \Joomla\CMS\Language\Text::_($subscription->
 						state); ?>" src="<?php echo
-						JUri::root(true); ?>/components/com_joomsubscription/images/<?php echo
+						\Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/<?php echo
 						$subscription->img; ?>" alt="" /><br />
                         <small><?php echo $subscription->id; ?></small>
                     </td>
                     <td>
-						<?php echo JText::_($subscription->name); ?>
+						<?php echo \Joomla\CMS\Language\Text::_($subscription->name); ?>
                         <br />
                         <small><?php echo $subscription->username; ?></small>
                     </td>
@@ -229,16 +229,16 @@ defined('_JEXEC') or die();
 <?php if ($this->activate): ?>
     <div class="card mb-3">
         <div class="card-header">
-            <h3 class="card-title m-0 p-0"><?php echo JText::_('ENOTACTIVESUBSCR'); ?> <span class="badge badge-important"><?php echo
+            <h3 class="card-title m-0 p-0"><?php echo \Joomla\CMS\Language\Text::_('ENOTACTIVESUBSCR'); ?> <span class="badge badge-important"><?php echo
 					count($this->activate); ?></span></h3>
         </div>
         <div class="card-header">
             <div class="uk-alert uk-alert-danger uk-alert-small">
                 <small>
-					<?php echo JText::_('EADTIVATEDESCR'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('EADTIVATEDESCR'); ?>
                 </small>
             </div>
-            <form action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales'); ?>" method="post" id="activate-form">
+            <form action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsales'); ?>" method="post" id="activate-form">
                 <table class="table table-condensed table-striped table-subscr">
 					<?php foreach ($this->activate as $subscription): ?>
                         <tr valign="top">
@@ -248,9 +248,9 @@ defined('_JEXEC') or die();
                             <td>
                                 <a href="javascript:void(0);" class="btn btn-activate btn-mini btn-primary" data-subscr-id="<?php echo
 								$subscription->id; ?>">
-									<?php echo JText::_('EACTIVATE'); ?>
+									<?php echo \Joomla\CMS\Language\Text::_('EACTIVATE'); ?>
                                 </a>
-								<?php echo JText::_($subscription->name); ?>
+								<?php echo \Joomla\CMS\Language\Text::_($subscription->name); ?>
                                 <br />
                                 <small><?php echo $subscription->username; ?> [<b><?php echo
 										$subscription->user_id; ?></b>]</small>
@@ -265,7 +265,7 @@ defined('_JEXEC') or die();
 								<?php echo JoomsubscriptionApi::getPrice($subscription->price, $subscription->
 								params); ?>
                             </td>
-                            <td width="1%" nowrap="nowrap"><img src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/exclamation-diamond.png" alt="" /></td>
+                            <td width="1%" nowrap="nowrap"><img src="<?php echo \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/exclamation-diamond.png" alt="" /></td>
                         </tr>
 					<?php endforeach; ?>
                 </table>

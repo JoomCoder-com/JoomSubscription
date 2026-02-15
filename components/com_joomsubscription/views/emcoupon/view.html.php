@@ -56,7 +56,7 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
 
-		JToolBarHelper::title(($isNew ? JText::_('ENEWCOUPON') : JText::_('EEDITCOUPON').': '.$this->item->value), ($isNew ? 'coupon_new.png' : 'coupon_edit.png'));
+		JToolBarHelper::title(($isNew ? \Joomla\CMS\Language\Text::_('ENEWCOUPON') : \Joomla\CMS\Language\Text::_('EEDITCOUPON').': '.$this->item->value), ($isNew ? 'coupon_new.png' : 'coupon_edit.png'));
 
 		if (!$checkedOut){
 			JToolBarHelper::apply('coupon.apply', 'JTOOLBAR_APPLY');
@@ -77,12 +77,12 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 
 		if($this->item->id)
 		{
-			$title = JText::sprintf('EEDITCOUPON', $this->item->value);
+			$title = \Joomla\CMS\Language\Text::sprintf('EEDITCOUPON', $this->item->value);
 			$pathway->addItem(strip_tags($title));
 		}
 		else
 		{
-			$title = JText::_('ENEWCOUPON');
+			$title = \Joomla\CMS\Language\Text::_('ENEWCOUPON');
 			$pathway->addItem(strip_tags($title));
 		}
 
@@ -100,10 +100,10 @@ class JoomsubscriptionViewEmCoupon extends MViewBase
 			$title = $app->getCfg('sitename');
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		if (empty($title)) {
 			$title = $this->item->value;

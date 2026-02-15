@@ -37,7 +37,7 @@ class JoomsubscriptionGatewaytbc extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('merchantname'))
 		{
-			$this->setError(JText::_("TBC_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("TBC_NOT_ALL_SET"));
 
 			return FALSE;
 		}

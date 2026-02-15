@@ -19,28 +19,28 @@ if($controller == 'emtaxes')
 }
 ?>
 <div class="pull-left">
-	<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/arrow-turn-270-left.png" alt="Select and"
+	<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/arrow-turn-270-left.png" alt="Select and"
 		 class="arrow"/>
-	<button type="button" class="btn-submit btn btn-primary" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo JText::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $single; ?>.edit');}">
-		<?php echo JText::_('EEDIT'); ?>
+	<button type="button" class="btn-submit btn btn-primary" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo \Joomla\CMS\Language\Text::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $single; ?>.edit');}">
+		<?php echo \Joomla\CMS\Language\Text::_('EEDIT'); ?>
 	</button>
 	<div class="btn-group">
-		<button type="button" class="btn-submit btn" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo JText::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $controller; ?>.publish');}">
-			<?php echo JText::_('EPUBLISH'); ?>
+		<button type="button" class="btn-submit btn" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo \Joomla\CMS\Language\Text::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $controller; ?>.publish');}">
+			<?php echo \Joomla\CMS\Language\Text::_('EPUBLISH'); ?>
 		</button>
 
-		<button type="button" class="btn-submit btn" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo JText::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $controller; ?>.unpublish');}">
-			<?php echo JText::_('EUNPUBLISH'); ?>
+		<button type="button" class="btn-submit btn" onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo \Joomla\CMS\Language\Text::_('SELECTFIRST', TRUE) ?>');}else{Joomsubscription.submitbutton('<?php echo $controller; ?>.unpublish');}">
+			<?php echo \Joomla\CMS\Language\Text::_('EUNPUBLISH'); ?>
 		</button>
 	</div>
 
 	<button type="button" class="btn-submit btn btn-danger"
-			onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo JText::_('SELECTFIRST', TRUE) ?>');}else{if(confirm('<?php echo JText::_('E_SURE_DELETE'); ?>'))Joomsubscription.submitbutton('<?php echo $controller; ?>.delete');}">
-		<?php echo JText::_('EDELETE'); ?>
+			onclick="if (document.adminForm.boxchecked.value==0){alert('<?php echo \Joomla\CMS\Language\Text::_('SELECTFIRST', TRUE) ?>');}else{if(confirm('<?php echo \Joomla\CMS\Language\Text::_('E_SURE_DELETE'); ?>'))Joomsubscription.submitbutton('<?php echo $controller; ?>.delete');}">
+		<?php echo \Joomla\CMS\Language\Text::_('EDELETE'); ?>
 	</button>
 </div>
 <div class="float-end">
 	<button type="button" class="btn-submit btn btn-success" onclick="Joomsubscription.submitbutton('<?php echo $single; ?>.add');">
-		<?php echo JText::_('EADD'); ?>
+		<?php echo \Joomla\CMS\Language\Text::_('EADD'); ?>
 	</button>
 </div>

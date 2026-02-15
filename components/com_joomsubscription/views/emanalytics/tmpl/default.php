@@ -14,8 +14,8 @@ defined('_JEXEC') or die('Restricted access');
 
 <div class="page-header border-bottom py-3">
 	<h1>
-        <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/analytics.png" />
-        <?php echo JText::_('E_ANALYTICS'); ?>
+        <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/analytics.png" />
+        <?php echo \Joomla\CMS\Language\Text::_('E_ANALYTICS'); ?>
     </h1>
 </div>
 
@@ -28,7 +28,7 @@ defined('_JEXEC') or die('Restricted access');
     <div class="card-body">
         <div style="height: 250px" id="chart-sales">
             <div class="progress progress-striped active">
-                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+                <div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('ELOADINGCHART'); ?></div>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@ defined('_JEXEC') or die('Restricted access');
     <div class="card-body">
         <div style="height: 200px" id="chart-counts">
             <div class="progress progress-striped active">
-                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+                <div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('ELOADINGCHART'); ?></div>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@ defined('_JEXEC') or die('Restricted access');
     <div class="card-body">
         <div style="height: 250px" id="chart-sales-plans">
             <div class="progress progress-striped active">
-                <div class="bar" style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+                <div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('ELOADINGCHART'); ?></div>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@ defined('_JEXEC') or die('Restricted access');
         <div style="height: 550px" id="chart-pie-sales">
             <div class="progress progress-striped active">
                 <div class="bar"
-                     style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+                     style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('ELOADINGCHART'); ?></div>
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ defined('_JEXEC') or die('Restricted access');
         <div style="height: 550px" id="chart-pie-counts">
             <div class="progress progress-striped active">
                 <div class="bar"
-                     style="width: 100%;"><?php echo JText::_('ELOADINGCHART'); ?></div>
+                     style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('ELOADINGCHART'); ?></div>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@ defined('_JEXEC') or die('Restricted access');
 	 };
 	 });*/
 
-	$.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcharts.stack'); ?>', function(data) {
+	$.getJSON('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcharts.stack'); ?>', function(data) {
 
 		if(!data.success || !data.result) {
 			$('#chart-sales-plans').html(data.error);
@@ -144,7 +144,7 @@ defined('_JEXEC') or die('Restricted access');
 					type: 'spline'
 				},
 				title: {
-					text: '<?php echo JText::_('ETITLASTBYPLAN'); ?>'
+					text: '<?php echo \Joomla\CMS\Language\Text::_('ETITLASTBYPLAN'); ?>'
 				},
 				xAxis: {
 					type:         'datetime',
@@ -157,7 +157,7 @@ defined('_JEXEC') or die('Restricted access');
 				yAxis: {
 					min:           0,
 					title:         {
-						text: '<?php echo JText::_('EA_SALESTOT'); ?>'
+						text: '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESTOT'); ?>'
 					},
 					stackLabels:   {
 						enabled: true,
@@ -198,7 +198,7 @@ defined('_JEXEC') or die('Restricted access');
 });
 
 
-$.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcharts.sales'); ?>', function(data) {
+$.getJSON('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcharts.sales'); ?>', function(data) {
 
 	if(!data.success || !data.result) {
 		$('#chart-sales').html(data.error);
@@ -215,14 +215,14 @@ $.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emch
 	}
 
 	options_main.yAxis[0].tickInterval = null;
-	options_main.title.text = '<?php echo htmlspecialchars(JText::_('ESALESPROGRESS'), ENT_QUOTES, 'UTF-8'); ?>';
-	options_main.yAxis[0].title.text = '<?php echo JText::_('EA_SALESTOT'); ?>';
-	options_main.series[0].name = '<?php echo JText::_('EA_SALESTOT'); ?>';
+	options_main.title.text = '<?php echo htmlspecialchars(\Joomla\CMS\Language\Text::_('ESALESPROGRESS'), ENT_QUOTES, 'UTF-8'); ?>';
+	options_main.yAxis[0].title.text = '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESTOT'); ?>';
+	options_main.series[0].name = '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESTOT'); ?>';
 
 	$('#chart-sales').highcharts(options_main);
 });
 
-$.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcharts.counts'); ?>', function(data) {
+$.getJSON('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcharts.counts'); ?>', function(data) {
 
 	if(!data.success || !data.result) {
 		$('#chart-counts').html(data.error);
@@ -238,17 +238,17 @@ $.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emch
 		return this.value;
 	}
 	options_main.yAxis[0].tickInterval = 1;
-	options_main.title.text = '<?php echo htmlspecialchars(JText::_('ESALESPCOUNTSS'), ENT_QUOTES, 'UTF-8'); ?>';
-	options_main.yAxis[0].title.text = '<?php echo JText::_('EA_SALESCOUNT'); ?>';
-	options_main.series[0].name = '<?php echo JText::_('EA_SALESCOUNT'); ?>';
+	options_main.title.text = '<?php echo htmlspecialchars(\Joomla\CMS\Language\Text::_('ESALESPCOUNTSS'), ENT_QUOTES, 'UTF-8'); ?>';
+	options_main.yAxis[0].title.text = '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESCOUNT'); ?>';
+	options_main.series[0].name = '<?php echo \Joomla\CMS\Language\Text::_('EA_SALESCOUNT'); ?>';
 
 	$('#chart-counts').highcharts(options_main);
 });
 
-options_pie.series[0].name = '<?php echo JText::_('COM_JOOMSUBSCRIPTION_GROUPS'); ?>';
-options_pie.series[1].name = '<?php echo JText::_('E_PLAN'); ?>';
+options_pie.series[0].name = '<?php echo \Joomla\CMS\Language\Text::_('COM_JOOMSUBSCRIPTION_GROUPS'); ?>';
+options_pie.series[1].name = '<?php echo \Joomla\CMS\Language\Text::_('E_PLAN'); ?>';
 
-$.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcharts.piemain'); ?>', function(data) {
+$.getJSON('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcharts.piemain'); ?>', function(data) {
 	if(!data.success || !data.result) {
 		$('#chart-pie-sales').html(data.error);
 		return;
@@ -281,9 +281,9 @@ $.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emch
 		i++;
 	});
 
-	options_pie.title.text = '<?php echo JText::_('EPIETITLE'); ?>';
+	options_pie.title.text = '<?php echo \Joomla\CMS\Language\Text::_('EPIETITLE'); ?>';
 	options_pie.tooltip.formatter = function() {
-		return '<b>' + this.series.name + '</b>: ' + this.point.name + '<br><?php echo JText::_('ESUBSCRIPTIONS'); ?>: <b>' + this.y.toFixed(2) +
+		return '<b>' + this.series.name + '</b>: ' + this.point.name + '<br><?php echo \Joomla\CMS\Language\Text::_('ESUBSCRIPTIONS'); ?>: <b>' + this.y.toFixed(2) +
 			'%</b> (' + this.point.count.toFixed(2) + '$)';
 	}
 	options_pie.series[0].data = groupsData;
@@ -292,7 +292,7 @@ $.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emch
 	$('#chart-pie-sales').highcharts(options_pie);
 });
 
-$.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcharts.piemain'); ?>', function(data) {
+$.getJSON('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcharts.piemain'); ?>', function(data) {
 	if(!data.success || !data.result) {
 		$('#chart-pie-counts').html(data.error);
 		return;
@@ -325,10 +325,10 @@ $.getJSON('<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emch
 		i++;
 	});
 
-	options_pie.title.text = '<?php echo JText::_('EPIETITLECOUNT'); ?>';
+	options_pie.title.text = '<?php echo \Joomla\CMS\Language\Text::_('EPIETITLECOUNT'); ?>';
 	options_pie.tooltip.formatter = function() {
 		return '<b>' + this.series.name + '</b>: ' + this.point.name + '<br><b>' + this.y.toFixed(2) +
-			'%</b> (<?php echo JText::_('EMR_INVOICETOTAL'); ?>: ' + this.point.count + ')';
+			'%</b> (<?php echo \Joomla\CMS\Language\Text::_('EMR_INVOICETOTAL'); ?>: ' + this.point.count + ')';
 	}
 	options_pie.series[0].data = groupsData;
 	options_pie.series[1].data = plansData;

@@ -58,21 +58,21 @@ class JoomsubscriptionViewAbout extends JViewLegacy
 
 	protected function addToolbar()
 	{
-		JToolBarHelper::title(JText::_('XML_TOOLBAR_TITLE_ABOUT'), 'systeminfo.png');
+		JToolBarHelper::title(\Joomla\CMS\Language\Text::_('XML_TOOLBAR_TITLE_ABOUT'), 'systeminfo.png');
 		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
-			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/information.png" align="absmiddle"> ' .
-			JText::_('About'),
+			'<img src="' . \Joomla\CMS\Uri\Uri::root(TRUE) . '/media/mint/icons/16/information.png" align="absmiddle"> ' .
+			\Joomla\CMS\Language\Text::_('About'),
 			'index.php?option=com_joomsubscription&view=about',
 			\Joomla\CMS\Factory::getApplication()->input->getCmd('view', 'about') == 'about'
 		);
 		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
-			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/gear.png" align="absmiddle"> ' .
-			JText::_('Configuration'),
+			'<img src="' . \Joomla\CMS\Uri\Uri::root(TRUE) . '/media/mint/icons/16/gear.png" align="absmiddle"> ' .
+			\Joomla\CMS\Language\Text::_('Configuration'),
 			'index.php?option=com_config&view=component&component=com_joomsubscription'
 		);
 		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
-			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/lifebuoy.png" align="absmiddle"> ' .
-			JText::_('Forum'),
+			'<img src="' . \Joomla\CMS\Uri\Uri::root(TRUE) . '/media/mint/icons/16/lifebuoy.png" align="absmiddle"> ' .
+			\Joomla\CMS\Language\Text::_('Forum'),
 			'http://support.mintjoomla.com/en/'
 		);
 	}

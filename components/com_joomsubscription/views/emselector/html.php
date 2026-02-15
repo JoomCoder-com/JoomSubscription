@@ -10,7 +10,7 @@ class JoomsubscriptionViewsEmSelectorHtml extends Joomla\CMS\MVC\View\HtmlView
 {
 	function render()
 	{
-		$this->params  = JComponentHelper::getParams('com_joomsubscription');
+		$this->params  = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		$layout = $this->getLayout();
 		$this->{'_' . $layout}();

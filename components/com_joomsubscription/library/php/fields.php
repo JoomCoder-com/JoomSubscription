@@ -12,7 +12,7 @@ defined('_JEXEC') or die();
 class JoomsubscriptionField extends \Joomla\CMS\Object\CMSObject
 {
 	/**
-	 * @var JRegistry
+	 * @var \Joomla\Registry\Registry
 	 */
 	public $params;
 	public $_errors = array();
@@ -20,7 +20,7 @@ class JoomsubscriptionField extends \Joomla\CMS\Object\CMSObject
 	public function __construct($data)
 	{
 		$this->data   = $data;
-		$this->params = new JRegistry($data->params);
+		$this->params = new \Joomla\Registry\Registry($data->params);
 	}
 
 	public function onActive($subscription)

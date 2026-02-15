@@ -18,7 +18,7 @@ class JoomsubscriptionController extends MControllerBase
 	{
 		$app            = \Joomla\CMS\Factory::getApplication();
 		$user           = \Joomla\CMS\Factory::getUser();
-		$joomsubscription_config = JComponentHelper::getParams('com_joomsubscription');
+		$joomsubscription_config = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$is_moder       = in_array($joomsubscription_config->get('moderate'), $user->getAuthorisedViewLevels());
 		$redirect       = FALSE;
 		$sid            = $this->input->getCmd('sid');
@@ -43,9 +43,9 @@ class JoomsubscriptionController extends MControllerBase
 			{
 				$session = \Joomla\CMS\Factory::getSession();
 				$session->set('try_this_plan', $sid);
-				\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_REDIRECT'),'warning');
-				$redirect = JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url','index.php?option=com_users&view=login') .
-					'&return=' . urlencode(base64_encode(JUri::getInstance()->toString())), FALSE);
+				\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_REDIRECT'),'warning');
+				$redirect = \Joomla\CMS\Router\Route::_(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('general_login_url','index.php?option=com_users&view=login') .
+					'&return=' . urlencode(base64_encode(\Joomla\CMS\Uri\Uri::getInstance()->toString())), FALSE);
 			}
 		}
 
@@ -58,7 +58,7 @@ class JoomsubscriptionController extends MControllerBase
 			)
 		)
 		{
-			$app->enqueueMessage(JText::_('EMR_REDIRECT'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_REDIRECT'), 'warning');
 			$redirect = \Joomla\CMS\Uri\Uri::base();
 		}
 

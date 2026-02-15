@@ -101,7 +101,7 @@ class JoomsubscriptionGatewayYandex extends JoomsubscriptionGateway
 
 		if(!$this->params->get('shopId') || !$this->params->get('scid'))
 		{
-			$this->setError(JText::_("YA_NO_PARAM"));
+			$this->setError(\Joomla\CMS\Language\Text::_("YA_NO_PARAM"));
 
 			return FALSE;
 		}

@@ -25,7 +25,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 		if (task == 'emcoupon.cancel' || document.formvalidator.isValid('#item-form')) {
 			Joomsubscription.submitform(task, document.getElementById('item-form'));
 		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+			alert('<?php echo $this->escape(\Joomla\CMS\Language\Text::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
 	//Joomsubscription.formatInt
@@ -40,11 +40,11 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
     </div>
 	<h1>
 		<?php if($this->item->id):?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/coupons.png" />
-			<?php echo JText::sprintf('EEDITCOUPON', $this->item->value);?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/coupons.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITCOUPON', $this->item->value);?>
 		<?php else:?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/coupons.png" />
-			<?php echo JText::_('ENEWCOUPON');?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/coupons.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWCOUPON');?>
 		<?php endif;?>
 	</h1>
 </div>
@@ -96,7 +96,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 					<div class="controls offset5"><?php echo $this->form->getInput('extime'); ?></div>
 				</div>
 				<?php if(!$this->item->id): ?>
-				<p class="small"><?php echo JText::_('AMOUNT_COUPON_DESCR')?></p>
+				<p class="small"><?php echo \Joomla\CMS\Language\Text::_('AMOUNT_COUPON_DESCR')?></p>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('amount'); ?></div>
 					<div class="controls offset5"><?php echo $this->form->getInput('amount'); ?></div>

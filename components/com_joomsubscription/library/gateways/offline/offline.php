@@ -75,7 +75,7 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 
 		if(!$mail->Send())
 		{
-			$this->setError(JText::_('OFF_ERRORSENDEMAIL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('OFF_ERRORSENDEMAIL'));
 			return false;
 		}
 
@@ -102,14 +102,14 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 
 		if(!$mail->Send())
 		{
-			$this->setError(JText::_('OFF_ERRORSENDADMINEMAIL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('OFF_ERRORSENDADMINEMAIL'));
 			return false;
 		}
 
 		JoomsubscriptionHelper::activateSubscription($subscription, $plan);
 		$subscription->store();
 
-		$app->enqueueMessage(JText::_('OFF_EMAILS_SENT'));
+		$app->enqueueMessage(\Joomla\CMS\Language\Text::_('OFF_EMAILS_SENT'));
 		if($this->params->get('redirect') && filter_var($this->params->get('redirect'), FILTER_VALIDATE_URL))
 		{
 			$app->redirect($this->params->get('redirect'));

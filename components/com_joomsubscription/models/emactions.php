@@ -22,7 +22,7 @@ class JoomsubscriptionModelsEmActions extends Joomla\CMS\MVC\Model\BaseModel
 			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $a, JoomsubscriptionActionsHelper::get_action_name($a));
 		}
 
-		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_ACTION')));
+		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('ESELECT_ACTION')));
 
 		return $options;
 	}

@@ -22,7 +22,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 		if(!$result)
 		{
-			JError::raiseWarning(100, JText::_('EW_ERRRES'));
+			JError::raiseWarning(100, \Joomla\CMS\Language\Text::_('EW_ERRRES'));
 
 			return FALSE;
 		}
@@ -61,7 +61,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 		if(!$this->params->get('password') || !$this->params->get('username'))
 		{
-			$this->setError(JText::_('EW_CONFIG'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EW_CONFIG'));
 
 			return FALSE;
 		}

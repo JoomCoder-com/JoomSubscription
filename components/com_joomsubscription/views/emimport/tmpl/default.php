@@ -28,7 +28,7 @@ $fieldset = $this->import->form->getFieldset();
 </script>
 <div class="page-header">
 	<h1>
-		<?php echo JText::sprintf('EIMPORT_S', JText::_($this->import->title));?>
+		<?php echo \Joomla\CMS\Language\Text::sprintf('EIMPORT_S', \Joomla\CMS\Language\Text::_($this->import->title));?>
 	</h1>
 </div>
 <form method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
@@ -36,10 +36,10 @@ $fieldset = $this->import->form->getFieldset();
 	<div class="float-end btn-toolbar">
 		<div>
 			<button type="button" class="btn btn-primary <?php if(!$this->canImport) echo 'disabled'; ?>" onclick="<?php echo $this->canImport ? "Joomsubscription.submitbutton('emimport.run');" : 'javascript:void(0);'?>">
-				<?php echo JText::_('EIMPORT'); ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EIMPORT'); ?>
 			</button>
-			<a type="button" class="btn" href="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emimports');?>">
-				<?php echo JText::_('ECANCEL'); ?>
+			<a type="button" class="btn" href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emimports');?>">
+				<?php echo \Joomla\CMS\Language\Text::_('ECANCEL'); ?>
 			</a>
 		</div>
 	</div>

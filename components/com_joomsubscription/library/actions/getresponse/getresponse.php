@@ -35,7 +35,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 
 		if($this->params->get('msg'))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_($this->params->get('msg')));
 		}
 	}
 
@@ -57,7 +57,7 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 		$allow_lists = array();
 		foreach($actions as $action)
 		{
-			$action        = new JRegistry($action->action);
+			$action        = new \Joomla\Registry\Registry($action->action);
 			$allow_lists[] = $action->get('campaign_id', 0);
 		}
 
@@ -152,6 +152,6 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::_('GR_DESCRIPTION');
+		return \Joomla\CMS\Language\Text::_('GR_DESCRIPTION');
 	}
 }

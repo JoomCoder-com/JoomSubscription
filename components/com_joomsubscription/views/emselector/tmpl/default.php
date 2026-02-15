@@ -16,7 +16,7 @@ defined('_JEXEC') or die();
 </style>
 
 <div class="progress progress-striped active" id="selector-progress">
-	<div class="bar" style="width: 100%;"><?php echo JText::_('EM_LOADING'); ?></div>
+	<div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('EM_LOADING'); ?></div>
 </div>
 
 <div id="plans-selector" class="">
@@ -51,7 +51,7 @@ defined('_JEXEC') or die();
 				progress.show();
 
 				$.ajax({
-					url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.selectorShow&tmpl=component', FALSE); ?>',
+					url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.selectorShow&tmpl=component', FALSE); ?>',
 					dataType: 'json',
 					type:     'POST',
 					data:     data
@@ -80,12 +80,12 @@ defined('_JEXEC') or die();
 
 		$('#selector-hidden-plan').closest('form').submit(function(event) {
 			if($('#selector-hidden-plan').val() && parseFloat($('#selector-hidden-price').val()) > 0 && !$('#selector-hidden-gateway').val()) {
-				alert('<?php echo JText::_('EM_SELECTGATEWAY'); ?>');
+				alert('<?php echo \Joomla\CMS\Language\Text::_('EM_SELECTGATEWAY'); ?>');
 				event.preventDefault();
 			}
 			<?php if($this->required): ?>
 			if(!$('#selector-hidden-plan').val()) {
-				alert('<?php echo JText::_('EM_SELECTPLANSEL'); ?>');
+				alert('<?php echo \Joomla\CMS\Language\Text::_('EM_SELECTPLANSEL'); ?>');
 				event.preventDefault();
 			}
 			<?php endif; ?>

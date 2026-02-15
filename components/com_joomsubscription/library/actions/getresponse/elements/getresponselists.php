@@ -41,7 +41,7 @@ class JFormFieldGetresponselists extends JFormField
 							class:'btn btn-get-list-{$name}',
 							type: 'button'
 						})
-						.html('".JText::_('GRGETLISTS')."');
+						.html('".\Joomla\CMS\Language\Text::_('GRGETLISTS')."');
 
 					container.html(button);
 					update();
@@ -49,14 +49,14 @@ class JFormFieldGetresponselists extends JFormField
 					function update() {
 						$('.btn-get-list-{$name}').click(function(){
 							if(!$('#actions_action_api_key').val()) {
-								alert('".JText::_('GR_ENTERDETAILS')."');
+								alert('".\Joomla\CMS\Language\Text::_('GR_ENTERDETAILS')."');
 								return;
 							}
 
 							container.html(bar);
 
 							$.ajax({
-								url: '".JRoute::_('index.php?option=com_joomsubscription&task=emapi.action', false)."',
+								url: '".\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emapi.action', false)."',
 								type: 'post',
 								dataType: 'json',
 								data: {

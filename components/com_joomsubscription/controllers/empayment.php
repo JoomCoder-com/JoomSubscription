@@ -34,7 +34,7 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 	{
 		$app = \Joomla\CMS\Factory::getApplication();
 		$app->setUserState('last-joomsubscription-coupon', $app->input->getString('coupon'));
-		$app->redirect(JUri::getInstance()->toString());
+		$app->redirect(\Joomla\CMS\Uri\Uri::getInstance()->toString());
 	}
 
 	public function send()
@@ -59,9 +59,9 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 
 		if(!$rule->test($element, $email))
 		{
-			$msg = JText::_('EMAILISNOTCORRECT');
+			$msg = \Joomla\CMS\Language\Text::_('EMAILISNOTCORRECT');
 
-			$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $this->plan->id), $msg);
+			$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $this->plan->id), $msg);
 			$this->redirect();
 		}
 
@@ -117,11 +117,11 @@ class JoomsubscriptionControllerEmPayment extends MControllerAdmin
 		if(!$return)
 		{
 			$this->setError($model->getError());
-			$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $this->plan->id), $model->getError());
+			$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $this->plan->id), $model->getError());
 			$this->redirect();
 		}
 
-		$com_user = JComponentHelper::getParams('com_users');
+		$com_user = \Joomla\CMS\Component\ComponentHelper::getParams('com_users');
 
 		if($com_user->get('useractivation') == 0)
 		{

@@ -22,19 +22,19 @@ class JoomsubscriptionControllerEmHistory extends MControllerAdmin
 
 		if(!$table->id)
 		{
-			$app->enqueueMessage(JText::_('EM_SUBSCR_NOTFOUND'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EM_SUBSCR_NOTFOUND'), 'warning');
 			$app->redirect(JoomsubscriptionApi::getLink('emhistory'));
 		}
 
 		if($table->activated == 1)
 		{
-			$app->enqueueMessage(JText::_('EM_SUBSCR_IS_ACTIVE'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EM_SUBSCR_IS_ACTIVE'), 'warning');
 			$app->redirect(JoomsubscriptionApi::getLink('emhistory'));
 		}
 
 		if($table->delete($cid))
 		{
-			$app->enqueueMessage(JText::_('EM_CANCEL_CUBSCRIPTION'));
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EM_CANCEL_CUBSCRIPTION'));
 			$app->redirect(JoomsubscriptionApi::getLink('emhistory'));
 		}
 

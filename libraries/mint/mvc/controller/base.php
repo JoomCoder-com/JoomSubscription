@@ -239,7 +239,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 		$command  = $input->get('task', 'display');
 
 		// Check for array format.
-		$filter = JFilterInput::getInstance();
+		$filter = \Joomla\CMS\Filter\InputFilter::getInstance();
 
 		if (is_array($command))
 		{
@@ -294,7 +294,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 			}
 			else
 			{
-				throw new InvalidArgumentException(JText::sprintf('JLIB_APPLICATION_ERROR_INVALID_CONTROLLER', $type, $format));
+				throw new InvalidArgumentException(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_INVALID_CONTROLLER', $type, $format));
 			}
 		}
 
@@ -305,7 +305,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 		}
 		else
 		{
-			throw new InvalidArgumentException(JText::sprintf('JLIB_APPLICATION_ERROR_INVALID_CONTROLLER_CLASS', $class));
+			throw new InvalidArgumentException(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_INVALID_CONTROLLER_CLASS', $class));
 		}
 
 		return self::$instance;
@@ -331,7 +331,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 
 		if (defined('JDEBUG') && JDEBUG)
 		{
-			JLog::addLogger(array('text_file' => 'jcontroller.log.php'), JLog::ALL, array('controller'));
+			\Joomla\CMS\Log\Log::addLogger(array('text_file' => 'jcontroller.log.php'), \Joomla\CMS\Log\Log::ALL, array('controller'));
 		}
 
 		$this->input = \Joomla\CMS\Factory::getApplication()->input;
@@ -492,7 +492,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 	 */
 	public function authorise($task)
 	{
-		JLog::add(__METHOD__ . ' is deprecated. Use JAccess instead.', JLog::WARNING, 'deprecated');
+		\Joomla\CMS\Log\Log::add(__METHOD__ . ' is deprecated. Use JAccess instead.', \Joomla\CMS\Log\Log::WARNING, 'deprecated');
 
 		return true;
 	}
@@ -518,7 +518,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 
 			if (defined('JDEBUG') && JDEBUG)
 			{
-				JLog::add(
+				\Joomla\CMS\Log\Log::add(
 					sprintf(
 						'Checking edit ID %s.%s: %d %s',
 						$context,
@@ -526,7 +526,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 						(int) $result,
 						str_replace("\n", ' ', print_r($values, 1))
 					),
-					JLog::INFO,
+					\Joomla\CMS\Log\Log::INFO,
 					'controller'
 				);
 			}
@@ -603,7 +603,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 
 				if (!class_exists($viewClass))
 				{
-					throw new Exception(JText::sprintf('JLIB_APPLICATION_ERROR_VIEW_CLASS_NOT_FOUND', $viewClass, $path), 500);
+					throw new Exception(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_VIEW_CLASS_NOT_FOUND', $viewClass, $path), 500);
 				}
 			}
 			else
@@ -711,7 +711,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 		}
 		else
 		{
-			throw new Exception(JText::sprintf('JLIB_APPLICATION_ERROR_TASK_NOT_FOUND', $task), 404);
+			throw new Exception(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_TASK_NOT_FOUND', $task), 404);
 		}
 
 		// Record the actual task being fired
@@ -784,7 +784,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 			$r = null;
 			if (!preg_match('/(.*)Controller/i', get_class($this), $r))
 			{
-				throw new Exception(JText::_('JLIB_APPLICATION_ERROR_CONTROLLER_GET_NAME'), 500);
+				throw new Exception(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_CONTROLLER_GET_NAME'), 500);
 			}
 			$this->name = strtolower($r[1]);
 		}
@@ -856,7 +856,7 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 			}
 			else
 			{
-				throw new Exception(JText::sprintf('JLIB_APPLICATION_ERROR_VIEW_NOT_FOUND', $name, $type, $prefix), 500);
+				throw new Exception(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_VIEW_NOT_FOUND', $name, $type, $prefix), 500);
 			}
 		}
 
@@ -887,14 +887,14 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 
 			if (defined('JDEBUG') && JDEBUG)
 			{
-				JLog::add(
+				\Joomla\CMS\Log\Log::add(
 					sprintf(
 						'Holding edit ID %s.%s %s',
 						$context,
 						$id,
 						str_replace("\n", ' ', print_r($values, 1))
 					),
-					JLog::INFO,
+					\Joomla\CMS\Log\Log::INFO,
 					'controller'
 				);
 			}
@@ -1001,14 +1001,14 @@ class MControllerBase extends \Joomla\CMS\Object\CMSObject
 
 			if (defined('JDEBUG') && JDEBUG)
 			{
-				JLog::add(
+				\Joomla\CMS\Log\Log::add(
 					sprintf(
 						'Releasing edit ID %s.%s %s',
 						$context,
 						$id,
 						str_replace("\n", ' ', print_r($values, 1))
 					),
-					JLog::INFO,
+					\Joomla\CMS\Log\Log::INFO,
 					'controller'
 				);
 			}

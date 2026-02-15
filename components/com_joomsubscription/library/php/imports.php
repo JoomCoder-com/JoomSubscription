@@ -13,7 +13,7 @@ class JoomsubscriptionImport extends \Joomla\CMS\Object\CMSObject
 
 	/**
 	 *
-	 * @param JRegistry $params Params setted before runnig import
+	 * @param \Joomla\Registry\Registry $params Params setted before runnig import
 	 */
 	public function import($params)
 	{

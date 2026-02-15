@@ -47,7 +47,7 @@ class JFormFieldMRadio extends JFormFieldList
 
 	private function _get_templates()
 	{
-		$params = JComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
 		$prefix = $params->get('tmpl_prefix', 'default');
 
 		$file = __DIR__.'/tmpl/mradio-'.$prefix.'.php';

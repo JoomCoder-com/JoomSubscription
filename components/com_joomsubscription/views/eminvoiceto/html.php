@@ -14,7 +14,7 @@ class JoomsubscriptionViewsEMInvoiceToHtml extends Joomla\CMS\MVC\View\HtmlView
 		{
 			case 'form':
 				$this->form = $this->model->getForm();
-				$params = JComponentHelper::getParams('com_joomsubscription');
+				$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 				if($params->get('vies') == 0)
 				{

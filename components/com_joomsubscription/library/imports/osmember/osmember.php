@@ -205,7 +205,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('OS_TABLES_NOTEXIST'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('OS_TABLES_NOTEXIST'));
 
 			return FALSE;
 		}
@@ -213,7 +213,7 @@ class JoomsubscriptionImportOsmember extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('OS_TABLES_NOTEXIST'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('OS_TABLES_NOTEXIST'));
 
 			return FALSE;
 		}

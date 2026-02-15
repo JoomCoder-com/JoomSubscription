@@ -34,13 +34,13 @@ class JoomsubscriptionActionSql extends JoomsubscriptionAction
 		$out = '';
 		if($this->params->get('sql_active'))
 		{
-			$out .= '<b>' . JText::_('X_SQL_ACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_SQL_ACTIVE') . '</b><br />';
 			$out .= $this->params->get('sql_active') . '<br/>';
 		}
 
 		if($this->params->get('sql_disactive'))
 		{
-			$out .= '<b>' . JText::_('X_SQL_DISACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_SQL_DISACTIVE') . '</b><br />';
 			$out .= $this->params->get('sql_disactive');
 		}
 

@@ -18,15 +18,15 @@ class JoomsubscriptionViewEmMua extends MViewBase
 		$model = MModelBase::getInstance('EmMua', 'JoomsubscriptionModel');
 		$doc   = \Joomla\CMS\Factory::getDocument();
 
-		$app->getPathway()->addItem(JText::_('EMR_MUA_TITLE'));
-		$doc->setTitle(JText::_('EMR_MUA_TITLE'));
+		$app->getPathway()->addItem(\Joomla\CMS\Language\Text::_('EMR_MUA_TITLE'));
+		$doc->setTitle(\Joomla\CMS\Language\Text::_('EMR_MUA_TITLE'));
 
 
 		$sid = $app->input->getInt('subscr_id');
 		if(empty($sid))
 		{
-			JError::raiseWarning(404, JText::_('EMR_MUA_PLANNOTSELECTED'));
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=history', FALSE));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_MUA_PLANNOTSELECTED'));
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=history', FALSE));
 
 			return;
 		}
@@ -35,41 +35,41 @@ class JoomsubscriptionViewEmMua extends MViewBase
 
 		if(empty($item->id))
 		{
-			JError::raiseWarning(404, JText::_('EMR_MUA_PLAN_NOTFOUND'));
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=history', FALSE));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_MUA_PLAN_NOTFOUND'));
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=history', FALSE));
 
 			return;
 		}
 
 		if(!empty($item->parent))
 		{
-			JError::raiseWarning(404, JText::_('EMR_MUA_PLAN_CHILD'));
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=history', FALSE));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_MUA_PLAN_CHILD'));
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=history', FALSE));
 
 			return;
 		}
 
-		$mua_param = new JRegistry($item->plan_params);
+		$mua_param = new \Joomla\Registry\Registry($item->plan_params);
 		$allowed   = $mua_param->get('properties.muaccess');
 		if(empty($allowed))
 		{
-			JError::raiseWarning(404, JText::_("EMR_MUA_NOMUA"));
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=history', FALSE));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_("EMR_MUA_NOMUA"));
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=history', FALSE));
 
 			return;
 		}
 
 		$mua        = $model->getSubscrMUA($sid);
 		$mua_coupon = JoomsubscriptionHelperCoupon::getMUACoupon($sid, $item);
-		$number     = (count($mua) > 0) ? count($mua) : JText::_('None');
+		$number     = (count($mua) > 0) ? count($mua) : \Joomla\CMS\Language\Text::_('None');
 
 		if($allowed > count($mua))
 		{
-			$instruction = JText::_("LAYOUT_MUA_INSTRUCTIONS");
+			$instruction = \Joomla\CMS\Language\Text::_("LAYOUT_MUA_INSTRUCTIONS");
 		}
 		else
 		{
-			$instruction = JText::_("LAYOUT_MUA_LIMIT_ALERT");
+			$instruction = \Joomla\CMS\Language\Text::_("LAYOUT_MUA_LIMIT_ALERT");
 		}
 
 		$instruction = str_replace("[MUA_COUPON]", '<span class="label label-success">' . $mua_coupon . '</span>', $instruction);
@@ -79,13 +79,13 @@ class JoomsubscriptionViewEmMua extends MViewBase
 		if(!$item->active || $item->expired)
 		{
 			$instruction = '';
-			JError::raiseNotice(100, JText::_("EMR_MUA_EXPIRED"));
+			JError::raiseNotice(100, \Joomla\CMS\Language\Text::_("EMR_MUA_EXPIRED"));
 		}
 
 		$this->item        = $item;
 		$this->instruction = $instruction;
 		$this->mua         = $mua;
-		$this->params      = JComponentHelper::getParams('com_joomsubscription');
+		$this->params      = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		parent::display($tpl);
 	}

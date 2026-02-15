@@ -23,8 +23,8 @@ class JoomsubscriptionControllerEmPlans extends MControllerAdmin
 
 		if (!is_array($cid) || count($cid) < 1)
 		{
-			JLog::add(JText::_($this->text_prefix . '_NO_ITEM_SELECTED'), JLog::WARNING, 'jerror');
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=plans', FALSE));
+			\Joomla\CMS\Log\Log::add(\Joomla\CMS\Language\Text::_($this->text_prefix . '_NO_ITEM_SELECTED'), \Joomla\CMS\Log\Log::WARNING, 'jerror');
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=plans', FALSE));
 		}
 		else
 		{
@@ -34,8 +34,8 @@ class JoomsubscriptionControllerEmPlans extends MControllerAdmin
 				$db->setQuery("SELECT count(*) FROM #__joomsubscription_subscriptions WHERE plan_id = $plan_id");
 				if($db->loadResult())
 				{
-					JError::raiseWarning(100, JText::sprintf('EMR_CANNOTDELTEPLAN', $plan_id));
-					$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=plans', FALSE));
+					JError::raiseWarning(100, \Joomla\CMS\Language\Text::sprintf('EMR_CANNOTDELTEPLAN', $plan_id));
+					$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=plans', FALSE));
 				}
 			}
 			parent::delete();

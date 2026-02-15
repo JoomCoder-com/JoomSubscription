@@ -15,7 +15,7 @@ class JFormFieldCobaltcomments extends JFormMEFieldList
 
 		$folders = JFolder::folders($path);
 
-		$list[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('CNOCOMMENTS'));
+		$list[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('CNOCOMMENTS'));
 		foreach ($folders as $folder) {
 			$provider = $folder;
 

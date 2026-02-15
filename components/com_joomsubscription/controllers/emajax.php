@@ -47,7 +47,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		$type = $app->input->get('field_type');
 		if(empty($type))
 		{
-			echo JText::_('EMFIELDNOTSELECTED');
+			echo \Joomla\CMS\Language\Text::_('EMFIELDNOTSELECTED');
 			$app->close();
 		}
 
@@ -55,7 +55,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		$table = \Joomla\CMS\Table\Table::getInstance('EmField', 'JoomsubscriptionTable');
 		$table->load($app->input->get('field_id'));
-		$table->params = new JRegistry(json_decode($table->params, TRUE));
+		$table->params = new \Joomla\Registry\Registry(json_decode($table->params, TRUE));
 
 		$params = new JForm('params', array('control' => 'params'));
 		$params->loadFile(JPATH_COMPONENT . "/library/fields/{$type}/{$type}.xml");
@@ -64,7 +64,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if(empty($form))
 		{
-			echo JText::_('EMFIELDNOFORM');
+			echo \Joomla\CMS\Language\Text::_('EMFIELDNOFORM');
 			$app->close();
 		}
 
@@ -89,7 +89,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if($states)
 		{
-			array_unshift($states, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('EMR_SELECT_STATE')));
+			array_unshift($states, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('EMR_SELECT_STATE')));
 			echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $states, $name, '', 'value', 'text', $this->input->get('default'));
 		}
 
@@ -115,7 +115,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if(empty($array))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMER_RULENODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_RULENODATA'));
 		}
 
 		foreach($array AS $key => $val)
@@ -158,12 +158,12 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 			if($rules->id)
 			{
-				JoomsubscriptionAjaxHelper::error(JText::_('EMER_RULEEXISTS'));
+				JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_RULEEXISTS'));
 			}
 
 			if(!$rules->save($data))
 			{
-				JoomsubscriptionAjaxHelper::error(JText::_('EMER_CANNOPTSAVERUL'));
+				JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_CANNOPTSAVERUL'));
 			}
 		}
 
@@ -212,7 +212,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if($this->input->get('component') == 'com_cobalt')
 		{
-			$out = '<p>' . JText::_('X_COBALTBASIC') . '</p>' . $out;
+			$out = '<p>' . \Joomla\CMS\Language\Text::_('X_COBALTBASIC') . '</p>' . $out;
 		}
 
 		if(!empty($result->id))
@@ -275,7 +275,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if(empty($array))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMER_ACTIONNODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_ACTIONNODATA'));
 		}
 
 		$actions = \Joomla\CMS\Table\Table::getInstance('EmActions', 'JoomsubscriptionTable');
@@ -296,12 +296,12 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 			if($actions->id)
 			{
-				JoomsubscriptionAjaxHelper::error(JText::_('EMER_ACTIONEXISTS'));
+				JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_ACTIONEXISTS'));
 			}
 
 			if(!$actions->save($data))
 			{
-				JoomsubscriptionAjaxHelper::error(JText::_('EMER_CANNOTSAVEACTION'));
+				JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMER_CANNOTSAVEACTION'));
 			}
 		}
 

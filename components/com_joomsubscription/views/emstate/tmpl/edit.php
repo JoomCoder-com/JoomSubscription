@@ -25,7 +25,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 		if (task == 'emstate.cancel' || document.formvalidator.isValid('#item-form')) {
 			Joomsubscription.submitform(task, document.getElementById('item-form'));
 		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+			alert('<?php echo $this->escape(\Joomla\CMS\Language\Text::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
 </script>
@@ -39,11 +39,11 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
     </div>
 	<h1>
 		<?php if($this->item->id):?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/states.png" />
-			<?php echo JText::sprintf('EEDITSTATE', $this->item->label);?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/states.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITSTATE', $this->item->label);?>
 		<?php else:?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/states.png" />
-			<?php echo JText::_('ENEWSTATE');?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/states.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWSTATE');?>
 		<?php endif;?>
 	</h1>
 </div>

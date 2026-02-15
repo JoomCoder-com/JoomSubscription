@@ -31,13 +31,13 @@ class JoomsubscriptionViewEmPlans extends MViewBase
 	protected function getSortFields()
 	{
 		return array(
-			'p.published' => JText::_('JSTATUS'),
-			'p.id'        => JText::_('ID'),
-			'p.name'      => JText::_('EPLANNAME'),
-			'group_name'  => JText::_('EGROUPNAME'),
-			'p.ctime'     => JText::_('EPLANCREATED'),
-			'p.ordering'  => JText::_('EPLANORDERING'),
-			'p.access'    => JText::_('EACCESS'),
+			'p.published' => \Joomla\CMS\Language\Text::_('JSTATUS'),
+			'p.id'        => \Joomla\CMS\Language\Text::_('ID'),
+			'p.name'      => \Joomla\CMS\Language\Text::_('EPLANNAME'),
+			'group_name'  => \Joomla\CMS\Language\Text::_('EGROUPNAME'),
+			'p.ctime'     => \Joomla\CMS\Language\Text::_('EPLANCREATED'),
+			'p.ordering'  => \Joomla\CMS\Language\Text::_('EPLANORDERING'),
+			'p.access'    => \Joomla\CMS\Language\Text::_('EACCESS'),
 		);
 	}
 
@@ -48,7 +48,7 @@ class JoomsubscriptionViewEmPlans extends MViewBase
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('COM_JOOMSUBSCRIPTION_PLANS');
+		$title = \Joomla\CMS\Language\Text::_('COM_JOOMSUBSCRIPTION_PLANS');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -67,11 +67,11 @@ class JoomsubscriptionViewEmPlans extends MViewBase
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

@@ -35,7 +35,7 @@ class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField
 		$db = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT id as value, name as text FROM #__joomsubscription_country ";
 
-		$options = JComponentHelper::getParams('com_joomsubscription');
+		$options = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		if($options->get('country_limit'))
 		{
 			$sql .= " WHERE id IN ('".implode("','", $options->get('country_limit'))."') ";
@@ -52,7 +52,7 @@ class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField
 
 		if($this->element['show_default'])
 		{
-			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', JText::_('EANY')));
+			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', \Joomla\CMS\Language\Text::_('EANY')));
 		}
 
 		return $options;

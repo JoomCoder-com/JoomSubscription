@@ -32,7 +32,7 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getRank($this->params->get('rank_active'))));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::sprintf($this->params->get('message'), $this->_getRank($this->params->get('rank_active'))));
 		}
 	}
 
@@ -56,7 +56,7 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 		$setted_ranks = array();
 		foreach($actions as $action)
 		{
-			$action         = new JRegistry($action->action);
+			$action         = new \Joomla\Registry\Registry($action->action);
 			$setted_ranks[] = $action->get('rank_active', 0);
 		}
 
@@ -83,17 +83,17 @@ class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 		$out = array();
 		if($this->params->get('rank_active'))
 		{
-			$out[] = JText::sprintf('X_KUNENA_DESC', $this->_getRank($this->params->get('rank_active')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_KUNENA_DESC', $this->_getRank($this->params->get('rank_active')));
 		}
 
 		if($this->params->get('rank_disactive'))
 		{
-			$out[] = JText::sprintf('X_KUNENAACT_DESC', $this->params->get('rank_disactive') ? JText::_('X_YES') : JText::_('X_NO'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_KUNENAACT_DESC', $this->params->get('rank_disactive') ? \Joomla\CMS\Language\Text::_('X_YES') : \Joomla\CMS\Language\Text::_('X_NO'));
 		}
 
 		if(trim($this->params->get('message')))
 		{
-			$out[] = JText::sprintf('X_KUNENA_DESCR_MSG', $this->params->get('message'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_KUNENA_DESCR_MSG', $this->params->get('message'));
 		}
 
 		return '<ul><li>' . implode('</li><li>', $out) . '</li></ul>';

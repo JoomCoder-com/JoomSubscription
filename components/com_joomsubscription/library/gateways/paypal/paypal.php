@@ -19,7 +19,7 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 
 		if(!$this->_IPNcheck())
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('PayPal: Verification failed', $_POST);
 
 			return FALSE;
@@ -87,7 +87,7 @@ class JoomsubscriptionGatewayPaypal extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('email'))
 		{
-			$this->setError(JText::_('PP_ERR_NOEMAIL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('PP_ERR_NOEMAIL'));
 
 			return FALSE;
 		}

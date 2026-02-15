@@ -33,8 +33,8 @@ class JFormFieldMEUsercategories extends JFormField
 		{
 		    $uri		= \Joomla\CMS\Factory::getUri();
             $return		= base64_encode($uri);
-		    $html .= '<a class="btn" href="'.JRoute::_('index.php?option=com_cobalt&view=category&section_id='.JRequest::getInt('section_id').'&task=usercategory.add&return='.$return).'">
-		    			<img src="'.JURI::root().'media/mint/icons/16/plus-button.png" align="absmiddle" alt="'.JText::_('Add New').'" /> '.JText::_('Add New').'
+		    $html .= '<a class="btn" href="'.\Joomla\CMS\Router\Route::_('index.php?option=com_cobalt&view=category&section_id='.JRequest::getInt('section_id').'&task=usercategory.add&return='.$return).'">
+		    			<img src="'.\Joomla\CMS\Uri\Uri::root().'media/mint/icons/16/plus-button.png" align="absmiddle" alt="'.\Joomla\CMS\Language\Text::_('Add New').'" /> '.\Joomla\CMS\Language\Text::_('Add New').'
 					</a></div>';
 		}
 

@@ -46,7 +46,7 @@ $options = $this->getOptions();
 			?>
 
 			<label for="<?php echo $this->id . $i ?>" id="btn-<?php echo $this->id . $i; ?>" type="button" class="uk-button <?php echo $active ?>">
-				<?php echo JText::alt($option->text, preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)) ?>
+				<?php echo \Joomla\CMS\Language\Text::alt($option->text, preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)) ?>
 			</label>
 			<input style="display: none" type="radio" id="<?php echo $this->id . $i ?>" name="<?php echo $this->name ?>" value="<?php echo $value ?>" <?php echo $checked . $class . $required . $onclick . $onchange . $disabled ?>>
 		<?php endforeach; ?>

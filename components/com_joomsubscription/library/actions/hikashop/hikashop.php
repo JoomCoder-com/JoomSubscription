@@ -50,7 +50,7 @@ class JoomsubscriptionActionHikashop extends JoomsubscriptionAction
 			$db->setQuery("SELECT product_name FROM #__hikashop_product WHERE product_id IN (" . implode(', ', $this->params->get('products')) . ")");
 			$products = $db->loadColumn();
 			$out[]    = sprintf('<p>%s</p>%s',
-				JText::plural('EM_HIKA_ACTION_DESCRIPTION', count($products)),
+				\Joomla\CMS\Language\Text::plural('EM_HIKA_ACTION_DESCRIPTION', count($products)),
 				count($products) > 1 ? sprintf('<ul><li>%s</li></ul>', implode('</li><li>', $products)) : implode('', $products)
 			);
 		}
@@ -59,7 +59,7 @@ class JoomsubscriptionActionHikashop extends JoomsubscriptionAction
 			$db->setQuery("SELECT category_name FROM #__hikashop_category WHERE category_id IN (" . implode(', ', $this->params->get('category')) . ")");
 			$cats  = $db->loadColumn();
 			$out[] = sprintf('<p>%s</p>%s',
-				JText::plural('EM_HIKA_ACTION_DESCRIPTION_CAT', count($cats)),
+				\Joomla\CMS\Language\Text::plural('EM_HIKA_ACTION_DESCRIPTION_CAT', count($cats)),
 				count($cats) > 1 ? sprintf('<ul><li>%s</li></ul>', implode('</li><li>', $cats)) : implode('', $cats)
 			);
 		}

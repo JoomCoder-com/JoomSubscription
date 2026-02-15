@@ -27,9 +27,9 @@ class JFormFieldEmeraldplans extends JFormFieldGroupedList
 	{
 		$this->multiple = true;
 
-		if(!is_dir(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_emerald') || !JComponentHelper::isEnabled('com_emerald'))
+		if(!is_dir(JPATH_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_emerald') || !\Joomla\CMS\Component\ComponentHelper::isEnabled('com_emerald'))
 		{
-			return '<b>' . JText::_('Please install Emerald extension') . '</b>';
+			return '<b>' . \Joomla\CMS\Language\Text::_('Please install Emerald extension') . '</b>';
 		}
 
 		if($this->multiple)

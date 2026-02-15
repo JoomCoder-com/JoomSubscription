@@ -24,7 +24,7 @@ class Mint
 
 // Convert the cleaned text to uppercase
 		$key = strtoupper($cleanedText);
-		$trans = JText::_($key, $jsSafe, $interpretBackSlashes, $script);
+		$trans = \Joomla\CMS\Language\Text::_($key, $jsSafe, $interpretBackSlashes, $script);
 
 		if($key === $trans)
 		{
@@ -58,14 +58,14 @@ class Mint
 	static public function loadLayout($name, $path)
 	{
 		$options = array();
-		$params  = JComponentHelper::getParams('com_emerald');
+		$params  = \Joomla\CMS\Component\ComponentHelper::getParams('com_emerald');
 
 		if($params->get('tmpl_prefix'))
 		{
 			$options['suffixes'] = [$params->get('tmpl_prefix')];
 		}
 
-		return new JLayoutFile($name, $path, $options);
+		return new Joomla\CMS\Layout\FileLayout($name, $path, $options);
 	}
 }
 

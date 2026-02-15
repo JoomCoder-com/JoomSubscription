@@ -24,9 +24,9 @@ class JFormFieldMjfolderList extends JFormFieldList
 		$html = '<span style="float:left;">'.$this->element['directory'].'/</span><br>';
 		$options = $this->getOptions();
 		$html .= Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, $this->name.'[dir]', 'class="span5" onchange="updatedefaulticon(false)"', 'value', 'text', !empty($this->value->dir) ? $this->value->dir : 'google', $this->id);
-		$html .= '&nbsp;<img src="'.JUri::root(TRUE).(!empty($this->value->icon) ? '/'.$this->element['directory'].'/'.$this->value->dir.'/'.$this->value->icon : '/media/mint/blank.png').'" id="icon'.$this->fieldname.'" > <span id="label'.$this->fieldname.'">'.@$this->value->icon.'</span>';
+		$html .= '&nbsp;<img src="'.\Joomla\CMS\Uri\Uri::root(TRUE).(!empty($this->value->icon) ? '/'.$this->element['directory'].'/'.$this->value->dir.'/'.$this->value->icon : '/media/mint/blank.png').'" id="icon'.$this->fieldname.'" > <span id="label'.$this->fieldname.'">'.@$this->value->icon.'</span>';
 		$html .= '<input type="hidden" name="'.$this->name.'[icon]" readonly="readonly" id="icon_param'.$this->fieldname.'" value="'.@$this->value->icon.'">';
-		$html .= '<p><small>'.JText::_('G_CLICKSELECTDEFAULT').'</small></p>';
+		$html .= '<p><small>'.\Joomla\CMS\Language\Text::_('G_CLICKSELECTDEFAULT').'</small></p>';
 		$html .= '<div id="icons'.$this->fieldname.'" style="width:250px;max-height:150px;overflow-x:hidden;overflow-y:scroll"></div>';
 		$html .= "<script>
 			(function($){
@@ -40,11 +40,11 @@ class JFormFieldMjfolderList extends JFormFieldList
 					if(!first)
 					{
 					 	input.val('');
-					 	$('#icon{$this->fieldname}').attr('src', '".JUri::root(TRUE)."/media/mint/blank.png');
+					 	$('#icon{$this->fieldname}').attr('src', '".\Joomla\CMS\Uri\Uri::root(TRUE)."/media/mint/blank.png');
 						$('#label{$this->fieldname}').html();
 					}
 					$.ajax({
-						url: '".JURI::root(TRUE)."/index.php?option=com_cobalt&task=ajax.icons&tmpl=component',
+						url: '".\Joomla\CMS\Uri\Uri::root(TRUE)."/index.php?option=com_cobalt&task=ajax.icons&tmpl=component',
 						dataType: 'json',
 						type: 'POST',
 						data:{
@@ -63,10 +63,10 @@ class JFormFieldMjfolderList extends JFormFieldList
 						stack.html('');
 						$.each(json.result, function(k, v){
 							$(document.createElement('img'))
-								.attr({class:'pull-left marker-icon', src: '".JUri::root(TRUE)."/{$this->element['directory']}/' + sel.val() + '/' + v})
+								.attr({class:'pull-left marker-icon', src: '".\Joomla\CMS\Uri\Uri::root(TRUE)."/{$this->element['directory']}/' + sel.val() + '/' + v})
 								.click(function(){
 										input.val(v);
-										$('#icon{$this->fieldname}').attr('src', '".JUri::root(TRUE)."/{$this->element['directory']}/' + sel.val() + '/' + v);
+										$('#icon{$this->fieldname}').attr('src', '".\Joomla\CMS\Uri\Uri::root(TRUE)."/{$this->element['directory']}/' + sel.val() + '/' + v);
 										$('#label{$this->fieldname}').html(v);
 									})
 								.appendTo(stack);
@@ -102,11 +102,11 @@ class JFormFieldMjfolderList extends JFormFieldList
 		// Prepend some default options based on field attributes.
 		if (!$hideNone)
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '-1', JText::alt('JOPTION_DO_NOT_USE', preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '-1', \Joomla\CMS\Language\Text::alt('JOPTION_DO_NOT_USE', preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)));
 		}
 		if (!$hideDefault)
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::alt('JOPTION_USE_DEFAULT', preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::alt('JOPTION_USE_DEFAULT', preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)));
 		}
 
 		// Get a list of folders in the search path with the given filter.

@@ -41,7 +41,7 @@ class MEFormHelper
 			}
 		}
 
-		return JText::_($result);
+		return \Joomla\CMS\Language\Text::_($result);
 	}
 
 	static public function renderGroups($form, $groups, $defaults)
@@ -79,7 +79,7 @@ class MEFormHelper
 		$out = '';
 		foreach($fieldsets as $name => $fieldset)
 		{
-			//if(JText::_($fieldset->label)) $out .= "<legend>" . JText::_($fieldset->label) . "</legend>";
+			//if(\Joomla\CMS\Language\Text::_($fieldset->label)) $out .= "<legend>" . \Joomla\CMS\Language\Text::_($fieldset->label) . "</legend>";
 			$out .= self::renderFieldset($form, $name, $defaults, $group, FORM_STYLE_TABLE, 1);
 		}
 		return $out;
@@ -102,14 +102,14 @@ class MEFormHelper
 			switch($separator)
 			{
 				case FORM_SEPARATOR_H2:
-					$out .= "<h2>" . JText::_($fieldset->label) . "</h2>";
+					$out .= "<h2>" . \Joomla\CMS\Language\Text::_($fieldset->label) . "</h2>";
 				break;
 				case FORM_SEPARATOR_FIELDSET:
-					$out .= sprintf('<legend>%s</legend>', JText::_($fieldset->label));
+					$out .= sprintf('<legend>%s</legend>', \Joomla\CMS\Language\Text::_($fieldset->label));
 				break;
 
 				case FORM_SEPARATOR_SLIDER:
-					$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.panel', JText::_($fieldset->label), $fieldset->name);
+					$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.panel', \Joomla\CMS\Language\Text::_($fieldset->label), $fieldset->name);
 				break;
 			}
 			$out .= self::renderFieldset($form, $name, $defaults, $group, $style, 0);
@@ -148,14 +148,14 @@ class MEFormHelper
 
 		if(is_array($defaults))
 		{
-			$registry = new JRegistry();
+			$registry = new \Joomla\Registry\Registry();
 			$registry->loadArray($defaults);
 			$defaults = $registry;
 		}
 
 		/*else if(is_string($item->params))
 		{
-			$registry = new JRegistry;
+			$registry = new \Joomla\Registry\Registry;
 			$registry->loadString($item->params);
 			$defaults = $registry;
 		}*/
@@ -163,16 +163,16 @@ class MEFormHelper
 		$fields = $form->getFieldset($name);
 		$defaultGetName = empty($group) ? '%2$s' : '%s.%s';
 		$doc = \Joomla\CMS\Factory::getDocument();
-		$doc->addStyleSheet(JURI::root() . 'libraries/mint/forms/style.css');
+		$doc->addStyleSheet(\Joomla\CMS\Uri\Uri::root() . 'libraries/mint/forms/style.css');
 		$out = '';
 		switch($type)
 		{
 			case FORM_STYLE_CLASSIC:
 				if($title && $fieldset->label)
 				{
-					$out .= '<fieldset class="adminform whitebg"><legend>' . JText::_($fieldset->label) . '</legend>';
+					$out .= '<fieldset class="adminform whitebg"><legend>' . \Joomla\CMS\Language\Text::_($fieldset->label) . '</legend>';
 				}
-				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<small class="small">' . JText::_($fieldset->description) . '</small>';
+				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<small class="small">' . \Joomla\CMS\Language\Text::_($fieldset->description) . '</small>';
 				$out .= '<ul class="adminformlist">';
 				foreach($fields as $key => $field)
 				{
@@ -189,8 +189,8 @@ class MEFormHelper
 			break;
 
 			case FORM_STYLE_TABLE:
-				if($title && $fieldset->label) $out .= '<legend>' . JText::_($fieldset->label) . '</legend>';
-				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<small>' . JText::_($fieldset->description) . '</small><br /><br />';
+				if($title && $fieldset->label) $out .= '<legend>' . \Joomla\CMS\Language\Text::_($fieldset->label) . '</legend>';
+				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<small>' . \Joomla\CMS\Language\Text::_($fieldset->description) . '</small><br /><br />';
 				$out .= '<table class="table table-bordered  table-striped table-hover">';
 				$i = 1;
 				$hidden = array();
@@ -203,9 +203,9 @@ class MEFormHelper
 					}
 					if($field->type == 'Caddress' || $field->type == 'Ccontacts' || $field->type == 'Clinks' || $field->type == 'Cobaltevents')
 					{
-						if(trim($out) == '<legend>' . JText::_($fieldset->label) . '</legend><table class="table table-bordered  table-striped table-hover">')
+						if(trim($out) == '<legend>' . \Joomla\CMS\Language\Text::_($fieldset->label) . '</legend><table class="table table-bordered  table-striped table-hover">')
 						{
-							$out = '<legend>' . JText::_($fieldset->label) . '</legend>';
+							$out = '<legend>' . \Joomla\CMS\Language\Text::_($fieldset->label) . '</legend>';
 						}
 						else 
 						{
@@ -225,7 +225,7 @@ class MEFormHelper
 					else
 					{
 						$out .= '<tr><td>';
-						if(substr($field->description, 0, 3) == 'XX_') $out .= '<img src="'.JUri::root(true).'/media/mint/icons/16/exclamation-button.png" alt="Important" class="float-end">';
+						if(substr($field->description, 0, 3) == 'XX_') $out .= '<img src="'.\Joomla\CMS\Uri\Uri::root(true).'/media/mint/icons/16/exclamation-button.png" alt="Important" class="float-end">';
 						$out .= $field->label;
 						$out .= '</td><td nowrap="nowrap">';
 						$out .= $form->getInput($field->fieldname, $group, $defaults->get(sprintf($defaultGetName, $group, $field->fieldname)));
@@ -241,8 +241,8 @@ class MEFormHelper
 
 			case FORM_STYLE_PARAMS:
 				$hidden = array();
-				if($title && $fieldset->label) $out .= '<h2 class="params-title">' . JText::_($fieldset->label) . '</h2>';
-				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<p class="params-description">' . JText::_($fieldset->description) . '</p>';
+				if($title && $fieldset->label) $out .= '<h2 class="params-title">' . \Joomla\CMS\Language\Text::_($fieldset->label) . '</h2>';
+				if(isset($fieldset->description) && ! empty($fieldset->description)) $out .= '<p class="params-description">' . \Joomla\CMS\Language\Text::_($fieldset->description) . '</p>';
 
 				foreach($fields as $key => $field)
 				{

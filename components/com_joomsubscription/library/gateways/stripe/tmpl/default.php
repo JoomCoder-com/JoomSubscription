@@ -33,12 +33,12 @@
 			}
 
 			var handler = StripeCheckout.configure({
-				key: '<?php echo JText::_($this->params->get('publish_key', 'pk_test_6pRNASCoBOKtIshFeQd4XMUh')) ?>',
+				key: '<?php echo \Joomla\CMS\Language\Text::_($this->params->get('publish_key', 'pk_test_6pRNASCoBOKtIshFeQd4XMUh')) ?>',
 				<?php if(is_file(JPATH_ROOT.$this->params->get('logo'))): ?>
 				image: '<?php echo $this->params->get('logo') ?>',
 				<?php endif; ?>
 				locale: 'auto',
-				name: '<?php echo JText::_($this->params->get('name', 'Site name')) ?>',
+				name: '<?php echo \Joomla\CMS\Language\Text::_($this->params->get('name', 'Site name')) ?>',
 				email: <?php echo \Joomla\CMS\Factory::getUser()->get('email') ?  "'".\Joomla\CMS\Factory::getUser()->get('email')."'" : "$('#em_email').val()" ?>,
 				billingAddress: <?php echo $this->params->get('billaddr') ? 'true' : 'false' ?>,
 				description: '<?php echo $plan->name ?>',

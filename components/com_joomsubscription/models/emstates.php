@@ -52,7 +52,7 @@ class JoomsubscriptionModelEmStates extends MModelList
 		$query->where('id IN (SELECT DISTINCT(country) FROM #__joomsubscription_states)');
 		$db->setQuery($query);
 		$result = $db->loadAssocList('id');
-		array_unshift($result, array('id'=>'', 'name' => JText::_('E_SELECT_COUNTRY')));
+		array_unshift($result, array('id'=>'', 'name' => \Joomla\CMS\Language\Text::_('E_SELECT_COUNTRY')));
 		return $result;
 	}
 

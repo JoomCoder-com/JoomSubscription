@@ -17,14 +17,14 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 
 		if(!$processor)
 		{
-			JError::raiseError(505, JText::_('EMR_NOPROCESSOR'));
+			JError::raiseError(505, \Joomla\CMS\Language\Text::_('EMR_NOPROCESSOR'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
 		if(!is_file($file))
 		{
-			JError::raiseError(500, JText::sprintf('EMR_PROCNOTFOUND', $processor));
+			JError::raiseError(500, \Joomla\CMS\Language\Text::sprintf('EMR_PROCNOTFOUND', $processor));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -34,7 +34,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 
 		if(!class_exists($class))
 		{
-			JError::raiseWarning(404, JText::_('EMR_GATEWAY_CLASS_NOTFOUND'));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_GATEWAY_CLASS_NOTFOUND'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -44,7 +44,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 
 		if(!$subscription)
 		{
-			JError::raiseError(500, JText::_('EMR_MUA_PLAN_NOTFOUND'));
+			JError::raiseError(500, \Joomla\CMS\Language\Text::_('EMR_MUA_PLAN_NOTFOUND'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 		$table->load($subscription);
@@ -59,11 +59,11 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 
 		if($table->published == 1)
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_ACTIVATED_SUCCESS'));
 		}
 		else
 		{
-			JError::raiseNotice(100, JText::_('EMR_ACTIVATED_NOTSUCCESS'));
+			JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_ACTIVATED_NOTSUCCESS'));
 		}
 
 		JoomsubscriptionHelper::redirect($plan, $table->published);

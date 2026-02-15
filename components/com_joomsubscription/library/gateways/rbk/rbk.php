@@ -33,7 +33,7 @@ class JoomsubscriptionGatewayRbk extends JoomsubscriptionGateway
 
 		if($hash != strtolower($post->get('hash')))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('RBK: Verification failed', $_POST);
 
 			return FALSE;
@@ -50,7 +50,7 @@ class JoomsubscriptionGatewayRbk extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('eshopid'))
 		{
-			$this->setError(JText::_("RBK_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("RBK_NOT_ALL_SET"));
 
 			return FALSE;
 		}

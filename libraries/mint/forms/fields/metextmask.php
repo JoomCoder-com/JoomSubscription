@@ -38,18 +38,18 @@ class JFormFieldMETextMask extends JFormField
 	{
 		$opt = array();
 
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('Do not use'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ### #######', JText::_('Phone'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ###-####', JText::_('Phone US'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'mm/dd/yyyy', JText::_('Date'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####-###', JText::_('Code'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#### #### #### ####', JText::_('Credit Card'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#', JText::_('Integer'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####.##', JText::_('Decimal'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#,###.##', JText::_('Numeric with format'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '$#,###.##', JText::_('Dollar'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '€#,###.##', JText::_('Euro'));
-		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'custom', JText::_('Custom'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('Do not use'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ### #######', \Joomla\CMS\Language\Text::_('Phone'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ###-####', \Joomla\CMS\Language\Text::_('Phone US'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'mm/dd/yyyy', \Joomla\CMS\Language\Text::_('Date'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####-###', \Joomla\CMS\Language\Text::_('Code'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#### #### #### ####', \Joomla\CMS\Language\Text::_('Credit Card'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#', \Joomla\CMS\Language\Text::_('Integer'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####.##', \Joomla\CMS\Language\Text::_('Decimal'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#,###.##', \Joomla\CMS\Language\Text::_('Numeric with format'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '$#,###.##', \Joomla\CMS\Language\Text::_('Dollar'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '€#,###.##', \Joomla\CMS\Language\Text::_('Euro'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'custom', \Joomla\CMS\Language\Text::_('Custom'));
 		
 		if(!$this->value) $this->value = new stdClass();
 		if(!isset($this->value->type)) $this->value->type = false;
@@ -58,9 +58,9 @@ class JFormFieldMETextMask extends JFormField
 
 		$out = '';
 
-		$add = '<br><input style="float:none;" type="radio" name="'.$this->name.'[type]" value="string" '.((!$this->value->type || $this->value->type == 'string' ) ? 'checked' : '').'> '.JText::_('String');
-		$add .= ' <input style="float:none;" type="radio" name="'.$this->name.'[type]" value="date" '.($this->value->type == 'date' ? 'checked' : '').'> '.JText::_('Date');
-		$add .= ' <input style="float:none;"  type="radio" name="'.$this->name.'[type]" value="number" '.($this->value->type == 'number' ? 'checked' : '').'> '.JText::_('Number');
+		$add = '<br><input style="float:none;" type="radio" name="'.$this->name.'[type]" value="string" '.((!$this->value->type || $this->value->type == 'string' ) ? 'checked' : '').'> '.\Joomla\CMS\Language\Text::_('String');
+		$add .= ' <input style="float:none;" type="radio" name="'.$this->name.'[type]" value="date" '.($this->value->type == 'date' ? 'checked' : '').'> '.\Joomla\CMS\Language\Text::_('Date');
+		$add .= ' <input style="float:none;"  type="radio" name="'.$this->name.'[type]" value="number" '.($this->value->type == 'number' ? 'checked' : '').'> '.\Joomla\CMS\Language\Text::_('Number');
 		$display = ($this->value->mask_type) ? 'block' : 'none';
 		$readonly = ($this->value->mask_type && $this->value->mask_type != 'custom') ? 'readonly' : '';
 

@@ -18,14 +18,14 @@ class JoomsubscriptionViewEmList extends MViewBase
 		$model = $this->getModel();
 		$user = \Joomla\CMS\Factory::getUser();
 
-		$this->mparams = ($app->getMenu()->getActive() ? $app->getMenu()->getActive()->getParams() : new JRegistry());
+		$this->mparams = ($app->getMenu()->getActive() ? $app->getMenu()->getActive()->getParams() : new \Joomla\Registry\Registry());
 		$this->_prepareDocument();
 
 		$plan_ids = $app->input->getString('id', false);
 		$group_ids = $plan_ids ? null : $this->mparams->get("groups");
 
 		if(($plan_ids || $group_ids) && $this->mparams->get('link', 0)) {
-			JError::raiseNotice(100, JText::sprintf('EM_NOT_ALL_PLANS', JoomsubscriptionApi::getLink('emlist')));
+			JError::raiseNotice(100, \Joomla\CMS\Language\Text::sprintf('EM_NOT_ALL_PLANS', JoomsubscriptionApi::getLink('emlist')));
 		}
 
 		$items = $model->getPlans($plan_ids, $group_ids);
@@ -33,8 +33,8 @@ class JoomsubscriptionViewEmList extends MViewBase
 		if(count($items) <= 0 && !$user->get('id'))
 		{
 			\Joomla\CMS\Factory::getApplication()->redirect(
-				JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url') .
-					'&return=' . urlencode(base64_encode(JUri::getInstance()->toString())), FALSE)
+				\Joomla\CMS\Router\Route::_(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('general_login_url') .
+					'&return=' . urlencode(base64_encode(\Joomla\CMS\Uri\Uri::getInstance()->toString())), FALSE)
 			);
 		}
 
@@ -42,7 +42,7 @@ class JoomsubscriptionViewEmList extends MViewBase
 		$this->cats = $prepare['cats'];
 		$this->items = $prepare['plans'];
 
-		$this->params = JComponentHelper::getParams('com_joomsubscription');
+		$this->params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$this->usersubs = JoomsubscriptionHelper::getUserPlans();
 
 		$this->menu = Mint::loadLayout('links', JPATH_COMPONENT .'/layouts');
@@ -56,7 +56,7 @@ class JoomsubscriptionViewEmList extends MViewBase
 		$doc = \Joomla\CMS\Factory::getDocument();
 		$this->addTemplatePath(JPATH_COMPONENT.'/views/elements/');
 
-		$this->mparams->set('page_title', $this->mparams->get('page_title', JText::_('EPURCHASENEW')));
+		$this->mparams->set('page_title', $this->mparams->get('page_title', \Joomla\CMS\Language\Text::_('EPURCHASENEW')));
 		$doc->setTitle($this->mparams->get('page_title'));
 
 		if($meta_key = $this->mparams->get('menu-meta_keywords'))

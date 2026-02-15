@@ -6,7 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <?php if(empty($this->plan->id)): ?>
-	<div class="alert"><?php echo JText::_('ERULESNO_PLANS'); ?></div>
+	<div class="alert"><?php echo \Joomla\CMS\Language\Text::_('ERULESNO_PLANS'); ?></div>
 	<?php return; ?>
 <?php endif; ?>
 
@@ -29,13 +29,13 @@ defined('_JEXEC') or die('Restricted access');
 	}
 </style>
 <div class="alert alert-success">
-	<?php echo JText::_('EM_NOSAVERULE'); ?>
+	<?php echo \Joomla\CMS\Language\Text::_('EM_NOSAVERULE'); ?>
 </div>
 <div class="row">
     <div class="col-7">
-        <legend><?php echo JText::_('E_ADD_RULE') ?></legend>
+        <legend><?php echo \Joomla\CMS\Language\Text::_('E_ADD_RULE') ?></legend>
         <p>
-            <small><?php echo JText::_('EMR_NEW_RULE'); ?></small>
+            <small><?php echo \Joomla\CMS\Language\Text::_('EMR_NEW_RULE'); ?></small>
         </p>
         <p><?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->model->getAdapters(), 'rule_components',"class='form-select'"); ?></p>
 
@@ -43,8 +43,8 @@ defined('_JEXEC') or die('Restricted access');
         </div>
 
         <div class="form-actions" id="form-actions" style="display: none;">
-            <button class="btn btn-primary" type="button" id="btn-add" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
-            <button class="btn btn-link" type="button" id="btn-close" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
+            <button class="btn btn-primary" type="button" id="btn-add" data-dismiss="modal"><?php echo \Joomla\CMS\Language\Text::_('E_SAVE_RULE') ?></button>
+            <button class="btn btn-link" type="button" id="btn-close" data-dismiss="modal" aria-hidden="true"><?php echo \Joomla\CMS\Language\Text::_('E_CLOSE') ?></button>
         </div>
 
     </div>
@@ -95,7 +95,7 @@ defined('_JEXEC') or die('Restricted access');
             dataRule.plan_id = '<?php echo $this->plan->id; ?>';
 
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.setRuleForm&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.setRuleForm&tmpl=component', FALSE); ?>',
 				dataType: 'json',
 				type:     'POST',
 				data:     dataRule
@@ -130,9 +130,9 @@ defined('_JEXEC') or die('Restricted access');
 		});
 
 		function showFormRule(id) {
-			formRule.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo JText::_('EMLOAD'); ?></div></div>')
+			formRule.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('EMLOAD'); ?></div></div>')
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.getRuleForm&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.getRuleForm&tmpl=component', FALSE); ?>',
 				dataType: 'html',
 				type:     'POST',
 				data:     {
@@ -147,7 +147,7 @@ defined('_JEXEC') or die('Restricted access');
 		}
 		function delete_rule(id) {
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.deleteRule&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.deleteRule&tmpl=component', FALSE); ?>',
 				dataType: 'json',
 				type:     'POST',
 				data:     {id: id}

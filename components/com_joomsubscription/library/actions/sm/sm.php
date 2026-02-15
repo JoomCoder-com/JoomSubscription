@@ -131,6 +131,6 @@ class JoomsubscriptionActionSm extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::_('X_SMART_ACTIVE');
+		return \Joomla\CMS\Language\Text::_('X_SMART_ACTIVE');
 	}
 }

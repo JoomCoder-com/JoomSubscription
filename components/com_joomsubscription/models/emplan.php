@@ -70,7 +70,7 @@ class JoomsubscriptionModelEmPlan extends MModelAdmin
 
 		$params = \Joomla\CMS\Factory::getApplication()->input->get('params', array(), 'array');
 
-		$registry = new JRegistry();
+		$registry = new \Joomla\Registry\Registry();
 		$registry->loadArray($params);
 
 		$rules = $registry->get('restrictions.rules', array());

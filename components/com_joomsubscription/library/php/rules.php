@@ -16,7 +16,7 @@ class JoomsubscriptionRule extends \Joomla\CMS\Object\CMSObject
 		$data = $rule->rule;
 		if(!is_object($data))
 		{
-			$data = new \JRegistry(json_decode($data, TRUE));
+			$data = new \Joomla\Registry\Registry(json_decode($data, TRUE));
 		}
 
 		$this->params  = $data;

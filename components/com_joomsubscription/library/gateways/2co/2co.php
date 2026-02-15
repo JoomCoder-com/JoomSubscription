@@ -26,7 +26,7 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 			$check = strtoupper(md5($post->get('sale_id') . $this->params->get('vendor') . $post->get('invoice_id') . $this->params->get('sword')));
 			if($check != $post->get('key', $post->get('md5_hash')))
 			{
-				$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+				$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 				$this->log('2CO: Verification failed', $_POST);
 
 				return FALSE;
@@ -100,7 +100,7 @@ class JoomsubscriptionGateway2co extends JoomsubscriptionGateway
 
 		if(!$this->params->get('vendor'))
 		{
-			$this->setError(JText::_("CO_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("CO_NOT_ALL_SET"));
 
 			return FALSE;
 		}

@@ -138,7 +138,7 @@ class JS_Image_Resizer
 
 	function getDate($imgFile)
 	{
-		$params = JComponentHelper::getParams('com_cobalt');
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_cobalt');
 		$parts  = explode('_', $imgFile);
 		$date   = date($params->get('folder_format', 'Y-m'), (int)$parts[0]);
 

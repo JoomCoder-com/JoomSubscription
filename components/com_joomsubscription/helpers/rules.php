@@ -60,7 +60,7 @@ class JoomsubscriptionRulesHelper
 		\Joomla\CMS\Factory::getLanguage()->load($rule->option.'.sys', JPATH_ADMINISTRATOR);
 
 		$name = '<span class="float-end" data-rule-edit="'.$rule->id.'" data-controller="'.$rule->controller.'"><i class="fas fa-edit fw-light text-muted"></i></span>';
-		$name .= JText::_($rule->option);
+		$name .= \Joomla\CMS\Language\Text::_($rule->option);
 
 		if($name != $rule->option)
 		{
@@ -94,6 +94,6 @@ class JoomsubscriptionRulesHelper
 
 
 		$xml = new SimpleXMLElement($xml, 0, true);
-		return JText::_($xml->name).' ('.$type.')';
+		return \Joomla\CMS\Language\Text::_($xml->name).' ('.$type.')';
 	}
 }

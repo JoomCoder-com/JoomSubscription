@@ -34,12 +34,12 @@ class JoomsubscriptionViewEmGroups extends MViewBase
 	protected function getSortFields()
 	{
 		return array(
-			'g.published' => JText::_('JSTATUS'),
-			'g.id'        => JText::_('ID'),
-			'g.name'      => JText::_('EGROUPNAME'),
-			'g.ctime'     => JText::_('EGROUPCREATED'),
-			'g.ordering'  => JText::_('EGROUPORDERING'),
-			'g.access'    => JText::_('EGROUPACCESS'),
+			'g.published' => \Joomla\CMS\Language\Text::_('JSTATUS'),
+			'g.id'        => \Joomla\CMS\Language\Text::_('ID'),
+			'g.name'      => \Joomla\CMS\Language\Text::_('EGROUPNAME'),
+			'g.ctime'     => \Joomla\CMS\Language\Text::_('EGROUPCREATED'),
+			'g.ordering'  => \Joomla\CMS\Language\Text::_('EGROUPORDERING'),
+			'g.access'    => \Joomla\CMS\Language\Text::_('EGROUPACCESS'),
 		);
 	}
 
@@ -50,7 +50,7 @@ class JoomsubscriptionViewEmGroups extends MViewBase
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('COM_JOOMSUBSCRIPTION_GROUPS');
+		$title = \Joomla\CMS\Language\Text::_('COM_JOOMSUBSCRIPTION_GROUPS');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -69,11 +69,11 @@ class JoomsubscriptionViewEmGroups extends MViewBase
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

@@ -28,7 +28,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 		}
 
 		array_unshift($options, $def);
-		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('ESELECT_COMPONENT')));
 
 		return $options;
 	}
@@ -61,14 +61,14 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 			\Joomla\CMS\Factory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
 			$c->text = $c->value;
 
-			$trans = strip_tags(JText::_($c->value));
+			$trans = strip_tags(\Joomla\CMS\Language\Text::_($c->value));
 			if($trans != $c->value)
 			{
 				$c->text .= ' - (' . $trans .')';
 			}
 		}
 
-		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('ESELECT_COMPONENT')));
 
 		return $coms;
 	}*/

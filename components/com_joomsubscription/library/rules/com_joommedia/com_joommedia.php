@@ -80,11 +80,11 @@ class JoomsubscriptionRuleCom_joommedia extends JoomsubscriptionRule
 
 		if($this->params->get('catids'))
 		{
-			$out[] = JText::sprintf('JOOMMEDIA_READ_RESTRICT', implode(', ', $this->params->get('catids')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('JOOMMEDIA_READ_RESTRICT', implode(', ', $this->params->get('catids')));
 		}
 		if($this->params->get('ids'))
 		{
-			$out[] = JText::sprintf('JOOMMEDIA_LIST_RESTRICT', $this->params->get('ids'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('JOOMMEDIA_LIST_RESTRICT', $this->params->get('ids'));
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);

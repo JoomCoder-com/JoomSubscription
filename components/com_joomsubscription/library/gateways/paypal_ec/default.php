@@ -6,11 +6,11 @@
 </p>
 <table class="table table-stripped table-bordered">
 <tr>
-    <td><?php echo JText::_('EMR_PLANNAME'); ?></td>
+    <td><?php echo \Joomla\CMS\Language\Text::_('EMR_PLANNAME'); ?></td>
     <td><?php echo $plan->name; ?> [<?php echo $plan->cname ?>]</td>
 </tr>
 <tr>
-    <td><?php echo JText::_('EMR_INVOICETOTAL'); ?></td>
+    <td><?php echo \Joomla\CMS\Language\Text::_('EMR_INVOICETOTAL'); ?></td>
     <td><?php echo JoomsubscriptionApi::getPrice($amount, $plan->params); ?></td>
 </tr>
 </table>

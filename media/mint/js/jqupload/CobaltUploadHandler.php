@@ -93,7 +93,7 @@ class CobaltUploadHandler extends UploadHandler
 
 	protected function set_additional_file_properties($file)
 	{
-		$file->deleteUrl = JRoute::_("index.php?option=com_cobalt&task=files.uploadremove&tmpl=component&filename=".$file->name);
+		$file->deleteUrl = \Joomla\CMS\Router\Route::_("index.php?option=com_cobalt&task=files.uploadremove&tmpl=component&filename=".$file->name);
 		$file->deleteType = $this->options['delete_type'];
 		if($file->deleteType !== 'DELETE')
 		{
@@ -147,7 +147,7 @@ class CobaltUploadHandler extends UploadHandler
 				{
 					$field = \Joomla\CMS\Table\Table::getInstance('Field', 'CobaltTable');
 					$field->load($field_id);
-					$field->params = new JRegistry($field->params);
+					$field->params = new \Joomla\Registry\Registry($field->params);
 					$subfolder = $field->params->get('params.subfolder', $field->field_type);
 				}
 
@@ -186,7 +186,7 @@ class CobaltUploadHandler extends UploadHandler
 
 	public function savefile(&$file, $subfolder)
 	{
-		$params = JComponentHelper::getParams('com_cobalt');
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_cobalt');
 		$input = \Joomla\CMS\Factory::getApplication()->input;
 		$time = time();
 		$date = date($params->get('folder_format', 'Y-m'), $time);
@@ -229,7 +229,7 @@ class CobaltUploadHandler extends UploadHandler
 			'size' => $file->size
 		);
 
-		$file->url = JUri::base().'/'.$params->get('general_upload').'/'.$subfolder.'/'.$date.'/'.$filename;
+		$file->url = \Joomla\CMS\Uri\Uri::base().'/'.$params->get('general_upload').'/'.$subfolder.'/'.$date.'/'.$filename;
 		$file->path = $dest;
 
 		if(in_array(strtolower($ext), array(

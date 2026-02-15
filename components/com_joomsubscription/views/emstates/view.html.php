@@ -36,7 +36,7 @@ class JoomsubscriptionViewEmStates extends MViewBase
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('ESTATES');
+		$title = \Joomla\CMS\Language\Text::_('ESTATES');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -55,11 +55,11 @@ class JoomsubscriptionViewEmStates extends MViewBase
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

@@ -43,7 +43,7 @@ class JoomsubscriptionActionHook extends JoomsubscriptionAction
 		}
 		else
 		{
-			$uri = JUri::getInstance($url);
+			$uri = \Joomla\CMS\Uri\Uri::getInstance($url);
 			$uri->setQuery(array_merge($uri->getQuery(TRUE), $data));
 			$http->get($url, $headers);
 		}
@@ -92,13 +92,13 @@ class JoomsubscriptionActionHook extends JoomsubscriptionAction
 		$out = '';
 		if($this->params->get('hook_active'))
 		{
-			$out .= '<b>' . JText::_('X_HOOK_ACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_HOOK_ACTIVE') . '</b><br />';
 			$out .= $this->params->get('hook_active') . '<br/>';
 		}
 
 		if($this->params->get('hook_disactive'))
 		{
-			$out .= '<b>' . JText::_('X_HOOK_DISACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_HOOK_DISACTIVE') . '</b><br />';
 			$out .= $this->params->get('hook_disactive');
 		}
 

@@ -17,23 +17,23 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 		$out = array();
 		if($this->params->get('type_article'))
 		{
-			$out[] = JText::_('EMR_ARTINDIVON');
+			$out[] = \Joomla\CMS\Language\Text::_('EMR_ARTINDIVON');
 		}
 		if($this->params->get('type_user'))
 		{
-			$out[] = JText::_('EMR_USRINDIVON');
+			$out[] = \Joomla\CMS\Language\Text::_('EMR_USRINDIVON');
 		}
 		if($this->params->get('category'))
 		{
-			$out[] = JText::sprintf('EMR_CATRESTRICT', implode(', ', $this->params->get('category')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('EMR_CATRESTRICT', implode(', ', $this->params->get('category')));
 		}
 		if($this->params->get('ids'))
 		{
-			$out[] = JText::sprintf('EMR_ARTRESTRICT', $this->params->get('ids'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('EMR_ARTRESTRICT', $this->params->get('ids'));
 		}
 		if($this->params->get('time'))
 		{
-			$out[] = JText::sprintf('EMR_TIMESKIP', $this->params->get('time'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('EMR_TIMESKIP', $this->params->get('time'));
 		}
 
 

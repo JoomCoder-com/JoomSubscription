@@ -39,7 +39,7 @@ class JFormFieldEmCountryl extends JFormFieldList
 
 		if($this->element['show_default'])
 		{
-			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', JText::_('EANY')));
+			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', \Joomla\CMS\Language\Text::_('EANY')));
 		}
 
 		return $options;

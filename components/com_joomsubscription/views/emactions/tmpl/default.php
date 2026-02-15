@@ -6,7 +6,7 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <?php if(empty($this->plan->id)): ?>
-	<div class="alert" xmlns="http://www.w3.org/1999/html"><?php echo JText::_('EACTIONSNO_PLANS'); ?></div>
+	<div class="alert" xmlns="http://www.w3.org/1999/html"><?php echo \Joomla\CMS\Language\Text::_('EACTIONSNO_PLANS'); ?></div>
 	<?php return; ?>
 <?php endif; ?>
 
@@ -29,13 +29,13 @@ defined('_JEXEC') or die('Restricted access');
 	}
 </style>
 <div class="alert alert-success">
-	<?php echo JText::_('EM_NOSAVEACT'); ?>
+	<?php echo \Joomla\CMS\Language\Text::_('EM_NOSAVEACT'); ?>
 </div>
 <div class="row">
     <div class="col-7">
-        <legend><?php echo JText::_('E_ADD_ACTION') ?></legend>
+        <legend><?php echo \Joomla\CMS\Language\Text::_('E_ADD_ACTION') ?></legend>
         <p>
-            <small><?php echo JText::_('EMR_NEW_ACTION'); ?></small>
+            <small><?php echo \Joomla\CMS\Language\Text::_('EMR_NEW_ACTION'); ?></small>
         </p>
 
         <p><?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->model->getActionList(), 'action_type','class="form-select"'); ?></p>
@@ -44,8 +44,8 @@ defined('_JEXEC') or die('Restricted access');
         </div>
 
         <div class="form-actions" style="display: none;" id="form-actions-2">
-            <button class="btn btn-primary" type="button" id="btn-add-action" data-dismiss="modal"><?php echo JText::_('E_SAVE_RULE') ?></button>
-            <button class="btn btn-link" type="button" id="btn-close-action" data-dismiss="modal" aria-hidden="true"><?php echo JText::_('E_CLOSE') ?></button>
+            <button class="btn btn-primary" type="button" id="btn-add-action" data-dismiss="modal"><?php echo \Joomla\CMS\Language\Text::_('E_SAVE_RULE') ?></button>
+            <button class="btn btn-link" type="button" id="btn-close-action" data-dismiss="modal" aria-hidden="true"><?php echo \Joomla\CMS\Language\Text::_('E_CLOSE') ?></button>
         </div>
 
     </div>
@@ -96,7 +96,7 @@ defined('_JEXEC') or die('Restricted access');
 			data.plan_id = '<?php echo $this->plan->id; ?>';
 
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.sendActionForm&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.sendActionForm&tmpl=component', FALSE); ?>',
 				dataType: 'json',
 				type:     'POST',
 				data:     data
@@ -135,9 +135,9 @@ defined('_JEXEC') or die('Restricted access');
 				return;
 			}
 
-			form.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo JText::_('EMLOAD'); ?></div></div>')
+			form.html('<div class="progress progress-striped active"><div class="bar" style="width: 100%;"><?php echo \Joomla\CMS\Language\Text::_('EMLOAD'); ?></div></div>')
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.getActionForm&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.getActionForm&tmpl=component', FALSE); ?>',
 				dataType: 'html',
 				type:     'POST',
 				data:     {
@@ -153,7 +153,7 @@ defined('_JEXEC') or die('Restricted access');
 
 		function delete_action(id) {
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.deleteAction&tmpl=component', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.deleteAction&tmpl=component', FALSE); ?>',
 				dataType: 'json',
 				type:     'POST',
 				data:     {id: id}

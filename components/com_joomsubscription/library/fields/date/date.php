@@ -15,13 +15,13 @@ class JoomsubscriptionFieldDate extends JoomsubscriptionField
 		$app = \Joomla\CMS\Factory::getApplication();
 		if(empty($this->default['cal']))
 		{
-			$this->setError(JText::_('EMR_NODATE'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_NODATE'));
 			return;
 		}
 
 		if(strtotime($this->default['cal']) < strtotime(date('Y-m-d')))
 		{
-			$this->setError(JText::_('EMR_BEFORE'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_BEFORE'));
 			return;
 		}
 

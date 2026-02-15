@@ -36,8 +36,8 @@ class JoomsubscriptionActionProlong extends JoomsubscriptionAction
 
 		if($field->prolongRecord(array(), $record, $subscription))
 		{
-			$url  = JRoute::_(Url::record($record));
-			$note = JText::sprintf('P_PROLONG_SUCCESS', Joomla\CMS\HTML\HTMLHelper::link($url, $record->title));
+			$url  = \Joomla\CMS\Router\Route::_(Url::record($record));
+			$note = \Joomla\CMS\Language\Text::sprintf('P_PROLONG_SUCCESS', Joomla\CMS\HTML\HTMLHelper::link($url, $record->title));
 			\Joomla\CMS\Factory::getApplication()->enqueueMessage($note);
 			\Joomla\CMS\Factory::getApplication()->redirect(JoomsubscriptionApi::getLink('emhistory', FALSE));
 		}
@@ -45,6 +45,6 @@ class JoomsubscriptionActionProlong extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::_('P_EXTENDRECORD');
+		return \Joomla\CMS\Language\Text::_('P_EXTENDRECORD');
 	}
 }

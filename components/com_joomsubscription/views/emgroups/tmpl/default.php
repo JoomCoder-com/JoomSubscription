@@ -58,7 +58,7 @@ if ($saveOrder)
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emgroups');?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emgroups');?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -98,7 +98,7 @@ if ($saveOrder)
                 <tr>
                     <td colspan="8">
                         <div class="float-end">
-					        <?php echo str_replace('<option value="0">'.JText::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
+					        <?php echo str_replace('<option value="0">'.\Joomla\CMS\Language\Text::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
                         </div>
                         <div style="pull-left">
                             <small>
@@ -134,7 +134,7 @@ if ($saveOrder)
 						        $disabledLabel	  = '';
 
 						        if (!$saveOrder) :
-							        $disabledLabel    = JText::_('JORDERINGDISABLED');
+							        $disabledLabel    = \Joomla\CMS\Language\Text::_('JORDERINGDISABLED');
 							        $disableClassName = 'inactive tip-top';
 						        endif; ?>
                                 <span class="sortable-handler <?php echo $disableClassName?>" title="<?php echo $disabledLabel?>" rel="tooltip">
@@ -153,8 +153,8 @@ if ($saveOrder)
 							        <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emgroups.', $canCheckin); ?>
 						        <?php endif; ?>
 
-                                <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emgroup.edit&id='.(int) $item->id);?>">
-							        <?php echo $this->escape(JText::_($item->name)); ?>
+                                <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emgroup.edit&id='.(int) $item->id);?>">
+							        <?php echo $this->escape(\Joomla\CMS\Language\Text::_($item->name)); ?>
                                 </a>
                             </div>
                         </td>

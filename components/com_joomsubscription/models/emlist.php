@@ -83,7 +83,7 @@ class JoomsubscriptionModelEmList extends MModelList
 	/*public function getAlert($id, $cross, $params)
 	{
 		$db = \Joomla\CMS\Factory::getDBO();
-		$params = new JRegistry($params);
+		$params = new \Joomla\Registry\Registry($params);
 		$method = $params->get('calculate_method');
 		$required = $params->get('required');
 		$plansAct = $this->getUserActivePlans();
@@ -129,7 +129,7 @@ class JoomsubscriptionModelEmList extends MModelList
 		$sql = "SELECT params FROM #__joomsubscription_plans WHERE id ='{$parent['sid']}'";
 		$this->_db->setQuery($sql);
 		$result = $this->_db->loadResult();
-		$params = new JRegistry($result);
+		$params = new \Joomla\Registry\Registry($result);
 		$plans = $params->get('plans_grant');
 		if($plans != '')
 		{
@@ -151,7 +151,7 @@ class JoomsubscriptionModelEmList extends MModelList
 		$sql = "SELECT params FROM #__joomsubscription_plans WHERE id = " . $res['sid'];
 		$db->setQuery($sql);
 		$params = $db->loadResult();
-		$params = new JRegistry($params);
+		$params = new \Joomla\Registry\Registry($params);
 		$plans = $params->get('plans_deactivate');
 		if(is_array($plans)) {
 			$plans = implode(', ', $plans);

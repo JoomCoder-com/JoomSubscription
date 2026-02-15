@@ -9,13 +9,13 @@
 defined('_JEXEC') or die();
 ?>
 <div class="page-header">
-	<h1><?php echo JText::_('EMR_MUA_TITLE'); ?></h1>
+	<h1><?php echo \Joomla\CMS\Language\Text::_('EMR_MUA_TITLE'); ?></h1>
 </div>
 
 <p>
 	<a class="btn btn-link" href="<?php echo JoomsubscriptionApi::getLink('emhistory'); ?>">
-		<img src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/back.png">
-		<?php echo JText::_('EMR_MUA_BAKTOHISTORY'); ?>
+		<img src="<?php echo \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/back.png">
+		<?php echo \Joomla\CMS\Language\Text::_('EMR_MUA_BAKTOHISTORY'); ?>
 	</a>
 </p>
 
@@ -26,11 +26,11 @@ defined('_JEXEC') or die();
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th width="1%"><?php echo JText::_('ID')?></th>
-			<th><?php echo JText::_('EUSER')?></th>
-			<th width="1%"><?php echo JText::_('EACTIVE')?></th>
-			<th nowrap width="1%"><?php echo JText::_('ESTARTON')?></th>
-			<th nowrap width="1%"><?php echo JText::_('EENDON')?></th>
+			<th width="1%"><?php echo \Joomla\CMS\Language\Text::_('ID')?></th>
+			<th><?php echo \Joomla\CMS\Language\Text::_('EUSER')?></th>
+			<th width="1%"><?php echo \Joomla\CMS\Language\Text::_('EACTIVE')?></th>
+			<th nowrap width="1%"><?php echo \Joomla\CMS\Language\Text::_('ESTARTON')?></th>
+			<th nowrap width="1%"><?php echo \Joomla\CMS\Language\Text::_('EENDON')?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -53,9 +53,9 @@ defined('_JEXEC') or die();
 				<td><?php echo $row->username; ?></td>
 				<td align="center">
 					<img align="absmiddle" border="0"
-						src="<?php echo JURI::root(true)?>/components/com_joomsubscription/images/<?php echo $img;?>"></td>
+						src="<?php echo \Joomla\CMS\Uri\Uri::root(true)?>/components/com_joomsubscription/images/<?php echo $img;?>"></td>
 				<td nowrap><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $row->ctime, $this->params->get('date_format')); ?></td>
-				<td nowrap><span class="<?php echo $class; ?>"><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $row->extime, JText::_('DATE_FORMAT_LC3'));?></span></td>
+				<td nowrap><span class="<?php echo $class; ?>"><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $row->extime, \Joomla\CMS\Language\Text::_('DATE_FORMAT_LC3'));?></span></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>

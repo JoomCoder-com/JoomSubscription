@@ -26,8 +26,8 @@ class JoomsubscriptionViewEmHistory extends MViewBase
 
 		foreach($items as &$item)
 		{
-			$item->params      = new JRegistry($item->params);
-			$item->plan_params = new JRegistry($item->plan_params);
+			$item->params      = new \Joomla\Registry\Registry($item->params);
+			$item->plan_params = new \Joomla\Registry\Registry($item->plan_params);
 			if($item->gateway == 'paypal' && $item->published == 1)
 			{
 				$recurring = $item->params->get('gateways.paypal.recurred');
@@ -100,7 +100,7 @@ class JoomsubscriptionViewEmHistory extends MViewBase
 		}
 
 		$this->items      = $render_items;
-		$this->params     = JComponentHelper::getParams('com_joomsubscription');
+		$this->params     = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$this->pagination = $model->getPagination();
 
 		$this->_prepareDocument();
@@ -112,10 +112,10 @@ class JoomsubscriptionViewEmHistory extends MViewBase
 		$app = \Joomla\CMS\Factory::getApplication();
 		$doc = \Joomla\CMS\Factory::getDocument();
 
-		$this->mparams = new JRegistry($app->getMenu()->getActive());
+		$this->mparams = new \Joomla\Registry\Registry($app->getMenu()->getActive());
 
 
-		$this->mparams->set('data.page_title', $this->mparams->get('data.page_title', JText::_('EMR_TITLEHISTROOY')));
+		$this->mparams->set('data.page_title', $this->mparams->get('data.page_title', \Joomla\CMS\Language\Text::_('EMR_TITLEHISTROOY')));
 		$doc->setTitle($this->mparams->get('data.page_title'));
 
 		//$pathway = $app->getPathway();

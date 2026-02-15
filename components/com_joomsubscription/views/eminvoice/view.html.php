@@ -27,11 +27,11 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 			return;
 		}
 
-		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
+		$joomsubscription_params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		$this->subscr = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$this->subscr->load($id);
-		$this->subscr->params = new JRegistry($this->subscr->params);
+		$this->subscr->params = new \Joomla\Registry\Registry($this->subscr->params);
 
 		if($this->subscr->user_id != $user->get('id') && !in_array($joomsubscription_params->get('moderate'), $user->getAuthorisedViewLevels()))
 		{
@@ -64,7 +64,7 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 				$this->subscr->invoice_num = JoomsubscriptionHelper::getInvoiceNum();
 			}
 			$this->subscr->store();
-			$app->redirect(JRoute::_("index.php?option=com_joomsubscription&view=eminvoice&tmpl=component&id=" . $this->subscr->id, FALSE));
+			$app->redirect(\Joomla\CMS\Router\Route::_("index.php?option=com_joomsubscription&view=eminvoice&tmpl=component&id=" . $this->subscr->id, FALSE));
 		}
 
 		$inv_model      = new JoomsubscriptionModelsEmInvoiceTo();
@@ -126,7 +126,7 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 			}
 		}
 
-		$this->params = JComponentHelper::getParams('com_joomsubscription');
+		$this->params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		$this->tax = JoomsubscriptionHelper::getTax($this->invoice->fields);
 	}

@@ -41,7 +41,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 		$app      = \Joomla\CMS\Factory::getApplication();
 /*		$document = \Joomla\CMS\Factory::getDocument();
 		$document->addStyleDeclaration('.tmpl_button{padding: 2px; font-size: 110%;}.tmpl_button img { padding: 0 2px 0 0; margin: 0px;}');
-		$document->addScript(JUri::base(TRUE) . '/components/com_cobalt/library/js/main.js');*/
+		$document->addScript(\Joomla\CMS\Uri\Uri::base(TRUE) . '/components/com_cobalt/library/js/main.js');*/
 
 		$tmpltype     = $this->element['tmpltype'];
 		$invite_label = $this->element['invite_label'];
@@ -51,7 +51,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 		$options = array();
 		if((string)$this->element['select'] == '1')
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('CSELECTTEMPLATE'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('CSELECTTEMPLATE'));
 		}
 
 		$options = array_merge($options, $this->getTmplObjectList($tmpltype));
@@ -60,9 +60,9 @@ class JFormFieldMersubtmpls extends JFormFieldList
 		$multi = $this->element['multi'] ? 'size="5" multiple="multiple"' : NULL;
 
 		$script     = "<script type='text/javascript'>
-			Cobalt.addTmplEditLink('{$tmpltype}', '{$this->id}', '" . $app->input->get('tmpl') . "', '" . JUri::root() . "');
+			Cobalt.addTmplEditLink('{$tmpltype}', '{$this->id}', '" . $app->input->get('tmpl') . "', '" . \Joomla\CMS\Uri\Uri::root() . "');
 		</script>";
-		$javascript = " onchange=\"Cobalt.addTmplEditLink('{$tmpltype}', '{$this->id}', '" . $app->input->get('tmpl') . "', '" . JUri::root() . "')\"";
+		$javascript = " onchange=\"Cobalt.addTmplEditLink('{$tmpltype}', '{$this->id}', '" . $app->input->get('tmpl') . "', '" . \Joomla\CMS\Uri\Uri::root() . "')\"";
 
 		if($noparams)
 		{

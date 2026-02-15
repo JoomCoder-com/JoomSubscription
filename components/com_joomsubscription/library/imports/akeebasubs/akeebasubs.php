@@ -169,7 +169,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('JOOMSUBSCRIPTION8_TABLES_NOTEXIST'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('JOOMSUBSCRIPTION8_TABLES_NOTEXIST'));
 
 			return FALSE;
 		}
@@ -177,7 +177,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('JOOMSUBSCRIPTION8_TABLE_PLAN_EMPTY'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('JOOMSUBSCRIPTION8_TABLE_PLAN_EMPTY'));
 
 			return FALSE;
 		}

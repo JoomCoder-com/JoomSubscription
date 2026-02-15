@@ -33,7 +33,7 @@ $userId    = $user->get('id');
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emsales'); ?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsales'); ?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -75,7 +75,7 @@ $userId    = $user->get('id');
 				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_SUBSCRIPTION', 'p.name', $listDirn, $listOrder); ?>
                             </th>
                             <th width="1%" nowrap>
-				                <?php echo JText::_('EUSER'); ?>
+				                <?php echo \Joomla\CMS\Language\Text::_('EUSER'); ?>
                             </th>
                             <th width="1%" class="nowrap">
 				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'EPUBLISHSTATE', 's.published', $listDirn, $listOrder); ?>
@@ -92,7 +92,7 @@ $userId    = $user->get('id');
                         <tr>
                             <td colspan="7">
                                 <div class="float-end">
-					                <?php echo str_replace('<option value="0">' . JText::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
+					                <?php echo str_replace('<option value="0">' . \Joomla\CMS\Language\Text::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
                                 </div>
                                 <div style="pull-left">
                                     <small>
@@ -125,27 +125,27 @@ $userId    = $user->get('id');
                                 <td>
                                     <div>
                                         <img class="btn btn-mini btn-link"
-                                             src="<?php echo JURI::root(true) ?>/components/com_joomsubscription/images/control.png"
+                                             src="<?php echo \Joomla\CMS\Uri\Uri::root(true) ?>/components/com_joomsubscription/images/control.png"
                                              alt="" data-toggle="collapse" data-target="#panel-<?php echo $item->id; ?>"/>
-                                        <img src="<?php echo JURI::root(true) ?>/components/com_joomsubscription/images/<?php echo $item->img; ?>"
-                                             rel="tooltip" data-original-title="<?php echo JText::_($item->state); ?>">
+                                        <img src="<?php echo \Joomla\CMS\Uri\Uri::root(true) ?>/components/com_joomsubscription/images/<?php echo $item->img; ?>"
+                                             rel="tooltip" data-original-title="<?php echo \Joomla\CMS\Language\Text::_($item->state); ?>">
 
 						                <?php if ($item->checked_out) : ?>
 							                <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emsales.', $canCheckin); ?>
 						                <?php endif; ?>
 
-                                        <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emsale.edit&id=' . (int) $item->id); ?>">
-							                <?php echo $this->escape(JText::_($item->name)); ?>
+                                        <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emsale.edit&id=' . (int) $item->id); ?>">
+							                <?php echo $this->escape(\Joomla\CMS\Language\Text::_($item->name)); ?>
                                         </a>
                                         <small>
-                                            [<?php echo JText::_($item->group_name); ?>]
+                                            [<?php echo \Joomla\CMS\Language\Text::_($item->group_name); ?>]
                                         </small>
                                     </div>
                                     <div id="panel-<?php echo $item->id; ?>" class="collapse fade info-panel">
                                         <br/>
                                         <table class="table table-bordereds table-condensed table-stripped">
                                             <tr>
-                                                <td><?php echo JText::_('EUSER'); ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_('EUSER'); ?></td>
                                                 <td>
 									                <?php echo $item->uname; ?> <small>(<?php echo $item->username; ?>)</small>
                                                     <br>
@@ -153,7 +153,7 @@ $userId    = $user->get('id');
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><?php echo JText::_('E_USER_ID'); ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_('E_USER_ID'); ?></td>
                                                 <td><?php echo $item->uid; ?></td>
                                             </tr>
                                             <tr>
@@ -161,26 +161,26 @@ $userId    = $user->get('id');
                                                 <td><?php echo $item->gateway_id; ?></td>
                                             </tr>
                                             <tr>
-                                                <td><?php echo JText::_('EGROUP'); ?></td>
-                                                <td><?php echo JText::_($item->group_name); ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_('EGROUP'); ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_($item->group_name); ?></td>
                                             </tr>
                                             <tr>
-                                                <td><?php echo JText::_('ELIMIT'); ?></td>
-                                                <td><?php echo ($item->access_limit > 0) ? '<span class="badge badge-warning">' . $item->access_limit . '</span>' : '<span class="label label-success">' . JText::_('ENOLIMITS') . '</span>'; ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_('ELIMIT'); ?></td>
+                                                <td><?php echo ($item->access_limit > 0) ? '<span class="badge badge-warning">' . $item->access_limit . '</span>' : '<span class="label label-success">' . \Joomla\CMS\Language\Text::_('ENOLIMITS') . '</span>'; ?></td>
                                             </tr>
 							                <?php if ($coupon = $item->coupon_info): ?>
                                                 <tr>
-                                                    <td><?php echo JText::_('E_COUPON'); ?></td>
+                                                    <td><?php echo \Joomla\CMS\Language\Text::_('E_COUPON'); ?></td>
                                                     <td><?php echo JoomsubscriptionApi::getPrice($coupon->discount, $item->plan_params, $item->params); ?>
                                                         <span class="label label-info"><?php echo $coupon->value; ?></span>
                                                         <a href="javascript:void(0)"
                                                            onclick="Joomsubscription.setAndSubmit('filter_search', 'cpn:<?php echo $coupon->id ?>')"><img
-                                                                    src="<?php echo JUri::root(true) ?>/components/com_joomsubscription/images/funnel.png"/></a>
+                                                                    src="<?php echo \Joomla\CMS\Uri\Uri::root(true) ?>/components/com_joomsubscription/images/funnel.png"/></a>
                                                     </td>
                                                 </tr>
 							                <?php endif; ?>
                                             <tr>
-                                                <td><?php echo JText::_('EUSED'); ?></td>
+                                                <td><?php echo \Joomla\CMS\Language\Text::_('EUSED'); ?></td>
                                                 <td>
 									<span class="badge <?php echo (($item->access_limit > 0) && ($item->access_count >= $item->access_limit)) ? 'badge-important' : 'badge-success'; ?>">
 										<?php echo $item->access_count; ?></span>
@@ -188,19 +188,19 @@ $userId    = $user->get('id');
                                             </tr>
 							                <?php if ($item->activated): ?>
                                                 <tr>
-                                                    <td><?php echo JText::_('X_PERIOD'); ?></td>
+                                                    <td><?php echo \Joomla\CMS\Language\Text::_('X_PERIOD'); ?></td>
                                                     <td><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $item->ctime, $this->params->get('date_format')); ?>
                                                         -
                                                         <span class="<?php echo $item->expired ? '' : ''; ?>">
-											<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? JText::_('E_NEVER') : Joomla\CMS\HTML\HTMLHelper::_('date', $item->extime, $this->params->get('date_format')); ?>
+											<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? \Joomla\CMS\Language\Text::_('E_NEVER') : Joomla\CMS\HTML\HTMLHelper::_('date', $item->extime, $this->params->get('date_format')); ?>
 										</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><?php echo JText::_('EDAYSLEFT'); ?></td>
+                                                    <td><?php echo \Joomla\CMS\Language\Text::_('EDAYSLEFT'); ?></td>
                                                     <td>
 										                <?php if ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00'): ?>
-											                <?php echo JText::_("ELIFETIME"); ?>
+											                <?php echo \Joomla\CMS\Language\Text::_("ELIFETIME"); ?>
 										                <?php else: ?>
                                                             <span class="badge <?php echo($item->days > 0 ? 'badge-success' : 'badge-warning'); ?>">
 												<?php echo $item->days; ?>
@@ -211,7 +211,7 @@ $userId    = $user->get('id');
 							                <?php endif; ?>
 							                <?php if ($item->comment): ?>
                                                 <tr>
-                                                    <td><?php echo JText::_('X_ADMINCOMMENT'); ?></td>
+                                                    <td><?php echo \Joomla\CMS\Language\Text::_('X_ADMINCOMMENT'); ?></td>
                                                     <td><?php echo $item->comment; ?></td>
                                                 </tr>
 							                <?php endif; ?>
@@ -230,15 +230,15 @@ $userId    = $user->get('id');
 
 						                <?php if ($item->gateway == 'offline' && $item->params->get('gateways.offline.billing', false) && !$item->activated): ?>
                                             <a href="javascript:void(0);" class="btn-small btn-primary"
-                                               onclick="window.open('<?php echo JRoute::_('index.php?option=com_joomsubscription&view=embill&tmpl=component&id=' . $item->sid) ?>', '<?php echo JText::_('E_BILL') ?>', 'scrollbars=1,width=1024,height=600');">
-								                <?php echo JText::_('E_BILL'); ?>
+                                               onclick="window.open('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=embill&tmpl=component&id=' . $item->sid) ?>', '<?php echo \Joomla\CMS\Language\Text::_('E_BILL') ?>', 'scrollbars=1,width=1024,height=600');">
+								                <?php echo \Joomla\CMS\Language\Text::_('E_BILL'); ?>
                                             </a>
 						                <?php endif; ?>
 
 						                <?php if ($this->params->get('use_invoice', 0) && $item->activated && $item->invoice_num && (float) $item->price): ?>
                                             <a href="javascript:void(0);" class="btn-small btn-primary"
-                                               onclick="window.open('<?php echo JRoute::_('index.php?option=com_joomsubscription&view=eminvoice&tmpl=component&id=' . $item->sid) ?>', '<?php echo JText::_('E_INVOICE') ?>', 'scrollbars=1,width=1024,height=600');">
-								                <?php echo JText::_('E_GET_INVOICE'); ?>
+                                               onclick="window.open('<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=eminvoice&tmpl=component&id=' . $item->sid) ?>', '<?php echo \Joomla\CMS\Language\Text::_('E_INVOICE') ?>', 'scrollbars=1,width=1024,height=600');">
+								                <?php echo \Joomla\CMS\Language\Text::_('E_GET_INVOICE'); ?>
                                             </a>
 						                <?php endif; ?>
                                     </div>
@@ -274,10 +274,10 @@ $userId    = $user->get('id');
     (function ($) {
         $('.info-panel')
             .on('shown', function () {
-                $('img[data-target="#' + $(this).attr('id') + '"]').attr('src', '<?php echo JURI::root(true) ?>/components/com_joomsubscription/images/control-270.png');
+                $('img[data-target="#' + $(this).attr('id') + '"]').attr('src', '<?php echo \Joomla\CMS\Uri\Uri::root(true) ?>/components/com_joomsubscription/images/control-270.png');
             })
             .on('hidden', function () {
-                $('img[data-target="#' + $(this).attr('id') + '"]').attr('src', '<?php echo JURI::root(true) ?>/components/com_joomsubscription/images/control.png');
+                $('img[data-target="#' + $(this).attr('id') + '"]').attr('src', '<?php echo \Joomla\CMS\Uri\Uri::root(true) ?>/components/com_joomsubscription/images/control.png');
             });
     }(jQuery))
 </script>

@@ -51,7 +51,7 @@ class JoomsubscriptionGatewaygoogleco extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('merchant'))
 		{
-			$this->setError(JText::_("GC_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("GC_NOT_ALL_SET"));
 
 			return FALSE;
 		}

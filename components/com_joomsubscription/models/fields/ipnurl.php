@@ -37,9 +37,9 @@ class JFormFieldIpnurl extends JFormFieldList
 
 		if(!$id)
 		{
-			return JText::_('EMR_SAVETOSEEURL');
+			return \Joomla\CMS\Language\Text::_('EMR_SAVETOSEEURL');
 		}
 
-		return sprintf('<input type="text" readonly value="%s" >', JRoute::_('index.php?option=com_joomsubscription&Itemid=1&task=plans.create&processor='.$this->element['processor'], TRUE, -1));
+		return sprintf('<input type="text" readonly value="%s" >', \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&Itemid=1&task=plans.create&processor='.$this->element['processor'], TRUE, -1));
 	}
 }

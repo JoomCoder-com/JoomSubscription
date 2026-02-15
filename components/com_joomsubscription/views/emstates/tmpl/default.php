@@ -19,7 +19,7 @@ $listDirn = $this->state->get('list.direction');
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emstates');?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emstates');?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -44,7 +44,7 @@ $listDirn = $this->state->get('list.direction');
                 <tr>
                     <th width="1%"><input type="checkbox" name="checkall-toggle" value="" onclick="Joomla.checkAll(this)" /></th>
                     <th width="1%" class="title" class="nowrap">
-				        <?php echo JText::_('ECOUNTRY'); ?>
+				        <?php echo \Joomla\CMS\Language\Text::_('ECOUNTRY'); ?>
                     </th>
                     <th width="1%" class="nowrap">
 				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ESTATE', 'st.state', $listDirn, $listOrder); ?>
@@ -61,7 +61,7 @@ $listDirn = $this->state->get('list.direction');
                 <tr>
                     <td colspan="8">
                         <div class="float-end">
-					        <?php echo str_replace('<option value="0">'.JText::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
+					        <?php echo str_replace('<option value="0">'.\Joomla\CMS\Language\Text::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
                         </div>
                         <div style="pull-left">
                             <small>
@@ -97,7 +97,7 @@ $listDirn = $this->state->get('list.direction');
                         </td>
                         <td nowrap="nowrap">
                             <div>
-                                <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emstate.edit&id='.(int) $item->id);?>">
+                                <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emstate.edit&id='.(int) $item->id);?>">
 							        <?php echo $item->label; ?>
                                 </a>
                             </div>

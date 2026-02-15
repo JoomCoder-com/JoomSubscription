@@ -21,13 +21,13 @@ $controller = $app->input->getCmd('view', 'emplan');
 	<?php //if(!$this->isCheckedOut()):?>
 	<?php //if(in_array($this->tmpl_params->get('tmpl_core.form_show_apply_button'), $this->user->getAuthorisedViewLevels())):?>
 	<button type="button" class="btn-submit btn btn-primary" onclick="Joomla.submitbutton('<?php echo $controller;?>.apply');">
-		<?php echo JText::_('EAPPLY'); ?>
+		<?php echo \Joomla\CMS\Language\Text::_('EAPPLY'); ?>
 	</button>
 	<?php //endif; ?>
 
 	<div class="btn-group m-0">
 		<button type="button" class="btn btn-outline-success" onclick="Joomla.submitbutton('<?php echo $controller;?>.save');">
-			<?php echo JText::_('ESAVE'); ?>
+			<?php echo \Joomla\CMS\Language\Text::_('ESAVE'); ?>
 		</button>
 		<button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 			<span class="visually-hidden">Toggle Dropdown</span>
@@ -35,13 +35,13 @@ $controller = $app->input->getCmd('view', 'emplan');
 		<ul class="dropdown-menu">
 			<li>
 				<a class="dropdown-item" href="javascript:void(0);" onclick="Joomla.submitbutton('<?php echo $controller;?>.save2new');">
-					<?php echo JText::_('ESAVE2NEW'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('ESAVE2NEW'); ?>
 				</a>
 			</li>
 			<?php if(\Joomla\CMS\Factory::getApplication()->input->getInt('id')): ?>
 				<li>
 					<a class="dropdown-item" href="javascript:void(0);" onclick="Joomla.submitbutton('<?php echo $controller;?>.save2copy');">
-						<?php echo JText::_('ESAVE2COPY'); ?>
+						<?php echo \Joomla\CMS\Language\Text::_('ESAVE2COPY'); ?>
 					</a>
 				</li>
 			<?php endif; ?>
@@ -60,7 +60,7 @@ $controller = $app->input->getCmd('view', 'emplan');
 
 	<?php //if(in_array($this->tmpl_params->get('tmpl_core.form_show_close_button'), $this->user->getAuthorisedViewLevels())):?>
 	<button type="button" class="btn-submit btn btn-outline-danger" onclick="Joomla.submitbutton('<?php echo $controller;?>.cancel');">
-		<?php echo JText::_('ECANCEL'); ?>
+		<?php echo \Joomla\CMS\Language\Text::_('ECANCEL'); ?>
 	</button>
 	<?php //endif; ?>
 </div>

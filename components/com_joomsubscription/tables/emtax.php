@@ -28,7 +28,7 @@ class JoomsubscriptionTableEmTax extends \Joomla\CMS\Table\Table
 			$result = $this->_db->loadResult();
 			if($result)
 			{
-				$this->setError(JText::_('E_TAX_EXISTS'));
+				$this->setError(\Joomla\CMS\Language\Text::_('E_TAX_EXISTS'));
 
 				return FALSE;
 			}

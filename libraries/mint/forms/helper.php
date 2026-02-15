@@ -76,7 +76,7 @@ class MFormHelper
 				$out[] = '<ul class="nav nav-tabs" id="' . str_replace('.', '_', $form->getName()) . '">';
 				foreach($groups as $group)
 				{
-					$out[] = '<li><a href="#' . $group . '" data-toggle="tab">' . JText::_('GROUP_' . strtoupper($group)) . '</a></li>';
+					$out[] = '<li><a href="#' . $group . '" data-toggle="tab">' . \Joomla\CMS\Language\Text::_('GROUP_' . strtoupper($group)) . '</a></li>';
 				}
 				$out[] = '</ul>';
 				$out[] = '<div class="tab-content">';
@@ -90,7 +90,7 @@ class MFormHelper
 				case self::GROUP_SEPARATOR_SLIDER:
 					$out[] = '<div class="accordion-group"><div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#' . str_replace('.', '_', $form->getName()) . '" href="#' . $group . '">
-						' . JText::_('GROUP_' . strtoupper($group)) . '</a></div><div id="' . $group . '" class="accordion-body collapse fade"><div class="accordion-inner">';
+						' . \Joomla\CMS\Language\Text::_('GROUP_' . strtoupper($group)) . '</a></div><div id="' . $group . '" class="accordion-body collapse fade"><div class="accordion-inner">';
 					break;
 				case self::GROUP_SEPARATOR_TAB:
 					$out[] = sprintf(' <div class="tab-pane" id="%s">', $group);
@@ -187,7 +187,7 @@ class MFormHelper
 
 		if(is_array($defaults))
 		{
-			$registry = new JRegistry();
+			$registry = new \Joomla\Registry\Registry();
 			$registry->loadArray($defaults);
 			$defaults = $registry;
 		}
@@ -235,11 +235,11 @@ class MFormHelper
 			}
 		}
 
-		$block = sprintf($tmpl[$row_tmpl], JText::_($fieldset->label), implode("\n", $row));
+		$block = sprintf($tmpl[$row_tmpl], \Joomla\CMS\Language\Text::_($fieldset->label), implode("\n", $row));
 
 		$out = sprintf($tmpl['separator' . $separator],
-			JText::_($fieldset->label),
-			(!empty($fieldset->description) ? sprintf($tmpl['description'], JText::_($fieldset->description)) : NULL),
+			\Joomla\CMS\Language\Text::_($fieldset->label),
+			(!empty($fieldset->description) ? sprintf($tmpl['description'], \Joomla\CMS\Language\Text::_($fieldset->description)) : NULL),
 			$block
 		);
 
@@ -264,7 +264,7 @@ class MFormHelper
 		}*/
 
 		$label = sprintf($tmpl['label'],
-			$field->id, $field->id, $class, htmlspecialchars(JText::_($field->description), ENT_COMPAT, 'UTF-8'), str_replace('*', '*', strip_tags($field->label))
+			$field->id, $field->id, $class, htmlspecialchars(\Joomla\CMS\Language\Text::_($field->description), ENT_COMPAT, 'UTF-8'), str_replace('*', '*', strip_tags($field->label))
 		);
 
 		return $label;
@@ -311,7 +311,7 @@ class MFormHelper
 
 	private static function _get_templates()
 	{
-		$params = JComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams(\Joomla\CMS\Factory::getApplication()->input->get('option'));
 		$prefix = $params->get('tmpl_prefix', 'default');
 		if(!empty(self::$templates[$prefix]))
 		{

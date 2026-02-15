@@ -21,14 +21,14 @@ echo $this->menu->render(null);
     <?php if(count($this->usersubs)): ?>
     <div class="input-append float-end">
     	<a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emhistory'); ?>">
-    		<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png" />
-    		<?php echo JText::_('EMP_CHECKHISTORY'); ?>
+    		<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png" />
+    		<?php echo \Joomla\CMS\Language\Text::_('EMP_CHECKHISTORY'); ?>
     	</a>
     </div>
     <?php endif; ?>  
 	<h1>
-        <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/purchase.png" />
-		<?php echo JText::_('EM_NEWPURCHASE') ?>
+        <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/purchase.png" />
+		<?php echo \Joomla\CMS\Language\Text::_('EM_NEWPURCHASE') ?>
         <?php //echo $this->mparams->get('page_heading'); ?>
     </h1>
 </div>

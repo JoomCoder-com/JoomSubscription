@@ -23,7 +23,7 @@ class JoomsubscriptionTableEmSubscription extends \Joomla\CMS\Table\Table
 		{
 			$db = \Joomla\CMS\Factory::getDbo();
 			$db->setQuery("SELECT params FROM #__joomsubscription_plans WHERE id = ".$this->plan_id);
-			$params = new JRegistry($db->loadResult());
+			$params = new \Joomla\Registry\Registry($db->loadResult());
 
 			$this->params = json_encode(array('properties' => array(
 				'currency' => $params->get('properties.currency', 'USD'),

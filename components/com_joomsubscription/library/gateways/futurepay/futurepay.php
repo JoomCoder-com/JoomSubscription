@@ -49,7 +49,7 @@ class JoomsubscriptionGatewayFuturePay extends JoomsubscriptionGateway
 
 		if(!$this->params->get('installID'))
 		{
-			$this->setError(JText::_("WP_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("WP_NOT_ALL_SET"));
 
 			return FALSE;
 		}

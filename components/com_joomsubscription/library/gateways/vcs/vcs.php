@@ -12,7 +12,7 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 
 		if($post->get('pam') != $this->params->get('pam'))
 		{
-			$this->setError(JText::_('VCS_PAM_FAIL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('VCS_PAM_FAIL'));
 			$this->log('Pam filed', $this->params->get('pam'));
 
 			return FALSE;
@@ -54,7 +54,7 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 
 		if(!$this->params->get('p1'))
 		{
-			$this->setError(JText::_('VCS_NO_TRANS'));
+			$this->setError(\Joomla\CMS\Language\Text::_('VCS_NO_TRANS'));
 
 			return FALSE;
 		}
@@ -92,7 +92,7 @@ class JoomsubscriptionGatewayVcs extends JoomsubscriptionGateway
 		$post_variables['DeclinedUrl']  = $this->_get_return_url($subscription->id);
 
 		$url = "https://www.vcs.co.za/vvonline/vcspay.aspx";
-		$c = JText::_('VCS_WIT_TRANS');
+		$c = \Joomla\CMS\Language\Text::_('VCS_WIT_TRANS');
 		$c .= '<form action="' . $url . '" method="post" name="vcsform" id="vcsform">';
 		foreach($post_variables as $name => $value)
 		{

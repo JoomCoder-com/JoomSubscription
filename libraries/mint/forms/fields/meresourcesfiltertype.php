@@ -24,7 +24,7 @@ class JFormFieldMeresourcesfiltertype extends JFormMEFieldList
 		$options = array();
 		if ($this->element['select'] == 1)
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('Selet Filter Type'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('Selet Filter Type'));
 		}
 		foreach ($sections as $type)
 		{

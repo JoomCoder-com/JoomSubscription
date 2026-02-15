@@ -89,7 +89,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 	public function popup($total, $name, $table, $plan)
 	{
 		$app = \Joomla\CMS\Factory::getApplication();
-		$url = JUri::getInstance();
+		$url = \Joomla\CMS\Uri\Uri::getInstance();
 		$url->setVar('validation', '1');
 
 		$app->redirect($url);
@@ -113,7 +113,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 		{
 			if(!$plan->days_type || !$plan->days)
 			{
-				JError::raiseWarning(100, JText::_('SP_PLAN_RECURR_NO_SUPPORT'));
+				JError::raiseWarning(100, \Joomla\CMS\Language\Text::_('SP_PLAN_RECURR_NO_SUPPORT'));
 
 				return;
 			}
@@ -192,7 +192,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 			JoomsubscriptionHelper::activateSubscription($subscription, $plan);
 			$subscription->store();
 
-			$app->enqueueMessage(JText::_('SP_SUCCESS_PAYMENT'));
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('SP_SUCCESS_PAYMENT'));
 			$app->redirect(JoomsubscriptionApi::getLink('emhistory', FALSE));
 		}
 		elseif($error)
@@ -202,7 +202,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 		}
 		else
 		{
-			$app->enqueueMessage(JText::_('SP_FAIL_PAYMENT'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('SP_FAIL_PAYMENT'), 'warning');
 
 			if(@$charge->failure_message)
 			{

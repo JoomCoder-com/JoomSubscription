@@ -39,7 +39,7 @@ class JoomsubscriptionHelper
 		}
 
 		$db             = \Joomla\CMS\Factory::getDbo();
-		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
+		$joomsubscription_params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		if($joomsubscription_params->get('use_invoice', 0) && $subscription->price > 0 && $subscription->invoice_id && !$subscription->invoice_num)
 		{
@@ -101,7 +101,7 @@ class JoomsubscriptionHelper
 			$suser = \Joomla\CMS\Factory::getUser($subscription->user_id);
 			if(
 				$subscription->published == 1  &&
-				JComponentHelper::getParams('com_joomsubscription')->get('activate') &&
+				\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('activate') &&
 				$suser->get('block') == 1 &&
 				(int)$subscription->price > 0
 			)
@@ -134,7 +134,7 @@ class JoomsubscriptionHelper
 	{
 		$date = new JDate($date);
 
-		return $date->format($format ? $format : JComponentHelper::getParams('com_joomsubscription')->get('date_format'));
+		return $date->format($format ? $format : \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('date_format'));
 	}
 
 	public static function getValues($val, $toint = FALSE)
@@ -173,7 +173,7 @@ class JoomsubscriptionHelper
 
 		if(!is_object($plan->params))
 		{
-			$plan->params = new JRegistry($plan->params);
+			$plan->params = new \Joomla\Registry\Registry($plan->params);
 		}
 
 		if($plan->params->get('properties.redirect') && $success)
@@ -192,7 +192,7 @@ class JoomsubscriptionHelper
 			$url = str_replace(' ', '+', $url);
 			$url = base64_decode($url);
 
-			if(JUri::isInternal($url))
+			if(\Joomla\CMS\Uri\Uri::isInternal($url))
 			{
 				$redirect = $url;
 			}
@@ -225,7 +225,7 @@ class JoomsubscriptionHelper
 		{
 			$user = \Joomla\CMS\Factory::getUser($user);
 		}
-		$moderate = JComponentHelper::getParams('com_joomsubscription')->get('moderate');
+		$moderate = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('moderate');
 
 		return in_array($moderate, $user->getAuthorisedViewLevels());
 	}
@@ -560,7 +560,7 @@ class JoomsubscriptionHelper
 		foreach($items as $k => $plan)
 		{
 
-			$param        = (is_object($plan->params) ? $plan->params : new JRegistry($plan->params));
+			$param        = (is_object($plan->params) ? $plan->params : new \Joomla\Registry\Registry($plan->params));
 			$plan->params = $param;
 
 			if(self::_isHidden($plan))
@@ -573,7 +573,7 @@ class JoomsubscriptionHelper
 			$plan->user_left = 0;
 			$plan->discount  = 0;
 			$plan->grant     = array();
-			$plan->name      = JText::_($plan->name);
+			$plan->name      = \Joomla\CMS\Language\Text::_($plan->name);
 
 			$plan->require_one_of = array();
 			$plan->require_all_of = array();
@@ -678,7 +678,7 @@ class JoomsubscriptionHelper
 
 			$out[$plan->gid][] = $plan;
 
-			$gparams                           = new JRegistry(@$plan->cparams);
+			$gparams                           = new \Joomla\Registry\Registry(@$plan->cparams);
 			$groups[$plan->gid]['description'] = Joomla\CMS\HTML\HTMLHelper::_('content.prepare', Mint::_(@$plan->cdescr));
 			$groups[$plan->gid]['name']        = @$plan->cname;
 			$groups[$plan->gid]['image']       = @$plan->gimage;
@@ -695,7 +695,7 @@ class JoomsubscriptionHelper
 
 		if(!is_object($plan->params))
 		{
-			$plan->params = new JRegistry($plan->params);
+			$plan->params = new \Joomla\Registry\Registry($plan->params);
 		}
 
 		$plan->days         = 0;
@@ -705,7 +705,7 @@ class JoomsubscriptionHelper
 
 		if($plan->params->get('properties.date_fixed'))
 		{
-			$plan->period = JText::_('XML_OPT_PERIOD' . $plan->params->get('properties.date_fixed'));
+			$plan->period = \Joomla\CMS\Language\Text::_('XML_OPT_PERIOD' . $plan->params->get('properties.date_fixed'));
 		}
 		elseif($plan->params->get('properties.date_from') && $plan->params->get('properties.date_to'))
 		{
@@ -713,7 +713,7 @@ class JoomsubscriptionHelper
 		}
 		elseif($plan->params->get('properties.date_to'))
 		{
-			$plan->period = JText::sprintf('EMR_PERIOD_DATETO', JoomsubscriptionHelper::getFormattedDate($plan->params->get('properties.date_to')));
+			$plan->period = \Joomla\CMS\Language\Text::sprintf('EMR_PERIOD_DATETO', JoomsubscriptionHelper::getFormattedDate($plan->params->get('properties.date_to')));
 		}
 		else
 		{
@@ -722,11 +722,11 @@ class JoomsubscriptionHelper
 
 			if($plan->days >= 100 && $plan->days_type == 'years')
 			{
-				$plan->period = JText::_('XML_OPT_PERIOD1');
+				$plan->period = \Joomla\CMS\Language\Text::_('XML_OPT_PERIOD1');
 			}
 			else
 			{
-				$plan->period = $plan->days . ' ' . JText::plural($plan->days_type, $plan->days);
+				$plan->period = $plan->days . ' ' . \Joomla\CMS\Language\Text::plural($plan->days_type, $plan->days);
 			}
 		}
 
@@ -737,7 +737,7 @@ class JoomsubscriptionHelper
 			$grants = JoomsubscriptionApi::getPlans($plan->params->get('crossplans.grant_plans'));
 			foreach($grants AS $grant)
 			{
-				$plan->grant[] = JText::_($grant->name);
+				$plan->grant[] = \Joomla\CMS\Language\Text::_($grant->name);
 			}
 		}
 
@@ -821,7 +821,7 @@ class JoomsubscriptionHelper
 						$pricees = array();
 						foreach($list AS $crossplan)
 						{
-							$cp_params = new JRegistry($crossplan);
+							$cp_params = new \Joomla\Registry\Registry($crossplan);
 							$pricees[] = $cp_params->get('properties.price');
 						}
 						sort($pricees, SORT_NUMERIC);
@@ -832,7 +832,7 @@ class JoomsubscriptionHelper
 					case 'and':
 						foreach($list AS $crossplan)
 						{
-							$cp_params = new JRegistry($crossplan);
+							$cp_params = new \Joomla\Registry\Registry($crossplan);
 							$subtract += $cp_params->get('properties.price');
 						}
 						break;
@@ -923,7 +923,7 @@ class JoomsubscriptionHelper
 
 		/*******************************/
 
-		$plan->cname = JText::_(@$plan->cname);
+		$plan->cname = \Joomla\CMS\Language\Text::_(@$plan->cname);
 
 		$plan->terms = '';
 		if($plan->params->get('properties.terms'))
@@ -981,7 +981,7 @@ class JoomsubscriptionHelper
 
 			foreach($list AS $plan_id => $params)
 			{
-				$params = new JRegistry($params);
+				$params = new \Joomla\Registry\Registry($params);
 				if(!$params->get('crossplans.plans_hide'))
 				{
 					continue;
@@ -1030,7 +1030,7 @@ class JoomsubscriptionHelper
 		{
 			case 'expire':
 				$body    = Mint::_($plan->params->get('alerts.msg_expiration', 'GENERAL_ALERT_EXPIRE'));
-				$subject = JText::sprintf($plan->params->get('alerts.msg_expiration_sbj'), $day);
+				$subject = \Joomla\CMS\Language\Text::sprintf($plan->params->get('alerts.msg_expiration_sbj'), $day);
 				break;
 			case 'success':
 				if(!$plan->params->get('alerts.alert_enable_success', FALSE))
@@ -1038,7 +1038,7 @@ class JoomsubscriptionHelper
 					return;
 				}
 				$body    = Mint::_($plan->params->get('alerts.msg_successful', 'GENERAL_ALERT_SUCCESS'));
-				$subject = JText::sprintf($plan->params->get('alerts.msg_successful_sbj'), $day);
+				$subject = \Joomla\CMS\Language\Text::sprintf($plan->params->get('alerts.msg_successful_sbj'), $day);
 				break;
 			case 'fail':
 				if(!$plan->params->get('alerts.alert_enable_fail', FALSE))
@@ -1046,7 +1046,7 @@ class JoomsubscriptionHelper
 					return;
 				}
 				$body    = Mint::_($plan->params->get('alerts.msg_fail', 'GENERAL_ALERT_FAIL'));
-				$subject = JText::sprintf($plan->params->get('alerts.msg_fail_sbj'), $day);
+				$subject = \Joomla\CMS\Language\Text::sprintf($plan->params->get('alerts.msg_fail_sbj'), $day);
 				break;
 			case 'cancel':
 				if(!$plan->params->get('alerts.alert_enable_cancel', FALSE))
@@ -1054,7 +1054,7 @@ class JoomsubscriptionHelper
 					return;
 				}
 				$body    = Mint::_($plan->params->get('alerts.msg_cancel', 'GENERAL_ALERT_DEACTIVATE'));
-				$subject = JText::sprintf($plan->params->get('alerts.msg_cancel_sbj'), $day);
+				$subject = \Joomla\CMS\Language\Text::sprintf($plan->params->get('alerts.msg_cancel_sbj'), $day);
 				break;
 
 		}
@@ -1090,7 +1090,7 @@ class JoomsubscriptionHelper
 
 	private static function _prepareText($body, $subscription, $plan, $day = 0)
 	{
-		$params = JComponentHelper::getParams('com_joomsubscription');
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		$body = str_ireplace('[USER]', str_replace("\n", ' ', \Joomla\CMS\Factory::getUser($subscription->user_id)->name), $body);
 		$body = str_ireplace('[LOGINNAME]', str_replace("\n", ' ', \Joomla\CMS\Factory::getUser($subscription->user_id)->username), $body);
@@ -1241,7 +1241,7 @@ class JoomsubscriptionHelper
 		$document = \Joomla\CMS\Factory::getDocument();
 		if(!\Joomla\CMS\Factory::getApplication()->isClient('administrator'))
 		{
-			$document->addScript(JRoute::_('index.php?option=com_joomsubscription&task=emajax.mainJS&Itemid=1'));
+			$document->addScript(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.mainJS&Itemid=1'));
 		}
 	}
 
@@ -1266,7 +1266,7 @@ class JoomsubscriptionHelper
 	static public function getTax($invoice)
 	{
 
-		$params = JComponentHelper::getParams('com_joomsubscription');
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$app    = \Joomla\CMS\Factory::getApplication();
 		$out    = array(
 			'name'    => '',
@@ -1280,7 +1280,7 @@ class JoomsubscriptionHelper
 
 		if(!$params->get('tax_id'))
 		{
-			$app->enqueueMessage(JText::_('E_NO_TAX_ID'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('E_NO_TAX_ID'), 'warning');
 
 			return $out;
 		}

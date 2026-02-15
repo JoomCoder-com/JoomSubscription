@@ -25,13 +25,13 @@ class JoomsubscriptionGatewayPaysera extends JoomsubscriptionGateway
 		echo 'OK';
 
 		if ($response['test'] !== '0') {
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Paysera: Testing, real payment was not made', $response);
 
 			return FALSE;
 		}
 		if ($response['type'] !== 'macro') {
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Paysera: Only macro payment callbacks are accepted', $response);
 
 			return FALSE;
@@ -73,7 +73,7 @@ class JoomsubscriptionGatewayPaysera extends JoomsubscriptionGateway
 
 			WebToPay::redirectToPayment($param);
 		} catch (WebToPayException $e) {
-			$this->setError(JText::_("PS_ERROR") . ': ' . $e->getMessage());
+			$this->setError(\Joomla\CMS\Language\Text::_("PS_ERROR") . ': ' . $e->getMessage());
 			return FALSE;
 		}
 	}

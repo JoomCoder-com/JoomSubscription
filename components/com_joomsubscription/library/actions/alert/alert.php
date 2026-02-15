@@ -66,7 +66,7 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::sprintf('X_ALERT_DESCR', $this->params->get('email'));
+		return \Joomla\CMS\Language\Text::sprintf('X_ALERT_DESCR', $this->params->get('email'));
 	}
 
 	private function _prepare($text, $subscr, $plan)

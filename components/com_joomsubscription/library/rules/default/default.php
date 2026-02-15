@@ -14,16 +14,16 @@ class JoomsubscriptionRuleDefault extends JoomsubscriptionRule
 
 	public function getDescription()
 	{
-		$out = JText::_('EMR_UNIVERSAL') . ' ';
+		$out = \Joomla\CMS\Language\Text::_('EMR_UNIVERSAL') . ' ';
 
 		if($this->params->get('var1'))
 		{
-			$out .= JText::sprintf('EMR_PARAMS', $this->params->get('var1'), $this->params->get('cond1'), $this->params->get('val1', JText::_('ENR_ANYTHING')));
+			$out .= \Joomla\CMS\Language\Text::sprintf('EMR_PARAMS', $this->params->get('var1'), $this->params->get('cond1'), $this->params->get('val1', \Joomla\CMS\Language\Text::_('ENR_ANYTHING')));
 		}
 
 		if($this->params->get('var2'))
 		{
-			$out .= ' ' . JText::_('AND') . ' ' . JText::sprintf('EMR_PARAMS', $this->params->get('var2'), $this->params->get('cond2'), $this->params->get('val2', JText::_('ENR_ANYTHING')));
+			$out .= ' ' . \Joomla\CMS\Language\Text::_('AND') . ' ' . \Joomla\CMS\Language\Text::sprintf('EMR_PARAMS', $this->params->get('var2'), $this->params->get('cond2'), $this->params->get('val2', \Joomla\CMS\Language\Text::_('ENR_ANYTHING')));
 		}
 
 		return $out;

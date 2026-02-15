@@ -37,7 +37,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::_('EMR_COUPON_ALREADYUSED'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_ALREADYUSED'));
 				}
 
 				return new stdClass();
@@ -49,7 +49,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::_('EMR_COUPON_MUAROOTNOTFOUND'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_MUAROOTNOTFOUND'));
 				}
 
 				return new stdClass();
@@ -59,7 +59,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::sprintf('EM_PARENTSUBSCR_EXPIRED', '<span class="label label-success">' . $value . '</span>'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::sprintf('EM_PARENTSUBSCR_EXPIRED', '<span class="label label-success">' . $value . '</span>'));
 				}
 
 				return new stdClass();
@@ -69,7 +69,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::sprintf('EM_PARENTSUBSCR_NOTTHATPLAN', '<span class="label label-success">' . $value . '</span>'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::sprintf('EM_PARENTSUBSCR_NOTTHATPLAN', '<span class="label label-success">' . $value . '</span>'));
 				}
 
 				return new stdClass();
@@ -80,20 +80,20 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::sprintf('EM_PARENTSUBSCR_NOTVALID', '<span class="label label-success">' . $value . '</span>'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::sprintf('EM_PARENTSUBSCR_NOTVALID', '<span class="label label-success">' . $value . '</span>'));
 				}
 
 				return new stdClass();
 			}
 
-			$mua_params = new JRegistry($result->params);
+			$mua_params = new \Joomla\Registry\Registry($result->params);
 			$mua_model  = MModelBase::getInstance('EmMua', 'JoomsubscriptionModel');
 			$mua_subscr = $mua_model->getSubscrMUA($mua[1]);
 			if(count($mua_subscr) >= $mua_params->get('properties.muaccess'))
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::sprintf('EMR_COUPON_MUACANNOTAPPLY'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::sprintf('EMR_COUPON_MUACANNOTAPPLY'));
 				}
 
 				return new stdClass();
@@ -124,7 +124,7 @@ class JoomsubscriptionHelperCoupon
 		{
 			if($msg)
 			{
-				JError::raiseNotice(100, JText::_('EMR_COUPON_NOTFOUND'));
+				JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_NOTFOUND'));
 			}
 
 			return new stdClass();
@@ -134,7 +134,7 @@ class JoomsubscriptionHelperCoupon
 		{
 			if($msg)
 			{
-				JError::raiseNotice(100, JText::_('EMR_COUPON_USEOUT'));
+				JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_USEOUT'));
 			}
 
 			return new stdClass();
@@ -144,7 +144,7 @@ class JoomsubscriptionHelperCoupon
 		{
 			if($msg)
 			{
-				JError::raiseNotice(100, JText::_('EMR_COUPON_USEOUT'));
+				JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_USEOUT'));
 			}
 
 			return new stdClass();
@@ -154,7 +154,7 @@ class JoomsubscriptionHelperCoupon
 		{
 			if($msg)
 			{
-				JError::raiseNotice(100, JText::_('EMR_COUPON_EXPIRED'));
+				JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_EXPIRED'));
 			}
 
 			return new stdClass();
@@ -168,7 +168,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::_('EMR_COUPON_NOTALLOWED'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_NOTALLOWED'));
 				}
 
 				return new stdClass();
@@ -185,7 +185,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::_('EMR_COUPON_NOTVALID'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_NOTVALID'));
 				}
 
 				return new stdClass();
@@ -203,7 +203,7 @@ class JoomsubscriptionHelperCoupon
 			{
 				if($msg)
 				{
-					JError::raiseNotice(100, JText::_('EMR_COUPON_YOUUSED'));
+					JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_COUPON_YOUUSED'));
 				}
 
 				return new stdClass();

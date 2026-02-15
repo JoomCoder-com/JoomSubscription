@@ -22,7 +22,7 @@ class JFormFieldMECaptcha extends JFormFieldText
 
 	protected function getInput()
 	{
-		$conf = JComponentHelper::getParams('com_cobalt');
+		$conf = \Joomla\CMS\Component\ComponentHelper::getParams('com_cobalt');
 		
 		$lang = \Joomla\CMS\Factory::getLanguage()->getLocale();
 		

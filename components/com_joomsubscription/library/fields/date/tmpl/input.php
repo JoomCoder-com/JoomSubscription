@@ -29,7 +29,7 @@ sort($days);
 					<?php endforeach; ?>
 				</select>
 				<button class="btn btn-primary" type="button"
-						id="dateapplybutton"><?php echo JText::_('EMR_APPLY'); ?></button>
+						id="dateapplybutton"><?php echo \Joomla\CMS\Language\Text::_('EMR_APPLY'); ?></button>
 			</div>
 		</td>
 	</tr>

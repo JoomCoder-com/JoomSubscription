@@ -8,12 +8,12 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 ?>
 <br/>
 <div class="container-fluid">
-	<form action="<?php echo JUri::getInstance()->toString(); ?>" method="post">
+	<form action="<?php echo \Joomla\CMS\Uri\Uri::getInstance()->toString(); ?>" method="post">
 		<div class="row">
 			<?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->input->get('invoice')); ?>
 		</div>
 		<div id="invoice_data" class="hide"></div>
-		<button type="submit" class="btn btn-primary btn-large" id="apply-btn"><?php echo JText::_('EAPPLY'); ?></button>
+		<button type="submit" class="btn btn-primary btn-large" id="apply-btn"><?php echo \Joomla\CMS\Language\Text::_('EAPPLY'); ?></button>
 		<input type="hidden" name="add_address" value="1">
 	</form>
 </div>
@@ -44,7 +44,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 		function loadText(value) {
 			$.ajax({
-				url: '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=empayment.getinvoicetext', FALSE); ?>',
+				url: '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=empayment.getinvoicetext', FALSE); ?>',
 				type: 'GET',
 				dataType: 'html',
 				data: {id: value}
@@ -56,7 +56,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 		function loadForm() {
 			$.ajax({
-				url: '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=empayment.getinvoiceform', FALSE); ?>',
+				url: '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=empayment.getinvoiceform', FALSE); ?>',
 				dataType: 'html'
 			}).done(function(html){
 					inv_dat.html(html).slideDown('fast');

@@ -24,7 +24,7 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 
 		if(empty($sorted))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMR_CHART_NODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMR_CHART_NODATA'));
 		}
 
 		for($i = 0; $i < 30; $i++)
@@ -60,7 +60,7 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 
 		if(empty($sorted))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMR_CHART_NODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMR_CHART_NODATA'));
 		}
 
 		for($i = 0; $i < 30; $i++)
@@ -90,7 +90,7 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 
 		if(empty($data))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMR_CHART_NODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMR_CHART_NODATA'));
 		}
 
 		$out = array();
@@ -99,8 +99,8 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 		{
 			@$out['groups']['list'][$s->gid]['plans'][$s->plan_id]['sum'] += $s->price;
 			@$out['groups']['list'][$s->gid]['plans'][$s->plan_id]['count']++;
-			@$out['groups']['list'][$s->gid]['plans'][$s->plan_id]['name'] = JText::_($s->plan_name);
-			@$out['groups']['list'][$s->gid]['name'] = JText::_($s->group_name);
+			@$out['groups']['list'][$s->gid]['plans'][$s->plan_id]['name'] = \Joomla\CMS\Language\Text::_($s->plan_name);
+			@$out['groups']['list'][$s->gid]['name'] = \Joomla\CMS\Language\Text::_($s->group_name);
 			@$out['groups']['list'][$s->gid]['sum'] += $s->price;
 			@$out['groups']['list'][$s->gid]['count']++;
 			@$out['groups']['sum'] += $s->price;
@@ -128,7 +128,7 @@ class JoomsubscriptionControllerEmCharts extends MControllerForm
 
 		if(empty($list))
 		{
-			JoomsubscriptionAjaxHelper::error(JText::_('EMR_CHART_NODATA'));
+			JoomsubscriptionAjaxHelper::error(\Joomla\CMS\Language\Text::_('EMR_CHART_NODATA'));
 		}
 
 		$sales = $sorted = array();

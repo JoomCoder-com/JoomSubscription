@@ -101,10 +101,10 @@ class JoomsubscriptionApi
 		}
 
 		$app     = \Joomla\CMS\Factory::getApplication();
-		$uri     = JUri::getInstance();
+		$uri     = \Joomla\CMS\Uri\Uri::getInstance();
 		$url     = $url ? $url : $uri->toString();
 		$user_id = $user_id ? $user_id : \Joomla\CMS\Factory::getUser()->get('id');
-		$params  = JComponentHelper::getParams('com_joomsubscription');
+		$params  = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$itemid  = $params->get('iid_list', $app->input->getInt('Itemid'));
 
 		if(!$user_id)
@@ -112,7 +112,7 @@ class JoomsubscriptionApi
 			if($redirect)
 			{
 				\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', $url);
-				JError::raiseWarning(403, JText::_($msg));
+				JError::raiseWarning(403, \Joomla\CMS\Language\Text::_($msg));
 				$return = urlencode(base64_encode($url));
 				$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE, $plans));
 			}
@@ -129,7 +129,7 @@ class JoomsubscriptionApi
 			{
 				if($msg)
 				{
-					JError::raiseWarning(403, JText::_($msg));
+					JError::raiseWarning(403, \Joomla\CMS\Language\Text::_($msg));
 				}
 				\Joomla\CMS\Factory::getSession()->set('joomsubscription_access_url', $url);
 				$re = JoomsubscriptionApi::getLink('emlist', FALSE, $plans);
@@ -174,7 +174,7 @@ class JoomsubscriptionApi
 	 */
 	public static function applyCount($user_subscr_id, $url = NULL, $note = '')
 	{
-		$url = ($url ? $url : JUri::getInstance()->toString());
+		$url = ($url ? $url : \Joomla\CMS\Uri\Uri::getInstance()->toString());
 		$db  = \Joomla\CMS\Factory::getDbo();
 
 		include_once JPATH_ROOT . '/components/com_joomsubscription/tables/emsubscription.php';
@@ -227,7 +227,7 @@ class JoomsubscriptionApi
 		// This plan is not allowed for this user.
 		if(empty($plan->id))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_PLANNOTALLOWED'), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_PLANNOTALLOWED'), 'notice');
 
 			return FALSE;
 		}
@@ -286,7 +286,7 @@ class JoomsubscriptionApi
 
 	public static function getPrice($price, $params, $p = NULL)
 	{
-		$cnf = JComponentHelper::getParams('com_joomsubscription');
+		$cnf = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$cur = $params->get('properties.currency', 'USD');
 		$lay = $params->get('properties.layout_price', '00Sign');
 
@@ -349,7 +349,7 @@ class JoomsubscriptionApi
 		}
 
 		$url = 'index.php?option=com_joomsubscription&view=' . $type;
-		$iid = JComponentHelper::getParams('com_joomsubscription')->get('iid_' . str_replace('em', '', $type),
+		$iid = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('iid_' . str_replace('em', '', $type),
 			\Joomla\CMS\Factory::getApplication()->input->getInt('Itemid'));
 		$url .= '&Itemid=' . $iid;
 
@@ -366,11 +366,11 @@ class JoomsubscriptionApi
 			$url .= '&sid=' . $sid;
 		}
 
-		$url = JRoute::_($url, $rout, $full ? -1 : 0);
+		$url = \Joomla\CMS\Router\Route::_($url, $rout, $full ? -1 : 0);
 
 		if($full)
 		{
-			$scheme = JUri::getInstance()->toString(array('scheme'));
+			$scheme = \Joomla\CMS\Uri\Uri::getInstance()->toString(array('scheme'));
 			$url    = str_replace('http://', $scheme, $url);
 		}
 
@@ -409,7 +409,7 @@ class JoomsubscriptionApi
 		if(is_array($plan) && !empty($plan))
 		{
 			$plan         = array_shift($plan);
-			$plan->params = new JRegistry($plan->params);
+			$plan->params = new \Joomla\Registry\Registry($plan->params);
 			if($prepare)
 			{
 				$plan = JoomsubscriptionHelper::getPlanDetails($plan);
@@ -456,7 +456,7 @@ class JoomsubscriptionApi
 
 		if(empty($plan->id))
 		{
-			JError::raiseWarning(100, JText::_('EMR_NOSUSCR'));
+			JError::raiseWarning(100, \Joomla\CMS\Language\Text::_('EMR_NOSUSCR'));
 			if($redirect)
 			{
 				$app->redirect(self::getLink('emlist', FALSE));
@@ -467,10 +467,10 @@ class JoomsubscriptionApi
 
 		if(!$user_id)
 		{
-			$app->enqueueMessage(JText::_('EMR_REDIRECT'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_REDIRECT'), 'warning');
 			if($redirect)
 			{
-				$app->redirect(JRoute::_(JComponentHelper::getParams('com_joomsubscription')->get('general_login_url') . '&return=' . urlencode(base64_encode(JUri::getInstance()->toString())),
+				$app->redirect(\Joomla\CMS\Router\Route::_(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('general_login_url') . '&return=' . urlencode(base64_encode(\Joomla\CMS\Uri\Uri::getInstance()->toString())),
 					FALSE));
 			}
 
@@ -479,8 +479,8 @@ class JoomsubscriptionApi
 
 		if($plan->params->get('properties.terms') && $redirect && !$app->input->getInt('terms'))
 		{
-			$app->enqueueMessage(JText::sprintf('EMR_YOU_HAVE_TO_AGREE', $plan->terms->title), 'warning');
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('EMR_YOU_HAVE_TO_AGREE', $plan->terms->title), 'warning');
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
 		}
 
 		$coupon = JoomsubscriptionHelperCoupon::getCoupon($coupon, $plan->id, $plan->total, TRUE, FALSE);
@@ -503,8 +503,8 @@ class JoomsubscriptionApi
 			{
 				if($field->required && empty($field->default))
 				{
-					$app->enqueueMessage(JText::sprintf('EMR_REQUIRED_FIELD_MISS', $field->data->name), 'warning');
-					$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
+					$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('EMR_REQUIRED_FIELD_MISS', $field->data->name), 'warning');
+					$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
 				}
 				if($add = $field->affectPrice($plan))
 				{
@@ -516,7 +516,7 @@ class JoomsubscriptionApi
 					$app->enqueueMessage($field->getError(), 'error');
 					if($redirect)
 					{
-						$app->redirect(JUri::getInstance()->toString());
+						$app->redirect(\Joomla\CMS\Uri\Uri::getInstance()->toString());
 					}
 
 					return;
@@ -565,11 +565,11 @@ class JoomsubscriptionApi
 
 		$table->bind($load);
 
-		if(JComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) && $redirect)
+		if(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) && $redirect)
 		{
-			if(!self::addInvoceTo($table) && JComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 1)
+			if(!self::addInvoceTo($table) && \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 1)
 			{
-				$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
+				$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid=' . $plan->id, FALSE));
 			}
 		}
 
@@ -593,7 +593,7 @@ class JoomsubscriptionApi
 			$table->published  = 1;
 			$table->gateway_id = time();
 
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_('EMR_ACTIVATED_SUCCESS'));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_ACTIVATED_SUCCESS'));
 
 			JoomsubscriptionHelper::activateSubscription($table, $plan);
 			$table->store();
@@ -605,7 +605,7 @@ class JoomsubscriptionApi
 		$processor_file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
 		if(!is_file($processor_file))
 		{
-			JError::raiseWarning(500, JText::sprintf('EMR_PROCNOTFOUND', $processor_file));
+			JError::raiseWarning(500, \Joomla\CMS\Language\Text::sprintf('EMR_PROCNOTFOUND', $processor_file));
 			if($redirect)
 			{
 				$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE));
@@ -621,7 +621,7 @@ class JoomsubscriptionApi
 
 		if(!$class->params->get('enable'))
 		{
-			JError::raiseWarning(500, JText::sprintf('EMR_PROCDISABLE', $processor));
+			JError::raiseWarning(500, \Joomla\CMS\Language\Text::sprintf('EMR_PROCDISABLE', $processor));
 			if($redirect)
 			{
 				$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE));
@@ -631,18 +631,18 @@ class JoomsubscriptionApi
 		}
 
 		$site_name = $app->getCfg('sitename');
-		$name      = JText::sprintf('EMR_SURCHASENAME', $plan->name, $plan->cname);
-		//$name     = JText::sprintf('EMR_SURCHASEDESCR', $plan->name, $plan->cname, $plan->period, $site_name);
+		$name      = \Joomla\CMS\Language\Text::sprintf('EMR_SURCHASENAME', $plan->name, $plan->cname);
+		//$name     = \Joomla\CMS\Language\Text::sprintf('EMR_SURCHASEDESCR', $plan->name, $plan->cname, $plan->period, $site_name);
 
 		$plan->coupon   = $coupon;
 		$process_method = $app->input->get('postprocess', 'pay');
 		if(!method_exists($class, $process_method))
 		{
-			$app->enqueueMessage(JText::sprintf('EM_METHOSGATEWAYNOTFOUND', ucfirst($processor),
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('EM_METHOSGATEWAYNOTFOUND', ucfirst($processor),
 				$app->input->get('postprocess', 'pay')), 'warning');
 			if($redirect)
 			{
-				$app->redirect(JUri::getInstance()->toString());
+				$app->redirect(\Joomla\CMS\Uri\Uri::getInstance()->toString());
 			}
 		}
 		if(!$class->{$process_method}($total, $name, $table, $plan))
@@ -650,7 +650,7 @@ class JoomsubscriptionApi
 			JError::raiseWarning(500, $class->getError());
 			if($redirect)
 			{
-				$app->redirect(JUri::getInstance()->toString());
+				$app->redirect(\Joomla\CMS\Uri\Uri::getInstance()->toString());
 			}
 
 			return;
@@ -687,11 +687,11 @@ class JoomsubscriptionApi
 		}
 		else
 		{
-			if(JComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 2)
+			if(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 2)
 			{
 				return TRUE;
 			}
-			$app->enqueueMessage(JText::_('EMBILLTOREQUIRED'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EMBILLTOREQUIRED'), 'warning');
 
 			return FALSE;
 		}
@@ -744,7 +744,7 @@ class JoomsubscriptionApi
 
 			if($result->valid == FALSE)
 			{
-				$app->enqueueMessage(JText::_('EM_CANNOTFERIFYVAT'), 'warning');
+				$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EM_CANNOTFERIFYVAT'), 'warning');
 
 				return FALSE;
 			}

@@ -72,13 +72,13 @@ class JFormFieldPlanslist extends JFormFieldList
 		{
 			if($this->extend)
 			{
-				$params = new JRegistry($plan->params);
+				$params = new \Joomla\Registry\Registry($plan->params);
 				$text = JoomsubscriptionApi::getPrice($params->get('properties.price'), $params);
-				$text .= " ".JText::_($plan->name);
+				$text .= " ".\Joomla\CMS\Language\Text::_($plan->name);
 
 				$plan->name = $text;
 			}
-			$options[JText::_($plan->group_name)][] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $plan->id, JText::_($plan->name));
+			$options[\Joomla\CMS\Language\Text::_($plan->group_name)][] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $plan->id, \Joomla\CMS\Language\Text::_($plan->name));
 		}
 
 		// Merge any additional options in the XML definition.

@@ -27,14 +27,14 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		if(!$processor)
 		{
-			JError::raiseError(505, JText::_('EMR_NOPROCESSOR'));
+			JError::raiseError(505, \Joomla\CMS\Language\Text::_('EMR_NOPROCESSOR'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
 		$file = JPATH_ROOT . '/components/com_joomsubscription/library/gateways/' . $processor . '/' . $processor . '.php';
 		if(!is_file($file))
 		{
-			JError::raiseError(500, JText::sprintf('EMR_PROCNOTFOUND', $processor));
+			JError::raiseError(500, \Joomla\CMS\Language\Text::sprintf('EMR_PROCNOTFOUND', $processor));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -44,7 +44,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		if(!class_exists($class))
 		{
-			JError::raiseWarning(404, JText::_('EMR_GATEWAY_CLASS_NOTFOUND'));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_GATEWAY_CLASS_NOTFOUND'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -58,7 +58,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 			$plan_id = $class->get_plan_id();
 			if(!$plan_id)
 			{
-				JError::raiseError(500, JText::_('EMR_PLAN_NOT_FOUND'));
+				JError::raiseError(500, \Joomla\CMS\Language\Text::_('EMR_PLAN_NOT_FOUND'));
 				$class->log('Cannot find subscription ID');
 				\Joomla\CMS\Factory::getApplication()->close();
 			}
@@ -72,7 +72,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		if(empty($table->id))
 		{
-			JError::raiseWarning(404, JText::_('EMR_MUA_PLAN_NOTFOUND'));
+			JError::raiseWarning(404, \Joomla\CMS\Language\Text::_('EMR_MUA_PLAN_NOTFOUND'));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -80,7 +80,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		if(empty($plan->id))
 		{
-			JError::raiseError(500, JText::_('EMR_PLAN_NOT_FOUND') );
+			JError::raiseError(500, \Joomla\CMS\Language\Text::_('EMR_PLAN_NOT_FOUND') );
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 
@@ -88,7 +88,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 		if(!$class->params->get('enable'))
 		{
-			JError::raiseError(500, JText::sprintf('EMR_PROCDISABLE', $table->gateway));
+			JError::raiseError(500, \Joomla\CMS\Language\Text::sprintf('EMR_PROCDISABLE', $table->gateway));
 			\Joomla\CMS\Factory::getApplication()->close();
 		}
 

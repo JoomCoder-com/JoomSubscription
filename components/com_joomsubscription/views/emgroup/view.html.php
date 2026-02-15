@@ -53,12 +53,12 @@ class JoomsubscriptionViewEmGroup extends MViewBase
 
 		if($this->item->id)
 		{
-			$title = JText::sprintf('EEDITGROUP', $this->item->name);
+			$title = \Joomla\CMS\Language\Text::sprintf('EEDITGROUP', $this->item->name);
 			$pathway->addItem(strip_tags($title));
 		}
 		else
 		{
-			$title = JText::_('ENEWGROUP');
+			$title = \Joomla\CMS\Language\Text::_('ENEWGROUP');
 			$pathway->addItem(strip_tags($title));
 		}
 
@@ -76,10 +76,10 @@ class JoomsubscriptionViewEmGroup extends MViewBase
 			$title = $app->getCfg('sitename');
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		if (empty($title)) {
 			$title = $this->item->name;

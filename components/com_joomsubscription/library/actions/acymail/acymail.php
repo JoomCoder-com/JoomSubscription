@@ -49,7 +49,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_list_name($this->params->get('mail_list'))), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::sprintf($this->params->get('message'), $this->_list_name($this->params->get('mail_list'))), 'notice');
 		}
 	}
 
@@ -76,7 +76,7 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 		$allowed = array();
 		foreach($actions as $action)
 		{
-			$action    = new JRegistry($action->action);
+			$action    = new \Joomla\Registry\Registry($action->action);
 			$allowed[] = $action->get('mail_list', 0);
 		}
 
@@ -109,13 +109,13 @@ class JoomsubscriptionActionAcymail extends JoomsubscriptionAction
 		$out = array();
 		if($this->params->get('mail_list'))
 		{
-			$out[] = JText::sprintf('X_ACY_DESCR_LIST', $this->_list_name($this->params->get('mail_list')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_ACY_DESCR_LIST', $this->_list_name($this->params->get('mail_list')));
 		}
-		$out[] = JText::_($this->params->get('deactivate') ? 'X_ACY_DESCR_DEA1' : 'X_ACY_DESCR_DEA0');
+		$out[] = \Joomla\CMS\Language\Text::_($this->params->get('deactivate') ? 'X_ACY_DESCR_DEA1' : 'X_ACY_DESCR_DEA0');
 
 		if(trim($this->params->get('message')))
 		{
-			$out[] = JText::sprintf('X_ACY_DESCR_MSG', $this->params->get('message'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_ACY_DESCR_MSG', $this->params->get('message'));
 		}
 
 		return '<ul><li>' . implode('</li><li>', $out) . '</li></ul>';

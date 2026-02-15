@@ -27,10 +27,10 @@ class JoomsubscriptionViewEmCoupons extends MViewBase
 	protected function getSortFields()
 	{
 		return array(
-			'c.published' => JText::_('JSTATUS'),
-			'c.id'        => JText::_('ID'),
-			'c.value'     => JText::_('X_VALUE'),
-			'c.ctime'     => JText::_('ECREATED')
+			'c.published' => \Joomla\CMS\Language\Text::_('JSTATUS'),
+			'c.id'        => \Joomla\CMS\Language\Text::_('ID'),
+			'c.value'     => \Joomla\CMS\Language\Text::_('X_VALUE'),
+			'c.ctime'     => \Joomla\CMS\Language\Text::_('ECREATED')
 		);
 	}
 
@@ -41,7 +41,7 @@ class JoomsubscriptionViewEmCoupons extends MViewBase
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('ECOUPONS');
+		$title = \Joomla\CMS\Language\Text::_('ECOUPONS');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -60,11 +60,11 @@ class JoomsubscriptionViewEmCoupons extends MViewBase
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

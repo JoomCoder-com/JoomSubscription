@@ -46,7 +46,7 @@ class JoomsubscriptionFieldCrosssell extends JoomsubscriptionField
 	{
 		$plan = JoomsubscriptionApi::getPlan($this->params->get('params.plan_to_sell'));
 
-		return JText::sprintf('EMF_ALSOBUY', sprintf('%s [%s]', $plan->name, $plan->cname));
+		return \Joomla\CMS\Language\Text::sprintf('EMF_ALSOBUY', sprintf('%s [%s]', $plan->name, $plan->cname));
 	}
 
 	public function onActive($subscription)

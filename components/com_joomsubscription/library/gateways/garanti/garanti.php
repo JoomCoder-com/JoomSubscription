@@ -21,7 +21,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 
 		if(!$this->_validate())
 		{
-			$this->setError(JText::_('GR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('GR_CANNOT_VERYFY'));
 			$this->log('Cannot verify garanti');
 
 			return FALSE;
@@ -60,7 +60,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('merchant_id') || !$this->params->get('terminal_id'))
 		{
-			$this->setError(JText::_('GR_NOTALL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('GR_NOTALL'));
 
 			return FALSE;
 		}
@@ -116,7 +116,7 @@ class JoomsubscriptionGatewayGaranti extends JoomsubscriptionGateway
 		}
 
 		/*
-		$c = JText::_('GR_WIT_TRANS');
+		$c = \Joomla\CMS\Language\Text::_('GR_WIT_TRANS');
 		$c .= '<form action="' . $url . '" method="post" name="gb-form" id="gb-form">';
 		foreach($param as $name => $value)
 		{

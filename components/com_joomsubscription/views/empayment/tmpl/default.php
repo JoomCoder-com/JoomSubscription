@@ -22,41 +22,41 @@ $total = $this->plan->total;
 
         Joomla.validate_form = function() {
 			if($('#invoiceto_fields_billto').length && !$('#invoiceto_fields_billto').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_BILLTO'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_INVOICE_BILLTO'))); ?>');
 				return;
 			}
 			if($('#invoiceto_fields_address').length && !$('#invoiceto_fields_address').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_ADDRESS'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_INVOICE_ADDRESS'))); ?>');
 				return;
 			}
 			if($('#invoiceto_fields_zip').length && !$('#invoiceto_fields_zip').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_ZIP'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_INVOICE_ZIP'))); ?>');
 				return;
 			}
 			if($('#invoiceto_fields_country').length && !$('#invoiceto_fields_country').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_COUNTRY'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_INVOICE_COUNTRY'))); ?>');
 				return;
 			}
 			if($('#invoiceto_fields_state').length && !$('#invoiceto_fields_state').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('ESTATE'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('ESTATE'))); ?>');
 				return;
 			}
 
 			if($('#em_email').length && !$('#em_email').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_EMAIL'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_EMAIL'))); ?>');
 				return;
 			}
 
 			<?php if($this->com_params->get('tax_id_rec', 1)): ?>
 			if($('#invoiceto_fields_tax_id').length && !$('#invoiceto_fields_tax_id').val()) {
-				alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', JText::_('E_INVOICE_TAX_ID'))); ?>');
+				alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', \Joomla\CMS\Language\Text::_('E_INVOICE_TAX_ID'))); ?>');
 				return;
 			}
 			<?php endif; ?>
 
 			<?php if($this->plan->params->get('properties.terms') && !empty($this->plan->terms->title)): ?>
 			if(!$('input[name="terms"]:checked').length) {
-				alert('<?php echo str_replace("'", "\\'", strip_tags(JText::sprintf('EMR_YOU_HAVE_TO_AGREE', $this->plan->terms->title))); ?>');
+				alert('<?php echo str_replace("'", "\\'", strip_tags(\Joomla\CMS\Language\Text::sprintf('EMR_YOU_HAVE_TO_AGREE', $this->plan->terms->title))); ?>');
 				return;
 			}
 			<?php endif; ?>
@@ -64,7 +64,7 @@ $total = $this->plan->total;
 			<?php foreach($this->fields AS $field): ?>
 				<?php if($field->required): ?>
 					if(!$('#field<?php echo $field->id ?>').val()){
-						alert('<?php echo str_replace("'", "\\'", JText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', $field->getLabel())); ?>');
+						alert('<?php echo str_replace("'", "\\'", \Joomla\CMS\Language\Text::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', $field->getLabel())); ?>');
 						return;
 					}
 				<?php endif; ?>
@@ -94,35 +94,35 @@ $total = $this->plan->total;
 	<?php if(count(JoomsubscriptionHelper::getUserPlans())): ?>
 		<div class="input-append float-end">
 			<a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emhistory'); ?>">
-				<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png"/>
-				<?php echo JText::_('EMP_CHECKHISTORY'); ?>
+				<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/history-small.png"/>
+				<?php echo \Joomla\CMS\Language\Text::_('EMP_CHECKHISTORY'); ?>
 			</a>
 		</div>
 	<?php endif; ?>
 	<h1>
-		<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/purchase.png"/>
+		<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/purchase.png"/>
 		<?php echo $this->title; ?>
 	</h1>
 </div>
 
 <a class="btn" href="<?php echo JoomsubscriptionApi::getLink('emlist'); ?>">
-	<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/back.png"/>
-	<?php echo JText::_('EMR_BACKTOLIST'); ?>
+	<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/back.png"/>
+	<?php echo \Joomla\CMS\Language\Text::_('EMR_BACKTOLIST'); ?>
 </a>
 
-<form action="<?php echo JUri::getInstance()->toString(); ?>" method="post" name="formsubscr" id="formsubscr">
+<form action="<?php echo \Joomla\CMS\Uri\Uri::getInstance()->toString(); ?>" method="post" name="formsubscr" id="formsubscr">
 	<table class="table">
 		<thead>
 		<tr>
 			<th width="1%">#</th>
 			<th>
 				<?php if($this->plan->is_donation == 1): ?>
-					<?php echo JText::_('EMR_DONATE'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('EMR_DONATE'); ?>
 				<?php else: ?>
-					<?php echo JText::_('EMR_PLANNAME'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('EMR_PLANNAME'); ?>
 				<?php endif; ?>
 			</th>
-			<th width="1%"><?php echo JText::_('EMR_PLANTOTAL'); ?></th>
+			<th width="1%"><?php echo \Joomla\CMS\Language\Text::_('EMR_PLANTOTAL'); ?></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -156,7 +156,7 @@ $total = $this->plan->total;
 					?>
 					<div class="input-append">
 						<input type="text" class="inputbox require" name="donation_amount" value="<?php echo $total ?>"/>
-						<button class="btn btn-primary" type="submit"><?php echo JText::_('EAPPLY'); ?></button>
+						<button class="btn btn-primary" type="submit"><?php echo \Joomla\CMS\Language\Text::_('EAPPLY'); ?></button>
 					</div>
 				<?php else: ?>
 					<?php echo JoomsubscriptionApi::getPrice($this->plan->total, $this->plan->params); ?>
@@ -182,9 +182,9 @@ $total = $this->plan->total;
 		<?php if(!empty($this->coupon->discount_total)): $total -= $this->coupon->discount_total; ?>
 			<tr>
 				<td>
-					<?php echo JText::_('E_COUPON'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('E_COUPON'); ?>
 					<br/>
-					<small><?php echo JText::sprintf('EM_COUPON_TYPE_' . $this->coupon->discount_type,
+					<small><?php echo \Joomla\CMS\Language\Text::sprintf('EM_COUPON_TYPE_' . $this->coupon->discount_type,
 							$this->coupon->discount, '<span class="label label-success">' . $this->coupon->value . '</span>',
 							JoomsubscriptionApi::getPrice($this->coupon->discount, $this->plan->params)); ?></small>
 				</td>
@@ -193,15 +193,15 @@ $total = $this->plan->total;
 		<?php elseif($this->plan->discount): $total -= $this->plan->discount; ?>
 			<tr>
 				<td>
-					<?php echo JText::_('EMR_DISCOUNT'); ?>
+					<?php echo \Joomla\CMS\Language\Text::_('EMR_DISCOUNT'); ?>
 					<br/>
-					<small><?php echo JText::_('SUBSCRIPTION_DISCOUNT_' . $this->plan->discount_type); ?></small>
+					<small><?php echo \Joomla\CMS\Language\Text::_('SUBSCRIPTION_DISCOUNT_' . $this->plan->discount_type); ?></small>
 				</td>
 				<td>-<?php echo JoomsubscriptionApi::getPrice($this->plan->discount, $this->plan->params); ?></td>
 			</tr>
 		<?php endif; ?>
 		<tr>
-			<td><big><?php echo JText::_('EMR_INVOICETOTAL'); ?></big></td>
+			<td><big><?php echo \Joomla\CMS\Language\Text::_('EMR_INVOICETOTAL'); ?></big></td>
 			<td><strong><big><?php echo JoomsubscriptionApi::getPrice($total, $this->plan->params); ?></big></strong></td>
 		</tr>
 	</table>
@@ -211,11 +211,11 @@ $total = $this->plan->total;
 	<div class="form-horizontal">
 		<?php if($this->plan->params->get('properties.muaccess') || $this->coupons && ($this->plan->price > 0 || \Joomla\CMS\Factory::getApplication()->getUserState('last-joomsubscription-coupon'))): ?>
 			<div class="control-group">
-				<label class="control-label" for="coupon"><?php echo JText::_('EMR_COUPONSERT') ?></label>
+				<label class="control-label" for="coupon"><?php echo \Joomla\CMS\Language\Text::_('EMR_COUPONSERT') ?></label>
 
 				<div class="controls">
 					<input type="text" id="coupon" name="coupon" value="<?php echo @$this->coupon->value; ?>"/>
-					<button class="btn btn-primary" type="button" id="apply-btn"><?php echo JText::_('EAPPLY'); ?></button>
+					<button class="btn btn-primary" type="button" id="apply-btn"><?php echo \Joomla\CMS\Language\Text::_('EAPPLY'); ?></button>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -238,7 +238,7 @@ $total = $this->plan->total;
 		<?php endif; ?>
 		<?php if($this->plan->params->get('properties.rds') && !$this->user->get('id')): ?>
 			<div class="control-group">
-				<label class="control-label" for="email"><?php echo JText::_('E_EMAIL'); ?><span class="star">&nbsp;*</span></label>
+				<label class="control-label" for="email"><?php echo \Joomla\CMS\Language\Text::_('E_EMAIL'); ?><span class="star">&nbsp;*</span></label>
 
 				<div class="controls">
 					<input type="text" aria-required="true" required="true" class="inputbox" value="" id="em_email" name="email"/>
@@ -250,8 +250,8 @@ $total = $this->plan->total;
 		<?php if($this->params->get('use_invoice', 0) && $total > 0): ?>
 			<div class="control-group">
 				<label class="control-label" for="invoice">
-					<?php echo JText::_('E_INVOICE_BILLTO') ?>
-					<?php if(JComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 1): ?> * <?php endif; ?>
+					<?php echo \Joomla\CMS\Language\Text::_('E_INVOICE_BILLTO') ?>
+					<?php if(\Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription')->get('use_invoice', 0) == 1): ?> * <?php endif; ?>
 				</label>
 
 				<div class="controls">
@@ -307,22 +307,22 @@ $total = $this->plan->total;
 
 			<label class="checkbox">
 				<input type="checkbox" name="terms" value="1"/>
-				<?php echo JText::sprintf('EMR_AGREETERMS', $this->plan->terms->title); ?>
+				<?php echo \Joomla\CMS\Language\Text::sprintf('EMR_AGREETERMS', $this->plan->terms->title); ?>
 			</label>
 		</div>
 	<?php endif; ?>
 
 	<?php if($total <= 0): ?>
 		<p>
-			<?php echo JText::_('EMR_FREEPLAN'); ?>
+			<?php echo \Joomla\CMS\Language\Text::_('EMR_FREEPLAN'); ?>
 		</p>
-		<button class="btn btn-large btn-block btn-warning" id="payfree" type="button"><?php echo JText::_('EMR_ACTIVATENOW'); ?></button>
+		<button class="btn btn-large btn-block btn-warning" id="payfree" type="button"><?php echo \Joomla\CMS\Language\Text::_('EMR_ACTIVATENOW'); ?></button>
 	<?php else: ?>
-		<h3><?php echo JText::_('EMR_PAYMENTMETHOD'); ?></h3>
+		<h3><?php echo \Joomla\CMS\Language\Text::_('EMR_PAYMENTMETHOD'); ?></h3>
 
 		<p>
 			<?php if($this->plan->params->get('gateway.message')): ?>
-				<?php echo Joomla\CMS\HTML\HTMLHelper::_('content.prepare', JText::_($this->plan->params->get('gateway.message'))); ?>
+				<?php echo Joomla\CMS\HTML\HTMLHelper::_('content.prepare', \Joomla\CMS\Language\Text::_($this->plan->params->get('gateway.message'))); ?>
 			<?php endif; ?>
 		</p>
 
@@ -383,7 +383,7 @@ $total = $this->plan->total;
 	function loadText(value) {
 		inv_dat.hide();
 		jQuery.ajax({
-			url: '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=empayment.getinvoicetext', FALSE); ?>',
+			url: '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=empayment.getinvoicetext', FALSE); ?>',
 			type: 'GET',
 			dataType: 'html',
 			data: {id: value}
@@ -395,7 +395,7 @@ $total = $this->plan->total;
 	function loadForm() {
 		inv_dat.hide();
 		jQuery.ajax({
-			url: '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=empayment.getinvoiceform', FALSE); ?>',
+			url: '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=empayment.getinvoiceform', FALSE); ?>',
 			dataType: 'html'
 		}).done(function(html) {
 			inv_dat.html(html).slideDown('fast');

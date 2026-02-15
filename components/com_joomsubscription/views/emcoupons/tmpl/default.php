@@ -37,7 +37,7 @@ $listDirn  = $this->state->get('list.direction');
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emcoupons'); ?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emcoupons'); ?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -83,7 +83,7 @@ $listDirn  = $this->state->get('list.direction');
             <tr>
                 <td colspan="9">
                     <div class="float-end">
-						<?php echo str_replace('<option value="0">' . JText::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
+						<?php echo str_replace('<option value="0">' . \Joomla\CMS\Language\Text::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
                     </div>
                     <div style="pull-left">
                         <small>
@@ -121,18 +121,18 @@ $listDirn  = $this->state->get('list.direction');
 								<?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emcoupons.', $canCheckin); ?>
 							<?php endif; ?>
 
-                            <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcoupon.edit&id=' . (int) $item->id); ?>">
+                            <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emcoupon.edit&id=' . (int) $item->id); ?>">
 								<?php echo $this->escape($item->value); ?>
                             </a>
                         </div>
                     </td>
                     <td class="nowrap center">
 						<?php echo $item->discount ?> <img
-                                src="<?php echo JUri::root(true); ?>/components/com_joomsubscription/images/<?php echo $icon; ?>.png"
+                                src="<?php echo \Joomla\CMS\Uri\Uri::root(true); ?>/components/com_joomsubscription/images/<?php echo $icon; ?>.png"
                                 align="absmiddle" alt="">
                     </td>
                     <td class="nowrap">
-						<?php echo $item->use_num == 0 ? JText::_('No Limit') : $item->use_num; ?>
+						<?php echo $item->use_num == 0 ? \Joomla\CMS\Language\Text::_('No Limit') : $item->use_num; ?>
                     </td>
                     <td class="nowrap">
 						<?php if ($item->use_num && $item->used_num >= $item->use_num) : ?>
@@ -156,7 +156,7 @@ $listDirn  = $this->state->get('list.direction');
 								<?php echo JoomsubscriptionHelper::getFormattedDate($item->extime); ?>
 							<?php endif; ?>
 						<?php else: ?>
-							<?php echo JText::_('E_NEVER'); ?>
+							<?php echo \Joomla\CMS\Language\Text::_('E_NEVER'); ?>
 						<?php endif; ?>
                     </td>
                     <td class="center">

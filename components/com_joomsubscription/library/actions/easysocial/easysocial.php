@@ -41,7 +41,7 @@ class JoomsubscriptionActionEasysocial extends JoomsubscriptionAction
 		$profiles = array();
 		foreach($actions as $action)
 		{
-			$action     = new JRegistry($action->action);
+			$action     = new \Joomla\Registry\Registry($action->action);
 			$profiles[] = $action->get('group_active', 0);
 		}
 
@@ -59,13 +59,13 @@ class JoomsubscriptionActionEasysocial extends JoomsubscriptionAction
 
 		if($this->params->get('group_active'))
 		{
-			$out .= JText::sprintf('X_PROF_ACTIVE', $this->_getProfileName($this->params->get('group_active')));
+			$out .= \Joomla\CMS\Language\Text::sprintf('X_PROF_ACTIVE', $this->_getProfileName($this->params->get('group_active')));
 			$out .= '<br />';
 		}
 
 		if($this->params->get('group_deactive'))
 		{
-			$out .= JText::sprintf('X_PROF_DEACTIVE', $this->_getProfileName($this->params->get('group_deactive')));
+			$out .= \Joomla\CMS\Language\Text::sprintf('X_PROF_DEACTIVE', $this->_getProfileName($this->params->get('group_deactive')));
 		}
 
 		return $out;

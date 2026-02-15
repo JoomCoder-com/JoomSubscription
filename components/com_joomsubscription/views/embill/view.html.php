@@ -25,7 +25,7 @@ class JoomsubscriptionViewEmBill extends MViewBase
 			return;
 		}
 
-		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
+		$joomsubscription_params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$db = \Joomla\CMS\Factory::getDbo();
 		$query = $db->getQuery(true);
 
@@ -89,7 +89,7 @@ class JoomsubscriptionViewEmBill extends MViewBase
 
 		$this->tax = $tax;
 
-		$this->params = JComponentHelper::getParams('com_joomsubscription');
+		$this->params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		parent::display($tpl);
 	}

@@ -26,26 +26,26 @@ class JoomsubscriptionViewEmPayment extends MViewBase
 
 		if(!$id)
 		{
-			$app->enqueueMessage(JText::_('EMR_ERR_NOPLANCONFIRM'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_ERR_NOPLANCONFIRM'), 'warning');
 			$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE));
 		}
 
 		$this->plan       = JoomsubscriptionApi::getPreparedPlan($id);
-		$this->com_params = JComponentHelper::getParams('com_joomsubscription');
+		$this->com_params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		if(empty($this->plan->id))
 		{
-			JError::raiseNotice(100, JText::_('EMR_CANNOTPURCH'));
+			JError::raiseNotice(100, \Joomla\CMS\Language\Text::_('EMR_CANNOTPURCH'));
 			$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE));
 		}
 
 		if(!in_array($this->plan->access_pay, $user->getAuthorisedViewLevels()))
 		{
-			$app->enqueueMessage(JText::_('EMR_CANNOTPURCHACCESS'), 'warning');
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::_('EMR_CANNOTPURCHACCESS'), 'warning');
 			$app->redirect(JoomsubscriptionApi::getLink('emlist', FALSE));
 		}
 
-		$this->title = JText::_('EMR_CONFIRMSUBSCR');
+		$this->title = \Joomla\CMS\Language\Text::_('EMR_CONFIRMSUBSCR');
 
 		$pathway = $app->getPathway();
 		$pathway->addItem($this->title);
@@ -53,7 +53,7 @@ class JoomsubscriptionViewEmPayment extends MViewBase
 		$doc = \Joomla\CMS\Factory::getDocument();
 		$doc->setTitle($this->title);
 
-		$this->params = JComponentHelper::getParams('com_joomsubscription');
+		$this->params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 		$this->user   = $user;
 
 		if($this->params->get('use_invoice', 0) == 1 && $app->input->getInt('invoice') ==  -1)

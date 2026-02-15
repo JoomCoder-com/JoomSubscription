@@ -18,14 +18,14 @@ extract($displayData);
 
 	<input
 		type="text"
-		placeholder="<?php echo JText::_('CFILTER_SEARCH_PLANSDESC'); ?>"
+		placeholder="<?php echo \Joomla\CMS\Language\Text::_('CFILTER_SEARCH_PLANSDESC'); ?>"
 		class="form-control"
 		name="filter_<?php echo $filterName ?>"
 		id="filter_<?php echo $filterName ?>"
 		value="<?php echo $current->state->get('filter.'.$filterName); ?>"
 	>
 
-	<button class="btn btn-outline-success" type="submit" data-bs-original-title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>">
+	<button class="btn btn-outline-success" type="submit" data-bs-original-title="<?php echo \Joomla\CMS\Language\Text::_('JSEARCH_FILTER_SUBMIT'); ?>">
 		<i class="fas fa-search"></i>
 	</button>
 	<button class="btn btn-outline-danger" type="button" onclick="document.getElementById('filter_search').value='';this.form.submit();">

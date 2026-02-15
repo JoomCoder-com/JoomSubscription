@@ -19,7 +19,7 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 
 		if($this->_clean($this->_getHash($_POST)) != $this->_clean($post->get('ik_sign')))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('IK: Verification failed', $_POST);
 			$this->log('IK: post', $this->_clean($this->_getHash($_POST)));
 			$this->log('IK: or', $this->_clean($post->get('ik_sign')));
@@ -46,7 +46,7 @@ class JoomsubscriptionGatewayInterkassa extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('eshopid'))
 		{
-			$this->setError(JText::_("IK_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("IK_NOT_ALL_SET"));
 
 			return FALSE;
 		}

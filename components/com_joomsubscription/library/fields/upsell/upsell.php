@@ -37,7 +37,7 @@ class JoomsubscriptionFieldUpsell extends JoomsubscriptionField
 		include_once JPATH_ROOT . '/components/com_joomsubscription/library/rules/default/default.php';
 
 		$init          = new stdClass();
-		$init->rule    = new JRegistry($this->params->get('params'));
+		$init->rule    = new \Joomla\Registry\Registry($this->params->get('params'));
 		$init->option  = $this->params->get('params.component');
 		$init->id      = 0;
 		$init->plan_id = 0;

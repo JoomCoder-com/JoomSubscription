@@ -6,7 +6,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 {
 	function accept(&$subscription, $plan)
 	{
-		$post = new JRegistry($_POST);
+		$post = new \Joomla\Registry\Registry($_POST);
 
 		if(!$post->get('LMI_HASH'))
 		{
@@ -32,7 +32,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 
 		if(strtoupper(hash('sha256', $key)) != strtoupper($post->get('LMI_HASH')))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 
 			return FALSE;
 		}
@@ -49,7 +49,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 
 		if(!$this->params->get('purse'))
 		{
-			$this->setError(JText::_('WM_ERR_NOPURSE'));
+			$this->setError(\Joomla\CMS\Language\Text::_('WM_ERR_NOPURSE'));
 
 			return FALSE;
 		}
@@ -77,7 +77,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 		$url = "https://merchant.webmoney.ru/lmi/payment.asp?";
 		$c = '';
 		$c .= '<form action="' . $url . '" method="post" name="wmform" id="wmform" accept-charset="windows-1251">';
-		$c .= '<input type="submit" value="'.JText::_('PAY_REDIRECTING_CONTINUE').'" name="formSubmit" class="button"/>';
+		$c .= '<input type="submit" value="'.\Joomla\CMS\Language\Text::_('PAY_REDIRECTING_CONTINUE').'" name="formSubmit" class="button"/>';
 		foreach($post_variables as $name => $value)
 		{
 			$c .= '<input type="hidden" name="' . $name . '" value="' . $value . '" />';
@@ -86,7 +86,7 @@ class JoomsubscriptionGatewayWebmoney extends JoomsubscriptionGateway
 		$c .= '<script>document.getElementById("wmform").submit();</script>';
 		echo $c;
 		$app = \Joomla\CMS\Factory::getApplication();
-		$app->enqueueMessage(JText::_('PAY_REDIRECTING'));
+		$app->enqueueMessage(\Joomla\CMS\Language\Text::_('PAY_REDIRECTING'));
 
 		return TRUE;
 	}

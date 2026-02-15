@@ -22,7 +22,7 @@ class JoomsubscriptionAction extends \Joomla\CMS\Object\CMSObject
 
 	public function __construct($data)
 	{
-		$this->params  = new JRegistry($data->action);
+		$this->params  = new \Joomla\Registry\Registry($data->action);
 		$this->plan_id = $data->plan_id;
 		$this->user = \Joomla\CMS\Factory::getUser();
 	}

@@ -24,7 +24,7 @@ class JFormFieldMeresourcestype extends JFormMEFieldList
 		$options = array();
 		if ($this->element['select'] == 1)
 		{
-			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('Selet Content Type'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('Selet Content Type'));
 		}
 		foreach ($sections as $type)
 		{

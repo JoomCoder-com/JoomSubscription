@@ -25,7 +25,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 		if(task == 'emfield.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
 			Joomsubscription.submitform(task, document.getElementById('item-form'));
 		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+			alert('<?php echo $this->escape(\Joomla\CMS\Language\Text::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
 </script>
@@ -39,11 +39,11 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
     </div>
 	<h1>
 		<?php if($this->item->id): ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/fields.png" />
-			<?php echo JText::sprintf('EEDITFIELD', $this->item->name); ?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/fields.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITFIELD', $this->item->name); ?>
 		<?php else: ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/fields.png" />
-			<?php echo JText::_('ENEWFIELD'); ?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/fields.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWFIELD'); ?>
 		<?php endif; ?>
 	</h1>
 </div>
@@ -88,7 +88,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 		(function($){
 			function loadParms(val) {
 				$.ajax({
-					url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.fieldparams&field=', FALSE) ?>',
+					url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.fieldparams&field=', FALSE) ?>',
 					dataType: 'html',
 					type:     'POST',
 					data: {

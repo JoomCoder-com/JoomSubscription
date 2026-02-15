@@ -11,7 +11,7 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 	{
 		$out = sprintf('<button type="button" style="width: 210px" class="btn btn-warning"	data-payment-gateway="%s"><small>%s</small></button>',
 			$this->type,
-			sprintf('<div class="lead" style="margin-bottom:0">%s</div>%s', JText::_('JS_PAYWITHPOINTS'), JText::sprintf('JS_PONTCOUNT', $this->_getuserpoints(\Joomla\CMS\Factory::getUser()->get('id')), $this->_convert($total)))
+			sprintf('<div class="lead" style="margin-bottom:0">%s</div>%s', \Joomla\CMS\Language\Text::_('JS_PAYWITHPOINTS'), \Joomla\CMS\Language\Text::sprintf('JS_PONTCOUNT', $this->_getuserpoints(\Joomla\CMS\Factory::getUser()->get('id')), $this->_convert($total)))
 		);
 
 		return $out;
@@ -58,8 +58,8 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 
 		if($price_points > $user_points)
 		{
-			$app->enqueueMessage(JText::sprintf('JS_NOTENOUGHTPOINT', $price_points, $user_points), 'warning');
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=empayment&sid='.$plan->id, FALSE));
+			$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('JS_NOTENOUGHTPOINT', $price_points, $user_points), 'warning');
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=empayment&sid='.$plan->id, FALSE));
 
 			return FALSE;
 		}
@@ -72,7 +72,7 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 		JoomsubscriptionHelper::activateSubscription($subscription, $plan);
 		$subscription->store();
 
-		$app->enqueueMessage(JText::sprintf('JS_SUCCESS', $plan->name, $price_points));
+		$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('JS_SUCCESS', $plan->name, $price_points));
 		JoomsubscriptionHelper::redirect($plan, $subscription->published);
 
 		return TRUE;
@@ -85,7 +85,7 @@ class JoomsubscriptionGatewaJomsocial extends JoomsubscriptionGateway
 
 		if($price_points > $user_points)
 		{
-			$this->setError(JText::sprintf('JS_NOTENOUGHTPOINT', $price_points, $user_points));
+			$this->setError(\Joomla\CMS\Language\Text::sprintf('JS_NOTENOUGHTPOINT', $price_points, $user_points));
 
 			return FALSE;
 		}

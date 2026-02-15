@@ -10,7 +10,7 @@ defined('_JEXEC') or die();
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 $document = \Joomla\CMS\Factory::getDocument();
-$document->addScript(JURI::root(TRUE).'/administrator/components/com_cobalt/library/js/main.js');
+$document->addScript(\Joomla\CMS\Uri\Uri::root(TRUE).'/administrator/components/com_cobalt/library/js/main.js');
 
 
 class JFormFieldCsectionstypest extends JFormField

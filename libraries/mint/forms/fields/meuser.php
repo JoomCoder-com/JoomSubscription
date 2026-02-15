@@ -39,7 +39,7 @@ class JFormFieldMeuser extends JFormField
 		// Initialize variables.
 		$html = array();
 
-// 		$params = JComponentHelper::getParams('com_cobalt');
+// 		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_cobalt');
 // 		if($params->get('moderator', -1) != \Joomla\CMS\Factory::getUser()->get('id'))
 // 		{
 // 			$user = \Joomla\CMS\Factory::getUser(JRequest::getInt('user_id'));
@@ -88,7 +88,7 @@ class JFormFieldMeuser extends JFormField
 		if ($this->value) {
 			$table->load($this->value);
 		} else {
-			$table->username = JText::_('JLIB_FORM_SELECT_USER');
+			$table->username = \Joomla\CMS\Language\Text::_('JLIB_FORM_SELECT_USER');
 		}
 
 		// Create a dummy text field with the user name.
@@ -102,22 +102,22 @@ class JFormFieldMeuser extends JFormField
 		// Create the user select button.
 		if ($this->element['readonly'] != 'true')
 		{
-			/*$html[] = '		<a class="modal_'.$this->id.' memodal-button" title="'.JText::_('JLIB_FORM_CHANGE_USER').'"' .
+			/*$html[] = '		<a class="modal_'.$this->id.' memodal-button" title="'.\Joomla\CMS\Language\Text::_('JLIB_FORM_CHANGE_USER').'"' .
 							' href="'.$link.'"' .
 							' rel="{handler: \'iframe\', size: {x: 800, y: 500}}">';
-			$html[] = '			'.JText::_('JLIB_FORM_CHANGE_USER').'</a>';*/
+			$html[] = '			'.\Joomla\CMS\Language\Text::_('JLIB_FORM_CHANGE_USER').'</a>';*/
 			$html[] = '<a class="btn btn-primary" href="#usersmodal" data-toggle="modal" role="button">';
-			$html[] = '<i class="icon-list icon-white"></i> '.JText::_('CSELECT').'</a>';//.JText::_('JLIB_FORM_CHANGE_USER')
+			$html[] = '<i class="icon-list icon-white"></i> '.\Joomla\CMS\Language\Text::_('CSELECT').'</a>';//.\Joomla\CMS\Language\Text::_('JLIB_FORM_CHANGE_USER')
 		}
  		$html[] = '</div>';
 
 		$html[] = '<div style="width:700px;" class="modal hide fade" id="usersmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel">'.JText::_('CFINDUSER').'</h3>
+	    <h3 id="myModalLabel">'.\Joomla\CMS\Language\Text::_('CFINDUSER').'</h3>
 	  </div>
 	  <div class="modal-body" style="overflow-x: hidden; max-height:500px; padding:0;">
-	    <iframe frameborder="0" width="100%" height="410px" src="'.JRoute::_($link).'"></iframe>
+	    <iframe frameborder="0" width="100%" height="410px" src="'.\Joomla\CMS\Router\Route::_($link).'"></iframe>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>

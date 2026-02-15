@@ -34,8 +34,8 @@ class JoomsubscriptionImportsHelper
 
 		$xml = new SimpleXMLElement($path.'/'.$type.'/'.$type.'.xml', null, true);
 
-		$obj->title = JText::_($xml->name);
-		$obj->description = JText::_($xml->description);
+		$obj->title = \Joomla\CMS\Language\Text::_($xml->name);
+		$obj->description = \Joomla\CMS\Language\Text::_($xml->description);
 		$obj->type = $type;
 
 		return $obj;

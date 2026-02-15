@@ -27,7 +27,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_badge_name($this->params->get('add'))), 'notice');
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::sprintf($this->params->get('message'), $this->_badge_name($this->params->get('add'))), 'notice');
 		}
 	}
 
@@ -60,7 +60,7 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 		$allowed = array();
 		foreach($actions as $action)
 		{
-			$action    = new JRegistry($action->action);
+			$action    = new \Joomla\Registry\Registry($action->action);
 			$allowed[] = $action->get('add', 0);
 		}
 
@@ -78,17 +78,17 @@ class JoomsubscriptionActionEasydiscussbadge extends JoomsubscriptionAction
 		$out = array();
 		if($this->params->get('add'))
 		{
-			$out[] = JText::sprintf('X_EDB_DESCR_LIST', $this->_badge_name($this->params->get('add')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_EDB_DESCR_LIST', $this->_badge_name($this->params->get('add')));
 		}
-		$out[] = JText::_($this->params->get('deactivate') ? 'X_EDB_DESCR_DEA1' : 'X_EDB_DESCR_DEA0');
+		$out[] = \Joomla\CMS\Language\Text::_($this->params->get('deactivate') ? 'X_EDB_DESCR_DEA1' : 'X_EDB_DESCR_DEA0');
 		if($this->params->get('del'))
 		{
-			$out[] = JText::sprintf('X_EDB_DESCR_LIST2', $this->_badge_name($this->params->get('del')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_EDB_DESCR_LIST2', $this->_badge_name($this->params->get('del')));
 		}
 
 		if(trim($this->params->get('message')))
 		{
-			$out[] = JText::sprintf('X_EDB_DESCR_MSG', $this->params->get('message'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_EDB_DESCR_MSG', $this->params->get('message'));
 		}
 
 		return '<ul><li>' . implode('</li><li>', $out) . '</li></ul>';

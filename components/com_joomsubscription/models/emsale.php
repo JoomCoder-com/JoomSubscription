@@ -72,7 +72,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 				if($parent->published = 0)
 				{
-					$app->enqueueMessage(JText::sprintf('EM_CANNOT_PUBLISH_MUA', $table->id, $parent->id), 'warning');
+					$app->enqueueMessage(\Joomla\CMS\Language\Text::sprintf('EM_CANNOT_PUBLISH_MUA', $table->id, $parent->id), 'warning');
 					continue;
 				}
 
@@ -104,7 +104,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 		if($app->input->get('return') == 'cpanel')
 		{
-			$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=cpanel'));
+			$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=cpanel'));
 		}
 
 		return TRUE;

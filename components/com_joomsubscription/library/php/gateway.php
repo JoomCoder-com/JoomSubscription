@@ -12,7 +12,7 @@ class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 {
 
 	/**
-	 * @var JRegistry
+	 * @var \Joomla\Registry\Registry
 	 */
 	public $params = '';
 	public $type = '';
@@ -21,7 +21,7 @@ class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 	public function __construct($type, $params)
 	{
 
-		$this->params = new JRegistry($params);
+		$this->params = new \Joomla\Registry\Registry($params);
 		$this->type   = $type;
 
 		$this->loadLang();
@@ -46,14 +46,14 @@ class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 
 	public function init_params($params)
 	{
-		$this->params = new JRegistry($params);
+		$this->params = new \Joomla\Registry\Registry($params);
 	}
 
 	public function _get_notify_url($id)
 	{
 		$app = \Joomla\CMS\Factory::getApplication();
 		$url = 'index.php?option=com_joomsubscription&task=plans.create&Itemid=1&processor=' . $this->type . '&em_id=' . $id;
-		$url = JRoute::_($url, FALSE, -1);
+		$url = \Joomla\CMS\Router\Route::_($url, FALSE, -1);
 		if($app->getCfg('force_ssl'))
 		{
 			$url = str_replace('http:', 'https:', $url);
@@ -66,7 +66,7 @@ class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 	{
 		$app = \Joomla\CMS\Factory::getApplication();
 		$url = 'index.php?option=com_joomsubscription&task=payment.back&Itemid=1&processor=' . $this->type . '&em_id=' . $id;
-		$url = JRoute::_($url, FALSE, -1);
+		$url = \Joomla\CMS\Router\Route::_($url, FALSE, -1);
 		if($app->getCfg('force_ssl'))
 		{
 			$url = str_replace('http:', 'https:', $url);
@@ -103,9 +103,9 @@ class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 
 		$out = sprintf('<button type="button" style="width: 210px" class="btn btn-link"	data-payment-gateway="%s">%s<br><small>%s</small></button>',
 			$this->type, ($this->params->get('image') != -1 ?
-				sprintf('<img src="%s/components/com_joomsubscription/library/gateways/%s/%s">', JURI::root(TRUE), $this->type, $this->params->get('image')) :
+				sprintf('<img src="%s/components/com_joomsubscription/library/gateways/%s/%s">', \Joomla\CMS\Uri\Uri::root(TRUE), $this->type, $this->params->get('image')) :
 				NULL),
-			JText::_($this->params->get('label'))
+			\Joomla\CMS\Language\Text::_($this->params->get('label'))
 		);
 
 		return $out;

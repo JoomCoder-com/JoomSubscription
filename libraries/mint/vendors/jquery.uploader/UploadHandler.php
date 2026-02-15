@@ -38,9 +38,9 @@ class UploadHandler
 	function __construct($options = null, $initialize = true)
 	{
 		$this->options = array(
-			'script_url' => JUri::root(),
+			'script_url' => \Joomla\CMS\Uri\Uri::root(),
 			'upload_dir' => JPATH_ROOT . '/tmp/import_uploads/',
-			'upload_url' => JUri::root() . 'tmp/import_uploads/',
+			'upload_url' => \Joomla\CMS\Uri\Uri::root() . 'tmp/import_uploads/',
 			'user_dirs' => false,
 			'mkdir_mode' => 0755,
 			'param_name' => 'files',

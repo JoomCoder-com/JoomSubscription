@@ -54,7 +54,7 @@ class JFormFieldMetags extends JFormField
 		$list = $db->loadColumn();
 		*/
 
-		$this->params = new JRegistry();
+		$this->params = new \Joomla\Registry\Registry();
 
 		$options['coma_separate'] = 0;
 		$options['only_values'] = 0;

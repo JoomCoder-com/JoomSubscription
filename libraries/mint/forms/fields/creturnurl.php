@@ -37,9 +37,9 @@ class JFormFieldCreturnurl extends JFormFieldList
 
 		if(!$id)
 		{
-			return JText::_('RK_SAVETOSEEURL');
+			return \Joomla\CMS\Language\Text::_('RK_SAVETOSEEURL');
 		}
 
-		return sprintf('<input type="text" readonly value="%s" >', JUri::root().'index.php?option=com_cobalt&task=pay.returnUrl&lang=en&processor='.$this->element['processor']);
+		return sprintf('<input type="text" readonly value="%s" >', \Joomla\CMS\Uri\Uri::root().'index.php?option=com_cobalt&task=pay.returnUrl&lang=en&processor='.$this->element['processor']);
 	}
 }

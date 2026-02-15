@@ -53,7 +53,7 @@ class JoomsubscriptionModelEmGroup extends MModelAdmin
 
 		$params = \Joomla\CMS\Factory::getApplication()->input->get('params', array(), 'array');
 
-		$registry = new JRegistry();
+		$registry = new \Joomla\Registry\Registry();
 		$registry->loadArray($params);
 		$table->params = (string)$registry;
 

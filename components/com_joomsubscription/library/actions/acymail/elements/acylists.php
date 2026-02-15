@@ -41,7 +41,7 @@ class JFormFieldAcylists extends JFormFieldList
 		$listClass = acymailing_get('class.list');
 		$allLists  = $listClass->getLists();
 
-		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('X_ACY_SELECT'));
+		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('X_ACY_SELECT'));
 
 		foreach($allLists AS $list)
 		{

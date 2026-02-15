@@ -46,7 +46,7 @@ class JoomsubscriptionActionGroup extends JoomsubscriptionAction
 		$setted_groups = array();
 		foreach($actions as $action)
 		{
-			$action          = new JRegistry($action->action);
+			$action          = new \Joomla\Registry\Registry($action->action);
 			$setted_groups[] = $action->get('group_active', 0);
 		}
 
@@ -70,14 +70,14 @@ class JoomsubscriptionActionGroup extends JoomsubscriptionAction
 		$out = '';
 		if($this->params->get('group_active'))
 		{
-			$out .= '<b>' . JText::_('X_GROUP_ACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_GROUP_ACTIVE') . '</b><br />';
 			$out .= $this->_getUserGroup($this->params->get('group_active')) . '<br/>';
 		}
 
 		if($this->params->get('group_disactive'))
 		{
-			$out .= '<b>' . JText::_('X_GROUP_DISACTIVE') . '</b><br />';
-			$out .= $this->params->get('group_disactive') ? JText::_('X_YES') : JText::_('X_NO');
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('X_GROUP_DISACTIVE') . '</b><br />';
+			$out .= $this->params->get('group_disactive') ? \Joomla\CMS\Language\Text::_('X_YES') : \Joomla\CMS\Language\Text::_('X_NO');
 		}
 
 		return $out;

@@ -18,7 +18,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 		$md5 = md5($this->params->get('md5hash') . $this->params->get('x_login') . $post->get('x_trans_id') . $post->get('x_amount'));
 		if(strtoupper($md5) != strtoupper($post->get('x_MD5_Hash')))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Cannot verify', $_POST);
 
 			return FALSE;
@@ -26,7 +26,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 
 		if($post->get('x_response_code') == 3)
 		{
-			$this->setError(JText::_('A_TRANS_ERROR'));
+			$this->setError(\Joomla\CMS\Language\Text::_('A_TRANS_ERROR'));
 
 			return FALSE;
 		}
@@ -46,7 +46,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 
 		if(!$this->params->get('x_login') || !$this->params->get('transaction'))
 		{
-			$this->setError(JText::_('A_ERR_NOLOGIN'));
+			$this->setError(\Joomla\CMS\Language\Text::_('A_ERR_NOLOGIN'));
 
 			return FALSE;
 		}
@@ -69,7 +69,7 @@ class JoomsubscriptionGatewayAuthorize extends JoomsubscriptionGateway
 		$param['x_relay_response']      = 'TRUE';
 		$param['x_relay_always']        = 'TRUE';
 		$param['x_receipt_link_method'] = 'LINK';
-		$param['x_receipt_link_text']   = JText::_('A_AUTHORIZE_RETRNTOWEBSITE');
+		$param['x_receipt_link_text']   = \Joomla\CMS\Language\Text::_('A_AUTHORIZE_RETRNTOWEBSITE');
 		$param['x_receipt_link_url']    = $this->_get_return_url($subscription->id);
 		$param['x_cancel_url']          = $this->_get_return_url($subscription->id);
 

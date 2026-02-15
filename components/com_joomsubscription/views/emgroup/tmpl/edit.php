@@ -24,11 +24,11 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 <div class="page-header d-flex justify-content-between">
 	<h1>
 		<?php if($this->item->id): ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/groups.png" />
-			<?php echo JText::sprintf('EEDITGROUP', $this->item->name); ?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/groups.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITGROUP', $this->item->name); ?>
 		<?php else: ?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/groups.png" />
-			<?php echo JText::_('ENEWGROUP'); ?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/groups.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWGROUP'); ?>
 		<?php endif; ?>
 	</h1>
 	<?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>

@@ -20,7 +20,7 @@ $listDirn = $this->state->get('list.direction');
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emtaxes');?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emtaxes');?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -53,7 +53,7 @@ $listDirn = $this->state->get('list.direction');
 						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ETAX_NAME', 't.tax_name', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="title" class="nowrap">
-						<?php echo JText::_('ECOUNTRY'); ?>
+						<?php echo \Joomla\CMS\Language\Text::_('ECOUNTRY'); ?>
                     </th>
                     <th width="1%" class="nowrap">
 						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ESTATE', 'st.name', $listDirn, $listOrder); ?>
@@ -70,7 +70,7 @@ $listDirn = $this->state->get('list.direction');
                 <tr>
                     <td colspan="8">
                         <div class="float-end">
-							<?php echo str_replace('<option value="0">'.JText::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
+							<?php echo str_replace('<option value="0">'.\Joomla\CMS\Language\Text::_('JALL').'</option>', '', $this->pagination->getLimitBox());?>
                         </div>
                         <div style="pull-left">
                             <small>
@@ -97,13 +97,13 @@ $listDirn = $this->state->get('list.direction');
                         </td>
                         <td nowrap="nowrap">
                             <div class="pull-left">
-                                <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emtax.edit&id='.(int) $item->id);?>">
+                                <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emtax.edit&id='.(int) $item->id);?>">
 									<?php echo $item->tax_name; ?>
                                 </a>
                             </div>
                         </td>
                         <td class="center" nowrap>
-                            <small><?php echo isset($this->countries[$item->country_id]['name']) ? $this->countries[$item->country_id]['name'] : JText::_('EANY');?></small>
+                            <small><?php echo isset($this->countries[$item->country_id]['name']) ? $this->countries[$item->country_id]['name'] : \Joomla\CMS\Language\Text::_('EANY');?></small>
                         </td>
                         <td class="center">
                             <small><?php echo $item->label; ?></small>

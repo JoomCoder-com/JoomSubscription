@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 	<br/>
 
 	<?php if($this->data->fields->get('tax_id')): ?>
-	<abbr title="<?php echo JText::_('E_INVOICE_TAX_ID'); ?>"><?php echo JText::_('E_INVOICE_TAX_ID'); ?>:</abbr>
+	<abbr title="<?php echo \Joomla\CMS\Language\Text::_('E_INVOICE_TAX_ID'); ?>"><?php echo \Joomla\CMS\Language\Text::_('E_INVOICE_TAX_ID'); ?>:</abbr>
 	<?php if($this->data->fields->get('vies')): ?>
 		<?php echo $this->data->fields->get('country_id'); ?>
 	<?php endif; ?>
@@ -23,6 +23,6 @@ defined('_JEXEC') or die('Restricted access');
 	<?php endif; ?>
 
 	<?php if($this->data->fields->get('phone')): ?>
-		<abbr title="<?php echo JText::_('E_INVOICE_PHONE'); ?>"><?php echo Joomla\String\StringHelper::substr(JText::_('E_INVOICE_PHONE'), 0, 1); ?>:</abbr> <?php echo $this->data->fields->get('phone'); ?>
+		<abbr title="<?php echo \Joomla\CMS\Language\Text::_('E_INVOICE_PHONE'); ?>"><?php echo Joomla\String\StringHelper::substr(\Joomla\CMS\Language\Text::_('E_INVOICE_PHONE'), 0, 1); ?>:</abbr> <?php echo $this->data->fields->get('phone'); ?>
 	<?php endif; ?>
 </address>

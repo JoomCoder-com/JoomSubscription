@@ -10,15 +10,15 @@ defined('_JEXEC') or die();
 $total = $this->plan->total;
 ?>
 <button type="button" id="selector-back-btn" class="btn btn-primary">
-	<?php echo JText::_('EMBACK'); ?>
+	<?php echo \Joomla\CMS\Language\Text::_('EMBACK'); ?>
 </button>
 
 <table class="table">
 	<thead>
 	<tr>
 		<th width="1%">#</th>
-		<th><?php echo JText::_('EMR_PLANNAME'); ?></th>
-		<th width="1%"><?php echo JText::_('EMR_PLANTOTAL'); ?></th>
+		<th><?php echo \Joomla\CMS\Language\Text::_('EMR_PLANNAME'); ?></th>
+		<th width="1%"><?php echo \Joomla\CMS\Language\Text::_('EMR_PLANTOTAL'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -37,9 +37,9 @@ $total = $this->plan->total;
 	<?php if(!empty($this->coupon->discount_total)): $total -= $this->coupon->discount_total; ?>
 		<tr>
 			<td>
-				<?php echo JText::_('E_COUPON'); ?>
+				<?php echo \Joomla\CMS\Language\Text::_('E_COUPON'); ?>
 				<br>
-				<small><?php echo JText::sprintf('EM_COUPON_TYPE_' . $this->coupon->discount_type,
+				<small><?php echo \Joomla\CMS\Language\Text::sprintf('EM_COUPON_TYPE_' . $this->coupon->discount_type,
 						$this->coupon->discount, '<span class="label label-success">' . $this->coupon->value . '</span>', $this->plan->params->get('currency', 'USD')); ?></small>
 			</td>
 			<td>-<?php echo JoomsubscriptionApi::getPrice($this->coupon->discount_total, $this->plan->params); ?></td>
@@ -47,13 +47,13 @@ $total = $this->plan->total;
 	<?php elseif($this->plan->discount): $total -= $this->plan->discount; ?>
 		<tr>
 			<td>
-				<?php echo JText::_('EMR_DISCOUNT'); ?>
+				<?php echo \Joomla\CMS\Language\Text::_('EMR_DISCOUNT'); ?>
 			</td>
 			<td>-<?php echo JoomsubscriptionApi::getPrice($this->plan->discount, $this->plan->params); ?></td>
 		</tr>
 	<?php endif; ?>
 	<tr>
-		<td><big><?php echo JText::_('EMR_INVOICETOTAL'); ?></big></td>
+		<td><big><?php echo \Joomla\CMS\Language\Text::_('EMR_INVOICETOTAL'); ?></big></td>
 		<td><strong><big><?php echo JoomsubscriptionApi::getPrice($total, $this->plan->params); ?></big></strong></td>
 	</tr>
 </table>
@@ -63,11 +63,11 @@ $total = $this->plan->total;
 <?php if($this->coupons): ?>
 	<hr>
 	<div class="form-inline">
-		<label for="coupon"><?php echo JText::_('EMR_COUPONSERT') ?></label>
+		<label for="coupon"><?php echo \Joomla\CMS\Language\Text::_('EMR_COUPONSERT') ?></label>
 		<input type="text" id="selector-coupon" name="coupon"
 			   value="<?php echo \Joomla\CMS\Factory::getApplication()->input->get('coupon'); ?>">
 		<button class="btn btn-primary" type="button"
-				id="selector-coupon-btn"><?php echo JText::_('EAPPLY'); ?></button>
+				id="selector-coupon-btn"><?php echo \Joomla\CMS\Language\Text::_('EAPPLY'); ?></button>
 	</div>
 <?php endif; ?>
 
@@ -75,17 +75,17 @@ $total = $this->plan->total;
 
 <?php if($total <= 0): ?>
 	<p class="alert alert-success">
-		<?php echo JText::_('EMR_FREEPLANNOTE'); ?>
+		<?php echo \Joomla\CMS\Language\Text::_('EMR_FREEPLANNOTE'); ?>
 	</p>
 <?php else: ?>
-	<h3><?php echo JText::_('EMR_PAYMENTMETHOD'); ?></h3>
+	<h3><?php echo \Joomla\CMS\Language\Text::_('EMR_PAYMENTMETHOD'); ?></h3>
 	<?php foreach($this->plan->params->get('gateways', array()) AS $processor => $gateway): ?>
 		<?php if($gateway->enable == 0)
 		{
 			continue;
 		} ?>
 		<button type="button" class="btn" data-gateway-provider="<?php echo $processor; ?>">
-			<?php echo JText::_($gateway->label); ?>
+			<?php echo \Joomla\CMS\Language\Text::_($gateway->label); ?>
 		</button>
 
 	<?php endforeach; ?>

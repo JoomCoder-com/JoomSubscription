@@ -49,7 +49,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('mcid') || !$this->params->get('mid') || !$this->params->get('name'))
 		{
-			$this->setError(JText::_("KK_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("KK_NOT_ALL_SET"));
 
 			return FALSE;
 		}
@@ -61,7 +61,7 @@ class JoomsubscriptionGatewayKazkom extends JoomsubscriptionGateway
 		$priv_cert = JPATH_ROOT.'/components/com_joomsubscription/library/gateways/kazkom/keys/'.$this->params->get('private');
 		if(!$kkb->load_private_key($priv_cert, $this->params->get('pass')))
 		{
-			$this->setError(JText::_("KK_CANNOTLOADPRIVATE"));
+			$this->setError(\Joomla\CMS\Language\Text::_("KK_CANNOTLOADPRIVATE"));
 
 			return FALSE;
 

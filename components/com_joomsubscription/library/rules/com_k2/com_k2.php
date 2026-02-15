@@ -51,9 +51,9 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 		if($this->params->get('comment') && $item_cat && in_array($item_cat, $this->params->get('comment')))
 		{
 			$js[] = "jQuery('.itemCommentsForm').html('<div class=\"alert alert-warning\">" .
-				addslashes(JText::_('K2_NO_COMM')) . "<br><a href=\"" .
+				addslashes(\Joomla\CMS\Language\Text::_('K2_NO_COMM')) . "<br><a href=\"" .
 				JoomsubscriptionApi::getLink('list', FALSE, $this->plan_id) . "\">" .
-				addslashes(JText::_('K2_BECOMEMEM')) . "</a></div>');";
+				addslashes(\Joomla\CMS\Language\Text::_('K2_BECOMEMEM')) . "</a></div>');";
 		}
 
 		if($item_cat && $this->params->get('download') && in_array($item_cat, $this->params->get('download')))
@@ -62,7 +62,7 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 			{
 				return TRUE;
 			}
-			$lock = sprintf('<img src="%s/media/mint/icons/16/lock.png" data-lock title="%s"> ', JUri::root(), addslashes(JText::_('K2_DOWNLOAD_TEXT')));
+			$lock = sprintf('<img src="%s/media/mint/icons/16/lock.png" data-lock title="%s"> ', \Joomla\CMS\Uri\Uri::root(), addslashes(\Joomla\CMS\Language\Text::_('K2_DOWNLOAD_TEXT')));
 			$js[] = "
 			jQuery('a[href*=\"option=com_k2&view=item&task=download\"]').before('{$lock}');
 			jQuery('img[data-lock]').tooltip();
@@ -82,17 +82,17 @@ class JoomsubscriptionRuleCom_k2 extends JoomsubscriptionRule
 
 		if($this->params->get('cats'))
 		{
-			$out[] = JText::_('K2_READ_RESTRICT', implode(', ', $this->params->get('cats')));
-			$out[] = JText::sprintf('K2_LIST_RESTRICT', $this->params->get('inlist') ? 'Yes' : 'No');
+			$out[] = \Joomla\CMS\Language\Text::_('K2_READ_RESTRICT', implode(', ', $this->params->get('cats')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('K2_LIST_RESTRICT', $this->params->get('inlist') ? 'Yes' : 'No');
 		}
 		if($this->params->get('comment'))
 		{
-			$out[] = JText::_('K2_REP_RESTRICT', implode(', ', $this->params->get('comment')));
+			$out[] = \Joomla\CMS\Language\Text::_('K2_REP_RESTRICT', implode(', ', $this->params->get('comment')));
 		}
 
 		if($this->params->get('download'))
 		{
-			$out[] = JText::_('K2_DOWN_RESTRICT', implode(', ', $this->params->get('download')));
+			$out[] = \Joomla\CMS\Language\Text::_('K2_DOWN_RESTRICT', implode(', ', $this->params->get('download')));
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);

@@ -25,7 +25,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 		if (task == 'emtax.cancel' || document.formvalidator.isValid('#item-form')) {
 			Joomsubscription.submitform(task, document.getElementById('item-form'));
 		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+			alert('<?php echo $this->escape(\Joomla\CMS\Language\Text::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
 </script>
@@ -39,11 +39,11 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
     </div>
 	<h1>
 		<?php if($this->item->id):?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/taxes.png" />
-			<?php echo JText::sprintf('EEDITTAX', $this->item->tax_name);?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/taxes.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITTAX', $this->item->tax_name);?>
 		<?php else:?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/taxes.png" />
-			<?php echo JText::_('ENEWTAX');?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/taxes.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWTAX');?>
 		<?php endif;?>
 	</h1>
 </div>
@@ -61,7 +61,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('state_id'); ?></div>
-					<div class="controls" id="statediv"><?php echo JText::_('ESELECT_COUNTRY'); ?></div>
+					<div class="controls" id="statediv"><?php echo \Joomla\CMS\Language\Text::_('ESELECT_COUNTRY'); ?></div>
 				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('tax_name'); ?></div>
@@ -107,14 +107,14 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 			}
 			if(el.val() == '*')
 			{
-				$('#statediv').html('<?php echo JText::_('ESELECT_COUNTRY', true)?>');
+				$('#statediv').html('<?php echo \Joomla\CMS\Language\Text::_('ESELECT_COUNTRY', true)?>');
 				return;
 			}
 
-			$('#statediv').html('<img src="<?php echo JUri::root(TRUE); ?>/components/com_cobalt/images/load.gif" >');
+			$('#statediv').html('<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_cobalt/images/load.gif" >');
 
 			$.ajax({
-				url: '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.getstates', FALSE); ?>',
+				url: '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.getstates', FALSE); ?>',
 				type: 'GET',
 				dataType: 'html',
 				data: {id: el.val(), name:'jform[state_id]', 'default': '<?php echo @$this->default['state_id']; ?>'}
@@ -122,7 +122,7 @@ Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 				.done(function(html) {
 					if(!html)
 					{
-						$('#statediv').html('<?php echo JText::sprintf('E_STATE_NOT_FOUND', JRoute::_('index.php?option=com_joomsubscription&view=emstates'), array('jsSafe'=>true))?>');
+						$('#statediv').html('<?php echo \Joomla\CMS\Language\Text::sprintf('E_STATE_NOT_FOUND', \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emstates'), array('jsSafe'=>true))?>');
 						return;
 
 					}

@@ -36,7 +36,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 			$this->_makeAPICall('listAddContacts', $this->params->get('list_id'), array($data));
 			if($this->params->get('msg'))
 			{
-				\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+				\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_($this->params->get('msg')));
 			}
 		}
 	}
@@ -59,7 +59,7 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 		$allow_lists = array();
 		foreach($actions as $action)
 		{
-			$action        = new JRegistry($action->action);
+			$action        = new \Joomla\Registry\Registry($action->action);
 			$allow_lists[] = $action->get('list_id', 0);
 		}
 
@@ -154,6 +154,6 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::_('X_SMART_ACTIVE');
+		return \Joomla\CMS\Language\Text::_('X_SMART_ACTIVE');
 	}
 }

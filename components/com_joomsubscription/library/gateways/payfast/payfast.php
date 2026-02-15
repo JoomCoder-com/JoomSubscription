@@ -12,7 +12,7 @@ class JoomsubscriptionGatewayPayfast extends JoomsubscriptionGateway
 
 		if(!$this->_validateITN() || !$this->_validateIP($_SERVER['REMOTE_ADDR']))
 		{
-			$this->setError(JText::_('PF_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('PF_CANNOT_VERYFY'));
 
 			return FALSE;
 		}
@@ -44,7 +44,7 @@ class JoomsubscriptionGatewayPayfast extends JoomsubscriptionGateway
 
 		if(!$this->params->get('merchant_id') || !$this->params->get('merchant_key'))
 		{
-			$this->setError(JText::_('PF_NO_MERCH'));
+			$this->setError(\Joomla\CMS\Language\Text::_('PF_NO_MERCH'));
 
 			return FALSE;
 		}

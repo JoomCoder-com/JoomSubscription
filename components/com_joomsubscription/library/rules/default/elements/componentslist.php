@@ -44,14 +44,14 @@ class JFormFieldComponentslist extends JFormFieldList
 			\Joomla\CMS\Factory::getLanguage()->load($c->value . '.sys', JPATH_ADMINISTRATOR);
 			$c->text = $c->value;
 
-			$trans = strip_tags(JText::_($c->value));
+			$trans = strip_tags(\Joomla\CMS\Language\Text::_($c->value));
 			if($trans != $c->value)
 			{
 				//$c->text .= ' - (' . $trans .')';
 			}
 		}
 
-		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('ESELECT_COMPONENT')));
 
 		return $coms;
 	}

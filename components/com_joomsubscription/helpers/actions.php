@@ -118,7 +118,7 @@ class JoomsubscriptionActionsHelper
 		$xml  = $path . DIRECTORY_SEPARATOR . $type . DIRECTORY_SEPARATOR . $type . '.xml';
 		$xml  = new SimpleXMLElement($xml, 0, TRUE);
 
-		return JText::_($xml->name);
+		return \Joomla\CMS\Language\Text::_($xml->name);
 	}
 
 	public static function description($action)

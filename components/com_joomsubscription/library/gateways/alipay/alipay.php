@@ -19,14 +19,14 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 
 		if(!$this->_verifySign($_POST))
 		{
-			//$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			//$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Alipay: Verification of sign failed', $_POST);
 			//return FALSE;
 		}
 
 		if(!$this->_verifyNotification($_POST))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Alipay: Verification of notification failed', $_POST);
 
 			return FALSE;
@@ -86,13 +86,13 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 
 		if(!$this->params->get('partner'))
 		{
-			$this->setError(JText::_('AP_ERR_NOPARENT'));
+			$this->setError(\Joomla\CMS\Language\Text::_('AP_ERR_NOPARENT'));
 
 			return FALSE;
 		}
 		if(!is_file($this->_getCertFile()))
 		{
-			$this->setError(JText::_('AP_ERR_NOCERT'));
+			$this->setError(\Joomla\CMS\Language\Text::_('AP_ERR_NOCERT'));
 
 			return FALSE;
 		}
@@ -157,7 +157,7 @@ class JoomsubscriptionGatewayAlipay extends JoomsubscriptionGateway
 
 	private function _getCertUrl()
 	{
-		return str_replace(JPATH_ROOT . '/', JUri::root(), $this->_getCertFile());
+		return str_replace(JPATH_ROOT . '/', \Joomla\CMS\Uri\Uri::root(), $this->_getCertFile());
 	}
 
 	private function _getCertFile()

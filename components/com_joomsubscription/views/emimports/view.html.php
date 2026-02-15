@@ -31,8 +31,8 @@ class JoomsubscriptionViewEmImports extends MViewBase
 			$xml = new SimpleXMLElement($path.'/'.$import.'/'.$import.'.xml', null, true);
 			$i = new stdClass();
 			$i->name = $import;
-			$i->title = JText::_($xml->name);
-			$i->icon = isset($xml->icon)? JUri::root(true).'/components/com_joomsubscription/library/imports/'.$import.'/'.$xml->icon : false;
+			$i->title = \Joomla\CMS\Language\Text::_($xml->name);
+			$i->icon = isset($xml->icon)? \Joomla\CMS\Uri\Uri::root(true).'/components/com_joomsubscription/library/imports/'.$import.'/'.$xml->icon : false;
 
 			$this->items[] = $i;
 		}
@@ -67,7 +67,7 @@ class JoomsubscriptionViewEmImports extends MViewBase
 		$menus	= $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('EIMPORT');
+		$title = \Joomla\CMS\Language\Text::_('EIMPORT');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -84,10 +84,10 @@ class JoomsubscriptionViewEmImports extends MViewBase
 			$title = $app->getCfg('sitename');
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

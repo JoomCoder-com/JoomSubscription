@@ -41,7 +41,7 @@ class JFormFieldmailchimplists extends JFormField
 							class:'btn btn-get-list-{$name}',
 							type: 'button'
 						})
-						.html('".JText::_('MCH_GETLISTS')."');
+						.html('".\Joomla\CMS\Language\Text::_('MCH_GETLISTS')."');
 
 					container.html(button);
 					update();
@@ -49,14 +49,14 @@ class JFormFieldmailchimplists extends JFormField
 					function update() {
 						$('.btn-get-list-{$name}').click(function(){
 							if(!$('#actions_action_api_key').val()) {
-								alert('".JText::_('MCH_ENTERDETAILS')."');
+								alert('".\Joomla\CMS\Language\Text::_('MCH_ENTERDETAILS')."');
 								return;
 							}
 
 							container.html(bar);
 
 							$.ajax({
-								url: '".JRoute::_('index.php?option=com_joomsubscription&task=emapi.action', false)."',
+								url: '".\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emapi.action', false)."',
 								type: 'post',
 								dataType: 'json',
 								data: {

@@ -25,7 +25,7 @@ class JoomsubscriptionTableEmCoupon extends \Joomla\CMS\Table\Table
 			$db->setQuery($sql);
 			if($db->loadResult())
 			{
-				$this->setError(JText::_('E_COUPON_EXIST'));
+				$this->setError(\Joomla\CMS\Language\Text::_('E_COUPON_EXIST'));
 
 				return FALSE;
 			}

@@ -24,7 +24,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 
 		if($hash != strtoupper($post->get('SignatureValue')))
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('Robokassa: Verification failed', $_POST);
 
 			return FALSE;
@@ -42,7 +42,7 @@ class JoomsubscriptionGatewayRobokassa extends JoomsubscriptionGateway
 	{
 		if(!$this->params->get('shopid'))
 		{
-			$this->setError(JText::_("RK_NOT_ALL_SET"));
+			$this->setError(\Joomla\CMS\Language\Text::_("RK_NOT_ALL_SET"));
 
 			return FALSE;
 		}

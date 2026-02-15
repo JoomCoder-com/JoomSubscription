@@ -42,7 +42,7 @@ class JoomsubscriptionGatewayPayu_in extends JoomsubscriptionGateway
 
 		if(!$this->params->get('merchant') || !$this->params->get('salt'))
 		{
-			$this->setError(JText::_('PU_REQUIREDPARAMS'));
+			$this->setError(\Joomla\CMS\Language\Text::_('PU_REQUIREDPARAMS'));
 
 			return FALSE;
 		}

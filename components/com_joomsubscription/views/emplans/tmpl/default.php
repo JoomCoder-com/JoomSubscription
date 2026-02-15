@@ -43,7 +43,7 @@ if ($saveOrder)
 <?php echo $this->menu->render(null); ?>
 
 <form
-        action="<?php echo JRoute::_('index.php?option=com_joomsubscription&view=emplans'); ?>"
+        action="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emplans'); ?>"
         method="post"
         name="adminForm"
         id="adminForm"
@@ -69,10 +69,10 @@ if ($saveOrder)
 							<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'ENAME', 'p.name', $listDirn, $listOrder); ?>
                         </th>
                         <th width="1%" class="nowrap center">
-							<?php echo JText::_('X_SUBSCR'); ?>
+							<?php echo \Joomla\CMS\Language\Text::_('X_SUBSCR'); ?>
                         </th>
                         <th width="10%" class="nowrap center">
-							<?php echo JText::_('X_PRICE'); ?>
+							<?php echo \Joomla\CMS\Language\Text::_('X_PRICE'); ?>
                         </th>
                         <th width="10%" class="nowrap center">
 							<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'EGROUP', 'group_name', $listDirn, $listOrder); ?>
@@ -92,7 +92,7 @@ if ($saveOrder)
                     <tr>
                         <td colspan="9">
                             <div class="float-end">
-								<?php echo str_replace('<option value="0">' . JText::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
+								<?php echo str_replace('<option value="0">' . \Joomla\CMS\Language\Text::_('JALL') . '</option>', '', $this->pagination->getLimitBox()); ?>
                             </div>
                             <div style="pull-left">
                                 <small>
@@ -117,7 +117,7 @@ if ($saveOrder)
 					foreach ($this->items as $i => $item):
 						$canCheckin = $user->authorise('core.manage', 'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
 						$canChange = $user->authorise('core.edit.state', 'com_joomsubscription.plan.' . $item->id) && $canCheckin;
-						$item->params = new JRegistry($item->params);
+						$item->params = new \Joomla\Registry\Registry($item->params);
 						?>
                         <tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->group_id; ?>">
                             <td class="center">
@@ -129,7 +129,7 @@ if ($saveOrder)
 									$disabledLabel = '';
 
 									if (!$saveOrder) :
-										$disabledLabel    = JText::_('JORDERINGDISABLED');
+										$disabledLabel    = \Joomla\CMS\Language\Text::_('JORDERINGDISABLED');
 										$disableClassName = 'inactive tip-top';
 									endif; ?>
                                     <span class="sortable-handler <?php echo $disableClassName ?>"
@@ -150,14 +150,14 @@ if ($saveOrder)
 										<?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emplans.', $canCheckin); ?>
 									<?php endif; ?>
 
-                                    <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emplan.edit&id=' . (int) $item->id); ?>">
-										<?php echo $this->escape(JText::_($item->name)); ?>
+                                    <a href="<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emplan.edit&id=' . (int) $item->id); ?>">
+										<?php echo $this->escape(\Joomla\CMS\Language\Text::_($item->name)); ?>
                                     </a>
                                     <small class="ms-2 border rounded shadow-sm px-2 bg-white">
 										<?php
 										if ($item->params->get('properties.date_fixed'))
 										{
-											echo JText::_('XML_OPT_PERIOD' . $item->params->get('properties.date_fixed'));
+											echo \Joomla\CMS\Language\Text::_('XML_OPT_PERIOD' . $item->params->get('properties.date_fixed'));
 
 										}
                                         elseif ($item->params->get('properties.date_from') && $item->params->get('properties.date_to'))
@@ -168,11 +168,11 @@ if ($saveOrder)
 										{
 											if ($item->params->get('properties.days') >= 100 && $item->params->get('properties.days_type') == 'years')
 											{
-												echo JText::_('XML_OPT_PERIOD1');
+												echo \Joomla\CMS\Language\Text::_('XML_OPT_PERIOD1');
 											}
 											else
 											{
-												echo $item->params->get('properties.days') . ' ' . JText::plural($item->params->get('properties.days_type'), $item->params->get('properties.days'));
+												echo $item->params->get('properties.days') . ' ' . \Joomla\CMS\Language\Text::plural($item->params->get('properties.days_type'), $item->params->get('properties.days'));
 											}
 										} ?>
                                     </small>
@@ -187,7 +187,7 @@ if ($saveOrder)
 								<?php echo JoomsubscriptionApi::getPrice($item->params->get('properties.price'), $item->params); ?>
                             </td>
                             <td class="nowrap center">
-								<?php echo JText::_($item->group_name); ?>
+								<?php echo \Joomla\CMS\Language\Text::_($item->group_name); ?>
                             </td>
                             <td nowrap="nowrap" align="center">
 								<?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.published', $item->published, $i, 'emplans.', $canChange); ?>

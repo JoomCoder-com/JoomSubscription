@@ -124,7 +124,7 @@ abstract class MModelAdmin extends MModelForm
 			$this->event_change_state = 'onContentChangeState';
 		}
 
-		// Guess the JText message prefix. Defaults to the option.
+		// Guess the \Joomla\CMS\Language\Text message prefix. Defaults to the option.
 		if (isset($config['text_prefix']))
 		{
 			$this->text_prefix = strtoupper($config['text_prefix']);
@@ -160,7 +160,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (empty($pks))
 		{
-			$this->setError(JText::_('JGLOBAL_NO_ITEM_SELECTED'));
+			$this->setError(\Joomla\CMS\Language\Text::_('JGLOBAL_NO_ITEM_SELECTED'));
 
 			return false;
 		}
@@ -250,7 +250,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (!$done)
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_INSUFFICIENT_BATCH_INFORMATION'));
+			$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_INSUFFICIENT_BATCH_INFORMATION'));
 			return false;
 		}
 
@@ -305,7 +305,7 @@ abstract class MModelAdmin extends MModelForm
 			}
 			else
 			{
-				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
+				$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 
 				return false;
 			}
@@ -370,7 +370,7 @@ abstract class MModelAdmin extends MModelForm
 				else
 				{
 					// Not fatal error
-					$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_BATCH_MOVE_ROW_NOT_FOUND', $pk));
+					$this->setError(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_BATCH_MOVE_ROW_NOT_FOUND', $pk));
 					continue;
 				}
 			}
@@ -466,7 +466,7 @@ abstract class MModelAdmin extends MModelForm
 			}
 			else
 			{
-				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
+				$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 
 				return false;
 			}
@@ -513,7 +513,7 @@ abstract class MModelAdmin extends MModelForm
 		{
 			if (!$this->user->authorise('core.edit', $contexts[$pk]))
 			{
-				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
+				$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 
 				return false;
 			}
@@ -531,7 +531,7 @@ abstract class MModelAdmin extends MModelForm
 				else
 				{
 					// Not fatal error
-					$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_BATCH_MOVE_ROW_NOT_FOUND', $pk));
+					$this->setError(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_BATCH_MOVE_ROW_NOT_FOUND', $pk));
 					continue;
 				}
 			}
@@ -607,7 +607,7 @@ abstract class MModelAdmin extends MModelForm
 			}
 			else
 			{
-				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
+				$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
 
 				return false;
 			}
@@ -770,12 +770,12 @@ abstract class MModelAdmin extends MModelForm
 					$error = $this->getError();
 					if ($error)
 					{
-						JLog::add($error, JLog::WARNING, 'jerror');
+						\Joomla\CMS\Log\Log::add($error, \Joomla\CMS\Log\Log::WARNING, 'jerror');
 						return false;
 					}
 					else
 					{
-						JLog::add(JText::_('JLIB_APPLICATION_ERROR_DELETE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
+						\Joomla\CMS\Log\Log::add(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_DELETE_NOT_PERMITTED'), \Joomla\CMS\Log\Log::WARNING, 'jerror');
 						return false;
 					}
 				}
@@ -851,7 +851,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (property_exists($item, 'params'))
 		{
-			$registry = new JRegistry;
+			$registry = new \Joomla\Registry\Registry;
 			$registry->loadString((string)$item->params);
 			$item->params = $registry->toArray();
 		}
@@ -890,7 +890,7 @@ abstract class MModelAdmin extends MModelForm
 		$this->setState($this->getName() . '.id', $pk);
 
 		// Load the parameters.
-		$value = JComponentHelper::getParams($this->option);
+		$value = \Joomla\CMS\Component\ComponentHelper::getParams($this->option);
 		$this->setState('params', $value);
 	}
 
@@ -939,7 +939,7 @@ abstract class MModelAdmin extends MModelForm
 				{
 					// Prune items that you can't change.
 					unset($pks[$i]);
-					JLog::add(JText::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
+					\Joomla\CMS\Log\Log::add(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), \Joomla\CMS\Log\Log::WARNING, 'jerror');
 
 					return false;
 				}
@@ -1005,7 +1005,7 @@ abstract class MModelAdmin extends MModelForm
 					// Prune items that you can't change.
 					unset($pks[$i]);
 					$this->checkin($pk);
-					JLog::add(JText::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
+					\Joomla\CMS\Log\Log::add(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), \Joomla\CMS\Log\Log::WARNING, 'jerror');
 					$allowed = false;
 					continue;
 				}
@@ -1153,7 +1153,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (empty($pks))
 		{
-			return JError::raiseWarning(500, JText::_($this->text_prefix . '_ERROR_NO_ITEMS_SELECTED'));
+			return JError::raiseWarning(500, \Joomla\CMS\Language\Text::_($this->text_prefix . '_ERROR_NO_ITEMS_SELECTED'));
 		}
 
 		// Update ordering values
@@ -1166,7 +1166,7 @@ abstract class MModelAdmin extends MModelForm
 			{
 				// Prune items that you can't change.
 				unset($pks[$i]);
-				JLog::add(JText::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
+				\Joomla\CMS\Log\Log::add(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_EDITSTATE_NOT_PERMITTED'), \Joomla\CMS\Log\Log::WARNING, 'jerror');
 			}
 			elseif ($table->ordering != $order[$i])
 			{
@@ -1266,7 +1266,7 @@ abstract class MModelAdmin extends MModelForm
 				}
 				else
 				{
-					$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_MOVE_CATEGORY_NOT_FOUND'));
+					$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_MOVE_CATEGORY_NOT_FOUND'));
 
 					return false;
 				}
@@ -1275,7 +1275,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (empty($categoryId))
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_MOVE_CATEGORY_NOT_FOUND'));
+			$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_MOVE_CATEGORY_NOT_FOUND'));
 			return false;
 		}
 
@@ -1284,7 +1284,7 @@ abstract class MModelAdmin extends MModelForm
 
 		if (!$this->user->authorise('core.create', $extension . '.category.' . $categoryId))
 		{
-			$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_CREATE'));
+			$this->setError(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_CREATE'));
 
 			return false;
 		}

@@ -33,13 +33,13 @@ class JoomsubscriptionViewEmFields extends MViewBase
 	protected function getSortFields()
 	{
 		return array(
-			'f.published' => JText::_('JSTATUS'),
-			'f.id'        => JText::_('ID'),
-			'f.name'      => JText::_('ENAME'),
-			'f.ctime'     => JText::_('E_CREATED'),
-			'f.ordering'  => JText::_('EORDERING'),
-			'f.type'      => JText::_('EFIELDTYPE'),
-			'f.access'    => JText::_('EACCESS'),
+			'f.published' => \Joomla\CMS\Language\Text::_('JSTATUS'),
+			'f.id'        => \Joomla\CMS\Language\Text::_('ID'),
+			'f.name'      => \Joomla\CMS\Language\Text::_('ENAME'),
+			'f.ctime'     => \Joomla\CMS\Language\Text::_('E_CREATED'),
+			'f.ordering'  => \Joomla\CMS\Language\Text::_('EORDERING'),
+			'f.type'      => \Joomla\CMS\Language\Text::_('EFIELDTYPE'),
+			'f.access'    => \Joomla\CMS\Language\Text::_('EACCESS'),
 		);
 	}
 
@@ -50,7 +50,7 @@ class JoomsubscriptionViewEmFields extends MViewBase
 		$menus   = $app->getMenu();
 		$pathway = $app->getPathway();
 
-		$title = JText::_('COM_JOOMSUBSCRIPTION_FIELDS');
+		$title = \Joomla\CMS\Language\Text::_('COM_JOOMSUBSCRIPTION_FIELDS');
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -69,11 +69,11 @@ class JoomsubscriptionViewEmFields extends MViewBase
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif($app->getCfg('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

@@ -49,7 +49,7 @@ class JoomsubscriptionViewEmImport extends MViewBase
 		$type    = $app->input->get('name');
 		$title   = FALSE;
 
-		$title = JText::sprintf('EIMPORT_S', JText::_($this->import->title));
+		$title = \Joomla\CMS\Language\Text::sprintf('EIMPORT_S', \Joomla\CMS\Language\Text::_($this->import->title));
 		$pathway->addItem(strip_tags($title));
 
 		$this->appParams = $app->getParams();
@@ -68,11 +68,11 @@ class JoomsubscriptionViewEmImport extends MViewBase
 		}
 		elseif($app->get('sitename_pagetitles', 0) == 1)
 		{
-			$title = JText::sprintf('JPAGETITLE', $app->get('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->get('sitename'), $title);
 		}
 		elseif($app->get('sitename_pagetitles', 0) == 2)
 		{
-			$title = JText::sprintf('JPAGETITLE', $title, $app->get('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->get('sitename'));
 		}
 		if(empty($title))
 		{

@@ -86,7 +86,7 @@ class JoomsubscriptionModelEmCpanel extends MModelList
 
 		foreach($list AS &$item)
 		{
-			$item->params = new JRegistry($item->params);
+			$item->params = new \Joomla\Registry\Registry($item->params);
 			$item->img    = 'active.png';
 			$item->state  = 'EM_ACTIVE';
 
@@ -137,7 +137,7 @@ class JoomsubscriptionModelEmCpanel extends MModelList
 
 		foreach($list AS &$item)
 		{
-			$item->params = new JRegistry($item->params);
+			$item->params = new \Joomla\Registry\Registry($item->params);
 		}
 
 		return $list;

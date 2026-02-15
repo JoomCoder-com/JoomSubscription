@@ -45,7 +45,7 @@ class Mooupload
 			
 			if(!in_array(strtolower($ext), $exts))
 			{
-				$response ['error'] = JText::sprintf('File %s have unallowed extension %s', $response['name'], $ext);
+				$response ['error'] = \Joomla\CMS\Language\Text::sprintf('File %s have unallowed extension %s', $response['name'], $ext);
 
 				//U				PLOAD_ERR_EXTENSION;
 				return $response;
@@ -102,7 +102,7 @@ class Mooupload
 		
 		if(!in_array($ext, $exts))
 		{
-			$response ['error'] = JText::sprintf('File %s have unallowed extension %s', $response['name'], $ext);
+			$response ['error'] = \Joomla\CMS\Language\Text::sprintf('File %s have unallowed extension %s', $response['name'], $ext);
 			//U			PLOAD_ERR_EXTENSION;
 			return $response;
 		}

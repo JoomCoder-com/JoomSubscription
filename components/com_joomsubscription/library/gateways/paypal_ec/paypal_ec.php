@@ -19,7 +19,7 @@ class JoomsubscriptionGatewayPaypal_ec extends JoomsubscriptionGateway
 
 		if(!$this->_IPNcheck())
 		{
-			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->setError(\Joomla\CMS\Language\Text::_('EMR_CANNOT_VERYFY'));
 			$this->log('PayPal: Verification failed', $_POST);
 
 			return FALSE;

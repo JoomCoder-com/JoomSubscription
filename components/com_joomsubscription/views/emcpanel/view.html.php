@@ -13,7 +13,7 @@ class JoomsubscriptionViewEmCpanel extends MViewBase
 {
 	function display($tpl = null)
 	{
-		\Joomla\CMS\Factory::getDocument()->addScript(JUri::root(TRUE).'/components/com_joomsubscription/library/js/hightcharts.js');
+		\Joomla\CMS\Factory::getDocument()->addScript(\Joomla\CMS\Uri\Uri::root(TRUE).'/components/com_joomsubscription/library/js/hightcharts.js');
 
 		$this->latest = $this->get('Latest');
 		$this->activate = $this->get('Active');

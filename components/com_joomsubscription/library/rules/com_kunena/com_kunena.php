@@ -67,7 +67,7 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 
 							function checkcat(el) {
 								if(jQuery.inArray(el.val(), ids)) {
-									if(confirm('" . JText::_('KUN_NO_ACCES_JS') . "')) {
+									if(confirm('" . \Joomla\CMS\Language\Text::_('KUN_NO_ACCES_JS') . "')) {
 										window.location = '" . JoomsubscriptionApi::getLink('list', FALSE, $this->params->get('submit')) . "';
 									}
 								}
@@ -109,8 +109,8 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 
 									var alert = jQuery(document.createElement('div'))
 										.addClass('alert alert-error alert-joomsubscription')
-										.html('" . htmlentities(JText::_('KUN_NO_ACCES_REP_JS'), ENT_QUOTES, 'UTF-8') . "')
-										.append('<p><a href=\"" . JoomsubscriptionApi::getLink('list', FALSE, $this->plan_id) . "\">" . JText::_('KU_BECOMEMEM') . "</a></p>')
+										.html('" . htmlentities(\Joomla\CMS\Language\Text::_('KUN_NO_ACCES_REP_JS'), ENT_QUOTES, 'UTF-8') . "')
+										.append('<p><a href=\"" . JoomsubscriptionApi::getLink('list', FALSE, $this->plan_id) . "\">" . \Joomla\CMS\Language\Text::_('KU_BECOMEMEM') . "</a></p>')
 									form.before(alert);
 								});
 							});
@@ -136,15 +136,15 @@ class JoomsubscriptionRuleCom_kunena extends JoomsubscriptionRule
 
 		if($this->params->get('cats'))
 		{
-			$out[] = JText::_('KUN_READ_RESTRICT', implode(', ', $this->params->get('cats')));
+			$out[] = \Joomla\CMS\Language\Text::_('KUN_READ_RESTRICT', implode(', ', $this->params->get('cats')));
 		}
 		if($this->params->get('submit'))
 		{
-			$out[] = JText::_('KUN_SUB_RESTRICT', implode(', ', $this->params->get('submit')));
+			$out[] = \Joomla\CMS\Language\Text::_('KUN_SUB_RESTRICT', implode(', ', $this->params->get('submit')));
 		}
 		if($this->params->get('replay'))
 		{
-			$out[] = JText::_('KUN_REP_RESTRICT', implode(', ', $this->params->get('replay')));
+			$out[] = \Joomla\CMS\Language\Text::_('KUN_REP_RESTRICT', implode(', ', $this->params->get('replay')));
 		}
 
 		return count($out) > 1 ? '<ul><li>' . implode('</li><li>', $out) . '</li></ul>' : implode('', $out);

@@ -81,7 +81,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 			$to_save['access_count'] = $subscr->access_count;
 			$to_save['activated']    = $subscr->never_activated ? 0 : 1;
 
-			$plan_params = new JRegistry($plans[$subscr->subscription_id]->params);
+			$plan_params = new \Joomla\Registry\Registry($plans[$subscr->subscription_id]->params);
 			$to_save['access_count_mode'] = $plan_params->get('count_limit_mode');
 
 
@@ -105,7 +105,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('JOOMSUBSCRIPTION8_TABLES_NOTEXIST'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('JOOMSUBSCRIPTION8_TABLES_NOTEXIST'));
 
 			return FALSE;
 		}
@@ -113,7 +113,7 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 		$result = $db->loadResult();
 		if(!$result)
 		{
-			JError::raiseWarning(403, JText::_('JOOMSUBSCRIPTION8_TABLE_PLAN_EMPTY'));
+			JError::raiseWarning(403, \Joomla\CMS\Language\Text::_('JOOMSUBSCRIPTION8_TABLE_PLAN_EMPTY'));
 
 			return FALSE;
 		}

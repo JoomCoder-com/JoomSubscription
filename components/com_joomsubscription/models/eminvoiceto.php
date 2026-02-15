@@ -53,14 +53,14 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 
 			if($r->fields->tax_id)
 			{
-				$line[] = JText::_('E_INVOICE_TAX_ID').': '. $r->fields->tax_id;
+				$line[] = \Joomla\CMS\Language\Text::_('E_INVOICE_TAX_ID').': '. $r->fields->tax_id;
 			}
 
 			$r->text = $r->fields->billto.', '. implode(', ', $line);
 		}
 
-		array_unshift($result, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('E_SELECT_BILL_TO')));
-		$result[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', -1, JText::_('E_ADD_BILL_TO'));
+		array_unshift($result, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('E_SELECT_BILL_TO')));
+		$result[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', -1, \Joomla\CMS\Language\Text::_('E_ADD_BILL_TO'));
 
 		return $result;
 	}
@@ -77,7 +77,7 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 		$db->setQuery("SELECT * FROM #__joomsubscription_invoice_to WHERE id = ".$id);
 
 		$out = $db->loadObject();
-		@$out->fields = new JRegistry(@$out->fields);
+		@$out->fields = new \Joomla\Registry\Registry(@$out->fields);
 
 		if($out->fields->get('country'))
 		{

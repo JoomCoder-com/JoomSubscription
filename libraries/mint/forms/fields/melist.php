@@ -105,7 +105,7 @@ class JFormMEFieldList extends JFormField
 			}
 
 			// Create a new option object based on the <option /> element.
-			$tmp = Joomla\CMS\HTML\HTMLHelper::_('select.option', (string) $option['value'], JText::_(trim((string) $option)), 'value', 'text', ((string) $option['disabled']=='true'));
+			$tmp = Joomla\CMS\HTML\HTMLHelper::_('select.option', (string) $option['value'], \Joomla\CMS\Language\Text::_(trim((string) $option)), 'value', 'text', ((string) $option['disabled']=='true'));
 
 			// Set some option attributes.
 			$tmp->class = (string) $option['class'];

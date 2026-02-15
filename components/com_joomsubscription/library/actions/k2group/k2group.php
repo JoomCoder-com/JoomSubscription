@@ -46,7 +46,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 				'group'       => $this->params->get('group_active'),
 				'ip'          => $_SERVER['REMOTE_ADDR'],
 				'hostname'    => '',
-				'notes'       => JText::_('K2_ADD_EMER'),
+				'notes'       => \Joomla\CMS\Language\Text::_('K2_ADD_EMER'),
 				'description' => ''
 			);
 			$table->save($data);
@@ -54,7 +54,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 
 		if(trim($this->params->get('message')))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::sprintf($this->params->get('message'), $this->_getUserGroup($this->params->get('group_active'))));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::sprintf($this->params->get('message'), $this->_getUserGroup($this->params->get('group_active'))));
 		}
 	}
 
@@ -84,7 +84,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 		$setted_groups = array();
 		foreach($actions as $action)
 		{
-			$action          = new JRegistry($action->action);
+			$action          = new \Joomla\Registry\Registry($action->action);
 			$setted_groups[] = $action->get('group_active', 0);
 		}
 
@@ -103,17 +103,17 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 		$out = array();
 		if($this->params->get('group_active'))
 		{
-			$out[] = JText::sprintf('X_K2GROUP_DESC', $this->_getUserGroup($this->params->get('group_active')));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_K2GROUP_DESC', $this->_getUserGroup($this->params->get('group_active')));
 		}
 
 		if($this->params->get('group_disactive'))
 		{
-			$out[] = JText::sprintf('X_K2ACT_DESC', $this->params->get('group_disactive') ? JText::_('X_YES') : JText::_('X_NO'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_K2ACT_DESC', $this->params->get('group_disactive') ? \Joomla\CMS\Language\Text::_('X_YES') : \Joomla\CMS\Language\Text::_('X_NO'));
 		}
 
 		if(trim($this->params->get('message')))
 		{
-			$out[] = JText::sprintf('X_K2_DESCR_MSG', $this->params->get('message'));
+			$out[] = \Joomla\CMS\Language\Text::sprintf('X_K2_DESCR_MSG', $this->params->get('message'));
 		}
 
 		return '<ul><li>' . implode('</li><li>', $out) . '</li></ul>';

@@ -62,17 +62,17 @@ defined('_JEXEC') or die();
 				<div class="alert alert-info alert-plan">
 					<small>
 						<?php if($item->left): ?>
-							<p><?php echo JText::plural('SUBCRIPTIONS_AMOUNT_LEFT_ALERT', $item->left); ?></p>
+							<p><?php echo \Joomla\CMS\Language\Text::plural('SUBCRIPTIONS_AMOUNT_LEFT_ALERT', $item->left); ?></p>
 						<?php endif; ?>
 						<?php if($item->user_left): ?>
-							<p><?php echo JText::plural('SUBCRIPTIONS_AMOUNT_USERLEFT_ALERT', $item->user_left); ?></p>
+							<p><?php echo \Joomla\CMS\Language\Text::plural('SUBCRIPTIONS_AMOUNT_USERLEFT_ALERT', $item->user_left); ?></p>
 						<?php endif; ?>
 						<?php if($item->params->get('properties.muaccess')): ?>
-							<p><?php echo JText::plural('SUBCRIPTIONS_MUA', $item->params->get('properties.muaccess')); ?></p>
+							<p><?php echo \Joomla\CMS\Language\Text::plural('SUBCRIPTIONS_MUA', $item->params->get('properties.muaccess')); ?></p>
 						<?php endif; ?>
 						<?php if($item->grant): ?>
 							<p>
-								<?php echo JText::_('SUBCRIPTIONS_GRANTYOU'); ?>
+								<?php echo \Joomla\CMS\Language\Text::_('SUBCRIPTIONS_GRANTYOU'); ?>
 							<ul>
 								<li><?php echo implode('</li><li>', $item->grant); ?></li>
 							</ul>
@@ -87,18 +87,18 @@ defined('_JEXEC') or die();
 					<br>
 					<div class="plan-dscount">
 						<s><?php echo JoomsubscriptionApi::getPrice($item->total, $item->params); ?></s><br>
-						<?php echo JText::_('SUBSCRIPTION_DISCOUNT_'.$item->discount_type); ?>
+						<?php echo \Joomla\CMS\Language\Text::_('SUBSCRIPTION_DISCOUNT_'.$item->discount_type); ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if($item->require_one_of): ?>
-					<div class="alert alert-danger"><?php echo str_replace('[PLANS]', implode(', ', $item->require_one_of), JText::plural('SUBSCRIPTION_ONE_OF', count($item->require_one_of))); ?></div>
+					<div class="alert alert-danger"><?php echo str_replace('[PLANS]', implode(', ', $item->require_one_of), \Joomla\CMS\Language\Text::plural('SUBSCRIPTION_ONE_OF', count($item->require_one_of))); ?></div>
 				<?php elseif($item->require_all_of): ?>
-					<div class="alert alert-danger"><?php echo str_replace('[PLANS]', implode(', ', $item->require_all_of), JText::plural('SUBSCRIPTION_ALL_OF', count($item->require_all_of))); ?></div>
+					<div class="alert alert-danger"><?php echo str_replace('[PLANS]', implode(', ', $item->require_all_of), \Joomla\CMS\Language\Text::plural('SUBSCRIPTION_ALL_OF', count($item->require_all_of))); ?></div>
 				<?php else: ?>
 					<br/>
 					<button type="button" data-plan-id="<?php echo $item->id; ?>" class="btn btn-block btn-warning">
-						<?php echo JText::_('EM_SELECT'); ?>
+						<?php echo \Joomla\CMS\Language\Text::_('EM_SELECT'); ?>
 					</button>
 				<?php endif; ?>
 			</div>

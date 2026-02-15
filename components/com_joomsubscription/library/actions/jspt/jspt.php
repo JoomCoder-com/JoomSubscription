@@ -55,19 +55,19 @@ class JoomsubscriptionActionJspt extends JoomsubscriptionAction
 		$out = '';
 		if($this->params->get('profile_active'))
 		{
-			$out .= '<b>' . JText::_('ACT_JSPT_DESC_ACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('ACT_JSPT_DESC_ACTIVE') . '</b><br />';
 			$out .= $this->_getProfileType($this->params->get('group_active')) . '<br/>';
 		}
 
 		if($this->params->get('profile_remove'))
 		{
-			$out .= '<b>' . JText::_('ACT_JSPT_DESC_REMOVE') . '</b><br />';
-			$out .= $this->params->get('profile_remove') ? JText::_('X_YES') : JText::_('X_NO');
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('ACT_JSPT_DESC_REMOVE') . '</b><br />';
+			$out .= $this->params->get('profile_remove') ? \Joomla\CMS\Language\Text::_('X_YES') : \Joomla\CMS\Language\Text::_('X_NO');
 		}
 
 		if($this->params->get('profile_deactive'))
 		{
-			$out .= '<b>' . JText::_('ACT_JSPT_DESC_DEACTIVE') . '</b><br />';
+			$out .= '<b>' . \Joomla\CMS\Language\Text::_('ACT_JSPT_DESC_DEACTIVE') . '</b><br />';
 			$out .= $this->_getProfileType($this->params->get('profile_deactive')) . '<br/>';
 		}
 

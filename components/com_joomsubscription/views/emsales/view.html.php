@@ -23,8 +23,8 @@ class JoomsubscriptionViewEmSales extends MViewBase
 
 		foreach($items as $item)
 		{
-			$item->plan_params = new JRegistry($item->plan_params);
-			$item->params = new JRegistry($item->params);
+			$item->plan_params = new \Joomla\Registry\Registry($item->plan_params);
+			$item->params = new \Joomla\Registry\Registry($item->params);
 			if($item->gateway == 'paypal' && $item->published == 1)
 			{
 				$recurring = $item->params->get('gateways.paypal.recurred');
@@ -70,7 +70,7 @@ class JoomsubscriptionViewEmSales extends MViewBase
 		}
 
 		$this->items = $items;
-		$this->params = JComponentHelper::getParams('com_joomsubscription');
+		$this->params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		$this->_prepareDocument();
 		parent::display($tpl);
@@ -83,9 +83,9 @@ class JoomsubscriptionViewEmSales extends MViewBase
 		$pathway = $app->getPathway();
 		$menus	= $app->getMenu();
 
-		$this->mparams = new JRegistry($app->getMenu()->getActive());
+		$this->mparams = new \Joomla\Registry\Registry($app->getMenu()->getActive());
 
-		$title = JText::_('COM_JOOMSUBSCRIPTION_SALES');
+		$title = \Joomla\CMS\Language\Text::_('COM_JOOMSUBSCRIPTION_SALES');
 		$pathway->addItem(strip_tags($title));
 
 		$this->mparams->set('data.page_title', $title);
@@ -102,10 +102,10 @@ class JoomsubscriptionViewEmSales extends MViewBase
 			$title = $app->getCfg('sitename');
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
-			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
 		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
-			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+			$title = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$doc->setTitle($title);
 	}

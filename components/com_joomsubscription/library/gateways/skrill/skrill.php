@@ -55,7 +55,7 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 
 		if(!$this->params->get('pay_to_email'))
 		{
-			$this->setError(JText::_('SK_ERR_NOEMAIL'));
+			$this->setError(\Joomla\CMS\Language\Text::_('SK_ERR_NOEMAIL'));
 
 			return FALSE;
 		}
@@ -65,10 +65,10 @@ class JoomsubscriptionGatewaySkrill extends JoomsubscriptionGateway
 		$param['pay_to_email']        = $this->params->get('pay_to_email');
 		$param['transaction_id']      = $subscription->id;
 		$param['return_url']          = $this->_get_return_url($subscription->id);
-		$param['return_url_text']     = JText::_('EM_SKRILL_RETURN_TO_HOME');
+		$param['return_url_text']     = \Joomla\CMS\Language\Text::_('EM_SKRILL_RETURN_TO_HOME');
 		$param['cancel_url']          = $this->_get_return_url($subscription->id);
 		$param['amount']              = $amount;
-		$param['detail1_description'] = JText::_('EM_SCRILL_PAYDESCR');
+		$param['detail1_description'] = \Joomla\CMS\Language\Text::_('EM_SCRILL_PAYDESCR');
 		$param['detail1_text']        = $name;
 
 

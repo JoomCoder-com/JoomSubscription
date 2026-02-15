@@ -139,7 +139,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 		// Set the charset (used by the variable escaping functions)
 		if(array_key_exists('charset', $config))
 		{
-			JLog::add('Setting a custom charset for escaping is deprecated. Override JViewLegacy::escape() instead.', JLog::WARNING, 'deprecated');
+			\Joomla\CMS\Log\Log::add('Setting a custom charset for escaping is deprecated. Override JViewLegacy::escape() instead.', \Joomla\CMS\Log\Log::WARNING, 'deprecated');
 			$this->_charset = $config['charset'];
 		}
 
@@ -195,7 +195,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 			$this->setLayout('default');
 		}
 
-		$this->baseurl = JUri::base(TRUE);
+		$this->baseurl = \Joomla\CMS\Uri\Uri::base(TRUE);
 	}
 
 	/**
@@ -267,7 +267,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 	 */
 	public function assign()
 	{
-		JLog::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', JLog::WARNING, 'deprecated');
+		\Joomla\CMS\Log\Log::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', \Joomla\CMS\Log\Log::WARNING, 'deprecated');
 
 		// Get the arguments; there may be 1 or 2.
 		$arg0 = @func_get_arg(0);
@@ -344,7 +344,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 	 */
 	public function assignRef($key, &$val)
 	{
-		JLog::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', JLog::WARNING, 'deprecated');
+		\Joomla\CMS\Log\Log::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', \Joomla\CMS\Log\Log::WARNING, 'deprecated');
 
 		if(is_string($key) && substr($key, 0, 1) != '_')
 		{
@@ -482,7 +482,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 
 			if($viewpos === FALSE)
 			{
-				throw new Exception(JText::_('JLIB_APPLICATION_ERROR_VIEW_GET_NAME'), 500);
+				throw new Exception(\Joomla\CMS\Language\Text::_('JLIB_APPLICATION_ERROR_VIEW_GET_NAME'), 500);
 			}
 
 			$this->_name = strtolower(substr($classname, $viewpos + 4));
@@ -579,7 +579,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 	 */
 	public function setEscape($spec)
 	{
-		JLog::add(__METHOD__ . ' is deprecated. Override JViewLegacy::escape() instead.', JLog::WARNING, 'deprecated');
+		\Joomla\CMS\Log\Log::add(__METHOD__ . ' is deprecated. Override JViewLegacy::escape() instead.', \Joomla\CMS\Log\Log::WARNING, 'deprecated');
 
 		$this->_escape = $spec;
 	}
@@ -649,7 +649,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 			$this->_path['template'] = str_replace($template, $layoutTemplate, $this->_path['template']);
 		}
 
-		$params = JComponentHelper::getParams('com_emerald');
+		$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_emerald');
 
 		jimport('joomla.filesystem.path');
 
@@ -703,7 +703,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 		}
 		else
 		{
-			throw new Exception(JText::sprintf('JLIB_APPLICATION_ERROR_LAYOUTFILE_NOT_FOUND', $file), 500);
+			throw new Exception(\Joomla\CMS\Language\Text::sprintf('JLIB_APPLICATION_ERROR_LAYOUTFILE_NOT_FOUND', $file), 500);
 		}
 	}
 
@@ -744,7 +744,7 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 	 */
 	protected function _setPath($type, $path)
 	{
-		$component = JApplicationHelper::getComponentName();
+		$component = \Joomla\CMS\Application\ApplicationHelper::getComponentName();
 		$app       = \Joomla\CMS\Factory::getApplication();
 
 		// Clear out the prior search dirs
@@ -865,11 +865,11 @@ class MViewBase extends \Joomla\CMS\Object\CMSObject
 		}
 		elseif($app->get('sitename_pagetitles', 0) == 1)
 		{
-			$text = JText::sprintf('JPAGETITLE', $app->get('sitename'), $text);
+			$text = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $app->get('sitename'), $text);
 		}
 		elseif($app->get('sitename_pagetitles', 0) == 2)
 		{
-			$text = JText::sprintf('JPAGETITLE', $text, $app->get('sitename'));
+			$text = \Joomla\CMS\Language\Text::sprintf('JPAGETITLE', $text, $app->get('sitename'));
 		}
 
 		$doc->setTitle($text);

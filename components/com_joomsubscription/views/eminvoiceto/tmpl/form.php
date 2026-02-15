@@ -3,7 +3,7 @@
  * @license   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 defined('_JEXEC') or die('Restricted access');
-$params = JComponentHelper::getParams('com_joomsubscription');
+$params = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 if($params->get('country'))
 {
 	$this->form->setValue('country', 'fields', $params->get('country'));
@@ -40,10 +40,10 @@ if($params->get('country'))
 				vies.removeClass('hide');
 			}
 
-			state.html('<img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/load.gif" >');
+			state.html('<img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/load.gif" >');
 
 			$.ajax({
-				url:      '<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emajax.getstates', FALSE); ?>',
+				url:      '<?php echo \Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&task=emajax.getstates', FALSE); ?>',
 				type:     'GET',
 				dataType: 'html',
 				data:     {id: el.val(), 'default': '<?php echo @$this->defaults['fields']['states']; ?>'}

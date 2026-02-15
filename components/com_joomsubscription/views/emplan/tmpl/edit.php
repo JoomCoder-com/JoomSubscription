@@ -21,7 +21,7 @@ $wa->useScript('keepalive')
 Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
 
 // temporary will be removed on future versions
-\Joomla\CMS\Factory::getDocument()->addScript(JURI::root(true) . '/components/com_joomsubscription/library/js/main.js');
+\Joomla\CMS\Factory::getDocument()->addScript(\Joomla\CMS\Uri\Uri::root(true) . '/components/com_joomsubscription/library/js/main.js');
 
 ?>
 
@@ -47,11 +47,11 @@ Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
     <div class="page-header d-flex justify-content-between">
         <h1>
 			<?php if($this->item->id): ?>
-                <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
-				<?php echo JText::sprintf('EEDITPLAN', $this->item->name); ?>
+                <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
+				<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITPLAN', $this->item->name); ?>
 			<?php else: ?>
-                <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
-				<?php echo JText::_('ENEWPLAN'); ?>
+                <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/plans.png" />
+				<?php echo \Joomla\CMS\Language\Text::_('ENEWPLAN'); ?>
 			<?php endif; ?>
         </h1>
 		<?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>
@@ -159,7 +159,7 @@ Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
         </div>
 	<?php endif; ?>
     <p>
-        <small><?php echo JText::_('EMR_NEW_GATEWAY'); ?></small>
+        <small><?php echo \Joomla\CMS\Language\Text::_('EMR_NEW_GATEWAY'); ?></small>
     </p>
 
 	<?php echo HTMLHelper::_('uitab.endTab'); ?>

@@ -27,7 +27,7 @@ $app = \Joomla\CMS\Factory::getApplication();
 		if (task == 'emsale.cancel' || document.formvalidator.isValid('#item-form')) {
 			Joomsubscription.submitform(task, document.getElementById('item-form'));
 		} else {
-			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+			alert('<?php echo $this->escape(\Joomla\CMS\Language\Text::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
 </script>
@@ -35,11 +35,11 @@ $app = \Joomla\CMS\Factory::getApplication();
 <div class="page-header d-flex justify-content-between border-bottom">
 	<h1>
 		<?php if($this->item->id):?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/sales.png" />
-			<?php echo JText::sprintf('EEDITSUBSCRIPTION');?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/sales.png" />
+			<?php echo \Joomla\CMS\Language\Text::sprintf('EEDITSUBSCRIPTION');?>
 		<?php else:?>
-            <img src="<?php echo JUri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/sales.png" />
-			<?php echo JText::_('ENEWSUBSCRIPTION');?>
+            <img src="<?php echo \Joomla\CMS\Uri\Uri::root(TRUE); ?>/components/com_joomsubscription/images/cpanel/sales.png" />
+			<?php echo \Joomla\CMS\Language\Text::_('ENEWSUBSCRIPTION');?>
 		<?php endif;?>
 	</h1>
     <?php echo \Joomla\CMS\Layout\LayoutHelper::render('core.edit.actionBar',[]) ?>

@@ -36,8 +36,8 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 			$app->setUserState($context . '.data', $form);
 			if(empty($form['user_id']) || empty($form['plan_id']))
 			{
-				JError::raiseWarning(100, JText::_('EMR_PLANCREATENOTALLSET'));
-				$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=emsale&layout=edit', FALSE));
+				JError::raiseWarning(100, \Joomla\CMS\Language\Text::_('EMR_PLANCREATENOTALLSET'));
+				$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsale&layout=edit', FALSE));
 
 				return;
 			}
@@ -47,8 +47,8 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 			if(!$recordId)
 			{
 
-				JError::raiseWarning(100, JText::_('EMR_CREATESUBSCRWRONG'));
-				$app->redirect(JRoute::_('index.php?option=com_joomsubscription&view=emsale&layout=edit', FALSE));
+				JError::raiseWarning(100, \Joomla\CMS\Language\Text::_('EMR_CREATESUBSCRWRONG'));
+				$app->redirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsale&layout=edit', FALSE));
 
 				return FALSE;
 			}
@@ -65,7 +65,7 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 					$model->checkout($recordId);
 
 					// Redirect back to the edit screen.
-					$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=emsale' . $this->getRedirectToItemAppend($recordId), FALSE));
+					$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsale' . $this->getRedirectToItemAppend($recordId), FALSE));
 					break;
 
 				case 'save2new':
@@ -74,7 +74,7 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 					$app->setUserState($context . '.data', NULL);
 
 					// Redirect back to the edit screen.
-					$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=emsale' . $this->getRedirectToItemAppend(NULL), FALSE));
+					$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsale' . $this->getRedirectToItemAppend(NULL), FALSE));
 					break;
 
 				default:
@@ -83,7 +83,7 @@ class JoomsubscriptionControllerEmSale extends MControllerForm
 					$app->setUserState($context . '.data', NULL);
 
 					// Redirect to the list screen.
-					$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=emsales' . $this->getRedirectToListAppend(), FALSE));
+					$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=emsales' . $this->getRedirectToListAppend(), FALSE));
 					break;
 			}
 

@@ -22,7 +22,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 
 		if($this->params->get('msg'))
 		{
-			\Joomla\CMS\Factory::getApplication()->enqueueMessage(JText::_($this->params->get('msg')));
+			\Joomla\CMS\Factory::getApplication()->enqueueMessage(\Joomla\CMS\Language\Text::_($this->params->get('msg')));
 		}
 	}
 
@@ -44,7 +44,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 		$allow_lists = array();
 		foreach($actions as $action)
 		{
-			$action        = new JRegistry($action->action);
+			$action        = new \Joomla\Registry\Registry($action->action);
 			$allow_lists[] = $action->get('list_id', 0);
 		}
 
@@ -91,7 +91,7 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 
 		if(empty($lists['data']))
 		{
-			return JText::_('MCH_NOLISTS');
+			return \Joomla\CMS\Language\Text::_('MCH_NOLISTS');
 		}
 
 		$options = array();
@@ -126,6 +126,6 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 
 	public function getDescription()
 	{
-		return JText::_('MCH_DESCRIPTION');
+		return \Joomla\CMS\Language\Text::_('MCH_DESCRIPTION');
 	}
 }

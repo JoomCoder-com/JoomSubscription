@@ -44,7 +44,7 @@ class JoomsubscriptionRuleCom_remository extends JoomsubscriptionRule
 	{
 		if($this->params->get('cats'))
 		{
-			return JText::_('REM_READ_RESTRICT') . ': ' . implode(', ', $this->_getContainerNames($this->params->get('cats')));
+			return \Joomla\CMS\Language\Text::_('REM_READ_RESTRICT') . ': ' . implode(', ', $this->_getContainerNames($this->params->get('cats')));
 		}
 	}
 

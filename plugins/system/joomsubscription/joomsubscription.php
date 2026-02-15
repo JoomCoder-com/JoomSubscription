@@ -104,7 +104,7 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 			$class = JoomsubscriptionRulesHelper::get_rule_class($rule);
 			if($class->isProtected())
 			{
-				$messages[md5(strtolower(JText::_($class->params->get('message', 'ERR_MSG_RESTRITED'))))] = JText::_($class->params->get('message', 'ERR_MSG_RESTRITED'));
+				$messages[md5(strtolower(\Joomla\CMS\Language\Text::_($class->params->get('message', 'ERR_MSG_RESTRITED'))))] = \Joomla\CMS\Language\Text::_($class->params->get('message', 'ERR_MSG_RESTRITED'));
 
 				$count                 = $class->params->get('count_limit_mode') ? $class->params->get('count_limit_mode') : $count;
 				$plans[$rule->plan_id] = $rule->plan_id;
@@ -140,7 +140,7 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 					{
 						if($field->params->get('params.count_limit_mode', 1))
 						{
-							JoomsubscriptionApi::applyCount($us->id, JUri::getInstance()->toString());
+							JoomsubscriptionApi::applyCount($us->id, \Joomla\CMS\Uri\Uri::getInstance()->toString());
 						}
 
 						return;
@@ -173,7 +173,7 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 							$number + 1,
 							$this->params->get('free_num')
 						),
-						JText::_($this->params->get('free_num_text'))));
+						\Joomla\CMS\Language\Text::_($this->params->get('free_num_text'))));
 
 					return;
 				}
@@ -183,7 +183,7 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 			{
 				$app->enqueueMessage($message, 'warning');
 			}
-			$session->set('joomsubscription_access_url', JUri::getInstance()->toString());
+			$session->set('joomsubscription_access_url', \Joomla\CMS\Uri\Uri::getInstance()->toString());
 			$re = JoomsubscriptionApi::getLink('emlist', FALSE, $plans);
 			$app->redirect($re);
 		}
@@ -267,12 +267,12 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 		{
 			if(preg_match("/^[0-9, ]*$/", $match[1]))
 			{
-				$options = new JRegistry();
+				$options = new \Joomla\Registry\Registry();
 				$options->set('id', $match[1]);
 			}
 			else
 			{
-				$options = new JRegistry($match[1]);
+				$options = new \Joomla\Registry\Registry($match[1]);
 			}
 
 			$options->set('user_id', $options->get('user_id', \Joomla\CMS\Factory::getUser()->get('id')));
@@ -403,12 +403,12 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 
 			if(preg_match("/^[0-9, ]*$/", $match[1]))
 			{
-				$options = new JRegistry();
+				$options = new \Joomla\Registry\Registry();
 				$options->set('id', $match[1]);
 			}
 			else
 			{
-				$options = new JRegistry($match[1]);
+				$options = new \Joomla\Registry\Registry($match[1]);
 			}
 
 			if(!$options->get('id'))
@@ -441,8 +441,8 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 						$days = round(($when - time()) / 86400);
 						if($days > 0)
 						{
-							$message[] = JText::sprintf('EM_WILLBEAVAILABLE',
-								Joomla\CMS\HTML\HTMLHelper::_('date', $when, JText::_('DATE_FORMAT_LC3')),
+							$message[] = \Joomla\CMS\Language\Text::sprintf('EM_WILLBEAVAILABLE',
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, \Joomla\CMS\Language\Text::_('DATE_FORMAT_LC3')),
 								Joomla\CMS\HTML\HTMLHelper::_('date', $when, 'H:i'),
 								$days
 							);
@@ -450,8 +450,8 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 						else
 						{
 							$hours     = ceil(($when - time()) / 3600);
-							$message[] = JText::sprintf('EM_WILLBEAVAILABLE_HOUR',
-								Joomla\CMS\HTML\HTMLHelper::_('date', $when, JText::_('DATE_FORMAT_LC3')),
+							$message[] = \Joomla\CMS\Language\Text::sprintf('EM_WILLBEAVAILABLE_HOUR',
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, \Joomla\CMS\Language\Text::_('DATE_FORMAT_LC3')),
 								Joomla\CMS\HTML\HTMLHelper::_('date', $when, 'H:i'),
 								$hours
 							);
@@ -471,12 +471,12 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 			}
 			else if($options->get('title'))
 			{
-				$message[] = str_replace('[NAME]', \Joomla\CMS\Factory::getUser()->get('name'), JText::_($options->get('title')));
+				$message[] = str_replace('[NAME]', \Joomla\CMS\Factory::getUser()->get('name'), \Joomla\CMS\Language\Text::_($options->get('title')));
 
 				if($options->get('link', 1))
 				{
 					$message[] = sprintf('<a href="%s">%s</a>',
-						JoomsubscriptionApi::getLink('emlist', $ids), JText::_($this->params->get('link', 'Subscribe now')));
+						JoomsubscriptionApi::getLink('emlist', $ids), \Joomla\CMS\Language\Text::_($this->params->get('link', 'Subscribe now')));
 				}
 			}
 

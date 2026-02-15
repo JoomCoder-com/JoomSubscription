@@ -16,7 +16,7 @@ class JoomsubscriptionControllerEmImport extends MControllerForm
 	public function run()
 	{
 		$params = $this->input->get('params', array(), 'array');
-		$params = new JRegistry($params);
+		$params = new \Joomla\Registry\Registry($params);
 
 		$type = $this->input->get('type');
 
@@ -24,9 +24,9 @@ class JoomsubscriptionControllerEmImport extends MControllerForm
 
 		$result = $obj->run($params);
 
-		JError::raiseNotice(200, JText::sprintf('IMPORT_SUCCESS', $result['plans'], $result['subscriptions']));
+		JError::raiseNotice(200, \Joomla\CMS\Language\Text::sprintf('IMPORT_SUCCESS', $result['plans'], $result['subscriptions']));
 
-		$this->setRedirect(JRoute::_('index.php?option=com_joomsubscription&view=imports'), JText::_('IMPORT_COMPLETE'));
+		$this->setRedirect(\Joomla\CMS\Router\Route::_('index.php?option=com_joomsubscription&view=imports'), \Joomla\CMS\Language\Text::_('IMPORT_COMPLETE'));
 	}
 }
 

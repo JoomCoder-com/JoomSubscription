@@ -14,7 +14,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 {
 	public function __construct($config = array())
 	{
-		$config = JComponentHelper::getParams('com_joomsubscription');
+		$config = \Joomla\CMS\Component\ComponentHelper::getParams('com_joomsubscription');
 
 		parent::__construct($config);
 
@@ -50,7 +50,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 
 		foreach($all_plans as $plan)
 		{
-			$plan->params = new JRegistry($plan->params);
+			$plan->params = new \Joomla\Registry\Registry($plan->params);
 
 			if(!$plan->params->get('alerts.alert_enable_expire', FALSE))
 			{
@@ -128,7 +128,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 		$out = array();
 		foreach($list AS $l)
 		{
-			$invoice = new JRegistry($l->invoice);
+			$invoice = new \Joomla\Registry\Registry($l->invoice);
 			$user    = \Joomla\CMS\Factory::getUser($l->user_id);
 
 			if($invoice->get('country'))

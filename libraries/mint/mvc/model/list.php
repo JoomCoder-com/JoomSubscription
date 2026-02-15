@@ -201,7 +201,7 @@ class MModelList extends MModelBase
 	}
 
 	/**
-	 * Method to get a JPagination object for the data set.
+	 * Method to get a Pagination object for the data set.
 	 *
 	 * @return  JPagination  A JPagination object for the data set.
 	 *
@@ -220,7 +220,7 @@ class MModelList extends MModelBase
 
 		// Create the pagination object.
 		$limit = (int) $this->getState('list.limit') - (int) $this->getState('list.links');
-		$page = new JPagination($this->getTotal(), $this->getStart(), $limit);
+		$page = new \Joomla\CMS\Pagination\Pagination($this->getTotal(), $this->getStart(), $limit);
 
 		// Add the object to the internal cache.
 		$this->cache[$store] = $page;
