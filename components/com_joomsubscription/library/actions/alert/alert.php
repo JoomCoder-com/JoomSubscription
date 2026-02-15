@@ -14,7 +14,7 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 
 	public function onActive($subscription)
 	{
-		if(!$this->params->get('email') || !JMailHelper::isEmailAddress($this->params->get('email')))
+		if(!$this->params->get('email') || !\Joomla\CMS\Mail\MailHelper::isEmailAddress($this->params->get('email')))
 		{
 			return;
 		}
@@ -38,8 +38,8 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 		$sender[1] = $config->get('fromname');
 
 		$mail->setSender($sender);
-		$mail->setBody(JMailHelper::cleanBody($body));
-		$mail->setSubject(JMailHelper::cleanSubject($subject));
+		$mail->setBody(\Joomla\CMS\Mail\MailHelper::cleanBody($body));
+		$mail->setSubject(\Joomla\CMS\Mail\MailHelper::cleanSubject($subject));
 
 		if($this->params->get('file') && is_file(JPATH_ROOT.'/'.ltrim($this->params->get('file'), "/\\")))
 		{

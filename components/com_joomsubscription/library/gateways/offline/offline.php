@@ -65,8 +65,8 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$mail = \Joomla\CMS\Factory::getMailer();
 		$mail->setSender($sender);
 		$mail->AddAddress($user->get('email'));
-		$mail->setBody(JMailHelper::cleanBody($body));
-		$mail->setSubject(JMailHelper::cleanSubject($subject));
+		$mail->setBody(\Joomla\CMS\Mail\MailHelper::cleanBody($body));
+		$mail->setSubject(\Joomla\CMS\Mail\MailHelper::cleanSubject($subject));
 
 		if(Joomla\String\StringHelper::strlen($body) != Joomla\String\StringHelper::strlen(strip_tags($body)))
 		{
@@ -92,8 +92,8 @@ class JoomsubscriptionGatewayOffline extends JoomsubscriptionGateway
 		$mail->setSender($sender);
 		$mail->ClearAllRecipients();
 		$mail->addRecipient(explode(',', $this->params->get('email', $app->getCfg('mailfrom'))), 'Admin');
-		$mail->setBody(JMailHelper::cleanBody($body));
-		$mail->setSubject(JMailHelper::cleanSubject($subject));
+		$mail->setBody(\Joomla\CMS\Mail\MailHelper::cleanBody($body));
+		$mail->setSubject(\Joomla\CMS\Mail\MailHelper::cleanSubject($subject));
 
 		if(Joomla\String\StringHelper::strlen($body) != Joomla\String\StringHelper::strlen(strip_tags($body)))
 		{

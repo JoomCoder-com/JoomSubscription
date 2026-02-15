@@ -95,8 +95,8 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 
 			$mail->setSender($sender);
 			$mail->AddAddress($this->params->get('params.email'));
-			$mail->setBody(JMailHelper::cleanBody(\Joomla\CMS\Language\Text::sprintf('EMR_SERIAL_SUBJECT', $this->getLabel())));
-			$mail->setSubject(JMailHelper::cleanSubject(\Joomla\CMS\Language\Text::sprintf('EMR_SERIAL_BODY', $this->getLabel())));
+			$mail->setBody(\Joomla\CMS\Mail\MailHelper::cleanBody(\Joomla\CMS\Language\Text::sprintf('EMR_SERIAL_SUBJECT', $this->getLabel())));
+			$mail->setSubject(\Joomla\CMS\Mail\MailHelper::cleanSubject(\Joomla\CMS\Language\Text::sprintf('EMR_SERIAL_BODY', $this->getLabel())));
 			$mail->isHtml(FALSE);
 			$mail->Send();
 		}

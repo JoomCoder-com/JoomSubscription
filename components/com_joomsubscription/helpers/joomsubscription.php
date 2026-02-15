@@ -1079,11 +1079,11 @@ class JoomsubscriptionHelper
 			$emails = explode(',', $plan->params->get('alerts.extra_emails'));
 			foreach($emails as $email)
 			{
-				$mail->addBCC(JMailHelper::cleanAddress($email));
+				$mail->addBCC(\Joomla\CMS\Mail\MailHelper::cleanAddress($email));
 			}
 		}
-		$mail->setBody(JMailHelper::cleanBody($body));
-		$mail->setSubject(JMailHelper::cleanSubject($subject));
+		$mail->setBody(\Joomla\CMS\Mail\MailHelper::cleanBody($body));
+		$mail->setSubject(\Joomla\CMS\Mail\MailHelper::cleanSubject($subject));
 
 		return $mail->Send();
 	}
