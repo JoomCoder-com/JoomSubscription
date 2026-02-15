@@ -729,7 +729,7 @@ abstract class MModelAdmin extends MModelForm
 		$table = $this->getTable();
 
 		// Include the content plugins for the on delete events.
-		JPluginHelper::importPlugin('content');
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin('content');
 
 		// Iterate the items to delete each one.
 		foreach ($pks as $i => $pk)
@@ -926,7 +926,7 @@ abstract class MModelAdmin extends MModelForm
 		$pks = (array) $pks;
 
 		// Include the content plugins for the change of state event.
-		JPluginHelper::importPlugin('content');
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin('content');
 
 		// Access checks.
 		foreach ($pks as $i => $pk)
@@ -1062,7 +1062,7 @@ abstract class MModelAdmin extends MModelForm
 		$isNew = true;
 
 		// Include the content plugins for the on save events.
-		JPluginHelper::importPlugin('content');
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin('content');
 
 		// Allow an exception to be thrown.
 		try

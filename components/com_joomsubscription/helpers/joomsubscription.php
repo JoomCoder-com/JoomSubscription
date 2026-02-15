@@ -126,7 +126,7 @@ class JoomsubscriptionHelper
 		}
 
 		$dispatcher = JDispatcher::getInstance();
-		JPluginHelper::importPlugin('system');
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin('system');
 		$dispatcher->trigger('onAfterSubscriptionActivated', array($subscription, $plan));
 	}
 

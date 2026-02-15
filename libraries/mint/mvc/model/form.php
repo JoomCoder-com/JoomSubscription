@@ -234,7 +234,7 @@ abstract class MModelForm extends MModelBase
 	{
 		// Get the dispatcher and load the users plugins.
 		$dispatcher = \Joomla\CMS\Factory::getApplication();
-		JPluginHelper::importPlugin('content');
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin('content');
 
 		// Trigger the data preparation event.
 		$results = $dispatcher->triggerEvent('onContentPrepareData', array($context, $data));
@@ -262,7 +262,7 @@ abstract class MModelForm extends MModelBase
 	protected function preprocessForm(\Joomla\CMS\Form\Form $form, $data, $group = 'content')
 	{
 		// Import the appropriate plugin group.
-		JPluginHelper::importPlugin($group);
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin($group);
 
 		// Get the dispatcher.
 		$dispatcher = \Joomla\CMS\Factory::getApplication();

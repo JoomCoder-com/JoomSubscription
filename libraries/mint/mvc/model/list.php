@@ -619,7 +619,7 @@ class MModelList extends MModelBase
 	protected function preprocessForm(\Joomla\CMS\Form\Form $form, $data, $group = 'content')
 	{
 		// Import the appropriate plugin group.
-		JPluginHelper::importPlugin($group);
+		\Joomla\CMS\Plugin\PluginHelper::importPlugin($group);
 
 		// Get the dispatcher.
 		$dispatcher = JDispatcher::getInstance();
