@@ -12,7 +12,7 @@ class JoomsubscriptionControllerPayment extends MControllerAdmin
 {
 	public function back()
 	{
-		$table     = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$table     = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$processor = $this->input->get('processor');
 
 		if(!$processor)

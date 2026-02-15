@@ -31,7 +31,7 @@ class JFormFieldEdb extends JFormFieldList
 	{
 		if(!is_file(JPATH_ROOT . '/components/com_easydiscuss/easydiscuss.php'))
 		{
-			return array(JHtml::_('select.option', '', 'EasyDiscuss is not installed'));
+			return array(Joomla\CMS\HTML\HTMLHelper::_('select.option', '', 'EasyDiscuss is not installed'));
 		}
 
 		$db      = \Joomla\CMS\Factory::getDbo();
@@ -43,7 +43,7 @@ class JFormFieldEdb extends JFormFieldList
 
 		foreach($badges AS $list)
 		{
-			$options[] = JHtml::_('select.option', $list->id, $list->title);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $list->id, $list->title);
 		}
 
 		return $options;

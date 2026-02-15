@@ -23,9 +23,9 @@ class JoomsubscriptionImportJoomsubscription8 extends JoomsubscriptionImport
 		$db->setQuery($query);
 		$plans = $db->loadObjectList('id');
 
-		$table_group        = JTable::getInstance('EmGroup', 'JoomsubscriptionTable');
-		$table_plan         = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
-		$table_subscription = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$table_group        = \Joomla\CMS\Table\Table::getInstance('EmGroup', 'JoomsubscriptionTable');
+		$table_plan         = \Joomla\CMS\Table\Table::getInstance('EmPlan', 'JoomsubscriptionTable');
+		$table_subscription = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$table_group->name      = 'Import Joomsubscription8';
 		$table_group->published = 0;

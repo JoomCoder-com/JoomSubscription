@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-class JoomsubscriptionGateway extends JObject
+class JoomsubscriptionGateway extends \Joomla\CMS\Object\CMSObject
 {
 
 	/**

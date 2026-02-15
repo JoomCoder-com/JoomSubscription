@@ -21,14 +21,14 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 		{
 			if($a == 'default')
 			{
-				$def = JHtml::_('select.option', $a, JoomsubscriptionRulesHelper::get_rule_name($a));
+				$def = Joomla\CMS\HTML\HTMLHelper::_('select.option', $a, JoomsubscriptionRulesHelper::get_rule_name($a));
 				continue;
 			}
-			$options[] = JHtml::_('select.option', $a, JoomsubscriptionRulesHelper::get_rule_name($a));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $a, JoomsubscriptionRulesHelper::get_rule_name($a));
 		}
 
 		array_unshift($options, $def);
-		array_unshift($options, JHtml::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
 
 		return $options;
 	}
@@ -68,7 +68,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 			}
 		}
 
-		array_unshift($coms, JHtml::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
 
 		return $coms;
 	}*/

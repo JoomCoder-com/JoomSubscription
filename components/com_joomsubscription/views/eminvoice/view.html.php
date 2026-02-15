@@ -29,7 +29,7 @@ class JoomsubscriptionViewEmInvoice extends MViewBase
 
 		$joomsubscription_params = JComponentHelper::getParams('com_joomsubscription');
 
-		$this->subscr = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$this->subscr = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$this->subscr->load($id);
 		$this->subscr->params = new JRegistry($this->subscr->params);
 

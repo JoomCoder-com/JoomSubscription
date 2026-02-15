@@ -8,7 +8,7 @@
 */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class JoomsubscriptionTableEmActions extends JTable
+class JoomsubscriptionTableEmActions extends \Joomla\CMS\Table\Table
 {
     function __construct( &$db ) {
         parent::__construct( '#__joomsubscription_plans_actions', 'id', $db );

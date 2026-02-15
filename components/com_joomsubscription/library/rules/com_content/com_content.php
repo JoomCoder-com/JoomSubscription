@@ -55,7 +55,7 @@ class JoomsubscriptionRuleCom_content extends JoomsubscriptionRule
 			return FALSE;
 		}
 
-		$article = JTable::getInstance('Content', 'JTable');
+		$article = \Joomla\CMS\Table\Table::getInstance('Content', '\Joomla\CMS\Table\Table');
 		$article->load($id);
 
 		if($article->created_by == $user->id)

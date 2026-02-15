@@ -31,7 +31,7 @@ class JFormFieldK2group extends JFormFieldList
 	{
 		if(!is_dir(JPATH_ROOT.'/components/com_k2'))
 		{
-			return array(JHtml::_('select.option', '', 'K2 is not installed'));
+			return array(Joomla\CMS\HTML\HTMLHelper::_('select.option', '', 'K2 is not installed'));
 		}
 
 		$db = \Joomla\CMS\Factory::getDbo();

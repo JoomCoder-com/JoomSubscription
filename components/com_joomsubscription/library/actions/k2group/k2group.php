@@ -15,7 +15,7 @@ if(is_dir(JPATH_ROOT . '/administrator/components/com_k2/tables'))
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2usergroup.php';
 }
 
-JTable::addIncludePath(JPATH_ROOT . '/administrator/components/com_k2/tables');
+\Joomla\CMS\Table\Table::addIncludePath(JPATH_ROOT . '/administrator/components/com_k2/tables');
 
 class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 {
@@ -26,7 +26,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 			return;
 		}
 
-		$table = JTable::getInstance('User', 'TableK2');
+		$table = \Joomla\CMS\Table\Table::getInstance('User', 'TableK2');
 
 		if(!is_object($table))
 		{
@@ -66,7 +66,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 			return;
 		}
 
-		$table = JTable::getInstance('User', 'TableK2');
+		$table = \Joomla\CMS\Table\Table::getInstance('User', 'TableK2');
 
 		if(!is_object($table))
 		{
@@ -121,7 +121,7 @@ class JoomsubscriptionActionK2group extends JoomsubscriptionAction
 
 	private function _getUserGroup($id)
 	{
-		$table = JTable::getInstance('UserGroup', 'TableK2');
+		$table = \Joomla\CMS\Table\Table::getInstance('UserGroup', 'TableK2');
 
 		if(!is_object($table))
 		{

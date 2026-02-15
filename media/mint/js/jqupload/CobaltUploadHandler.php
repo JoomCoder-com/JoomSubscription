@@ -145,7 +145,7 @@ class CobaltUploadHandler extends UploadHandler
 				$input = \Joomla\CMS\Factory::getApplication()->input;
 				if($field_id = $input->getInt('field_id'))
 				{
-					$field = JTable::getInstance('Field', 'CobaltTable');
+					$field = \Joomla\CMS\Table\Table::getInstance('Field', 'CobaltTable');
 					$field->load($field_id);
 					$field->params = new JRegistry($field->params);
 					$subfolder = $field->params->get('params.subfolder', $field->field_type);
@@ -225,7 +225,7 @@ class CobaltUploadHandler extends UploadHandler
 			'type_id' => $input->getInt('type_id'),
 			'field_id' => $input->getInt('field_id'),
 			'ext' => $ext,
-			'fullpath' => JPath::clean($date . DIRECTORY_SEPARATOR . $filename, '/'),
+			'fullpath' => \Joomla\Filesystem\Path::clean($date . DIRECTORY_SEPARATOR . $filename, '/'),
 			'size' => $file->size
 		);
 
@@ -240,7 +240,7 @@ class CobaltUploadHandler extends UploadHandler
 			'bmp'
 		)))
 		{
-			$size = @getimagesize(JPath::clean($dest));
+			$size = @getimagesize(\Joomla\Filesystem\Path::clean($dest));
 
 			if($size && ! empty($size))
 			{
@@ -268,17 +268,17 @@ class CobaltUploadHandler extends UploadHandler
 				'ttf'
 			)))
 			{
-				$metadata = @exif_read_data(JPath::clean($src));
+				$metadata = @exif_read_data(\Joomla\Filesystem\Path::clean($src));
 				$data['params'] = json_encode($metadata);
 			}
 		}
 
 		if(in_array(strtolower($ext), array('mp3')))
 		{
-			$data['params'] = $this->_getID3(JPath::clean($src));
+			$data['params'] = $this->_getID3(\Joomla\Filesystem\Path::clean($src));
 		}
 
-		$table = JTable::getInstance('Files', 'CobaltTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('Files', 'CobaltTable');
 		$table->load(array(
 			'filename' => $filename
 		));

@@ -8,7 +8,7 @@
 */
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionTableEmInvoiceTo extends JTable
+class JoomsubscriptionTableEmInvoiceTo extends \Joomla\CMS\Table\Table
 {
 	function __construct(& $db) {
 		parent::__construct('#__joomsubscription_invoice_to', 'id', $db);

@@ -31,7 +31,7 @@ class JFormFieldKunenaRanks extends JFormFieldList
 	{
 		if(!is_dir(JPATH_ROOT.'/components/com_kunena'))
 		{
-			return array(JHtml::_('select.option', '', 'Kunena is not installed'));
+			return array(Joomla\CMS\HTML\HTMLHelper::_('select.option', '', 'Kunena is not installed'));
 		}
 
 		$db = \Joomla\CMS\Factory::getDbo();

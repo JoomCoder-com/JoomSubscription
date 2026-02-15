@@ -33,7 +33,7 @@ class JoomsubscriptionControllerEmCron extends MControllerForm
 	public function send_expire_alerts()
 	{
 		$db           = \Joomla\CMS\Factory::getDbo();
-		$subscr_table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$subscr_table = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$query = $db->getQuery(TRUE);
 		$query->select('*');

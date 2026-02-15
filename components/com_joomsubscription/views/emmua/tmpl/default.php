@@ -54,8 +54,8 @@ defined('_JEXEC') or die();
 				<td align="center">
 					<img align="absmiddle" border="0"
 						src="<?php echo JURI::root(true)?>/components/com_joomsubscription/images/<?php echo $img;?>"></td>
-				<td nowrap><?php echo JHtml::_('date', $row->ctime, $this->params->get('date_format')); ?></td>
-				<td nowrap><span class="<?php echo $class; ?>"><?php echo JHtml::_('date', $row->extime, JText::_('DATE_FORMAT_LC3'));?></span></td>
+				<td nowrap><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $row->ctime, $this->params->get('date_format')); ?></td>
+				<td nowrap><span class="<?php echo $class; ?>"><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $row->extime, JText::_('DATE_FORMAT_LC3'));?></span></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>

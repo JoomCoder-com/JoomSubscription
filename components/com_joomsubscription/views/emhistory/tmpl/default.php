@@ -86,8 +86,8 @@ echo $this->menu->render(NULL);
 
 						<div class="float-end">
 							<?php
-							JHtml::_('dropdown.edit', $item->sid, 'type.');
-							echo JHtml::_('dropdown.render');
+							Joomla\CMS\HTML\HTMLHelper::_('dropdown.edit', $item->sid, 'type.');
+							echo Joomla\CMS\HTML\HTMLHelper::_('dropdown.render');
 							?>
 						</div>
 						<div>
@@ -114,9 +114,9 @@ echo $this->menu->render(NULL);
 							<small>
 								<?php echo JText::_('ID') ?>: <b><?php echo $item->sid; ?></b> |
 								<?php echo JText::_('EORDERID') ?>: <b><?php echo $item->gateway_id; ?></b> |
-								<?php echo JText::_('ESTARTON') ?>: <b><?php echo JHtml::_('date', $item->ctime, JText::_('DATE_FORMAT_LC3')); ?></b> |
-								<?php echo JText::_('EENDON') ?>: <b class="<?php echo @$class; ?>"><?php JHtml::_('date', $item->extime, $this->params->get('date_format')); ?>
-									<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? JText::_('E_NEVER') : JHtml::_('date', $item->extime, $this->params->get('date_format')); ?></b>
+								<?php echo JText::_('ESTARTON') ?>: <b><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $item->ctime, JText::_('DATE_FORMAT_LC3')); ?></b> |
+								<?php echo JText::_('EENDON') ?>: <b class="<?php echo @$class; ?>"><?php Joomla\CMS\HTML\HTMLHelper::_('date', $item->extime, $this->params->get('date_format')); ?>
+									<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? JText::_('E_NEVER') : Joomla\CMS\HTML\HTMLHelper::_('date', $item->extime, $this->params->get('date_format')); ?></b>
 
 								<!--<div>
 								<?php /*if($coupon = $item->coupon_info): */ ?>
@@ -140,7 +140,7 @@ echo $this->menu->render(NULL);
 							</table>
 						<?php endif; ?>
 						<?php if($item->is_active && $item->plan_params->get('descriptions.description_history')): ?>
-							<?php echo JHtml::_('content.prepare', Mint::_($item->plan_params->get('descriptions.description_history'))); ?>
+							<?php echo Joomla\CMS\HTML\HTMLHelper::_('content.prepare', Mint::_($item->plan_params->get('descriptions.description_history'))); ?>
 						<?php endif; ?>
 					</td>
 					<td>
@@ -190,7 +190,7 @@ echo $this->menu->render(NULL);
 	<input type="hidden" name="task" value=""/>
 	<input type="hidden" name="return" value="<?php echo base64_encode(JUri::getInstance()->toString()); ?>"/>
 	<input type="hidden" name="id" value="" id="sub_id"/>
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>
 <script>
 	(function($){

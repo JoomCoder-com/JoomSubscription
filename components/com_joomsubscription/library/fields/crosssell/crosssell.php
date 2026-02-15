@@ -57,7 +57,7 @@ class JoomsubscriptionFieldCrosssell extends JoomsubscriptionField
 				'CrossSell', $this->params->get('params.price'),
 				$subscription->id . '-' . $subscription->gateway_id);
 
-			$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+			$table = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 			$table->load($subscription->id);
 			$table->price -= $this->params->get('params.price');
 			$table->store();

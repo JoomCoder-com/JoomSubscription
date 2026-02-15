@@ -14,7 +14,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 
 	public function run($params)
 	{
-		$plans = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
+		$plans = \Joomla\CMS\Table\Table::getInstance('EmPlan', 'JoomsubscriptionTable');
 		$db    = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery('SELECT * FROM #__akeebasubs_levels');
@@ -66,7 +66,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 
 	private function getSubscritpions($old_plan_id, $plan)
 	{
-		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$subscriptions = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT * FROM `#__akeebasubs_subscriptions` WHERE `enabled` = 1 AND `akeebasubs_level_id` = " . (int)$old_plan_id);
@@ -148,7 +148,7 @@ class JoomsubscriptionImportAkeebasubs extends JoomsubscriptionImport
 			$save['published'] = 1;
 		}
 
-		$groups = JTable::getInstance('EmGroup', 'JoomsubscriptionTable');
+		$groups = \Joomla\CMS\Table\Table::getInstance('EmGroup', 'JoomsubscriptionTable');
 		$groups->bind($save);
 		$groups->check();
 		$groups->store();

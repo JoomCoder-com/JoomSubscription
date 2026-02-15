@@ -29,11 +29,11 @@ class JFormFieldEmFieldType extends JFormFieldList
 	 */
 	protected function getOptions()
 	{
-		$options[] = JHtml::_('select.option', '', JText::_('ESELECTFTYPE'));
+		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECTFTYPE'));
 		foreach (glob('components/com_joomsubscription/library/fields/*') as $filename)
 		{
 			if(is_dir($filename)) {
-				$options[] = JHtml::_('select.option', basename($filename), basename($filename));
+				$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', basename($filename), basename($filename));
 			}
 		}
 

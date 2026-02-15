@@ -8,7 +8,7 @@
 */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class JoomsubscriptionTableEmHistory extends JTable
+class JoomsubscriptionTableEmHistory extends \Joomla\CMS\Table\Table
 {
     function __construct( &$db ) {
         parent::__construct( '#__joomsubscription_url_history', 'id', $db );

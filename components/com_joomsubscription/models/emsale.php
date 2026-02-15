@@ -14,7 +14,7 @@ class JoomsubscriptionModelEmSale extends MModelAdmin
 
 	public function getTable($type = 'EmSubscription', $prefix = 'JoomsubscriptionTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		return \Joomla\CMS\Table\Table::getInstance($type, $prefix, $config);
 	}
 
 	public function getForm($data = array(), $loadData = TRUE)

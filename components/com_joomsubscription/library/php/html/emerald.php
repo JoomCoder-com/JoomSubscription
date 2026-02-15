@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 
 
-abstract class JHtmlJoomsubscription
+abstract class Joomla\CMS\HTML\HTMLHelperJoomsubscription
 {
 	/**
 	 * A cached array of the groups

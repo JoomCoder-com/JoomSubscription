@@ -51,7 +51,7 @@ class JoomsubscriptionViewAbout extends JViewLegacy
 			'description'  => (string) $xmlContent->description ?? '',
 		];
 
-		$this->sidebar = JHtmlSidebar::render();
+		$this->sidebar = Joomla\CMS\HTML\HTMLHelperSidebar::render();
 
 		parent::display($tpl);
 	}
@@ -59,18 +59,18 @@ class JoomsubscriptionViewAbout extends JViewLegacy
 	protected function addToolbar()
 	{
 		JToolBarHelper::title(JText::_('XML_TOOLBAR_TITLE_ABOUT'), 'systeminfo.png');
-		JHtmlSidebar::addEntry(
+		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
 			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/information.png" align="absmiddle"> ' .
 			JText::_('About'),
 			'index.php?option=com_joomsubscription&view=about',
 			\Joomla\CMS\Factory::getApplication()->input->getCmd('view', 'about') == 'about'
 		);
-		JHtmlSidebar::addEntry(
+		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
 			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/gear.png" align="absmiddle"> ' .
 			JText::_('Configuration'),
 			'index.php?option=com_config&view=component&component=com_joomsubscription'
 		);
-		JHtmlSidebar::addEntry(
+		Joomla\CMS\HTML\HTMLHelperSidebar::addEntry(
 			'<img src="' . JUri::root(TRUE) . '/media/mint/icons/16/lifebuoy.png" align="absmiddle"> ' .
 			JText::_('Forum'),
 			'http://support.mintjoomla.com/en/'

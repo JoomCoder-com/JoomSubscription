@@ -48,7 +48,7 @@ class JFormFieldMetouchfields extends JFormMEFieldList
 		
 		foreach($fields as $fld)
 		{
-			$options[] = JHTML::_('select.option', $fld->id, $fld->title);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $fld->id, $fld->title);
 		}
 		
 		$options = array_merge(parent::getOptions(), $options);

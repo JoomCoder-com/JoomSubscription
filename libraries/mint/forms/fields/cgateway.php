@@ -20,12 +20,12 @@ class JFormFieldCgateway extends JFormMEFieldList
 	{
 		$folders = JFolder::folders(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_cobalt' . DIRECTORY_SEPARATOR . 'gateways');
 		
-		$out[] = JHtml::_('select.option', '', '- ' . JText::_('Select gateway') . ' -');
+		$out[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', '- ' . JText::_('Select gateway') . ' -');
 		if (count($folders))
 		{
 			foreach($folders as $folder)
 			{
-				$out[] = JHtml::_('select.option', $folder, $folder);
+				$out[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $folder, $folder);
 			}
 		}
 		return $out;

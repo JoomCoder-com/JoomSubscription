@@ -24,7 +24,7 @@ class JoomsubscriptionActionAlert extends JoomsubscriptionAction
 		$plan   = JoomsubscriptionApi::getPlan($subscription->plan_id);
 
 		$body = $this->_prepare($this->params->get('body'), $subscription, $plan);
-		$body = JHtml::_('content.prepare', $body);
+		$body = Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $body);
 
 		$subject = $this->_prepare($this->params->get('subject'), $subscription, $plan);
 

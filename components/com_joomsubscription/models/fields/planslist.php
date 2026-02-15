@@ -78,7 +78,7 @@ class JFormFieldPlanslist extends JFormFieldList
 
 				$plan->name = $text;
 			}
-			$options[JText::_($plan->group_name)][] = JHtml::_('select.option', $plan->id, JText::_($plan->name));
+			$options[JText::_($plan->group_name)][] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $plan->id, JText::_($plan->name));
 		}
 
 		// Merge any additional options in the XML definition.
@@ -119,7 +119,7 @@ class JFormFieldPlanslist extends JFormFieldList
 		// Create a read-only list (no name) with a hidden input to store the value.
 		if((string)$this->element['readonly'] == 'true')
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, null, array(
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, null, array(
 				'list.attr' => $attr,
 				'id' => $this->id,
 				'list.select' => $this->value,
@@ -132,7 +132,7 @@ class JFormFieldPlanslist extends JFormFieldList
 		// Create a regular list.
 		else
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, $this->name, array(
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, $this->name, array(
 				'list.attr' => $attr,
 				'id' => $this->id,
 				'list.select' => $this->value,

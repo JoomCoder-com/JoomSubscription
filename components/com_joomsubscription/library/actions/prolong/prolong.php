@@ -37,7 +37,7 @@ class JoomsubscriptionActionProlong extends JoomsubscriptionAction
 		if($field->prolongRecord(array(), $record, $subscription))
 		{
 			$url  = JRoute::_(Url::record($record));
-			$note = JText::sprintf('P_PROLONG_SUCCESS', JHtml::link($url, $record->title));
+			$note = JText::sprintf('P_PROLONG_SUCCESS', Joomla\CMS\HTML\HTMLHelper::link($url, $record->title));
 			\Joomla\CMS\Factory::getApplication()->enqueueMessage($note);
 			\Joomla\CMS\Factory::getApplication()->redirect(JoomsubscriptionApi::getLink('emhistory', FALSE));
 		}

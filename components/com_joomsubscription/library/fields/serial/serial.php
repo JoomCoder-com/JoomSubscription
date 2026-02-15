@@ -13,7 +13,7 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 {
 	public function onHistory($subscription)
 	{
-		$serial = JTable::getInstance('EmSerial', 'JoomsubscriptionTable');
+		$serial = \Joomla\CMS\Table\Table::getInstance('EmSerial', 'JoomsubscriptionTable');
 		$serial->load(
 			array(
 				'user_id'         => $subscription->user_id,
@@ -30,7 +30,7 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 
 	public function onSuccess($subscription)
 	{
-		$serial = JTable::getInstance('EmSerial', 'JoomsubscriptionTable');
+		$serial = \Joomla\CMS\Table\Table::getInstance('EmSerial', 'JoomsubscriptionTable');
 		$serial->load(
 			array(
 				'user_id'         => $subscription->user_id,
@@ -48,7 +48,7 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 
 	public function onCreate($subscription)
 	{
-		$serial = JTable::getInstance('EmSerial', 'JoomsubscriptionTable');
+		$serial = \Joomla\CMS\Table\Table::getInstance('EmSerial', 'JoomsubscriptionTable');
 
 		$serial->load(
 			array(
@@ -72,7 +72,7 @@ class JoomsubscriptionFieldSerial extends JoomsubscriptionField
 		);
 		$serial->store();
 
-		$field = JTable::getInstance('EmField', 'JoomsubscriptionTable');
+		$field = \Joomla\CMS\Table\Table::getInstance('EmField', 'JoomsubscriptionTable');
 		$field->load($this->id);
 		$field_params               = json_decode($field->params);
 		$field_params->params->list = implode("\n", $list);

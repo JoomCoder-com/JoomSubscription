@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die();
 
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $total = $this->plan->total;
 ?>
@@ -141,11 +141,11 @@ $total = $this->plan->total;
 					$options = array();
 					foreach($this->plan->donation_prices as $value)
 					{
-						$options[] = JHtml::_('select.option', $value, JoomsubscriptionApi::getPrice($value, $this->plan->params));
+						$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $value, JoomsubscriptionApi::getPrice($value, $this->plan->params));
 					}
 					$damount = \Joomla\CMS\Factory::getApplication()->input->get('donation_amount', $value);
 					$total   = $damount;
-					echo JHtml::_('select.genericlist', $options, 'donation_amount', $attribs = NULL, $optKey = 'value', $optText = 'text', $damount);
+					echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, 'donation_amount', $attribs = NULL, $optKey = 'value', $optText = 'text', $damount);
 					?>
 
 				<?php elseif($this->plan->is_donation == 2): ?>
@@ -257,7 +257,7 @@ $total = $this->plan->total;
 				<div class="controls">
 					<?php if($this->user->get('id')): ?>
 						<div class="row">
-							<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
+							<?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->getUserState('com_joomsubscription.invoiceto.selector')); ?>
 						</div>
 
 						<div id="invoice_data" class="hide"></div>
@@ -322,7 +322,7 @@ $total = $this->plan->total;
 
 		<p>
 			<?php if($this->plan->params->get('gateway.message')): ?>
-				<?php echo JHtml::_('content.prepare', JText::_($this->plan->params->get('gateway.message'))); ?>
+				<?php echo Joomla\CMS\HTML\HTMLHelper::_('content.prepare', JText::_($this->plan->params->get('gateway.message'))); ?>
 			<?php endif; ?>
 		</p>
 

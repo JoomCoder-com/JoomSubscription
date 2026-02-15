@@ -11,7 +11,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $user = \Joomla\CMS\Factory::getUser();
 $userId = $user->get('id');
@@ -24,7 +24,7 @@ $saveOrder = $listOrder == 'f.ordering';
 if ($saveOrder)
 {
 	$saveOrderingUrl = 'index.php?option=com_joomsubscription&task=emfields.ordersave&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'fieldsList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+	Joomla\CMS\HTML\HTMLHelper::_('sortablelist.sortable', 'fieldsList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 ?>
 <script type="text/javascript">
@@ -74,22 +74,22 @@ if ($saveOrder)
                 <tr>
                     <th width="1%"><input type="checkbox" name="checkall-toggle" value="" onclick="Joomla.checkAll(this)" /></th>
                     <th width="1%" class="nowrap center hidden-phone">
-				        <?php echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'f.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', '<i class="icon-menu-2"></i>', 'f.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
                     </th>
                     <th width="1%" class="nowrap">
-				        <?php echo JHtml::_('grid.sort',  'EFIELDTYPE', 'f.type', $listDirn, $listOrder); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'EFIELDTYPE', 'f.type', $listDirn, $listOrder); ?>
                     </th>
                     <th class="title" class="nowrap center">
-				        <?php echo JHtml::_('grid.sort',  'ENAME', 'f.name', $listDirn, $listOrder); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ENAME', 'f.name', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap">
-				        <?php echo JHtml::_('grid.sort',  'JSTATUS', 'f.published', $listDirn, $listOrder); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'JSTATUS', 'f.published', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap">
-				        <?php echo JHtml::_('grid.sort',  'EACCESS', 'f.access', $listDirn, $listOrder); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'EACCESS', 'f.access', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap">
-				        <?php echo JHtml::_('grid.sort',  'ID', 'f.id', $listDirn, $listOrder); ?>
+				        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ID', 'f.id', $listDirn, $listOrder); ?>
                     </th>
                 </tr>
                 </thead>
@@ -124,7 +124,7 @@ if ($saveOrder)
 			        ?>
                     <tr class="row<?php echo $i % 2; ?>">
                         <td class="center">
-					        <?php echo JHtml::_('grid.id', $i, $item->id); ?>
+					        <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.id', $i, $item->id); ?>
                         </td>
                         <td class="center">
 					        <?php echo $item->type; ?>
@@ -151,7 +151,7 @@ if ($saveOrder)
                         <td nowrap="nowrap">
                             <div class="pull-left">
 						        <?php if ($item->checked_out) : ?>
-							        <?php echo JHtml::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emfields.', $canCheckin); ?>
+							        <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emfields.', $canCheckin); ?>
 						        <?php endif; ?>
 
                                 <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emfield.edit&id='.(int) $item->id);?>">
@@ -160,7 +160,7 @@ if ($saveOrder)
                             </div>
                         </td>
                         <td nowrap="nowrap" align="center">
-					        <?php echo JHtml::_('jgrid.published', $item->published, $i, 'emfields.',  $canChange );?>
+					        <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.published', $item->published, $i, 'emfields.',  $canChange );?>
                         </td>
                         <td class="center">
                             <small><?php echo $this->escape($item->access_level); ?></small>
@@ -179,6 +179,6 @@ if ($saveOrder)
     <input type="hidden" name="boxchecked" value="0" />
     <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
     <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 
 </form>

@@ -272,7 +272,7 @@ defined('_JEXEC') or die();
                 <input type="hidden" name="cid[]" value="" />
                 <input type="hidden" name="return" value="cpanel" />
                 <input type="hidden" name="task" value="emsales.publish" />
-				<?php echo JHtml::_('form.token'); ?>
+				<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
             </form>
             <script type="text/javascript">
                 (function($) {

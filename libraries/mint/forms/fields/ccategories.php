@@ -113,7 +113,7 @@ class JFormFieldCcategories extends JFormFieldList
 		// Create a read-only list (no name) with a hidden input to store the value.
 		if((string)$this->element['readonly'] == 'true')
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, null, array(
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, null, array(
 				'list.attr' => $attr, 
 				'id' => $this->id, 
 				'list.select' => $this->value, 
@@ -126,7 +126,7 @@ class JFormFieldCcategories extends JFormFieldList
 		// Create a regular list.
 		else
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, $this->name, array(
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, $this->name, array(
 				'list.attr' => $attr, 
 				'id' => $this->id, 
 				'list.select' => $this->value, 

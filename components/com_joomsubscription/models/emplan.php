@@ -14,7 +14,7 @@ class JoomsubscriptionModelEmPlan extends MModelAdmin
 
 	public function getTable($type = 'EmPlan', $prefix = 'JoomsubscriptionTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		return \Joomla\CMS\Table\Table::getInstance($type, $prefix, $config);
 	}
 
 	public function save($data)

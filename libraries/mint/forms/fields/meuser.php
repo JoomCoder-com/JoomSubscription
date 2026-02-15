@@ -64,7 +64,7 @@ class JFormFieldMeuser extends JFormField
 		$onchange = (string) $this->element['onchange'];
 
 		// Load the modal behavior script.
-		JHtml::_('behavior.modal');
+		Joomla\CMS\HTML\HTMLHelper::_('behavior.modal');
 
 		// Build the script.
 		$script = array();
@@ -84,7 +84,7 @@ class JFormFieldMeuser extends JFormField
 		\Joomla\CMS\Factory::getDocument()->addScriptDeclaration(implode("\n", $script));
 
 		// Load the current username if available.
-		$table = JTable::getInstance('user');
+		$table = \Joomla\CMS\Table\Table::getInstance('user');
 		if ($this->value) {
 			$table->load($this->value);
 		} else {

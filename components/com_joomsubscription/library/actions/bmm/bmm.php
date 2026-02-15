@@ -20,8 +20,8 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 			'firstname' => \Joomla\CMS\Factory::getUser()->get('name'),
 			'Extra 3'   => \Joomla\CMS\Factory::getUser()->get('id'),
 			'Extra 6'   => $plan->name . " [{$plan->cname}]",
-			'Date 1'    => JHtml::_('date', $subscription->ctime, 'm/d/Y'),
-			'Date 2'    => JHtml::_('date', $subscription->extime, 'm/d/Y')
+			'Date 1'    => Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->ctime, 'm/d/Y'),
+			'Date 2'    => Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->extime, 'm/d/Y')
 		);
 
 		$id = $this->_userExists();
@@ -87,8 +87,8 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 						'firstname' => \Joomla\CMS\Factory::getUser()->get('name'),
 						'Extra 3'   => \Joomla\CMS\Factory::getUser()->get('id'),
 						'Extra 6'   => $plan->name . " [{$plan->cname}]",
-						'Date 1'    => JHtml::_('date', $subscription->ctime, 'm/d/Y'),
-						'Date 2'    => JHtml::_('date', $subscription->extime, 'm/d/Y')
+						'Date 1'    => Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->ctime, 'm/d/Y'),
+						'Date 2'    => Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->extime, 'm/d/Y')
 					);
 
 					$this->_makeAPICall('listAddContacts', $this->params->get('move_id'), array($data));
@@ -106,10 +106,10 @@ class JoomsubscriptionActionBmm extends JoomsubscriptionAction
 
 		foreach($contactLists as $rec)
 		{
-			$options[] = JHtml::_('select.option', $rec['id'], $rec['listname']);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $rec['id'], $rec['listname']);
 		}
 
-		return JHtml::_('select.genericlist', $options, $app->input->getString('fname'));
+		return Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, $app->input->getString('fname'));
 
 	}
 

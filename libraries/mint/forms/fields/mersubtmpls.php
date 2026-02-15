@@ -51,7 +51,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 		$options = array();
 		if((string)$this->element['select'] == '1')
 		{
-			$options[] = JHTML::_('select.option', '', JText::_('CSELECTTEMPLATE'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('CSELECTTEMPLATE'));
 		}
 
 		$options = array_merge($options, $this->getTmplObjectList($tmpltype));
@@ -69,7 +69,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 			$script = $javascript = NULL;
 		}
 
-		$out = sprintf('<div class="pull-left">%s</div><div class="pull-left" style="margin-left:10px" id="%s_link">%s</div>', JHTML::_('select.genericlist', $options, $this->name . ($multi ? '[]' : NULL), $multi . $javascript, 'value', 'text', $this->value, "{$this->id}"),
+		$out = sprintf('<div class="pull-left">%s</div><div class="pull-left" style="margin-left:10px" id="%s_link">%s</div>', Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, $this->name . ($multi ? '[]' : NULL), $multi . $javascript, 'value', 'text', $this->value, "{$this->id}"),
 			str_replace(array(']', '['), '', $this->id), $script);
 
 		return $out;
@@ -95,7 +95,7 @@ class JFormFieldMersubtmpls extends JFormFieldList
 				continue;
 			}
 
-			$result[] = JHTML::_('select.option', $tmplname . "." . $md5id, $tmplname);
+			$result[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $tmplname . "." . $md5id, $tmplname);
 		}
 
 		return $result;

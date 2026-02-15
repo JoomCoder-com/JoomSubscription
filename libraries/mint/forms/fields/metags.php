@@ -71,7 +71,7 @@ class JFormFieldMetags extends JFormField
 		$options['ajax_url'] = 'index.php?option=com_cobalt&task=ajax.tags_list&tmpl=component';
 		$options['ajax_data'] = '';
 
-		return JHtml::_('mrelements.listautocomplete', "jform[tags]", "tags", $default, NULL, $options);
+		return Joomla\CMS\HTML\HTMLHelper::_('mrelements.listautocomplete', "jform[tags]", "tags", $default, NULL, $options);
 
 	}
 }

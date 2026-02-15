@@ -64,7 +64,7 @@ class EMFormHelper
 		if($separator == EM_SEPARATOR_SLIDER)
 		{
 			$pane = JPane::getInstance('Sliders');
-			$out .= JHtml::_('sliders.start', 'type-sliders', array(
+			$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.start', 'type-sliders', array(
 				'useCookie' => 1
 			));
 		}
@@ -80,7 +80,7 @@ class EMFormHelper
 				break;
 
 				case EM_SEPARATOR_SLIDER:
-					$out .= JHtml::_('sliders.panel', JText::_($fieldset->label), $fieldset->name);
+					$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.panel', JText::_($fieldset->label), $fieldset->name);
 				break;
 			}
 			$out .= self::renderFieldset($form, $name, $defaults, $group, $style, 0);
@@ -91,14 +91,14 @@ class EMFormHelper
 				break;
 
 				case EM_SEPARATOR_SLIDER:
-				//$out .= JHtml::_('sliders.end');
+				//$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.end');
 				break;
 			}
 		}
 
 		if($separator == EM_SEPARATOR_SLIDER)
 		{
-			$out .= JHtml::_('sliders.end');
+			$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.end');
 		}
 
 		return $out;

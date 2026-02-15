@@ -11,7 +11,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 $params = $this->state->get('params');
 
 $user   = \Joomla\CMS\Factory::getUser();
@@ -54,28 +54,28 @@ $listDirn  = $this->state->get('list.direction');
                 <th width="1%"><input type="checkbox" name="checkall-toggle" value="" onclick="Joomla.checkAll(this)"/>
                 </th>
                 <th class="title" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'X_VALUE', 'c.value', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'X_VALUE', 'c.value', $listDirn, $listOrder); ?>
                 </th>
                 <th width="1%" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'EDISCOUNT', 'c.discount', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'EDISCOUNT', 'c.discount', $listDirn, $listOrder); ?>
                 </th>
                 <th width="1%" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'E_USE_LIMIT', 'c.use_num', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_USE_LIMIT', 'c.use_num', $listDirn, $listOrder); ?>
                 </th>
                 <th width="1%" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'E_USED', 'c.used_num', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_USED', 'c.used_num', $listDirn, $listOrder); ?>
                 </th>
                 <th width="10%" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'E_START', 'c.ctime', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_START', 'c.ctime', $listDirn, $listOrder); ?>
                 </th>
                 <th width="10%" class="nowrap center">
-					<?php echo JHtml::_('grid.sort', 'E_FINISH', 'c.extime', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_FINISH', 'c.extime', $listDirn, $listOrder); ?>
                 </th>
                 <th width="1%" class="nowrap">
-					<?php echo JHtml::_('grid.sort', 'JSTATUS', 'c.published', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'JSTATUS', 'c.published', $listDirn, $listOrder); ?>
                 </th>
                 <th width="1%" class="nowrap">
-					<?php echo JHtml::_('grid.sort', 'ID', 'c.id', $listDirn, $listOrder); ?>
+					<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'ID', 'c.id', $listDirn, $listOrder); ?>
                 </th>
             </tr>
             </thead>
@@ -113,12 +113,12 @@ $listDirn  = $this->state->get('list.direction');
 				?>
                 <tr class="row<?php echo $i % 2; ?>">
                     <td class="center">
-						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.id', $i, $item->id); ?>
                     </td>
                     <td nowrap="nowrap">
                         <div class="pull-left">
 							<?php if ($item->checked_out) : ?>
-								<?php echo JHtml::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emcoupons.', $canCheckin); ?>
+								<?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emcoupons.', $canCheckin); ?>
 							<?php endif; ?>
 
                             <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emcoupon.edit&id=' . (int) $item->id); ?>">
@@ -160,7 +160,7 @@ $listDirn  = $this->state->get('list.direction');
 						<?php endif; ?>
                     </td>
                     <td class="center">
-						<?php echo JHtml::_('jgrid.published', $item->published, $i, 'emcoupons.', $canChange); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.published', $item->published, $i, 'emcoupons.', $canChange); ?>
                     </td>
                     <td class="center">
 						<?php echo (int) $item->id; ?>
@@ -173,7 +173,7 @@ $listDirn  = $this->state->get('list.direction');
         <input type="hidden" name="boxchecked" value="0"/>
         <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
         <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
-		<?php echo JHtml::_('form.token'); ?>
+		<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
     </div>
 
 </form>

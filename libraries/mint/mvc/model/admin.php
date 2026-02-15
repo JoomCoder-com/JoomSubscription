@@ -191,7 +191,7 @@ abstract class MModelAdmin extends MModelForm
 		{
 			$typeAlias = $this->type->type_alias;
 		}
-		$this->tagsObserver = $this->table->getObserverOfClass('JTableObserverTags');
+		$this->tagsObserver = $this->table->getObserverOfClass('\Joomla\CMS\Table\TableObserverTags');
 
 		if (!empty($commands['category_id']))
 		{
@@ -593,9 +593,9 @@ abstract class MModelAdmin extends MModelForm
 				$tags = array($value);
 
 				/**
-				 * @var  JTableObserverTags  $tagsObserver
+				 * @var  \Joomla\CMS\Table\TableObserverTags  $tagsObserver
 				 */
-				$tagsObserver = $table->getObserverOfClass('JTableObserverTags');
+				$tagsObserver = $table->getObserverOfClass('\Joomla\CMS\Table\TableObserverTags');
 				$result = $tagsObserver->setNewTags($tags, false);
 
 				if (!$result)
@@ -845,9 +845,9 @@ abstract class MModelAdmin extends MModelForm
 			}
 		}
 
-		// Convert to the JObject before adding other data.
+		// Convert to the \Joomla\CMS\Object\CMSObject before adding other data.
 		$properties = $table->getProperties(1);
-		$item = \Joomla\Utilities\ArrayHelper::toObject($properties, 'JObject');
+		$item = \Joomla\Utilities\ArrayHelper::toObject($properties);
 
 		if (property_exists($item, 'params'))
 		{
@@ -862,7 +862,7 @@ abstract class MModelAdmin extends MModelForm
 	/**
 	 * A protected method to get a set of ordering conditions.
 	 *
-	 * @param   JTable  $table  A JTable object.
+	 * @param   \Joomla\CMS\Table\Table  $table  A \Joomla\CMS\Table\Table object.
 	 *
 	 * @return  array  An array of conditions to add to ordering queries.
 	 *
@@ -897,7 +897,7 @@ abstract class MModelAdmin extends MModelForm
 	/**
 	 * Prepare and sanitise the table data prior to saving.
 	 *
-	 * @param   JTable  $table  A reference to a JTable object.
+	 * @param   \Joomla\CMS\Table\Table  $table  A reference to a \Joomla\CMS\Table\Table object.
 	 *
 	 * @return  void
 	 *
@@ -1148,7 +1148,7 @@ abstract class MModelAdmin extends MModelForm
 		$tableClassName = get_class($table);
 		$contentType = new JUcmType;
 		$type = $contentType->getTypeByTable($tableClassName);
-		$tagsObserver = $table->getObserverOfClass('JTableObserverTags');
+		$tagsObserver = $table->getObserverOfClass('\Joomla\CMS\Table\TableObserverTags');
 		$conditions = array();
 
 		if (empty($pks))
@@ -1220,11 +1220,11 @@ abstract class MModelAdmin extends MModelForm
 	/**
 	 * Method to create a tags helper to ensure proper management of tags
 	 *
-	 * @param   JTableObserverTags  $tagsObserver  The tags observer for this table
+	 * @param   \Joomla\CMS\Table\TableObserverTags  $tagsObserver  The tags observer for this table
 	 * @param   JUcmType            $type          The type for the table being processed
 	 * @param   integer             $pk            Primary key of the item bing processed
 	 * @param   string              $typeAlias     The type alias for this table
-	 * @param   JTable              $table         The JTable object
+	 * @param   \Joomla\CMS\Table\Table              $table         The \Joomla\CMS\Table\Table object
 	 *
 	 * @return  void
 	 *
@@ -1254,7 +1254,7 @@ abstract class MModelAdmin extends MModelForm
 		// Check that the category exists
 		if ($categoryId)
 		{
-			$categoryTable = JTable::getInstance('Category');
+			$categoryTable = \Joomla\CMS\Table\Table::getInstance('Category');
 
 			if (!$categoryTable->load($categoryId))
 			{
@@ -1297,7 +1297,7 @@ abstract class MModelAdmin extends MModelForm
 	 * for alias and title to use the batch move and copy methods
 	 *
 	 * @param   integer  $categoryId  The target category id
-	 * @param   JTable   $table       The JTable within which move or copy is taking place
+	 * @param   \Joomla\CMS\Table\Table   $table       The \Joomla\CMS\Table\Table within which move or copy is taking place
 	 *
 	 * @return  void
 	 *

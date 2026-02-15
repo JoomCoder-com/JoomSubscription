@@ -19,10 +19,10 @@ class JoomsubscriptionModelsEmActions extends Joomla\CMS\MVC\Model\BaseModel
 
 		foreach($acts AS $a)
 		{
-			$options[] = JHtml::_('select.option', $a, JoomsubscriptionActionsHelper::get_action_name($a));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $a, JoomsubscriptionActionsHelper::get_action_name($a));
 		}
 
-		array_unshift($options, JHtml::_('select.option', '', JText::_('ESELECT_ACTION')));
+		array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_ACTION')));
 
 		return $options;
 	}

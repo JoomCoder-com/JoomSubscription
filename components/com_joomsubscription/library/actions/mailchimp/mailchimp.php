@@ -97,10 +97,10 @@ class JoomsubscriptionActionMailchimp extends JoomsubscriptionAction
 		$options = array();
 		foreach($lists['data'] as $list)
 		{
-			$options[] = JHtml::_('select.option', $list['id'], $list['name']);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $list['id'], $list['name']);
 		}
 
-		return JHtml::_('select.genericlist', $options, $app->input->getString('name'));
+		return Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, $app->input->getString('name'));
 
 	}
 

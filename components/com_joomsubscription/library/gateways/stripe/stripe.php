@@ -409,7 +409,7 @@ class JoomsubscriptionGatewayStripe extends JoomsubscriptionGateway
 
 		if($gateway_id)
 		{
-			$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+			$table = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 			$table->load(array('gateway_id' => $gateway_id));
 
 			return $table->id;

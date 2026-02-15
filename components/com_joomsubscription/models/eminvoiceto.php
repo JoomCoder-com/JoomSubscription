@@ -59,15 +59,15 @@ class JoomsubscriptionModelsEmInvoiceTo extends Joomla\CMS\MVC\Model\BaseModel
 			$r->text = $r->fields->billto.', '. implode(', ', $line);
 		}
 
-		array_unshift($result, JHtml::_('select.option', '', JText::_('E_SELECT_BILL_TO')));
-		$result[] = JHtml::_('select.option', -1, JText::_('E_ADD_BILL_TO'));
+		array_unshift($result, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('E_SELECT_BILL_TO')));
+		$result[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', -1, JText::_('E_ADD_BILL_TO'));
 
 		return $result;
 	}
 
 	public function getTable($type = 'EmInvoiceTo', $prefix = 'JoomsubscriptionTable', $config = array())
 	{
-		return JTable::getInstance($type, $prefix, $config);
+		return \Joomla\CMS\Table\Table::getInstance($type, $prefix, $config);
 	}
 
 	public function getText($id)

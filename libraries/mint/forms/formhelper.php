@@ -48,7 +48,7 @@ class MEFormHelper
 	{
 		settype($groups, 'array');
 
-// 		$out = JHtml::_('sliders.start', 'type-sliders', array(
+// 		$out = Joomla\CMS\HTML\HTMLHelper::_('sliders.start', 'type-sliders', array(
 // 			'useCookie' => 1
 // 		));
 
@@ -59,7 +59,7 @@ class MEFormHelper
 			$out_group = self::renderGroup($form, $defaults, $group);
 			if($out_group != '')
 			{
-// 				$out .= JHtml::_('sliders.panel', $group_name, $group);
+// 				$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.panel', $group_name, $group);
 				$out .= $out_group;
 				if($group == 'comments')
 				{
@@ -68,7 +68,7 @@ class MEFormHelper
 			}
 		}
 
-// 		$out .= JHtml::_('sliders.end');
+// 		$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.end');
 
 		return $out;
 	}
@@ -93,7 +93,7 @@ class MEFormHelper
 		if($separator == FORM_SEPARATOR_SLIDER)
 		{
 			$pane = JPane::getInstance('Sliders');
-			$out .= JHtml::_('sliders.start', 'type-sliders', array(
+			$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.start', 'type-sliders', array(
 				'useCookie' => 1
 			));
 		}
@@ -109,7 +109,7 @@ class MEFormHelper
 				break;
 
 				case FORM_SEPARATOR_SLIDER:
-					$out .= JHtml::_('sliders.panel', JText::_($fieldset->label), $fieldset->name);
+					$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.panel', JText::_($fieldset->label), $fieldset->name);
 				break;
 			}
 			$out .= self::renderFieldset($form, $name, $defaults, $group, $style, 0);
@@ -120,14 +120,14 @@ class MEFormHelper
 				break;
 
 				case FORM_SEPARATOR_SLIDER:
-				//$out .= JHtml::_('sliders.end');
+				//$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.end');
 				break;
 			}
 		}
 
 		if($separator == FORM_SEPARATOR_SLIDER)
 		{
-			$out .= JHtml::_('sliders.end');
+			$out .= Joomla\CMS\HTML\HTMLHelper::_('sliders.end');
 		}
 
 		return $out;

@@ -19,7 +19,7 @@ class JFormFieldRemcontainers extends JFormFieldList
 	{
 		if(!is_dir(JPATH_ROOT.'/components/com_remository'))
 		{
-			return array(JHtml::_('select.option', '', 'Remository is not installed'));
+			return array(Joomla\CMS\HTML\HTMLHelper::_('select.option', '', 'Remository is not installed'));
 		}
 		$db = \Joomla\CMS\Factory::getDbo();
 		$db->setQuery("SELECT `id`, `name`, parentid FROM `#__downloads_containers` ORDER BY `name` ASC");
@@ -46,7 +46,7 @@ class JFormFieldRemcontainers extends JFormFieldList
 
 		foreach($items[$id] AS $item)
 		{
-			$out[] = JHtml::_('select.option', $item->id, str_repeat('-- ', $level).$item->name);
+			$out[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $item->id, str_repeat('-- ', $level).$item->name);
 
 			if(!empty($items[$item->id]))
 			{

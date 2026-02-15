@@ -48,7 +48,7 @@ class JFormFieldOnCountry extends JFormFieldList
 
 		if($this->element['show_default'])
 		{
-			array_unshift($options, JHtml::_('select.option', '*', JText::_('ON_ANY')));
+			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', JText::_('ON_ANY')));
 		}
 
 		return $options;

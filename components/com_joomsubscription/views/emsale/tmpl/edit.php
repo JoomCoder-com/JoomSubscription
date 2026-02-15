@@ -15,8 +15,8 @@ $wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate');
 
-JHtml::_('dropdown.init');
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $app = \Joomla\CMS\Factory::getApplication();
 ?>
@@ -108,5 +108,5 @@ $app = \Joomla\CMS\Factory::getApplication();
 	<input type="hidden" name="Itemid" value="<?php echo $app->input->getInt('Itemid');?>" />
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="return" value="<?php echo $this->state->get('group.return');?>" />
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>

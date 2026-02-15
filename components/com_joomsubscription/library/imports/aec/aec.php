@@ -23,7 +23,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 	public function run($params)
 	{
 		$this->params = $params;
-		$plans        = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
+		$plans        = \Joomla\CMS\Table\Table::getInstance('EmPlan', 'JoomsubscriptionTable');
 		$db           = \Joomla\CMS\Factory::getDbo();
 		$period_types = [
 			'Y' => 'YEAR',
@@ -86,7 +86,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function getCouponsHistory()
 	{
-		$ctable = JTable::getInstance('EmCouponhistory', 'JoomsubscriptionTable');
+		$ctable = \Joomla\CMS\Table\Table::getInstance('EmCouponhistory', 'JoomsubscriptionTable');
 
 		$db = \Joomla\CMS\Factory::getDbo();
 
@@ -176,7 +176,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function _processCoupons($type)
 	{
-		$ctable = JTable::getInstance('EmCoupon', 'JoomsubscriptionTable');
+		$ctable = \Joomla\CMS\Table\Table::getInstance('EmCoupon', 'JoomsubscriptionTable');
 
 		$db = \Joomla\CMS\Factory::getDbo();
 
@@ -225,7 +225,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 
 	private function getSubscritpions()
 	{
-		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$subscriptions = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$db = \Joomla\CMS\Factory::getDbo();
 
@@ -330,7 +330,7 @@ class JoomsubscriptionImportAec extends JoomsubscriptionImport
 		$save['name']      = 'Default group';
 		$save['published'] = 1;
 
-		$groups = JTable::getInstance('EmGroup', 'JoomsubscriptionTable');
+		$groups = \Joomla\CMS\Table\Table::getInstance('EmGroup', 'JoomsubscriptionTable');
 		$groups->bind($save);
 		$groups->check();
 		$groups->store();

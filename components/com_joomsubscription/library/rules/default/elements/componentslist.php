@@ -51,7 +51,7 @@ class JFormFieldComponentslist extends JFormFieldList
 			}
 		}
 
-		array_unshift($coms, JHtml::_('select.option', '', JText::_('ESELECT_COMPONENT')));
+		array_unshift($coms, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECT_COMPONENT')));
 
 		return $coms;
 	}

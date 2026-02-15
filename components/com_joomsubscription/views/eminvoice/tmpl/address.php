@@ -4,13 +4,13 @@
  *
  */
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 ?>
 <br/>
 <div class="container-fluid">
 	<form action="<?php echo JUri::getInstance()->toString(); ?>" method="post">
 		<div class="row">
-			<?php echo JHtml::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->input->get('invoice')); ?>
+			<?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->inv_list, 'invoice', 'required class="col-12"', 'value', 'text', \Joomla\CMS\Factory::getApplication()->input->get('invoice')); ?>
 		</div>
 		<div id="invoice_data" class="hide"></div>
 		<button type="submit" class="btn btn-primary btn-large" id="apply-btn"><?php echo JText::_('EAPPLY'); ?></button>

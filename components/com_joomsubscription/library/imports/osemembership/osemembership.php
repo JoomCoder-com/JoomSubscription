@@ -14,7 +14,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 
 	public function run($config)
 	{
-		$new_plan = JTable::getInstance('EmPlan', 'JoomsubscriptionTable');
+		$new_plan = \Joomla\CMS\Table\Table::getInstance('EmPlan', 'JoomsubscriptionTable');
 		$db       = \Joomla\CMS\Factory::getDbo();
 
 		$db->setQuery("SELECT * FROM #__osemsc_ext WHERE `type` = 'payment'");
@@ -66,7 +66,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 
 	private function getSubscritpions($level, $plan, $old, $config)
 	{
-		$subscriptions = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$subscriptions = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$db = \Joomla\CMS\Factory::getDbo();
 		$sql = "SELECT * FROM `#__osemsc_member` WHERE `msc_id` = " . (int)$level;
@@ -148,7 +148,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 					trim($info->addr1 . ' ' . $info->addr2), $info->vat_number, $info->telephone)
 			);
 
-			$invto = JTable::getInstance('EmInvoiceTo', 'JoomsubscriptionTable');
+			$invto = \Joomla\CMS\Table\Table::getInstance('EmInvoiceTo', 'JoomsubscriptionTable');
 			$invto->save($data);
 
 			$out[$id] = $invto->id;
@@ -212,7 +212,7 @@ class JoomsubscriptionImportOsemembership extends JoomsubscriptionImport
 			'published' => 1
 		);
 
-		$groups = JTable::getInstance('EmGroup', 'JoomsubscriptionTable');
+		$groups = \Joomla\CMS\Table\Table::getInstance('EmGroup', 'JoomsubscriptionTable');
 		$groups->save($save);
 		$id = $groups->id;
 		$groups->reorder();

@@ -16,7 +16,7 @@ class JoomsubscriptionControllerEmHistory extends MControllerAdmin
 	{
 		$cid   = \Joomla\CMS\Factory::getApplication()->input->get('id');
 		$app   = \Joomla\CMS\Factory::getApplication();
-		$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 
 		$table->load($cid);
 

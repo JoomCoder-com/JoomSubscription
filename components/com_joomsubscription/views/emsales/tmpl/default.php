@@ -11,7 +11,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die();
 
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $listOrder = $this->state->get('list.ordering');
 $listDirn  = $this->state->get('list.direction');
@@ -46,15 +46,15 @@ $userId    = $user->get('id');
     <div class="card my-3">
         <div class="card-body">
             <div class="float-start me-2">
-		        <?php echo JHtml::_('select.genericlist', $this->model->getGroups(true), 'filter_group', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('group_id')), false, true); ?>
+		        <?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->model->getGroups(true), 'filter_group', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('group_id')), false, true); ?>
             </div>
 
             <div class="float-start me-2">
-		        <?php echo JHtml::_('select.genericlist', $this->model->getPLans(true), 'filter_plan', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('plan_id')), false, true); ?>
+		        <?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->model->getPLans(true), 'filter_plan', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('plan_id')), false, true); ?>
             </div>
 
             <div class="float-start">
-		        <?php echo JHtml::_('select.genericlist', $this->model->getSt(), 'filter_state', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('state')), false, true); ?>
+		        <?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->model->getSt(), 'filter_state', 'onchange="this.form.submit()"', 'value', 'text', $this->escape((string) $this->state->get('state')), false, true); ?>
             </div>
         </div>
     </div>
@@ -69,22 +69,22 @@ $userId    = $user->get('id');
                                 <input type="checkbox" name="checkall-toggle" value="" onclick="Joomla.checkAll(this)"/>
                             </th>
                             <th width="1%" class="nowrap center">
-				                <?php echo JHtml::_('grid.sort', 'ID', 's.id', $listDirn, $listOrder); ?>
+				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'ID', 's.id', $listDirn, $listOrder); ?>
                             </th>
                             <th class="nowrap center">
-				                <?php echo JHtml::_('grid.sort', 'E_SUBSCRIPTION', 'p.name', $listDirn, $listOrder); ?>
+				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_SUBSCRIPTION', 'p.name', $listDirn, $listOrder); ?>
                             </th>
                             <th width="1%" nowrap>
 				                <?php echo JText::_('EUSER'); ?>
                             </th>
                             <th width="1%" class="nowrap">
-				                <?php echo JHtml::_('grid.sort', 'EPUBLISHSTATE', 's.published', $listDirn, $listOrder); ?>
+				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'EPUBLISHSTATE', 's.published', $listDirn, $listOrder); ?>
                             </th>
                             <th width="1%" class="nowrap">
-				                <?php echo JHtml::_('grid.sort', 'X_PRICE', 's.price', $listDirn, $listOrder); ?>
+				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'X_PRICE', 's.price', $listDirn, $listOrder); ?>
                             </th>
                             <th width="1%" class="nowrap">
-				                <?php echo JHtml::_('grid.sort', 'E_CREATED', 's.created', $listDirn, $listOrder); ?>
+				                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort', 'E_CREATED', 's.created', $listDirn, $listOrder); ?>
                             </th>
                         </tr>
                         </thead>
@@ -119,7 +119,7 @@ $userId    = $user->get('id');
 			                ?>
                             <tr>
                                 <td class="center">
-					                <?php echo JHtml::_('grid.id', $i, $item->id); ?>
+					                <?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.id', $i, $item->id); ?>
                                 </td>
                                 <td><?php echo $item->sid; ?></td>
                                 <td>
@@ -131,7 +131,7 @@ $userId    = $user->get('id');
                                              rel="tooltip" data-original-title="<?php echo JText::_($item->state); ?>">
 
 						                <?php if ($item->checked_out) : ?>
-							                <?php echo JHtml::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emsales.', $canCheckin); ?>
+							                <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.checkedout', $i, $item->checked_out, $item->checked_out_time, 'emsales.', $canCheckin); ?>
 						                <?php endif; ?>
 
                                         <a href="<?php echo JRoute::_('index.php?option=com_joomsubscription&task=emsale.edit&id=' . (int) $item->id); ?>">
@@ -189,10 +189,10 @@ $userId    = $user->get('id');
 							                <?php if ($item->activated): ?>
                                                 <tr>
                                                     <td><?php echo JText::_('X_PERIOD'); ?></td>
-                                                    <td><?php echo JHtml::_('date', $item->ctime, $this->params->get('date_format')); ?>
+                                                    <td><?php echo Joomla\CMS\HTML\HTMLHelper::_('date', $item->ctime, $this->params->get('date_format')); ?>
                                                         -
                                                         <span class="<?php echo $item->expired ? '' : ''; ?>">
-											<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? JText::_('E_NEVER') : JHtml::_('date', $item->extime, $this->params->get('date_format')); ?>
+											<?php echo ($item->days_enable >= 36500 || $item->extime == '0000-00-00 00:00:00') ? JText::_('E_NEVER') : Joomla\CMS\HTML\HTMLHelper::_('date', $item->extime, $this->params->get('date_format')); ?>
 										</span>
                                                     </td>
                                                 </tr>
@@ -245,7 +245,7 @@ $userId    = $user->get('id');
                                 </td>
                                 <td nowrap><?php echo $item->uname; ?></td>
                                 <td nowrap="nowrap" align="center">
-					                <?php echo JHtml::_('jgrid.published', $item->published, $i, 'emsales.', $canChange); ?>
+					                <?php echo Joomla\CMS\HTML\HTMLHelper::_('jgrid.published', $item->published, $i, 'emsales.', $canChange); ?>
                                 </td>
                                 <td align="right" nowrap>
 					                <?php echo JoomsubscriptionApi::getPrice($item->price, $item->plan_params, $item->params); ?>
@@ -265,7 +265,7 @@ $userId    = $user->get('id');
     <input type="hidden" name="boxchecked" value="0"/>
     <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
     <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 
 </form>
 

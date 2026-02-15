@@ -43,10 +43,10 @@ class JFormFieldEsprofiles extends JFormFieldList
 		$model    = Foundry::model('Profiles');
 		$profiles = $model->getProfiles();
 
-		$options[] = JHtml::_('select.option', '', \Joomla\CMS\Language\Text::_('ES_SELECTPROFILE'));
+		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', \Joomla\CMS\Language\Text::_('ES_SELECTPROFILE'));
 		foreach($profiles AS $profile)
 		{
-			$options[] = JHtml::_('select.option', $profile->id, $profile->title);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $profile->id, $profile->title);
 		}
 
 		return $options;

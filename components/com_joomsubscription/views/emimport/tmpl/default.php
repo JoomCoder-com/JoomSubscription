@@ -14,8 +14,8 @@ defined('_JEXEC') or die('Restricted access');
 $wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate');
-JHtml::_('dropdown.init');
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $app = \Joomla\CMS\Factory::getApplication();
 $fieldset = $this->import->form->getFieldset();
@@ -62,7 +62,7 @@ $fieldset = $this->import->form->getFieldset();
 
 	<input type="hidden" name="type" value="<?php echo $this->import->type;?>" />
 	<input type="hidden" name="task" value="" />
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>
 
 <script type="text/javascript">

@@ -38,18 +38,18 @@ class JFormFieldMETextMask extends JFormField
 	{
 		$opt = array();
 
-		$opt[] = JHTML::_('select.option', '', JText::_('Do not use'));
-		$opt[] = JHTML::_('select.option', '(###) ### #######', JText::_('Phone'));
-		$opt[] = JHTML::_('select.option', '(###) ###-####', JText::_('Phone US'));
-		$opt[] = JHTML::_('select.option', 'mm/dd/yyyy', JText::_('Date'));
-		$opt[] = JHTML::_('select.option', '#####-###', JText::_('Code'));
-		$opt[] = JHTML::_('select.option', '#### #### #### ####', JText::_('Credit Card'));
-		$opt[] = JHTML::_('select.option', '#', JText::_('Integer'));
-		$opt[] = JHTML::_('select.option', '#####.##', JText::_('Decimal'));
-		$opt[] = JHTML::_('select.option', '#,###.##', JText::_('Numeric with format'));
-		$opt[] = JHTML::_('select.option', '$#,###.##', JText::_('Dollar'));
-		$opt[] = JHTML::_('select.option', '€#,###.##', JText::_('Euro'));
-		$opt[] = JHTML::_('select.option', 'custom', JText::_('Custom'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('Do not use'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ### #######', JText::_('Phone'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '(###) ###-####', JText::_('Phone US'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'mm/dd/yyyy', JText::_('Date'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####-###', JText::_('Code'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#### #### #### ####', JText::_('Credit Card'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#', JText::_('Integer'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#####.##', JText::_('Decimal'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '#,###.##', JText::_('Numeric with format'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '$#,###.##', JText::_('Dollar'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '€#,###.##', JText::_('Euro'));
+		$opt[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', 'custom', JText::_('Custom'));
 		
 		if(!$this->value) $this->value = new stdClass();
 		if(!isset($this->value->type)) $this->value->type = false;
@@ -64,7 +64,7 @@ class JFormFieldMETextMask extends JFormField
 		$display = ($this->value->mask_type) ? 'block' : 'none';
 		$readonly = ($this->value->mask_type && $this->value->mask_type != 'custom') ? 'readonly' : '';
 
-		$out .= JHtml::_('select.genericlist', $opt, $this->name.'[mask_type]', 'onchange="changeMask'.$this->id.'(this.value)"', 'value', 'text', $this->value->mask_type, $this->id."mask_type");
+		$out .= Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $opt, $this->name.'[mask_type]', 'onchange="changeMask'.$this->id.'(this.value)"', 'value', 'text', $this->value->mask_type, $this->id."mask_type");
 
 		$out .= '<input type="text" style="display: '.$display.'" name="'.$this->name.'[mask]" id="'.$this->id.'_mask"
 			value="'.$this->value->mask.'" size="40" '.$readonly.'>';

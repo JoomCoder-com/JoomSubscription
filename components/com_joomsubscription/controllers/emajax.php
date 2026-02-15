@@ -53,7 +53,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		JoomsubscriptionFieldsHelper::load_lang($type);
 
-		$table = JTable::getInstance('EmField', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmField', 'JoomsubscriptionTable');
 		$table->load($app->input->get('field_id'));
 		$table->params = new JRegistry(json_decode($table->params, TRUE));
 
@@ -89,8 +89,8 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 
 		if($states)
 		{
-			array_unshift($states, JHtml::_('select.option', '', JText::_('EMR_SELECT_STATE')));
-			echo JHtml::_('select.genericlist', $states, $name, '', 'value', 'text', $this->input->get('default'));
+			array_unshift($states, Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('EMR_SELECT_STATE')));
+			echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $states, $name, '', 'value', 'text', $this->input->get('default'));
 		}
 
 
@@ -100,7 +100,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 	public function deleteRule()
 	{
 		$id    = $this->input->post->get('id');
-		$rules = JTable::getInstance('EmRules', 'JoomsubscriptionTable');
+		$rules = \Joomla\CMS\Table\Table::getInstance('EmRules', 'JoomsubscriptionTable');
 		$rules->load($id);
 		$rules->delete();
 
@@ -127,7 +127,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 		}
 
 
-		$rules = JTable::getInstance('EmRules', 'JoomsubscriptionTable');
+		$rules = \Joomla\CMS\Table\Table::getInstance('EmRules', 'JoomsubscriptionTable');
 
 		if(!empty($array['id']))
 		{
@@ -278,7 +278,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 			JoomsubscriptionAjaxHelper::error(JText::_('EMER_ACTIONNODATA'));
 		}
 
-		$actions = JTable::getInstance('EmActions', 'JoomsubscriptionTable');
+		$actions = \Joomla\CMS\Table\Table::getInstance('EmActions', 'JoomsubscriptionTable');
 
 		if(!empty($array['id']))
 		{

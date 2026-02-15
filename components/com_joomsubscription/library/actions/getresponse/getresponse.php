@@ -102,10 +102,10 @@ class JoomsubscriptionActionGetresponse extends JoomsubscriptionAction
 		$options = array();
 		foreach($campaigns as $id => $rec)
 		{
-			$options[] = JHtml::_('select.option', $id, $rec['name']);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $id, $rec['name']);
 		}
 
-		return JHtml::_('select.genericlist', $options, $app->input->getString('name'));
+		return Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $options, $app->input->getString('name'));
 
 	}
 

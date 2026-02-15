@@ -19,7 +19,7 @@ class JoomsubscriptionControllerPlans extends MControllerAdmin
 
 	public function create()
 	{
-		$table     = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$table     = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$processor = $this->input->get('processor');
 
 		// TASK for legacy parse for pay prefix in processor.

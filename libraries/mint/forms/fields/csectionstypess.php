@@ -19,17 +19,17 @@ class JFormFieldCsectionstypess extends JFormMEFieldList
 
 	protected function getOptions()
 	{
-		JHtml::addIncludePath(JPATH_ROOT . DIRECTORY_SEPARATOR . 'administrator' . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_cobalt' . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'html');
-		$sections = JHtml::_('cobalt.sections');
+		Joomla\CMS\HTML\HTMLHelper::addIncludePath(JPATH_ROOT . DIRECTORY_SEPARATOR . 'administrator' . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_cobalt' . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'html');
+		$sections = Joomla\CMS\HTML\HTMLHelper::_('cobalt.sections');
 		
 		$options = array();
 		if($this->element['select'] == 1)
 		{
-			$options[] = JHTML::_('select.option', '', JText::_('- Select Section -'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('- Select Section -'));
 		}
 		foreach($sections as $type)
 		{
-			$options[] = JHTML::_('select.option', $type->value, $type->text);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $type->value, $type->text);
 		}
 		return $options;
 	}

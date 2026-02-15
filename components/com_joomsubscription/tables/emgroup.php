@@ -8,7 +8,7 @@
 */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class JoomsubscriptionTableEmGroup extends JTable
+class JoomsubscriptionTableEmGroup extends \Joomla\CMS\Table\Table
 {
     function __construct( &$db ) {
         parent::__construct( '#__joomsubscription_plans_groups', 'id', $db );

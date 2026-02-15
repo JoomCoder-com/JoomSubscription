@@ -33,11 +33,11 @@ class JFormFieldEmFields extends JFormFieldList
 		$db->setQuery("SELECT id as value, `name` as text FROM `#__joomsubscription_fields` ORDER By ordering");
 		return $db->loadObjectList();
 
-		$options[] = JHtml::_('select.option', '', JText::_('ESELECTFTYPE'));
+		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('ESELECTFTYPE'));
 		foreach (glob('components/com_joomsubscription/library/fields/*') as $filename)
 		{
 			if(is_dir($filename)) {
-				$options[] = JHtml::_('select.option', basename($filename), basename($filename));
+				$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', basename($filename), basename($filename));
 			}
 		}
 

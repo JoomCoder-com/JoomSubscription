@@ -90,7 +90,7 @@ class JFormFieldMEPictureresize extends JFormFieldList
 			}
 
 			// Create a new option object based on the <option /> element.
-			$tmp = JHtml::_('select.option', (string) $option['value'], JText::_(trim((string) $option)), 'value', 'text', ((string) $option['disabled']=='true'));
+			$tmp = Joomla\CMS\HTML\HTMLHelper::_('select.option', (string) $option['value'], JText::_(trim((string) $option)), 'value', 'text', ((string) $option['disabled']=='true'));
 
 			// Set some option attributes.
 			$tmp->class = (string) $option['class'];

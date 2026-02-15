@@ -259,7 +259,7 @@ class MFormHelper
 
 		/*if($field->description)
 		{
-			JHtml::_('bootstrap.tooltip', '[data-toggle="tooltip"]');
+			Joomla\CMS\HTML\HTMLHelper::_('bootstrap.tooltip', '[data-toggle="tooltip"]');
 			$tooltip = sprintf('data-toggle="tooltip" title="%s"', );
 		}*/
 

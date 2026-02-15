@@ -28,7 +28,7 @@ class JFormFieldMEUsercategories extends JFormField
 		$categories = $db->loadObjectList();
 
 		$html = '<div class="form-inline">';
-		$html .= JHtml::_('select.genericlist', $categories, $this->name, 'class="inputbox"', 'value', 'text', $this->value, $this->id);
+		$html .= Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $categories, $this->name, 'class="inputbox"', 'value', 'text', $this->value, $this->id);
 		if($this->required)
 		{
 		    $uri		= \Joomla\CMS\Factory::getUri();

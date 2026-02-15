@@ -20,17 +20,17 @@ class JFormFieldMeresourcessection extends JFormMEFieldList
 
 	protected function getOptions()
 	{
-		JHtml::addIncludePath(JPATH_ROOT . '/components/com_cobalt/library/php/html');
-		$sections = JHtml::_('cobalt.sections');
+		Joomla\CMS\HTML\HTMLHelper::addIncludePath(JPATH_ROOT . '/components/com_cobalt/library/php/html');
+		$sections = Joomla\CMS\HTML\HTMLHelper::_('cobalt.sections');
 
 		$options = array();
 		if($this->element['select'] == 1)
 		{
-			$options[] = JHTML::_('select.option', '', JText::_('CSELECTSECTION'));
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('CSELECTSECTION'));
 		}
 		foreach($sections as $type)
 		{
-			$options[] = JHTML::_('select.option', $type->value . ($this->element['alias'] == 1 ? ':' . $type->alias : NULL), $type->text);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $type->value . ($this->element['alias'] == 1 ? ':' . $type->alias : NULL), $type->text);
 
 		}
 

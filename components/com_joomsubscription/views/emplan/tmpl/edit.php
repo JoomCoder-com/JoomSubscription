@@ -18,7 +18,7 @@ $wa = \Joomla\CMS\Factory::getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
 	->useScript('form.validate');
 
-JHtml::_('dropdown.init');
+Joomla\CMS\HTML\HTMLHelper::_('dropdown.init');
 
 // temporary will be removed on future versions
 \Joomla\CMS\Factory::getDocument()->addScript(JURI::root(true) . '/components/com_joomsubscription/library/js/main.js');
@@ -198,7 +198,7 @@ JHtml::_('dropdown.init');
     <div class="clearfix"></div>
 
     <input type="hidden" name="task" value=""/> <input type="hidden" name="return" value="<?php echo $this->state->get('plan.return'); ?>"/>
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>
 <script type="text/javascript">
     (function($) {

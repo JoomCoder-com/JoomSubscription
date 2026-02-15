@@ -11,7 +11,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die('Restricted access');
 
-JHtml::_('formbehavior.chosen', 'select');
+Joomla\CMS\HTML\HTMLHelper::_('formbehavior.chosen', 'select');
 
 $listOrder = $this->state->get('list.ordering');
 $listDirn = $this->state->get('list.direction');
@@ -35,7 +35,7 @@ $listDirn = $this->state->get('list.direction');
         <div class="card-body">
             <div class="input-append float-end">
 		        <span class="float-start">
-                     <?php echo JHtml::_('select.genericlist', $this->countries, 'filter_country', 'onchange="this.form.submit();"', 'id', 'name', $this->state->get('filter.country'))?>
+                     <?php echo Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $this->countries, 'filter_country', 'onchange="this.form.submit();"', 'id', 'name', $this->state->get('filter.country'))?>
                 </span>
             </div>
         </div>
@@ -50,19 +50,19 @@ $listDirn = $this->state->get('list.direction');
                 <tr>
                     <th width="1%"><input type="checkbox" name="checkall-toggle" value="" onclick="Joomla.checkAll(this)" /></th>
                     <th class="nowrap">
-						<?php echo JHtml::_('grid.sort',  'ETAX_NAME', 't.tax_name', $listDirn, $listOrder); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ETAX_NAME', 't.tax_name', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="title" class="nowrap">
 						<?php echo JText::_('ECOUNTRY'); ?>
                     </th>
                     <th width="1%" class="nowrap">
-						<?php echo JHtml::_('grid.sort',  'ESTATE', 'st.name', $listDirn, $listOrder); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ESTATE', 'st.name', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap">
-						<?php echo JHtml::_('grid.sort',  'ETAX', 't.tax', $listDirn, $listOrder); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ETAX', 't.tax', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap">
-						<?php echo JHtml::_('grid.sort',  'ID', 'st.id', $listDirn, $listOrder); ?>
+						<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.sort',  'ID', 'st.id', $listDirn, $listOrder); ?>
                     </th>
                 </tr>
                 </thead>
@@ -93,7 +93,7 @@ $listDirn = $this->state->get('list.direction');
 				<?php foreach($this->items as $i => $item):	?>
                     <tr class="row<?php echo $i % 2; ?>">
                         <td class="center">
-							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+							<?php echo Joomla\CMS\HTML\HTMLHelper::_('grid.id', $i, $item->id); ?>
                         </td>
                         <td nowrap="nowrap">
                             <div class="pull-left">
@@ -126,5 +126,5 @@ $listDirn = $this->state->get('list.direction');
     <input type="hidden" name="boxchecked" value="0" />
     <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
     <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-	<?php echo JHtml::_('form.token'); ?>
+	<?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>

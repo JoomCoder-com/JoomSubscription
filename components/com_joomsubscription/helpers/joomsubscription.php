@@ -19,7 +19,7 @@ class JoomsubscriptionHelper
 		if(is_int($subscription))
 		{
 			$subscription_id = $subscription;
-			$subscription    = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+			$subscription    = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 			$subscription->load($subscription_id);
 		}
 
@@ -679,7 +679,7 @@ class JoomsubscriptionHelper
 			$out[$plan->gid][] = $plan;
 
 			$gparams                           = new JRegistry(@$plan->cparams);
-			$groups[$plan->gid]['description'] = JHtml::_('content.prepare', Mint::_(@$plan->cdescr));
+			$groups[$plan->gid]['description'] = Joomla\CMS\HTML\HTMLHelper::_('content.prepare', Mint::_(@$plan->cdescr));
 			$groups[$plan->gid]['name']        = @$plan->cname;
 			$groups[$plan->gid]['image']       = @$plan->gimage;
 			$groups[$plan->gid]['template']    = $gparams->get('properties.template', 'default');
@@ -730,7 +730,7 @@ class JoomsubscriptionHelper
 			}
 		}
 
-		$plan->description = JHtml::_('content.prepare', Mint::_($plan->params->get('descriptions.description')));
+		$plan->description = Joomla\CMS\HTML\HTMLHelper::_('content.prepare', Mint::_($plan->params->get('descriptions.description')));
 
 		if($plan->params->get('crossplans.grant_plans') && $plan->params->get('crossplans.show_grant'))
 		{
@@ -1059,7 +1059,7 @@ class JoomsubscriptionHelper
 
 		}
 		$body    = self::_prepareText($body, $subscription, $plan, $day);
-		$body    = JHtml::_('content.prepare', $body);
+		$body    = Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $body);
 		$subject = self::_prepareText($subject, $subscription, $plan, $day);
 
 		$mail->IsHTML(TRUE);
@@ -1102,8 +1102,8 @@ class JoomsubscriptionHelper
 		$body = str_ireplace('[AMOUNT]', JoomsubscriptionApi::getPrice($subscription->price, $plan->params), $body);
 		$body = str_ireplace('[GROUPNAME]', $plan->cname, $body);
 		$body = str_ireplace('[NOTE]', $subscription->note, $body);
-		$body = str_ireplace('[START]', JHtml::_('date', $subscription->ctime, $params->get('date_format')), $body);
-		$body = str_ireplace('[END]', JHtml::_('date', $subscription->extime, $params->get('date_format')), $body);
+		$body = str_ireplace('[START]', Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->ctime, $params->get('date_format')), $body);
+		$body = str_ireplace('[END]', Joomla\CMS\HTML\HTMLHelper::_('date', $subscription->extime, $params->get('date_format')), $body);
 		$body = str_ireplace('[GATEWAY]', $subscription->gateway, $body);
 
 		if(preg_match("/\[START([\+\-]{1})([0-9\.]*)\]/iU", $body, $m))
@@ -1118,7 +1118,7 @@ class JoomsubscriptionHelper
 				$time -= ($m[2] * 3600);
 			}
 
-			$body = str_ireplace($m[0], JHtml::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
+			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
 		}
 
 		if(preg_match("/\[END([\+\-]{1})([0-9\.]*)\]/iU", $body, $m))
@@ -1133,7 +1133,7 @@ class JoomsubscriptionHelper
 				$time -= ($m[2] * 3600);
 			}
 
-			$body = str_ireplace($m[0], JHtml::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
+			$body = str_ireplace($m[0], Joomla\CMS\HTML\HTMLHelper::_('date', JDate::getInstance($time)->toSql(), $params->get('date_format')), $body);
 		}
 
 		$id = \Joomla\CMS\Factory::getApplication()->input->cookie->get('i_want_to_prolong');

@@ -6,6 +6,9 @@
  * @copyright Copyright (C) 2012 MintJoomla (http://www.mintjoomla.com). All rights reserved.
  * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
+
+use Joomla\Utilities\ArrayHelper;
+
 defined('_JEXEC') or die();
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
@@ -70,7 +73,7 @@ class JFormFieldEmeraldplans extends JFormFieldGroupedList
 
 			foreach($plans as $plan)
 			{
-				$groups[$plan->cat_title][] = JHtml::_('select.option', $plan->value, $plan->text, 'value', 'text');
+				$groups[$plan->cat_title][] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $plan->value, $plan->text, 'value', 'text');
 				$nums ++;
 			}
 			$nums += count($groups);

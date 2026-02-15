@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-class JoomsubscriptionTableEmCoupon extends JTable
+class JoomsubscriptionTableEmCoupon extends \Joomla\CMS\Table\Table
 {
 
 	function __construct(&$db)

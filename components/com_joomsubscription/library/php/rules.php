@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die();
 
-class JoomsubscriptionRule extends JObject
+class JoomsubscriptionRule extends \Joomla\CMS\Object\CMSObject
 {
 	public function __construct($rule)
 	{

@@ -23,7 +23,7 @@ jimport('mint.mvc.view.base');
 jimport('mint.helper');
 jimport('mint.forms.helper');
 
-//JHtml::_('bootstrap.framework');
+//Joomla\CMS\HTML\HTMLHelper::_('bootstrap.framework');
 //HTMLHelper::_('bootstrap.framework');
 
 $app = \Joomla\CMS\Factory::getApplication();
@@ -34,9 +34,9 @@ JLoader::discover('MController', JPATH_LIBRARIES . '/mint/mvc/controller');
 
 JLoader::registerPrefix('Joomsubscription', JPATH_ROOT . '/components/com_joomsubscription');
 
-JTable::addIncludePath(JPATH_ROOT . '/components/com_joomsubscription/tables');
+\Joomla\CMS\Table\Table::addIncludePath(JPATH_ROOT . '/components/com_joomsubscription/tables');
 MModelBase::addIncludePath(JPATH_ROOT . '/components/com_joomsubscription/models');
-JHtml::addIncludePath(JPATH_ROOT . '/administrator/components/com_joomsubscription/helpers/html');
+Joomla\CMS\HTML\HTMLHelper::addIncludePath(JPATH_ROOT . '/administrator/components/com_joomsubscription/helpers/html');
 
 foreach(glob(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components/com_joomsubscription/helpers/*.php') as $filename)
 {
@@ -200,7 +200,7 @@ class JoomsubscriptionApi
 			'subscription_id' => $subscr->plan_id
 		);
 
-		$table = JTable::getInstance('EmHistory', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmHistory', 'JoomsubscriptionTable');
 		$table->load($history);
 
 		if(empty($table->id))
@@ -234,8 +234,8 @@ class JoomsubscriptionApi
 
 		$gateway_id = ($gateway_id ? $gateway_id : substr(strtoupper(md5(time() . '-' . $plan->id)), 0, 8));
 
-		JTable::addIncludePath(JPATH_ROOT . '/components/com_joomsubscription/tables');
-		$subscr = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		\Joomla\CMS\Table\Table::addIncludePath(JPATH_ROOT . '/components/com_joomsubscription/tables');
+		$subscr = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$subscr->load(
 			array(
 				'gateway_id' => $gateway_id,
@@ -449,7 +449,7 @@ class JoomsubscriptionApi
 
 	public static function send($user_id, $plan_id, $processor, $coupon, $redirect = TRUE)
 	{
-		$table = JTable::getInstance('EmSubscription', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmSubscription', 'JoomsubscriptionTable');
 		$plan  = self::getPreparedPlan($plan_id);
 		$app   = \Joomla\CMS\Factory::getApplication();
 		$db    = \Joomla\CMS\Factory::getDbo();
@@ -760,7 +760,7 @@ class JoomsubscriptionApi
 			'ip'      => JoomsubscriptionHelper::getIp()
 		);
 
-		$table = JTable::getInstance('EmInvoiceTo', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmInvoiceTo', 'JoomsubscriptionTable');
 		$table->load($data);
 
 		if(empty($table->id))
@@ -819,7 +819,7 @@ class JoomsubscriptionApi
 			'subscription_id' => $subscription->id
 		);
 
-		$table = JTable::getInstance('EmCouponhistory', 'JoomsubscriptionTable');
+		$table = \Joomla\CMS\Table\Table::getInstance('EmCouponhistory', 'JoomsubscriptionTable');
 		$table->load(array('subscription_id' => $subscription->id));
 		$table->bind($data);
 		$table->store();

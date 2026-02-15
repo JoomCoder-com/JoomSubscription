@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
  * @subpackage  Model
  * @since       12.2
  */
-abstract class MModelBase extends JObject
+abstract class MModelBase extends \Joomla\CMS\Object\CMSObject
 {
 	/**
 	 * Indicates if the internal state has been set
@@ -105,12 +105,12 @@ abstract class MModelBase extends JObject
 
 			if (!in_array($path, $paths[$prefix]))
 			{
-				array_unshift($paths[$prefix], JPath::clean($path));
+				array_unshift($paths[$prefix], \Joomla\Filesystem\Path::clean($path));
 			}
 
 			if (!in_array($path, $paths['']))
 			{
-				array_unshift($paths[''], JPath::clean($path));
+				array_unshift($paths[''], \Joomla\Filesystem\Path::clean($path));
 			}
 		}
 
@@ -128,7 +128,7 @@ abstract class MModelBase extends JObject
 	 */
 	public static function addTablePath($path)
 	{
-		JTable::addIncludePath($path);
+		\Joomla\CMS\Table\Table::addIncludePath($path);
 	}
 
 	/**
@@ -173,10 +173,10 @@ abstract class MModelBase extends JObject
 		if (!class_exists($modelClass))
 		{
 			jimport('joomla.filesystem.path');
-			$path = JPath::find(self::addIncludePath(null, $prefix), self::_createFileName('model', array('name' => $type)));
+			$path = \Joomla\Filesystem\Path::find(self::addIncludePath(null, $prefix), self::_createFileName('model', array('name' => $type)));
 			if (!$path)
 			{
-				$path = JPath::find(self::addIncludePath(null, ''), self::_createFileName('model', array('name' => $type)));
+				$path = \Joomla\Filesystem\Path::find(self::addIncludePath(null, ''), self::_createFileName('model', array('name' => $type)));
 			}
 			if ($path)
 			{
@@ -240,7 +240,7 @@ abstract class MModelBase extends JObject
 		}
 		else
 		{
-			$this->state = new JObject;
+			$this->state = new \Joomla\CMS\Object\CMSObject;
 		}
 
 		// Set the model dbo
@@ -338,12 +338,12 @@ abstract class MModelBase extends JObject
 	 *
 	 * @param   string  $name    The name of the view
 	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration settings to pass to JTable::getInstance
+	 * @param   array   $config  Configuration settings to pass to \Joomla\CMS\Table\Table::getInstance
 	 *
 	 * @return  mixed  Model object or boolean false if failed
 	 *
 	 * @since   12.2
-	 * @see     JTable::getInstance()
+	 * @see     \Joomla\CMS\Table\Table::getInstance()
 	 */
 	protected function _createTable($name, $prefix = 'Table', $config = array())
 	{
@@ -357,7 +357,7 @@ abstract class MModelBase extends JObject
 			$config['dbo'] = $this->getDbo();
 		}
 
-		return JTable::getInstance($name, $prefix, $config);
+		return \Joomla\CMS\Table\Table::getInstance($name, $prefix, $config);
 	}
 
 	/**
@@ -427,7 +427,7 @@ abstract class MModelBase extends JObject
 	 * @param   string  $prefix   The class prefix. Optional.
 	 * @param   array   $options  Configuration array for model. Optional.
 	 *
-	 * @return  JTable  A JTable object
+	 * @return  \Joomla\CMS\Table\Table  A \Joomla\CMS\Table\Table object
 	 *
 	 * @since   12.2
 	 * @throws  Exception
@@ -451,13 +451,13 @@ abstract class MModelBase extends JObject
 	 * Method to load a row for editing from the version history table.
 	 *
 	 * @param   integer  $version_id  Key to the version history table.
-	 * @param   JTable   &$table      Content table object being loaded.
+	 * @param   \Joomla\CMS\Table\Table   &$table      Content table object being loaded.
 	 *
 	 * @return  boolean  False on failure or error, true otherwise.
 	 *
 	 * @since   12.2
 	 */
-	public function loadHistory($version_id, JTable &$table)
+	public function loadHistory($version_id, \Joomla\CMS\Table\Table &$table)
 	{
 		// Only attempt to check the row in if it exists.
 		if ($version_id)
@@ -465,7 +465,7 @@ abstract class MModelBase extends JObject
 			$user = \Joomla\CMS\Factory::getUser();
 
 			// Get an instance of the row to checkout.
-			$historyTable = JTable::getInstance('Contenthistory');
+			$historyTable = \Joomla\CMS\Table\Table::getInstance('Contenthistory');
 
 			if (!$historyTable->load($version_id))
 			{
@@ -476,7 +476,7 @@ abstract class MModelBase extends JObject
 
 			$rowArray = \Joomla\Utilities\ArrayHelper::fromObject(json_decode($historyTable->version_data));
 
-			$typeId = JTable::getInstance('Contenttype')->getTypeId($this->typeAlias);
+			$typeId = \Joomla\CMS\Table\Table::getInstance('Contenttype')->getTypeId($this->typeAlias);
 
 			if ($historyTable->ucm_type_id != $typeId)
 			{

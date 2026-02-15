@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die();
 
-class JoomsubscriptionField extends JObject
+class JoomsubscriptionField extends \Joomla\CMS\Object\CMSObject
 {
 	/**
 	 * @var JRegistry

@@ -15,7 +15,7 @@ if(is_dir(JPATH_ROOT . '/administrator/components/com_k2/tables'))
 	include_once JPATH_ROOT . '/administrator/components/com_k2/tables/k2usergroup.php';
 }
 
-JTable::addIncludePath(JPATH_ROOT . '/administrator/components/com_k2/tables');
+\Joomla\CMS\Table\Table::addIncludePath(JPATH_ROOT . '/administrator/components/com_k2/tables');
 
 class JoomsubscriptionActionKunena extends JoomsubscriptionAction
 {

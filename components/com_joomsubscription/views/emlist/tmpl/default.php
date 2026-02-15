@@ -40,7 +40,7 @@ echo $this->menu->render(null);
 		<div class="page-header">
 			<h1><?php echo $this->cats[$key]['name']; ?></h1>
 			<?php if (!empty($this->cats[$key]['image']) ):?>
-				<div class="group-image"><?php echo JHtml::image($this->cats[$key]['image'], $this->cats[$key]['name']) ; ?></div>
+				<div class="group-image"><?php echo Joomla\CMS\HTML\HTMLHelper::image($this->cats[$key]['image'], $this->cats[$key]['name']) ; ?></div>
 			<?php endif;?>
 		</div>
 	<?php endif; ?>

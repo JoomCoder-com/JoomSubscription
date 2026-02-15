@@ -47,7 +47,7 @@ class JFormFieldTemplateslist extends JFormFieldList
 				continue;
 			}
 
-			$result[] = JHTML::_('select.option', $tmplname, $tmplname);
+			$result[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $tmplname, $tmplname);
 		}
 
 		return $result;
@@ -81,12 +81,12 @@ class JFormFieldTemplateslist extends JFormFieldList
 
 		// Create a read-only list (no name) with a hidden input to store the value.
 		if ((string) $this->element['readonly'] == 'true') {
-			$html[] = JHtml::_('select.genericlist', $templates, null, trim($attr), 'value', 'text', $this->value, $this->id);
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $templates, null, trim($attr), 'value', 'text', $this->value, $this->id);
 			$html[] = '<input type="hidden" name="'.$this->name.'" value="'.$this->value.'"/>';
 		}
 		// Create a regular list.
 		else {
-			$html[] = JHtml::_('select.genericlist', $templates, $this->name, trim($attr), 'value', 'text', $this->value, $this->id);
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.genericlist', $templates, $this->name, trim($attr), 'value', 'text', $this->value, $this->id);
 		}
 
 		return implode($html);

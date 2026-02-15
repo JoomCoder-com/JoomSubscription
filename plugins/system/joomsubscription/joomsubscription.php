@@ -442,8 +442,8 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 						if($days > 0)
 						{
 							$message[] = JText::sprintf('EM_WILLBEAVAILABLE',
-								JHtml::_('date', $when, JText::_('DATE_FORMAT_LC3')),
-								JHtml::_('date', $when, 'H:i'),
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, JText::_('DATE_FORMAT_LC3')),
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, 'H:i'),
 								$days
 							);
 						}
@@ -451,8 +451,8 @@ class plgSystemJoomsubscription extends \Joomla\CMS\Plugin\CMSPlugin
 						{
 							$hours     = ceil(($when - time()) / 3600);
 							$message[] = JText::sprintf('EM_WILLBEAVAILABLE_HOUR',
-								JHtml::_('date', $when, JText::_('DATE_FORMAT_LC3')),
-								JHtml::_('date', $when, 'H:i'),
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, JText::_('DATE_FORMAT_LC3')),
+								Joomla\CMS\HTML\HTMLHelper::_('date', $when, 'H:i'),
 								$hours
 							);
 						}

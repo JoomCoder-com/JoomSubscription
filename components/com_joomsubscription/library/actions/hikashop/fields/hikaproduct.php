@@ -32,7 +32,7 @@ class JFormFieldHikaproduct extends JFormFieldList
 
 		foreach($products AS $product)
 		{
-			$options[$cats[$product_cats[$product->product_id]]][] = JHtml::_('select.option', $product->product_id, $product->product_name);
+			$options[$cats[$product_cats[$product->product_id]]][] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $product->product_id, $product->product_name);
 		}
 
 		return $options;
@@ -60,7 +60,7 @@ class JFormFieldHikaproduct extends JFormFieldList
 		// Create a read-only list (no name) with a hidden input to store the value.
 		if((string)$this->element['readonly'] == 'true')
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, NULL,
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, NULL,
 				array(
 					 'list.attr'          => $attr,
 					 'id'                 => $this->id,
@@ -74,7 +74,7 @@ class JFormFieldHikaproduct extends JFormFieldList
 		// Create a regular list.
 		else
 		{
-			$html[] = JHtml::_('select.groupedlist', $groups, $this->name,
+			$html[] = Joomla\CMS\HTML\HTMLHelper::_('select.groupedlist', $groups, $this->name,
 				array(
 					 'list.attr'          => $attr,
 					 'id'                 => $this->id,

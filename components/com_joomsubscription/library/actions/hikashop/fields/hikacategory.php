@@ -35,7 +35,7 @@ class JFormFieldHikacategory extends JFormFieldList
 			$item->text = str_repeat('- ', $item->level - 2) . $item->text;
 		}
 
-		//array_unshift($items, JHtml::_('select.option', 0, JText::_('EM_SELECT_CATEGORY')));
+		//array_unshift($items, Joomla\CMS\HTML\HTMLHelper::_('select.option', 0, JText::_('EM_SELECT_CATEGORY')));
 
 		return $items;
 	}

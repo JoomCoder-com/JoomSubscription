@@ -171,9 +171,9 @@ class JoomsubscriptionModelEmSales extends MModelList
 	public function getSt()
 	{
 		$options = array(
-			JHtml::_('select.option', '0', JText::_('JALL')),
-			JHtml::_('select.option', '1', JText::_('EMR_ONLYACTIVE')),
-			JHtml::_('select.option', '2', JText::_('EMR_WAITINGAPROVE'))
+			Joomla\CMS\HTML\HTMLHelper::_('select.option', '0', JText::_('JALL')),
+			Joomla\CMS\HTML\HTMLHelper::_('select.option', '1', JText::_('EMR_ONLYACTIVE')),
+			Joomla\CMS\HTML\HTMLHelper::_('select.option', '2', JText::_('EMR_WAITINGAPROVE'))
 		);
 
 		return $options;

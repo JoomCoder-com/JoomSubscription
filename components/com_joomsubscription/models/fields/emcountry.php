@@ -52,7 +52,7 @@ class JFormFieldEmCountry extends \Joomla\CMS\Form\Field\ListField
 
 		if($this->element['show_default'])
 		{
-			array_unshift($options, JHtml::_('select.option', '*', JText::_('EANY')));
+			array_unshift($options, Joomla\CMS\HTML\HTMLHelper::_('select.option', '*', JText::_('EANY')));
 		}
 
 		return $options;

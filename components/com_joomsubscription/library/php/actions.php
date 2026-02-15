@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-class JoomsubscriptionAction extends JObject
+class JoomsubscriptionAction extends \Joomla\CMS\Object\CMSObject
 {
 	/**
 	 * @var \Joomla\Registry\Registry
@@ -38,7 +38,7 @@ class JoomsubscriptionAction extends JObject
 
 	/**
 	 * When subscription is created
-	 * @param JTable $subscription
+	 * @param \Joomla\CMS\Table\Table $subscription
 	 */
 	public function onCreate($subscription)
 	{

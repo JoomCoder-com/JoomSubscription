@@ -32,7 +32,7 @@ class JFormFieldAcylists extends JFormFieldList
 		$api = JPATH_ADMINISTRATOR . '/components/com_acymailing/helpers/helper.php';
 		if(!is_file($api))
 		{
-			return array(JHtml::_('select.option', '', 'Acymailing is not installed'));
+			return array(Joomla\CMS\HTML\HTMLHelper::_('select.option', '', 'Acymailing is not installed'));
 		}
 
 		include_once $api;
@@ -41,11 +41,11 @@ class JFormFieldAcylists extends JFormFieldList
 		$listClass = acymailing_get('class.list');
 		$allLists  = $listClass->getLists();
 
-		$options[] = JHtml::_('select.option', '', JText::_('X_ACY_SELECT'));
+		$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', JText::_('X_ACY_SELECT'));
 
 		foreach($allLists AS $list)
 		{
-			$options[] = JHtml::_('select.option', $list->listid, $list->name);
+			$options[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', $list->listid, $list->name);
 		}
 
 		return $options;

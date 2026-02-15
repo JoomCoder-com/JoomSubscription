@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-class JoomsubscriptionImport extends JObject
+class JoomsubscriptionImport extends \Joomla\CMS\Object\CMSObject
 {
 
 	/**
