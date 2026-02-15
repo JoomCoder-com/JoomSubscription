@@ -278,7 +278,7 @@ class MFormHelper
 		$out = array();
 
 		$gateways_path = JPATH_COMPONENT . '/library/gateways/';
-		$gateways      = JFolder::folders($gateways_path);
+		$gateways      = \Joomla\Filesystem\Folder::folders($gateways_path);
 
 
 		foreach($gateways as $gateway)

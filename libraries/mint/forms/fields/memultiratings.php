@@ -44,7 +44,7 @@ class JFormFieldMEMultiRatings extends \Joomla\CMS\Form\FormField
 		$layouts_path = CobaltTmplHelper::getTmplPath($type);
 		$tmpl_mask    = CobaltTmplHelper::getTmplMask($type);
 
-		$files = JFolder::files($layouts_path, $tmpl_mask['index_file']);
+		$files = \Joomla\Filesystem\Folder::files($layouts_path, $tmpl_mask['index_file']);
 
 		foreach($files as $key => $file)
 		{

@@ -14,7 +14,7 @@ class JoomsubscriptionModelsEmActions extends Joomla\CMS\MVC\Model\BaseModel
 	public function getActionList()
 	{
 		$path    = JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'actions';
-		$acts    = JFolder::folders($path);
+		$acts    = \Joomla\Filesystem\Folder::folders($path);
 		$options = array();
 
 		foreach($acts AS $a)

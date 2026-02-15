@@ -48,7 +48,7 @@ class com_joomsubscriptionInstallerScript
 
 		if(is_file(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php'))
 		{
-			JFile::delete(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php');
+			\Joomla\Filesystem\File::delete(JPATH_ROOT.'/components/com_joomsubscription/library/php/markdown.php');
 		}
 	}
 
@@ -62,7 +62,7 @@ class com_joomsubscriptionInstallerScript
 			return;
 		}
 
-		$res = JFolder::$function(JPATH_ROOT . $dir, '', FALSE, TRUE, $exclude, array('\.html', '^em'));
+		$res = \Joomla\Filesystem\Folder::$function(JPATH_ROOT . $dir, '', FALSE, TRUE, $exclude, array('\.html', '^em'));
 
 		foreach($res as $r)
 		{
@@ -165,7 +165,7 @@ class com_joomsubscriptionInstallerScript
 			$db->execute();
 		}
 
-		$tables = JFolder::files(JPATH_ROOT . '/administrator/components/com_joomsubscription/db', '\.json$');
+		$tables = \Joomla\Filesystem\Folder::files(JPATH_ROOT . '/administrator/components/com_joomsubscription/db', '\.json$');
 
 		foreach($tables AS $file)
 		{

@@ -177,7 +177,7 @@ class JoomsubscriptionControllerEmAjax extends MControllerForm
 	public function getRuleForm()
 	{
 
-		$rules     = JFolder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/rules/');
+		$rules     = \Joomla\Filesystem\Folder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/rules/');
 		$component = $this->input->get('component');
 
 		if(preg_match("/^[0-9]*$/iU", $component))

@@ -16,7 +16,7 @@ class JFormFieldCgateway extends JFormMEFieldList
 
 	protected function getOptions()
 	{
-		$folders = JFolder::folders(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_cobalt' . DIRECTORY_SEPARATOR . 'gateways');
+		$folders = \Joomla\Filesystem\Folder::folders(JPATH_ROOT . DIRECTORY_SEPARATOR . 'components' . DIRECTORY_SEPARATOR . 'com_cobalt' . DIRECTORY_SEPARATOR . 'gateways');
 		
 		$out[] = Joomla\CMS\HTML\HTMLHelper::_('select.option', '', '- ' . \Joomla\CMS\Language\Text::_('Select gateway') . ' -');
 		if (count($folders))

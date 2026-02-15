@@ -81,7 +81,7 @@ class JFormFieldMersubtmpls extends \Joomla\CMS\Form\Field\ListField
 		$layouts_path = CobaltTmplHelper::getTmplPath($type);
 		$tmpl_mask    = CobaltTmplHelper::getTmplMask($type);
 
-		$files   = JFolder::files($layouts_path, $tmpl_mask['index_file']);
+		$files   = \Joomla\Filesystem\Folder::files($layouts_path, $tmpl_mask['index_file']);
 		$exclude = explode(',', $this->element['exclude']);
 
 		$md5id = $this->_getKey();

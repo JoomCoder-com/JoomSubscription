@@ -87,7 +87,7 @@ class JoomsubscriptionActionsHelper
 	{
 		static $out = array();
 
-		$actions = JFolder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/actions/');
+		$actions = \Joomla\Filesystem\Folder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/actions/');
 
 		if(!in_array($action->type, $actions))
 		{

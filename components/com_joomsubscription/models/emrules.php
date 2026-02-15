@@ -14,7 +14,7 @@ class JoomsubscriptionModelsEmRules extends Joomla\CMS\MVC\Model\BaseModel
 	public function getAdapters()
 	{
 		$path    = JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'rules';
-		$acts    = JFolder::folders($path);
+		$acts    = \Joomla\Filesystem\Folder::folders($path);
 		$options = array();
 
 		foreach($acts AS $a)

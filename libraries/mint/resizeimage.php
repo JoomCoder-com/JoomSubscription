@@ -437,8 +437,8 @@ class JS_Image_Resizer
 		if(!is_dir($path))
 		{
 			$a = '';
-			JFolder::create($path, 0777);
-			JFile::write($path . DIRECTORY_SEPARATOR . 'index.html', $a);
+			\Joomla\Filesystem\Folder::create($path, 0777);
+			\Joomla\Filesystem\File::write($path . DIRECTORY_SEPARATOR . 'index.html', $a);
 		}
 
 		$gr           = new GifResizer;    //New Instance Of GIFResizer
@@ -452,7 +452,7 @@ class JS_Image_Resizer
 		require_once $libDir . DIRECTORY_SEPARATOR . 'GIFEncoder.class.php';
 
 		// Create gif decoder.
-		// $gifDecoder = new GIFDecoder(JFile::read($this->imgFile));
+		// $gifDecoder = new GIFDecoder(\Joomla\Filesystem\File::read($this->imgFile));
 		$gifDecoder = new GIFDecoder(file_get_contents($this->imgFile));
 
 		// Write the frames to disk.
@@ -520,7 +520,7 @@ class JS_Image_Resizer
 
 		if(!empty($newfile))
 		{
-			//JFile::write($newfile, $gifEncoder->getAnimation());
+			//\Joomla\Filesystem\File::write($newfile, $gifEncoder->getAnimation());
 			file_put_contents($newfile, $gifEncoder->getAnimation());
 		}
 		else
@@ -557,7 +557,7 @@ class JS_Image_Resizer
 					@imagepng($newimg, $tmpname);
 					break;
 			}
-			JFile::move($tmpname, $newfile);
+			\Joomla\Filesystem\File::move($tmpname, $newfile);
 		}
 		else
 		{

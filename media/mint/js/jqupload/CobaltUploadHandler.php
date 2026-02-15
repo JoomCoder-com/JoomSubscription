@@ -140,7 +140,7 @@ class CobaltUploadHandler extends UploadHandler
 			$file_size = $this->get_file_size($file_path, $append_file);
 			if($file_size === $file->size)
 			{
-				$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
+				$ext = Joomla\String\StringHelper::strtolower(\Joomla\Filesystem\File::getExt($file->name));
 				$subfolder = $ext;
 				$input = \Joomla\CMS\Factory::getApplication()->input;
 				if($field_id = $input->getInt('field_id'))
@@ -155,7 +155,7 @@ class CobaltUploadHandler extends UploadHandler
 
 				if($table)
 				{
-					JFile::delete(JPATH_ROOT . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . $file->name);
+					\Joomla\Filesystem\File::delete(JPATH_ROOT . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . $file->name);
 				}
 
 				if($this->is_valid_image_file($file->path))
@@ -190,7 +190,7 @@ class CobaltUploadHandler extends UploadHandler
 		$input = \Joomla\CMS\Factory::getApplication()->input;
 		$time = time();
 		$date = date($params->get('folder_format', 'Y-m'), $time);
-		$ext = Joomla\String\StringHelper::strtolower(JFile::getExt($file->name));
+		$ext = Joomla\String\StringHelper::strtolower(\Joomla\Filesystem\File::getExt($file->name));
 		$filename = $time . '_' . md5($file->name . '-' . $file->size . '-' . $time) . '.' . $ext;
 		$src = JPATH_ROOT . '/tmp/' . $file->name;
 		$file->filename = $filename;
@@ -199,19 +199,19 @@ class CobaltUploadHandler extends UploadHandler
 		$index = '<html><body></body></html>';
 		if(! is_dir($dest))
 		{
-			JFolder::create($dest, 0755);
-			JFile::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
+			\Joomla\Filesystem\Folder::create($dest, 0755);
+			\Joomla\Filesystem\File::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
 		}
 
 		$dest .= $date . DIRECTORY_SEPARATOR;
 		if(! is_dir($dest))
 		{
-			JFolder::create($dest, 0755);
-			JFile::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
+			\Joomla\Filesystem\Folder::create($dest, 0755);
+			\Joomla\Filesystem\File::write($dest . DIRECTORY_SEPARATOR . 'index.html', $index);
 		}
 		$dest .= $filename;
 
-		if(! JFile::copy($src, $dest))
+		if(! \Joomla\Filesystem\File::copy($src, $dest))
 		{
 			return FALSE;
 		}

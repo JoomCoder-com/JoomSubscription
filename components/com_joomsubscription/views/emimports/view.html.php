@@ -14,7 +14,7 @@ class JoomsubscriptionViewEmImports extends MViewBase
 	public function display($tpl = null)
 	{
 		$path = JPATH_COMPONENT.DIRECTORY_SEPARATOR.'library'.DIRECTORY_SEPARATOR.'imports'.DIRECTORY_SEPARATOR;
-		$imports = JFolder::folders($path);
+		$imports = \Joomla\Filesystem\Folder::folders($path);
 		$lang = \Joomla\CMS\Factory::getLanguage();
 		$tag  = $lang->getTag();
 		foreach ($imports as $import)

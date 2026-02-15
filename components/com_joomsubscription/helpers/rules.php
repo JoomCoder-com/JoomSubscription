@@ -31,7 +31,7 @@ class JoomsubscriptionRulesHelper
 
 	public static function get_rule_class($rule)
 	{
-		$rules = JFolder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/rules/');
+		$rules = \Joomla\Filesystem\Folder::folders(JPATH_ROOT . '/components/com_joomsubscription/library/rules/');
 		$name = $rule->controller;
 
 		if(!in_array($name, $rules))

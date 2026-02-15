@@ -1354,13 +1354,13 @@ class JoomsubscriptionHelper
 			$db->setQuery("SELECT max(invoice_num) FROM #__joomsubscription_subscriptions");
 			$max_num     = $db->loadResult();
 			$invoice_num = $max_num + 1;
-			JFile::write($num_file, $invoice_num);
+			\Joomla\Filesystem\File::write($num_file, $invoice_num);
 		}
 		else
 		{
-			$content     = JFile::read($num_file);
+			$content     = \Joomla\Filesystem\File::read($num_file);
 			$invoice_num = $content + 1;
-			JFile::write($num_file, $invoice_num);
+			\Joomla\Filesystem\File::write($num_file, $invoice_num);
 		}
 
 		return $invoice_num;
